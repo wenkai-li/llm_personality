@@ -5,6 +5,7 @@ import random
 import time
 import os
 from utils import *
+from vllm import LLM
 
 def main():
     args = parse_arguments()
@@ -70,7 +71,7 @@ def main():
         if args.method == "zero_shot_cot":
             z2 = x + z + " " + args.direct_answer_trigger_for_zeroshot_cot
             max_length = args.max_length_direct
-            pred = decoder.decode(args, z2, max_length, i, 2)
+            pred = decoder.decode(args, z2, max_length, i, 2, llm)
             print(z2 + pred)
         else:
             pred = z
@@ -95,7 +96,7 @@ def main():
     
     # Calculate accuracy ...
     accuracy = (sum(correct_list) * 1.0 / total) * 100
-    print("accuracy : {}".format(accuracy))
+    print("accuracy : {}%".format(accuracy))
     
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Zero-shot-CoT")
@@ -131,7 +132,7 @@ def parse_arguments():
         "--max_length_direct", type=int, default=32, help="maximum length of output tokens by model for answer extraction"
     )
     parser.add_argument(
-        "--limit_dataset_size", type=int, default=10, help="whether to limit test dataset size. if 0, the dataset size is unlimited and we use all the samples in the dataset for testing."
+        "--limit_dataset_size", type=int, default=0, help="whether to limit test dataset size. if 0, the dataset size is unlimited and we use all the samples in the dataset for testing."
     )
     parser.add_argument(
         "--api_time_interval", type=float, default=1.0, help=""
@@ -160,7 +161,7 @@ def parse_arguments():
     # el
     
     if args.dataset == "gsm8k":
-        args.dataset_path = "./dataset/grade-school-math/test.jsonl"
+        args.dataset_path = "./data/test.jsonl"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     # elif args.dataset == "commonsensqa":
     #     args.dataset_path = "./dataset/CommonsenseQA/dev_rand_split.jsonl"

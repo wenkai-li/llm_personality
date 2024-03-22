@@ -94,20 +94,23 @@ class Decoder():
         if args.model in ("gpt3", "gpt3-medium", "gpt3-large", "gpt3-xl"):
             response = decoder_for_gpt3(args, input, max_length, i, k)
         else:
+            
+            sampling_params = SamplingParams(
+                temperature=0,
+                max_tokens=max_length,
+                stop=None
+            )
+            
             if args.use_lora:
                 output = llm.generate(
-                    prompt = input,
-                    max_tokens=max_length,
-                    stop=None,
-                    temperature=0,
+                    input,
+                    sampling_params,
                     lora_request=LoRARequest("dpo_adapter", 1, args.lora_path))
                 response = output[0].outputs[0].text.strip()
             else:
                 output = llm.generate(
-                        prompt = input,
-                        max_tokens=max_length,
-                        stop=None,
-                        temperature=0)
+                        input,
+                        sampling_params)
                 response = output[0].outputs[0].text.strip()
         return response
 
