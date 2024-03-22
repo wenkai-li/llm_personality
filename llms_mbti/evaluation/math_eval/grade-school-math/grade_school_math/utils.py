@@ -14,6 +14,8 @@ import re
 import random
 import time
 import datetime
+from vllm import LLM, SamplingParams
+from vllm.lora.request import LoRARequest
 import pandas as pd
 
 # https://review-of-my-life.blogspot.com/2017/11/python-dict-shuffle.html
@@ -88,8 +90,25 @@ class Decoder():
     def __init__(self, args):
         print_now()
  
-    def decode(self, args, input, max_length, i, k):
-        response = decoder_for_gpt3(args, input, max_length, i, k)
+    def decode(self, args, input, max_length, i, k, llm = None):
+        if args.model in ("gpt3", "gpt3-medium", "gpt3-large", "gpt3-xl"):
+            response = decoder_for_gpt3(args, input, max_length, i, k)
+        else:
+            if args.use_lora:
+                output = llm.generate(
+                    prompt = input,
+                    max_tokens=max_length,
+                    stop=None,
+                    temperature=0,
+                    lora_request=LoRARequest("dpo_adapter", 1, args.lora_path))
+                response = output[0].outputs[0].text.strip()
+            else:
+                output = llm.generate(
+                        prompt = input,
+                        max_tokens=max_length,
+                        stop=None,
+                        temperature=0)
+                response = output[0].outputs[0].text.strip()
         return response
 
 def data_reader(args):
@@ -108,15 +127,7 @@ def data_reader(args):
     #       choice = "Answer Choices:" + choice
     #       questions.append(json_res["question"].strip() + " " + choice)
     #       answers.append(json_res["correct"])
-  
-    if args.dataset == "gsm8k":
-      with open(args.dataset_path) as f:
-        lines = f.readlines()
-        for line in lines:
-          json_res = decoder.raw_decode(line)[0]
-          questions.append(json_res["question"].strip())
-          answers.append(json_res["answer"].split("#### ")[-1])
-  
+    
     # elif args.dataset == "commonsensqa":
     #   with open(args.dataset_path) as f:
     #     lines = f.readlines()
@@ -209,6 +220,15 @@ def data_reader(args):
     #       a = line["answer"]
     #       questions.append(q)
     #       answers.append(a)
+    
+    if args.dataset == "gsm8k":
+      with open(args.dataset_path) as f:
+        lines = f.readlines()
+        for line in lines:
+          json_res = decoder.raw_decode(line)[0]
+          questions.append(json_res["question"].strip())
+          answers.append(json_res["answer"].split("#### ")[-1])
+
         
     else:
         raise ValueError("dataset is not properly defined ...")
