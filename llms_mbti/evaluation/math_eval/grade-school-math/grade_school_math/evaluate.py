@@ -36,21 +36,32 @@ def main():
     correct_list = [] 
     llm = None
     if args.model.startswith("llama"):
+        
+        max_length = args.max_length_cot if "cot" in args.method else args.max_length_direct
+        
+        sampling_params = SamplingParams(
+                temperature=0,
+                max_tokens=max_length,
+                stop=None,
+                top_p = 0.95,
+                top_k = 5
+            )
+
         if args.use_lora:
-            llm = LLM(model=args.model_path, enable_lora=True, tensor_parallel_size=2)
+            # llm = LLM(model=args.model_path, enable_lora=True, tensor_parallel_size=2)
+            model = VLLM(model=args.model_path, tensor_parallel_size=4, gpu_memory_utilization = 0.95, sampling_params = sampling_params, enable_lora=True)   
         else:
-            llm = LLM(model=args.model_path, tensor_parallel_size=2)       
+            model = VLLM(model=args.model_path, tensor_parallel_size=4, gpu_memory_utilization = 0.95, sampling_params = sampling_params)      
     for i, data in enumerate(dataloader):
         print('*************************')
         print("{}st data".format(i+1))
                 
         # Prepare question template ...
         x, y = data
-        x = "Q: " + x[0] + "\n" + "A:"
+        x = "Question: " + x[0] + "\n" + "Answer:"
         y = y[0].strip()
-        
         if args.method == "zero_shot":
-            x = x + " " + args.direct_answer_trigger_for_zeroshot
+            x ="Answer the following question.\n\n" + x + " " 
         elif args.method == "zero_shot_cot":
             x = x + " " + args.cot_trigger
         elif args.method == "few_shot":
@@ -59,26 +70,25 @@ def main():
             x = demo + x
         else:
             raise ValueError("method is not properly defined ...")
-        
-        # Answer prediction by generating text ...
-        max_length = args.max_length_cot if "cot" in args.method else args.max_length_direct
-        
+               
         # TODO: Change the decode method, add open-source model like llama with vllm
         
-        z = decoder.decode(args, x, max_length, i, 1, llm = llm)
-
+        z = decoder.decode(args, x, max_length, i, 1, model = model)
+        print(x)
         # Answer extraction for zero-shot-cot ...
         if args.method == "zero_shot_cot":
             z2 = x + z + " " + args.direct_answer_trigger_for_zeroshot_cot
             max_length = args.max_length_direct
-            pred = decoder.decode(args, z2, max_length, i, 2, llm)
+            pred = decoder.decode(args, z2, max_length, i, 2, model = model)
             print(z2 + pred)
         else:
             pred = z
-            print(x + pred)
+            print(pred)
 
         # Clensing of predicted answer ...
-        pred = answer_cleansing(args, pred)
+
+        # TODO: Find a better way to clean the predicted answer
+        # pred = answer_cleansing(args, pred)
         
         # Choose the most frequent answer from the list ...
         print("pred : {}".format(pred))
@@ -126,10 +136,10 @@ def parse_arguments():
         "--cot_trigger_no", type=int, default=1, help="A trigger sentence that elicits a model to execute chain of thought"
     )
     parser.add_argument(
-        "--max_length_cot", type=int, default=128, help="maximum length of output tokens by model for reasoning extraction"
+        "--max_length_cot", type=int, default=512, help="maximum length of output tokens by model for reasoning extraction"
     )
     parser.add_argument(
-        "--max_length_direct", type=int, default=32, help="maximum length of output tokens by model for answer extraction"
+        "--max_length_direct", type=int, default=512, help="maximum length of output tokens by model for answer extraction"
     )
     parser.add_argument(
         "--limit_dataset_size", type=int, default=0, help="whether to limit test dataset size. if 0, the dataset size is unlimited and we use all the samples in the dataset for testing."

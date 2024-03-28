@@ -18,6 +18,17 @@ from vllm import LLM, SamplingParams
 from vllm.lora.request import LoRARequest
 import pandas as pd
 
+from vllm import LLM, SamplingParams
+from vllm.lora.request import LoRARequest
+from langchain_core.output_parsers import StrOutputParser
+from langchain.llms.vllm import VLLM
+from langchain_core.prompts import (
+  ChatPromptTemplate,
+  SystemMessagePromptTemplate,
+  HumanMessagePromptTemplate
+)
+
+
 # https://review-of-my-life.blogspot.com/2017/11/python-dict-shuffle.html
 def shuffleDict(d):
   keys = list(d.keys())
@@ -90,28 +101,41 @@ class Decoder():
     def __init__(self, args):
         print_now()
  
-    def decode(self, args, input, max_length, i, k, llm = None):
+    def decode(self, args, input, max_length, i, k, model = None):
         if args.model in ("gpt3", "gpt3-medium", "gpt3-large", "gpt3-xl"):
             response = decoder_for_gpt3(args, input, max_length, i, k)
         else:
             
-            sampling_params = SamplingParams(
-                temperature=0,
-                max_tokens=max_length,
-                stop=None
-            )
+            # Add system template into the prompt
+            # system_template = "You are a helpful assistant."
+            # At the end of the answer, give a final Arabic numerals answer restrict it should only be Arabic numerals, and with the restrict format Arabic numerals: (Arabic numerals).
+            # question = "Question: James is counting his Pokemon cards. He has 30 fire type, 20 grass type, and 40 water type. If he loses 8 of the water type and buys 14 grass type, what's the percentage chance (rounded to the nearest integer) that a randomly picked card will be a water type? \n Answer:"
+
+            messages = [
+                SystemMessagePromptTemplate.from_template(system_template),
+                HumanMessagePromptTemplate.from_template('{question}')
+            ]
             
-            if args.use_lora:
-                output = llm.generate(
-                    input,
-                    sampling_params,
-                    lora_request=LoRARequest("dpo_adapter", 1, args.lora_path))
-                response = output[0].outputs[0].text.strip()
-            else:
-                output = llm.generate(
-                        input,
-                        sampling_params)
-                response = output[0].outputs[0].text.strip()
+            prompt = ChatPromptTemplate.from_messages(messages)
+            output_parser = StrOutputParser()
+
+
+            # if args.use_lora:
+                # print("Use Lora: ")
+                # print(args.use_lora)
+                # output = llm.generate(
+                #     whole_prompt,
+                #     sampling_params,
+                #     lora_request=LoRARequest("dpo_adapter", 1, args.lora_path))
+                # response = output[0].outputs[0].text.strip()
+            # else:
+                # output = llm.generate(
+                #         whole_prompt,
+                #         sampling_params)
+                # response = output[0].outputs[0].text.strip()
+            chain = prompt | model | output_parser
+            response = str(chain.invoke({"question":input}))
+    
         return response
 
 def data_reader(args):
@@ -346,6 +370,10 @@ def answer_cleansing(args, pred):
     
     print("pred_after : " + pred)
     
+    return pred
+
+def get_certain_answer(args, llm):
+
     return pred
 
 def create_demo_text(args, cot_flag):

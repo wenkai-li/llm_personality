@@ -11,7 +11,8 @@ DATASET="gsm8k"
 source ~/.bashrc
 conda activate llm_personality
 cd ~/llm_personality/llms_mbti/evaluation/math_eval/grade-school-math/grade_school_math
-python evaluate.py --method=$MATHOD --model=$MODEL --dataset=$DATASET --model_path=$MODEL_PATH --with_lora True --lora_path $LORA_PATH
+python evaluate.py --method=$MATHOD --model=$MODEL --dataset=$DATASET --model_path=$MODEL_PATH --limit_dataset_size 5
+#  --use_lora True --lora_path $LORA_PATH
 
 
 # LLaMa-13b-unfinetuned
@@ -24,3 +25,16 @@ python evaluate.py --method=$MATHOD --model=$MODEL --dataset=$DATASET --model_pa
 
 # LLaMa-13b-dpo-finetuned-checkpoint-12000-istj
 # with zero-shot:
+# The accuracy is 3.56330553449583%
+
+# LLaMa-13b-dpo-finetuned-checkpoint-12000-istj
+# with zero-shot-cot:
+# The accuracy is 14.935557240333585
+
+# LLaMa-13b-dpo-finetuned-checkpoint-12000-enfp
+# with zero-shot:
+# The accuracy is 
+
+# LLaMa-13b-dpo-finetuned-checkpoint-12000-thinking
+# with zero-shot:
+# The accuracy is 
