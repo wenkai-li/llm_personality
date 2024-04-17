@@ -3,7 +3,7 @@
 
 MAX_NUM_EXAMPLES=None
 MODEL_PATH="/data/models/huggingface/meta-llama/Llama-2-13b-chat-hf"
-LORA_PATH="/data/user_data/wenkail/llama_finetune_13b_persona/dpo_checkpoint/lora/sensing/checkpoint-10000"
+LORA_PATH="/data/user_data/wenkail/llama_finetune_13b_persona/dpo_checkpoint/lora/istj/checkpoint-4000"
 
 
 source ~/.bashrc
@@ -14,10 +14,10 @@ cd ~/llm_personality/llms_mbti/evaluation/open-instruct/bash_eval
 # Now is cot
 python ../eval/gsm/run_eval.py \
     --data_dir ../data/eval/gsm/ \
-    --save_dir ../results/gsm/llama-13B-cot-zero-shot/sensing-10000/ \
+    --save_dir ../results/gsm/llama-13B-8-zero-shot/istj-4000/ \
     --model=$MODEL_PATH \
     --tokenizer=$MODEL_PATH \
-    --n_shot 0 \
+    --n_shot 8 \
     --use_vllm \
     --use_lora True \
     --lora_path=$LORA_PATH
