@@ -203,9 +203,9 @@ def evaluation_qa_dataset(model, model_path, file, instruction, output_path, lor
         incorrect = 0
         llm = None
         if lora:
-            llm = LLM(model=model_path, enable_lora=True, tensor_parallel_size=2)
+            llm = LLM(model=model_path, enable_lora=True, tensor_parallel_size=1)
         else:
-            llm = LLM(model=model_path, tensor_parallel_size=2)
+            llm = LLM(model=model_path, tensor_parallel_size=1)
         for i in tqdm(range(len(data))):
             knowledge = data[i]["knowledge"]
             question = data[i]["question"]
