@@ -173,3 +173,5 @@ tmp/
 # Special Large File
 llms_mbti/evaluation/factual_eval/true_benchmark/nli_fever/train_fitems.jsonl
 
+/home/jiaruil5/personality/llm_personality/llm_bigfive/src/data/tulu2.json
+/home/jiaruil5/personality/llm_personality/llm_bigfive/src/models/vllm/logs/
