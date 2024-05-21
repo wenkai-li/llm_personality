@@ -171,7 +171,8 @@ tmp/
 
 
 # Special Large File
-llms_mbti/evaluation/factual_eval/true_benchmark/nli_fever/train_fitems.jsonl
+# llms_mbti/evaluation/factual_eval/true_benchmark/nli_fever/train_fitems.jsonl
+llm_personality/llm_bigfive/psychogen/big5_training_data.csv
 
 /home/jiaruil5/personality/llm_personality/llm_bigfive/src/data/tulu2.json
 /home/jiaruil5/personality/llm_personality/llm_bigfive/src/models/vllm/logs/
