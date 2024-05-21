@@ -51,14 +51,6 @@ def get_llm(model, api_key=None, api_org=None, model_path=None):
             model=model,
         )
         return llm
-    elif model == 'llama2_70b':
-        # tgi
-        llm_model = ChatVLLMOpenAI
-        llm = llm_model(
-            openai_api_key=api_key,
-            openai_api_base=api_org,
-        )
-        return llm
     elif 'llama' in model or 'vicuna' in model or 'alpaca' in model:
         # vllm
         llm_model = ChatVLLMOpenAI
