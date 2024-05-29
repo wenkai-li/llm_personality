@@ -108,7 +108,7 @@ class PreTrainingArguments(TrainingArguments):  # type: ignore[misc]
 
     top_k: int = field(default=10)
     top_p: float = field(default=0.9)
-    temperature: float = field(default=1.0)
+    temperature: float = field(default=0.0)
 
     gen_batch_size: int = field(default=45)
     max_length: Union[str, None] = field(default=None)
@@ -141,7 +141,7 @@ class InferenceArguments:
     gpus: Union[str, None] = field(default=None)
     num_gpus: str = field(default="1")
     conv_template: Union[str, None] = field(default=None)
-    temperature: float = field(default=0.7)
+    temperature: float = field(default=0.0)
     max_new_tokens: int = field(default=512)
     style: str = field(default="simple")
     load_8bit: bool = field(default=False)

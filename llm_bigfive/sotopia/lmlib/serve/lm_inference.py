@@ -132,7 +132,7 @@ def generate_stream(
 ) -> Any:
     prompt = params["prompt"]
     l_prompt = len(prompt)
-    temperature = float(params.get("temperature", 1.0))
+    temperature = float(params.get("temperature", 0.0))
     max_new_tokens = int(params.get("max_new_tokens", 256))
     stop_str = params.get("stop", None)
     stop_token_ids = params.get("stop_ids", [tokenizer.eos_token_id])

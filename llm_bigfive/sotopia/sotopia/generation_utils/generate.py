@@ -1,7 +1,7 @@
 import logging
 import re
 from typing import Any, TypeVar
-
+import json
 import gin
 from beartype import beartype
 from beartype.typing import Type
@@ -319,7 +319,7 @@ def obtain_chain(
     model_name: str,
     template: str,
     input_variables: list[str],
-    temperature: float = 0.7,
+    temperature: float = 0.0,
     max_retries: int = 6,
 ) -> LLMChain:
     """
@@ -408,7 +408,7 @@ def generate(
     template: str,
     input_values: dict[str, str],
     output_parser: BaseOutputParser[OutputType],
-    temperature: float = 0.7,
+    temperature: float = 0.0,
 ) -> OutputType:
     input_variables = re.findall(r"{(.*?)}", template)
     assert (
@@ -450,7 +450,7 @@ async def agenerate(
     template: str,
     input_values: dict[str, str],
     output_parser: BaseOutputParser[OutputType],
-    temperature: float = 0.7,
+    temperature: float = 0.0,
 ) -> tuple[OutputType, str]:
     input_variables = re.findall(r"{(.*?)}", template)
     assert (
@@ -521,7 +521,7 @@ async def agenerate_env_profile(
     model_name: str,
     inspiration_prompt: str = "asking my boyfriend to stop being friends with his ex",
     examples: str = "",
-    temperature: float = 0.7,
+    temperature: float = 0.0,
 ) -> tuple[EnvironmentProfile, str]:
     """
     Using langchain to generate the background
@@ -710,7 +710,7 @@ async def agenerate_action(
     action_types: list[ActionType],
     agent: str,
     goal: str,
-    temperature: float = 0.7,
+    temperature: float = 0.0,
     script_like: bool = False,
 ) -> tuple[AgentAction, str]:
     """
@@ -771,7 +771,7 @@ async def agenerate_action(
 async def agenerate_script(
     model_name: str,
     background: ScriptBackground,
-    temperature: float = 0.7,
+    temperature: float = 0.0,
     agent_names: list[str] = [],
     agent_name: str = "",
     history: str = "",
@@ -858,11 +858,24 @@ def process_history(
     return result
 
 
+            # {name}'s {bigfive}
+
+def save_params(params: dict):
+    try:
+        with open('/home/wenkail/llm_personality/llm_bigfive/sotopia/sotopia/generation_utils/params.json', 'w') as f:
+            json.dump(params, f)
+    except Exception as e:
+        print(f"An error occurred while writing to the file: {e}")
+        
+            # {name}'s Schwartz portrait value: {schwartz}
+            # {name}'s decision-making style: {decision_style}
+            # {name}'s moral Foundation: think {mft} is more important than others
 @beartype
 def generate_init_profile(model_name: str, basic_info: dict[str, str]) -> str:
     """
     Using langchain to generate the background
     """
+    save_params(basic_info)
     return generate(
         model_name=model_name,
         template="""Please expand a fictional background for {name}. Here is the basic information:
@@ -871,9 +884,6 @@ def generate_init_profile(model_name: str, basic_info: dict[str, str]) -> str:
             {name}'s pronouns: {pronoun}
             {name}'s occupation: {occupation}
             {name}'s big 5 personality traits: {bigfive}
-            {name}'s moral Foundation: think {mft} is more important than others
-            {name}'s Schwartz portrait value: {schwartz}
-            {name}'s decision-making style: {decision_style}
             {name}'s secret: {secret}
             Include the previous information in the background.
             Then expand the personal backgrounds with concrete details (e.g, look, family, hobbies, friends and etc.)
@@ -887,9 +897,9 @@ def generate_init_profile(model_name: str, basic_info: dict[str, str]) -> str:
             pronoun=basic_info["pronoun"],
             occupation=basic_info["occupation"],
             bigfive=basic_info["Big_Five_Personality"],
-            mft=basic_info["Moral_Foundation"],
-            schwartz=basic_info["Schwartz_Portrait_Value"],
-            decision_style=basic_info["Decision_making_Style"],
+            # mft=basic_info["Moral_Foundation"],
+            # schwartz=basic_info["Schwartz_Portrait_Value"],
+            # decision_style=basic_info["Decision_making_Style"],
             secret=basic_info["secret"],
         ),
         output_parser=StrOutputParser(),

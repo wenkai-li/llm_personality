@@ -89,7 +89,7 @@ class Llama2(BaseChatModel):
     model_name: str = "togethercomputer/llama-2-7b-chat"
     """Model name to use."""
     # default Together params
-    temperature: float = 0.7
+    temperature: float = 0.0
     max_tokens: int = 1024
     top_p: float = 0.7
     top_k: int = 50

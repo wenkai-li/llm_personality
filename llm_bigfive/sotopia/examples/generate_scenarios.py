@@ -52,7 +52,7 @@ def check_existing_envs(
 def generate_newenv_profile(
     num: int,
     gen_model: LLM_Name = "gpt-4-turbo",
-    temperature: float = 0.5,
+    temperature: float = 0.0,
     type: str = "craigslist_bargains",
 ) -> pd.DataFrame:
     env_profile_list = []  # type: ignore
@@ -94,7 +94,7 @@ def generate_newenv_profile(
 
 @app.command()
 def auto_generate_scenarios(
-    num: int, gen_model: str = "gpt-4-turbo", temperature: float = 0.5
+    num: int, gen_model: str = "gpt-4-turbo", temperature: float = 0.0
 ) -> None:
     """
     Function to generate new environment scenarios based on target number of generation

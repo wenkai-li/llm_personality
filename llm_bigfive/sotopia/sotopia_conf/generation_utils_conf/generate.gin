@@ -8,7 +8,7 @@ MAX_RETRIES=6
 LITE=False
 
 generate.agenerate_action:
-    temperature = 1.0
+    temperature = 0.0
 
 evaluators.ReachGoalLLMEvaluator.__acall__:
     temperature = 0.0
