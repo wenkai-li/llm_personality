@@ -173,4 +173,4 @@ tmp/
 # Special Large File
 llms_mbti/evaluation/factual_eval/true_benchmark/nli_fever/train_fitems.jsonl
 
-sotopia/
+sotopia/*
