@@ -61,7 +61,6 @@ def get_llm(model, api_key=None, api_org=None, model_path=None, **kwargs):
             api_org = random.choice(api_org)
         print(api_org)
         api_org = os.environ.get(f"openai_api_org_{api_org}", None)
-        print(api_org)
         import openai
         openai.api_key = api_key
         openai.organization = api_org
@@ -92,8 +91,8 @@ def get_llm(model, api_key=None, api_org=None, model_path=None, **kwargs):
         )
         return llm
 
-def call(prompt_lst, llm_config_func, has_system_prompt=True, model_version='gpt-4-1106-preview', api_key=None, org_id=0, model_path=None, verbose=False):
-    llm = get_llm(model=model_version, api_key=api_key, api_org=org_id, model_path=model_path)
+def call(prompt_lst, llm_config_func, has_system_prompt=True, model_version='gpt-4-1106-preview', api_key=None, api_org=0, model_path=None, verbose=False):
+    llm = get_llm(model=model_version, api_key=api_key, api_org=api_org, model_path=model_path)
     llm = llm_config_func(llm)
     prompts = []
     if has_system_prompt:
