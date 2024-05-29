@@ -20,7 +20,7 @@ class BaseAgent(Generic[ObsType, ActType], MessengerMixin):
             self.agent_name = self.profile.first_name + " " + self.profile.last_name
         elif uuid_str is not None:
             # try retrieving profile from database
-            self.profile = AgentProfile(**AgentProfile.get_pk(uuid_str))
+            self.profile = AgentProfile(**AgentProfile.get_doc(uuid_str))
             if self.profile is None:
                 raise ValueError(f"Agent with uuid {uuid_str} not found in database")
             self.agent_name = self.profile.first_name + " " + self.profile.last_name
