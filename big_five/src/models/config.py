@@ -1,4 +1,34 @@
 import random
+from typing_extensions import Literal
+
+supported_models = {
+    "gpt-3.5-turbo": "gpt-3.5-turbo",
+    "gpt-4-turbo": "gpt-4-turbo",
+    "gpt-4o": "gpt-4o",
+    
+    "meta-llama/Meta-Llama-3-8B-Instruct": "llama3_8b",
+    "llama3_8b": "llama3_8b",
+    
+    "meta-llama/Meta-Llama-3-70B-Instruct": "llama3_70b",
+    "llama3_70b": "llama3_70b"
+}
+LLM_Name = Literal[
+    "gpt-3.5-turbo",
+    "gpt-4-turbo",
+    "gpt-4o",
+    
+    "meta-llama/Meta-Llama-3-8B-Instruct",
+    "llama3_8b",
+    
+    "meta-llama/Meta-Llama-3-70B-Instruct",
+    "llama3_70b"
+]
+
+def get_model_name(model_name):
+    model = supported_models.get(model_name, None)
+    if model is None:
+        raise KeyError("The model name is not supported. Please add to src/models/config.py yourself.")
+    return model
 
 def get_model_config(model):
     if 'gpt' in model:

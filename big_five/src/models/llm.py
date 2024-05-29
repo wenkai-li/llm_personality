@@ -12,6 +12,26 @@ from langchain.chat_models import ChatOpenAI
 
 class ChatVLLMOpenAI(ChatOpenAI):
     """vLLM OpenAI-compatible API chat client"""
+    max_tokens: int | None = None  # type: ignore
+
+    @property
+    def _default_params(self) -> dict[str, Any]:
+        """Get the default parameters for calling OpenAI API."""
+        set_model_value = self.model
+        if self.model_name is not None:
+            set_model_value = self.model_name
+
+        params = {
+            "model": set_model_value,
+            "force_timeout": self.request_timeout,
+            "stream": self.streaming,
+            "n": self.n,
+            "temperature": self.temperature,
+            "custom_llm_provider": self.custom_llm_provider,
+            **self.model_kwargs,
+        }
+        if self.max_tokens is not None:
+            params["max_tokens"] = self.max_tokens
     
     @property
     def _invocation_params(self) -> Dict[str, Any]:
@@ -34,7 +54,7 @@ class ChatVLLMOpenAI(ChatOpenAI):
         return "chat-vllm-openai"
 
 
-def get_llm(model, api_key=None, api_org=None, model_path=None):
+def get_llm(model, api_key=None, api_org=None, model_path=None, **kwargs):
     if 'gpt' in model:
         api_key = os.environ.get('openai_api_key', None)
         if isinstance(api_org, list):
@@ -49,6 +69,7 @@ def get_llm(model, api_key=None, api_org=None, model_path=None):
         llm = llm_model(
             openai_api_key=api_key,
             model=model,
+            **kwargs
         )
         return llm
     elif model == 'llama2_70b':
@@ -57,6 +78,7 @@ def get_llm(model, api_key=None, api_org=None, model_path=None):
         llm = llm_model(
             openai_api_key=api_key,
             openai_api_base=api_org,
+            **kwargs
         )
         return llm
     elif 'llama' in model or 'vicuna' in model or 'alpaca' in model:
@@ -66,6 +88,7 @@ def get_llm(model, api_key=None, api_org=None, model_path=None):
             openai_api_key=api_key,
             openai_api_base=api_org,
             model_name=model_path,
+            **kwargs
         )
         return llm
 
