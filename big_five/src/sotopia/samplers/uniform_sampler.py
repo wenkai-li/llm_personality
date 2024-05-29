@@ -50,10 +50,10 @@ class UniformSampler(BaseSampler[ObsType, ActType]):
             if self.env_candidates:
                 env_profile = random.choice(self.env_candidates)
                 if isinstance(env_profile, str):
-                    env_profile = EnvironmentProfile(**EnvironmentProfile.db.get_pk(env_profile))
+                    env_profile = EnvironmentProfile(**EnvironmentProfile.db.get_doc(env_profile))
             else:
                 env_profile_id = random.choice(list(EnvironmentProfile.db.all_pks()))
-                env_profile = EnvironmentProfile(**EnvironmentProfile.db.get_pk(env_profile_id))
+                env_profile = EnvironmentProfile(**EnvironmentProfile.db.get_doc(env_profile_id))
             env = ParallelSotopiaEnv(env_profile=env_profile, **env_params)
 
             if self.agent_candidates:
@@ -69,7 +69,7 @@ class UniformSampler(BaseSampler[ObsType, ActType]):
                         f"Number of agent profile candidates ({len(agent_profile_candidates_keys)}) in database is less than number of agents ({n_agent})"
                     )
                 agent_profile_candidates = [
-                    AgentProfile(**AgentProfile.db.get_pk(pk)) for pk in agent_profile_candidates_keys
+                    AgentProfile(**AgentProfile.db.get_doc(pk)) for pk in agent_profile_candidates_keys
                 ]
 
             if len(agent_profile_candidates) == n_agent:
@@ -79,7 +79,7 @@ class UniformSampler(BaseSampler[ObsType, ActType]):
                     agent_profile_candidates, n_agent
                 )
             agent_profiles = [
-                i if isinstance(i, AgentProfile) else AgentProfile(**AgentProfile.db.get_pk(i))
+                i if isinstance(i, AgentProfile) else AgentProfile(**AgentProfile.db.get_doc(i))
                 for i in agent_profiles_maybe_id
             ]
             agents = [

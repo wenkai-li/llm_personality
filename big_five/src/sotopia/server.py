@@ -16,6 +16,7 @@ from sotopia.agents import (
     ScriptWritingAgent,
     SpeakAgent,
 )
+from sotopia.databases.persistent_profile import AgentProfile, EnvironmentProfile
 from sotopia.agents.base_agent import BaseAgent
 from sotopia.databases.logs import EpisodeLog
 from sotopia.messages import AgentAction, Message, Observation
@@ -195,8 +196,8 @@ async def arun_one_episode(
 
     # TODO: clean up this part
     epilog = EpisodeLog(
-        environment=env.profile.pk,
-        agents=[agent.profile.pk for agent in agent_list],
+        environment=EnvironmentProfile.db.get_pk(**env.profile.dict()),
+        agents=[AgentProfile.db.get_pk(**agent.profile.dict()) for agent in agent_list],
         tag=tag,
         models=[model_dict["env"], model_dict["agent1"], model_dict["agent2"]],
         messages=[

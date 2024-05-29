@@ -170,7 +170,7 @@ class ParallelSotopiaEnv(ParallelEnv[str, Observation, AgentAction], MessengerMi
         # if a uuid is provided, try to load the environment profile from the database
         elif uuid_str is not None:
             # try retrieving profile from database
-            self.profile = EnvironmentProfile(**EnvironmentProfile.db.get_pk(uuid_str))
+            self.profile = EnvironmentProfile(**EnvironmentProfile.db.get_doc(uuid_str))
             if self.profile is None:
                 raise ValueError(f"Agent with uuid {uuid_str} not found in database")
 

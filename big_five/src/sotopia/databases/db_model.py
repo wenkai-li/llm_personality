@@ -1,6 +1,8 @@
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel, Field
 
 class JsonModel(BaseModel):
+    
     class config:
         arbitrary_types_allowed = True
         extra = "allow"
@@ -10,4 +12,4 @@ class JsonModel(BaseModel):
         self.init_profile_store()
     
     def init_profile_store(self):
-        raise NotImplementedError("Subclasses must implement this method")
+        pass

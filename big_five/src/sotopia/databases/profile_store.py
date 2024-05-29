@@ -50,7 +50,12 @@ class ProfileStore:
     def get(self, **kwargs):
         return self.db.get(cond=self.build_query(**kwargs))
     
-    def get_pk(self, pk: str):
+    def get_pk(self, **kwargs):
+        res = self.db.get(cond=self.build_query(**kwargs))
+        if res is not None:
+            return str(res.doc_id)
+    
+    def get_doc(self, pk: str):
         return self.db.get(doc_id=int(pk))
     
     def search(self, **kwargs):

@@ -46,7 +46,7 @@ class EpisodeLog(JsonModel):
             A tuple of (a list of agent_profiles, a list of str): The agent profiles, and the messages and rewards in each turn.
         """
 
-        agent_profiles = [AgentProfile.db.get_pk(uuid_str) for uuid_str in self.agents]
+        agent_profiles = [AgentProfile.db.get_doc(uuid_str) for uuid_str in self.agents]
         messages_and_rewards = []
         for idx, turn in enumerate(self.messages):
             messages_in_this_turn = []
