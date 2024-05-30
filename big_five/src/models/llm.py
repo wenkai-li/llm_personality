@@ -14,24 +14,21 @@ class ChatVLLMOpenAI(ChatOpenAI):
     """vLLM OpenAI-compatible API chat client"""
     max_tokens: int | None = None  # type: ignore
 
-    @property
-    def _default_params(self) -> dict[str, Any]:
-        """Get the default parameters for calling OpenAI API."""
-        set_model_value = self.model
-        if self.model_name is not None:
-            set_model_value = self.model_name
+    # @property
+    # def _default_params(self) -> dict[str, Any]:
+    #     """Get the default parameters for calling OpenAI API."""
+    #     set_model_value = self.model_name
 
-        params = {
-            "model": set_model_value,
-            "force_timeout": self.request_timeout,
-            "stream": self.streaming,
-            "n": self.n,
-            "temperature": self.temperature,
-            "custom_llm_provider": self.custom_llm_provider,
-            **self.model_kwargs,
-        }
-        if self.max_tokens is not None:
-            params["max_tokens"] = self.max_tokens
+    #     params = {
+    #         "model": set_model_value,
+    #         "force_timeout": self.request_timeout,
+    #         "stream": self.streaming,
+    #         "n": self.n,
+    #         "temperature": self.temperature,
+    #         **self.model_kwargs,
+    #     }
+    #     if self.max_tokens is not None:
+    #         params["max_tokens"] = self.max_tokens
     
     @property
     def _invocation_params(self) -> Dict[str, Any]:
