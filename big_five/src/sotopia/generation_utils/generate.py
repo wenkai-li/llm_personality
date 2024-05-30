@@ -410,6 +410,7 @@ async def agenerate(
         input_values["format_instructions"] = output_parser.get_format_instructions()
     result = await chain.apredict([logging_handler], **input_values)
     prompt = logging_handler.retrive_prompt()
+    print("Results: ", result)
     try:
         parsed_result = output_parser.parse(result)
     except Exception as e:
