@@ -65,7 +65,7 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
             self.classifier_N(sequence_output)
         ]
 
-        loss = [None, None, None, None, None]
+        loss = [0, 0, 0, 0, 0]
         for i in range(5):
             if labels is not None:
                 # move labels to correct device to enable model parallelism
