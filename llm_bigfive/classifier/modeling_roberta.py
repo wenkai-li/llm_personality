@@ -63,7 +63,8 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
             self.classifier_E(sequence_output),
             self.classifier_A(sequence_output),
             self.classifier_N(sequence_output)
-        ]
+        ] # [tensor, tensor, tensor, tensor, tensor]
+        # tensor shape [..., num_labels]
 
         loss = [0, 0, 0, 0, 0]
         for i in range(5):
@@ -73,7 +74,7 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
                 if self.config.problem_type is None:
                     if self.num_labels == 1:
                         self.config.problem_type = "regression"
-                    elif self.num_labels > 1 and (labels.dtype == torch.long or labels.dtype == torch.int):
+                    elif self.num_labels > 1 and (labels.dtype == torch.long or labels.dtype == torch.int or labels.dtype == torch.float32):
                         self.config.problem_type = "single_label_classification"
                     else:
                         self.config.problem_type = "multi_label_classification"
@@ -84,6 +85,9 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
                         loss[i] = loss_fct(logits[i].squeeze(), labels[:, i].squeeze())
                     else:
                         raise NotImplementedError
+                elif self.config.problem_type == "single_label_classification":
+                    loss_fct = CrossEntropyLoss()
+                    loss[i] = loss_fct(logits[i], labels[:, i])
                 else:
                     raise NotImplementedError
 
