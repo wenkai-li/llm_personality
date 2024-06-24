@@ -18,27 +18,12 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 import wandb
-wandb.init(project="llm_personality", entity="kyle_organization", name="test-ce-50-examples-1e-4")
+wandb.init(project="llm_personality", entity="kyle_organization", name="test-ce-whole-1e-5")
 
 ###########
-## MSE loss: Save each dataset to a separate directory
-# from utils import preprocess_function
-# df = pd.read_csv('big5_training_data_with_token_roberta.csv')
-# # df = df.sample(frac=0.01, random_state=42)
-
-# dataset = Dataset.from_pandas(df.dropna())
-# dataset = dataset.map(preprocess_function, batched=True)
-# train_dataset, val_dataset = dataset.train_test_split(test_size=0.1, seed=42).values()
-# val_dataset, test_dataset = val_dataset.train_test_split(test_size=0.4, seed=42).values()
-# train_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data/train_psychgen')
-# val_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data/val_psychgen')
-# test_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data/test_psychgen')
-###########
-###########
-## Cross Entropy loss: Save each dataset to a separate directory
+# ## Cross Entropy loss: Save each dataset to a separate directory
 # from utils import preprocess_function_with_tokenizer_one_hot
 # df = pd.read_csv('filtered_big5_data_3_label.csv')
-# # df = df.sample(frac=0.01, random_state=42)
 
 # dataset = Dataset.from_pandas(df.dropna())
 # tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
@@ -52,8 +37,8 @@ wandb.init(project="llm_personality", entity="kyle_organization", name="test-ce-
 
 # Load the datasets from the saved directories
 from datasets import load_from_disk
-train_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/train_psychgen').select(range(5000))
-val_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/val_psychgen').select(range(100))
+train_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/train_psychgen')
+val_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/val_psychgen')
 test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/test_psychgen')
 
 # def convert_labels_to_int(example):
@@ -73,10 +58,10 @@ model = RobertaForSequenceClassification.from_pretrained("roberta-large", num_la
 
 training_args = TrainingArguments(
     # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/",
-    output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_ce/",
+    output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_ce_1e-5/",
     evaluation_strategy="steps",
     eval_steps=500,
-    learning_rate=1e-4,
+    learning_rate=1e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
     num_train_epochs=5,
@@ -104,5 +89,5 @@ trainer = Trainer(
 trainer.train()
 
 # O, C, E, A, N
-# [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+# one hot of [0 Low, Neutral, High]
 # (p'(O), y_O), (p'(C), y_C), (p'(E), y_E), (p'(A), y_A), (p'(N), y_N)

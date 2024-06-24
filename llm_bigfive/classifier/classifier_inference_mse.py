@@ -12,7 +12,7 @@ from tqdm import tqdm
 from logging_config import setup_logging
 
 # Set up logging configuration
-setup_logging()
+setup_logging(mode='eval')
 
 import logging
 
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/checkpoint-35000/'
+model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/checkpoint-1500/'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
 model.eval()
 
@@ -32,7 +32,7 @@ def map_to_label(logit):
 
 map_to_label_func = np.vectorize(map_to_label)
 
-test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data/test_psychgen').select(range(50))
+test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_mse/test_psychgen').select(range(50))
 
 def compute_metrics(pred):
     
