@@ -92,7 +92,7 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
                     raise NotImplementedError
 
         # average over five MSE losses (o, c, e, a, n)
-        logger.info(f"Training sub-loss: O {loss[0]}, C {loss[1]}, E {loss[2]}, A {loss[3]}, N {loss[4]}")
+        # logger.info(f"Training sub-loss: O {loss[0]}, C {loss[1]}, E {loss[2]}, A {loss[3]}, N {loss[4]}")
         loss = (loss[0] + loss[1] + loss[2] + loss[3] + loss[4]) / 5
         
         if not return_dict:

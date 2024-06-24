@@ -3,14 +3,14 @@ import sys
 import logging
 from datetime import datetime
 
-def setup_logging():
+def setup_logging(mode='training'):
     # Remove all handlers associated with the root logger object.
     for handler in logging.root.handlers[:]:
         logging.root.removeHandler(handler)
     
     # Generate a timestamped log file name
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    log_file = f"logs/training_{timestamp}.log"
+    log_file = f"logs/{mode}_{timestamp}.log"
     
     logging.basicConfig(
         format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
