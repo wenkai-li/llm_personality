@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/checkpoint-1500/'
+model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/checkpoint-28500/'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
 model.eval()
 
@@ -32,21 +32,43 @@ def map_to_label(logit):
 
 map_to_label_func = np.vectorize(map_to_label)
 
-test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_mse/test_psychgen').select(range(50))
+def map_to_3_label(original_label):
+    labels = [0, 1, 2]
+    original_label = float(original_label)
+    if original_label < 0.3:
+        return 0
+    elif original_label < 0.7:
+        return 1
+    else:
+        return 2
+
+map_to_3_label_func = np.vectorize(map_to_3_label)
+
+out_f = open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/mse_checkpoint_28500.json', 'w')
+
+test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_mse/test_psychgen')
 
 def compute_metrics(pred):
     
     labels = map_to_label_func(np.array(pred.label_ids))
     preds = np.vstack([i.transpose() for i in pred.predictions]).transpose()
     preds = map_to_label_func(preds)
-    print(labels)
-    print(preds)
+    # print(labels)
+    # print(preds)
+    
+    labels = map_to_3_label_func(labels).transpose()
+    preds = map_to_3_label_func(preds).transpose()
+    
+    json.dump({
+        "labels": labels.tolist(),
+        "preds": preds.tolist()
+    }, out_f)
     
     label_names = ['O', 'C', 'E', 'A', 'N']
     info = {}
     for dim in range(len(label_names)):
-        labels_cur = labels[:, dim]
-        preds_cur = preds[:, dim]
+        labels_cur = labels[dim, :]
+        preds_cur = preds[dim, :]
         f1 = f1_score(labels_cur, preds_cur, average='weighted')
         accuracy = accuracy_score(labels_cur, preds_cur)
         precision = precision_score(labels_cur, preds_cur, average='weighted')

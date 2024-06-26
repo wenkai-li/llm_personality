@@ -22,9 +22,11 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_ce_1e-5/checkpoint-73000/'
+model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_ce_1e-5/checkpoint-110000/'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=3, cache_dir="/data/user_data/jiaruil5/.cache")
 model.eval()
+
+out_f = open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/ce_checkpoint_110000.json', 'w')
 
 test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_ce/test_psychgen')
 
@@ -35,6 +37,11 @@ def compute_metrics(pred):
     
     preds = np.array(pred.predictions) # (5, n_samples, 3)
     preds = np.argmax(preds, axis=2) # (5, n_samples)
+    
+    json.dump({
+        "labels": labels.tolist(),
+        "preds": preds.tolist()
+    }, out_f)
     
     label_names = ['O', 'C', 'E', 'A', 'N']
     info = {}
