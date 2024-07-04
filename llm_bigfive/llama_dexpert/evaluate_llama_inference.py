@@ -20,15 +20,19 @@ def get_prediction_list(model, testset, config):
     with open(testset) as f:
         testset = json.load(f)
 
-    # Subsample testset here
-    # num_samples = 200
-    # sub_testset = testset[:num_samples]
+    # Subsample the testset
+    # num_samples = 1000
+    # seed = 42
+    # random.seed(seed)
+    # sub_testset = random.sample(testset, num_samples)
+    # post_tokens = [i["input"] for i in sub_testset]
 
     post_tokens = [i["input"] for i in testset]
 
     for tokens in tqdm(post_tokens):
         predict_dict = {}
         prompt = [
+        "You are a helpful assistant.\n"
         f"Help me complete the sentence with certain Big Five Personality: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - high, Neuroticism - low. {tokens}"]
         res = call(
             prompt,
@@ -47,7 +51,7 @@ def main():
     parser = argparse.ArgumentParser()
     
     parser.add_argument("--model_name", default=None, type=str, required=True, help = "Choose the evlauate model, the name can be seen in config")
-    parser.add_argument("--testset", default="testset/alpaca_big_five_dataset_test.json", type=str, required=False, help="Give a absolute path for testset")
+    parser.add_argument("--testset", default="./testset/alpaca_big_five_dataset_1000_test_5_tokens.json", type=str, required=False, help="Give a absolute path for testset")
     parser.add_argument("--output_file", default=None, type=str, required=True, help="The output file path and name")
     args = parser.parse_args()
 

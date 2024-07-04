@@ -63,9 +63,10 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
             self.classifier_E(sequence_output),
             self.classifier_A(sequence_output),
             self.classifier_N(sequence_output)
-        ]
+        ] # [tensor, tensor, tensor, tensor, tensor]
+        # tensor shape [..., num_labels]
 
-        loss = [None, None, None, None, None]
+        loss = [0, 0, 0, 0, 0]
         for i in range(5):
             if labels is not None:
                 # move labels to correct device to enable model parallelism
@@ -73,7 +74,7 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
                 if self.config.problem_type is None:
                     if self.num_labels == 1:
                         self.config.problem_type = "regression"
-                    elif self.num_labels > 1 and (labels.dtype == torch.long or labels.dtype == torch.int):
+                    elif self.num_labels > 1 and (labels.dtype == torch.long or labels.dtype == torch.int or labels.dtype == torch.float32):
                         self.config.problem_type = "single_label_classification"
                     else:
                         self.config.problem_type = "multi_label_classification"
@@ -84,13 +85,17 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
                         loss[i] = loss_fct(logits[i].squeeze(), labels[:, i].squeeze())
                     else:
                         raise NotImplementedError
+                elif self.config.problem_type == "single_label_classification":
+                    loss_fct = CrossEntropyLoss()
+                    loss[i] = loss_fct(logits[i], labels[:, i])
                 else:
                     raise NotImplementedError
 
         # average over five MSE losses (o, c, e, a, n)
-        logger.info(f"Training sub-loss: O {loss[0]}, C {loss[1]}, E {loss[2]}, A {loss[3]}, N {loss[4]}")
+        # logger.info(f"Training sub-loss: O {loss[0]}, C {loss[1]}, E {loss[2]}, A {loss[3]}, N {loss[4]}")
         loss = (loss[0] + loss[1] + loss[2] + loss[3] + loss[4]) / 5
-        
+        if not isinstance(loss, torch.Tensor):
+            loss = torch.tensor(loss)
         if not return_dict:
             output = (logits,) + outputs[2:]
             return ((loss,) + output) if loss is not None else output

@@ -9,20 +9,20 @@ from sklearn.metrics import classification_report, f1_score, accuracy_score, pre
 import json
 import csv
 from tqdm import tqdm
-from logging_config import setup_logging
+# from logging_config import setup_logging
 
 # Set up logging configuration
-setup_logging()
+# setup_logging(mode='eval')
 
-import logging
+# import logging
 
 # Initialize the logger
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
-logger.info("Logging setup complete.")
+# logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/checkpoint-35000/'
+model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/mse_1e-5/mse_1e-5/checkpoint-119000'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/wenkail/.cache")
 model.eval()
 
@@ -32,32 +32,45 @@ def map_to_label(logit):
 
 map_to_label_func = np.vectorize(map_to_label)
 
-test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data/test_psychgen').select(range(50))
+def map_to_3_label(original_label):
+    labels = [0, 1, 2]
+    original_label = float(original_label)
+    if original_label < 0.3:
+        return 0
+    elif original_label < 0.7:
+        return 1
+    else:
+        return 2
 
-def compute_metrics(pred):
-    
-    labels = map_to_label_func(np.array(pred.label_ids))
-    preds = np.vstack([i.transpose() for i in pred.predictions]).transpose()
+map_to_3_label_func = np.vectorize(map_to_3_label)
+
+out_f = open('/home/wenkail/llm_personality/llm_bigfive/classifier/results/mse.json', 'w')
+
+
+from utils import preprocess_function_with_tokenizer_without_labels
+# df = pd.read_csv('filtered_big5_data_6_label.csv').sample(n=50, random_state=42)
+with open('/home/wenkail/llm_personality/llm_bigfive/llama_dexpert/testset/llama_3b_persona_inferene_1000_token_5_whole.json', 'r') as json_file:
+    data = json.load(json_file)
+
+df = pd.DataFrame(data)
+df['message'] = df['input'] + ' ' + df['prediction']
+df = df[['message']]
+
+dataset = Dataset.from_pandas(df.dropna())
+tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
+test_dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer_without_labels(examples, tokenizer), batched=True)
+
+def convert_pred(pred):
+    print(pred.predictions)
+    preds = np.vstack([i.transpose() for i in pred.predictions[1]]).transpose()
     preds = map_to_label_func(preds)
-    print(labels)
-    print(preds)
-    
-    label_names = ['O', 'C', 'E', 'A', 'N']
-    info = {}
-    for dim in range(len(label_names)):
-        labels_cur = labels[:, dim]
-        preds_cur = preds[:, dim]
-        f1 = f1_score(labels_cur, preds_cur, average='weighted')
-        accuracy = accuracy_score(labels_cur, preds_cur)
-        precision = precision_score(labels_cur, preds_cur, average='weighted')
-        recall = recall_score(labels_cur, preds_cur, average='weighted')
+    # print(preds)
 
-        info[f'f1_{label_names[dim]}'] = round(f1, 2)
-        info[f'accuracy_{label_names[dim]}'] = round(accuracy, 2)
-        info[f'precision_{label_names[dim]}'] = round(precision, 2)
-        info[f'recall_{label_names[dim]}'] = round(recall, 2)
-        
-    return info
+    preds = map_to_3_label_func(preds).transpose()
+    
+    json.dump({
+        "preds": preds.tolist()
+    }, out_f)
 
 training_args = TrainingArguments(
     # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/",
@@ -84,13 +97,8 @@ training_args = TrainingArguments(
 
 trainer = Trainer(
     model=model,
-    args=training_args,
-    eval_dataset=test_dataset,
-    compute_metrics=compute_metrics,
+    args=training_args
 )
 
-eval_results = trainer.evaluate()
-
-# Print the evaluation results
-for key, value in eval_results.items():
-    print(f"{key}: {value:.2f}")
+predictions = trainer.predict(test_dataset)
+convert_pred(predictions)
