@@ -17,13 +17,13 @@ from pydantic import BaseModel, Field
 from rich import print
 from typing_extensions import Literal
 
-from sotopia.databases.persistent_profile import EnvironmentProfile, RelationshipProfile
-from sotopia.messages import ActionType, AgentAction, ScriptBackground
-from sotopia.messages.message_classes import (
+from new_sotopia.databases.persistent_profile import EnvironmentProfile, RelationshipProfile
+from new_sotopia.messages import ActionType, AgentAction, ScriptBackground
+from new_sotopia.messages.message_classes import (
     ScriptInteraction,
     ScriptInteractionReturnType,
 )
-from sotopia.utils import format_docstring
+from new_sotopia.utils import format_docstring
 
 from .langchain_callback_handler import LoggingCallbackHandler
 import sys

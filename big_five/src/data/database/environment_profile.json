@@ -1,0 +1,43 @@
+{
+  "_default": {
+    "1": {
+      "codename": "CollaborativeResolution",
+      "source": "SocialInteractionDataset",
+      "scenario": "Agent1 and Agent2 are two colleagues who are part of a project team at a marketing firm. They have been working together for a few months, but they have different working styles, which sometimes leads to conflicts. Agent1 values efficiency and likes to get tasks done quickly, while Agent2 is more meticulous and likes to ensure everything is perfect before moving on. They need to work together to complete a critical project, but they disagree on the best approach to take.",
+      "agent_goals": [
+        "Agent1's goal is to convince Agent2 to adopt a more efficient approach to complete the project on time, <extra_info>Agent1 has a tight deadline to meet</extra_info>, <clarification_hint>Agent1 needs to understand Agent2's concerns</clarification_hint>, <strategy_hint>Agent1 can offer to compromise on the approach</strategy_hint>.",
+        "Agent2's goal is to persuade Agent1 to consider the importance of quality and attention to detail, <extra_info>Agent2 has received feedback from previous projects that attention to detail is crucial</extra_info>, <clarification_hint>Agent2 needs to understand Agent1's time constraints</clarification_hint>, <strategy_hint>Agent2 can offer to provide examples of past projects that benefited from attention to detail</strategy_hint>"
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": "[['marketing_professional'], ['marketing_professional']]",
+      "agent_constraint": null
+    },
+    "2": {
+      "codename": "SpiderPhobia",
+      "source": "Personal Experience",
+      "scenario": "Agent1 is at a coffee shop and notices Agent2, a barista, trying to remove a spider from the wall. Agent1 is afraid of spiders and wants to get out of the situation, but Agent2 needs help to safely remove the spider without harming it.",
+      "agent_goals": [
+        "Agent1: Get away from the spider without offending Agent2, <extra_info>Agent1 has a fear of spiders and wants to avoid confrontation</extra_info>, <clarification_hint>Agent1 needs to communicate their fear to Agent2 in a polite manner</clarification_hint>, <strategy_hint>You can offer to help Agent2 find someone else to remove the spider</strategy_hint>",
+        "Agent2: Safely remove the spider from the wall without harming it, <extra_info>Agent2 is concerned about the well-being of the spider</extra_info>, <clarification_hint>Agent2 needs to understand Agent1's fear and accommodate their needs</clarification_hint>, <strategy_hint>You can offer to move the removal process to a different area to minimize Agent1's discomfort</strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "3": {
+      "codename": "OfficeDiscussion",
+      "source": "Workplace",
+      "scenario": "Agent1 and Agent2 are colleagues working in the same department. They are having a meeting to discuss a project they are working on together. Agent1 is leading the project and Agent2 is responsible for a specific task. The purpose of the interaction is for Agent1 to get an update on Agent2's task and to discuss any challenges they are facing.",
+      "agent_goals": [
+        "Agent1: Get an update on Agent2's task and ensure it is on track. <extra_info>Agent1 needs to make sure the project is completed on time.</extra_info> <clarification_hint>Ask specific questions to clarify the status of the task.</clarification_hint> <strategy_hint>Offer support and resources to help Agent2 complete the task.</strategy_hint>",
+        "Agent2: Provide an update on their task and discuss any challenges they are facing. <extra_info>Agent2 wants to demonstrate their capabilities and show that they can handle the task.</extra_info> <clarification_hint>Be prepared to answer questions and provide evidence of progress.</clarification_hint> <strategy_hint>Be open and honest about any challenges and ask for help if needed."
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": "[['project_manager', 'team_lead'], ['software_developer', 'qa_engineer']]",
+      "agent_constraint": null
+    }
+  }
+}

@@ -2,10 +2,14 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 class LLAMA3():
-    def __init__(self):
-        model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-        cache_dir = "/data/user_data/jiaruil5/.cache/"
-        
+    def __init__(self, llama_version):
+        if llama_version == "llama3-8b":
+            model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+            cache_dir = "/data/user_data/jiaruil5/.cache/"
+        elif llama_version == "llama3-70b":
+            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
+            cache_dir = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_id,
             cache_dir=cache_dir

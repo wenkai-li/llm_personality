@@ -28,7 +28,8 @@ def get_model_name(model_name):
     model = supported_models.get(model_name, None)
     if model is None:
         raise KeyError("The model name is not supported. Please add to src/models/config.py yourself.")
-    r
+    return model
+
 def get_model_config(model):
     if 'gpt' in model:
         api_key = None
@@ -42,7 +43,7 @@ def get_model_config(model):
     elif model == 'llama3_70b':
         api_key = "EMPTY"
         api_org = "http://127.0.0.1:9570/v1"
-        model_path = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c/"
+        model_path = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
     elif model == 'llama2_7b':
         api_key = "EMPTY"
         api_org = "http://127.0.0.1:2525/v1"
