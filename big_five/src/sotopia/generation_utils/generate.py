@@ -411,6 +411,15 @@ async def agenerate(
     result = await chain.apredict([logging_handler], **input_values)
     prompt = logging_handler.retrive_prompt()
     print("Results: ", result)
+    # with open("/home/jiaruil5/personality/llm_personality/big_five/src/data/test/prompt_examples.jsonl", 'a') as f:
+    #     import json
+    #     info = {
+    #         "prompt": prompt,
+    #         "result": result,
+    #     }
+    #     json.dump(info, f)
+    #     f.write("\n")
+    #     f.flush()
     try:
         parsed_result = output_parser.parse(result)
     except Exception as e:
