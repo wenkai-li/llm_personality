@@ -8,7 +8,7 @@ sys.path.append("../")
 from dexpert.llama3 import LLAMA3
 from prompts import generate_prompt
 
-model = LLAMA3()
+model = LLAMA3("llama3-70b")
 
 def get_response(prompt):
     return model.generate(prompt)
