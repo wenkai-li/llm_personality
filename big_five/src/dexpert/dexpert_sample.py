@@ -1,6 +1,12 @@
+import inspect
+import warnings
+
 import torch
 from torch import nn
 from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple, Union
+import transformers
+from transformers.utils import is_torchdynamo_compiling, logging
+from transformers.cache_utils import StaticCache
 from transformers.generation.logits_process import (
     LogitsProcessorList,
 )
@@ -9,12 +15,183 @@ from transformers.generation.stopping_criteria import (
     StoppingCriteriaList,
     validate_stopping_criteria,
 )
-import transformers
 from transformers.generation.configuration_utils import GenerationConfig
 from transformers.generation.utils import SampleOutput, GenerateEncoderDecoderOutput, GenerateDecoderOnlyOutput
 from transformers.generation.streamers import BaseStreamer
 from transformers.generation import SampleEncoderDecoderOutput, SampleDecoderOnlyOutput   
 
+
+logger = logging.get_logger(__name__)
+
+NEED_SETUP_CACHE_CLASSES_MAPPING = {
+    "static": StaticCache,
+}
+
+"""
+Simulate the preprocessing step in transformers.generation.utils.py:GenerationMixin::generate
+"""
+def expert_generate_helper(
+        model: transformers.AutoModelForCausalLM,
+        inputs,
+        generation_config,
+        logits_processor=None, 
+        stopping_criteria=None,
+        kwargs={}
+    ):
+    # 1. Handle `generation_config` and kwargs that might update it, and validate the `.generate()` call
+    model._validate_model_class()
+    tokenizer = kwargs.pop("tokenizer", None)  # Pull this out first, we only use it for stopping criteria
+    generation_config, model_kwargs = model._prepare_generation_config(generation_config, **kwargs)
+    model._validate_model_kwargs(model_kwargs.copy())
+    
+    logits_processor = logits_processor if logits_processor is not None else LogitsProcessorList()
+    stopping_criteria = stopping_criteria if stopping_criteria is not None else StoppingCriteriaList()
+
+    accepts_attention_mask = "attention_mask" in set(inspect.signature(model.forward).parameters.keys())
+    requires_attention_mask = "encoder_outputs" not in model_kwargs
+    kwargs_has_attention_mask = model_kwargs.get("attention_mask", None) is not None
+
+    # 3. Define model inputs
+    inputs_tensor, model_input_name, model_kwargs = model._prepare_model_inputs(
+        inputs, generation_config.bos_token_id, model_kwargs
+    )
+    batch_size = inputs_tensor.shape[0]
+    
+    device = inputs_tensor.device
+    model._prepare_special_tokens(generation_config, kwargs_has_attention_mask, device=device)
+
+    # decoder-only models must use left-padding for batched generation.
+    if not model.config.is_encoder_decoder and not is_torchdynamo_compiling():
+        # If `input_ids` was given, check if the last id in any sequence is `pad_token_id`
+        # Note: If using, `inputs_embeds` this check does not work, because we want to be more hands-off.
+        if (
+            generation_config.pad_token_id is not None
+            and batch_size > 1
+            and len(inputs_tensor.shape) == 2
+            and torch.sum(inputs_tensor[:, -1] == generation_config.pad_token_id) > 0
+        ):
+            logger.warning(
+                "A decoder-only architecture is being used, but right-padding was detected! For correct "
+                "generation results, please set `padding_side='left'` when initializing the tokenizer."
+            )
+    
+    # 4. Define other model kwargs
+    # decoder-only models with inputs_embeds forwarding must use caching (otherwise we can't detect whether we are
+    # generating the first new token or not, and we only want to use the embeddings for the first new token)
+    if not model.config.is_encoder_decoder and model_input_name == "inputs_embeds":
+        model_kwargs["use_cache"] = True
+    else:
+        model_kwargs["use_cache"] = generation_config.use_cache
+
+    if not kwargs_has_attention_mask and requires_attention_mask and accepts_attention_mask:
+        model_kwargs["attention_mask"] = model._prepare_attention_mask_for_generation(
+            inputs_tensor, generation_config.pad_token_id, generation_config.eos_token_id
+        )
+
+    if model.config.is_encoder_decoder and "encoder_outputs" not in model_kwargs:
+        # if model is encoder decoder encoder_outputs are created and added to `model_kwargs`
+        model_kwargs = model._prepare_encoder_decoder_kwargs_for_generation(
+            inputs_tensor, model_kwargs, model_input_name, generation_config
+        )
+    
+    # 5. Prepare `input_ids` which will be used for auto-regressive generation
+    if model.config.is_encoder_decoder:
+        input_ids, model_kwargs = model._prepare_decoder_input_ids_for_generation(
+            batch_size=batch_size,
+            model_input_name=model_input_name,
+            model_kwargs=model_kwargs,
+            decoder_start_token_id=generation_config.decoder_start_token_id,
+            device=inputs_tensor.device,
+        )
+    else:
+        input_ids = inputs_tensor if model_input_name == "input_ids" else model_kwargs.pop("input_ids")
+
+    # 6. Prepare `max_length` depending on other stopping criteria.
+    input_ids_length = input_ids.shape[-1]
+    has_default_max_length = kwargs.get("max_length") is None and generation_config.max_length is not None
+    has_default_min_length = kwargs.get("min_length") is None and generation_config.min_length is not None
+    generation_config = model._prepare_generated_length(
+        generation_config=generation_config,
+        has_default_max_length=has_default_max_length,
+        has_default_min_length=has_default_min_length,
+        model_input_name=model_input_name,
+        inputs_tensor=inputs_tensor,
+        input_ids_length=input_ids_length,
+    )
+    
+    if generation_config.cache_implementation is not None and model_kwargs.get("past_key_values") is not None:
+        raise ValueError(
+            "Passing both `cache_implementation` (used to initialize certain caches) and `past_key_values` (a "
+            "Cache object) is unsupported. Please use only one of the two."
+        )
+    elif generation_config.cache_implementation in NEED_SETUP_CACHE_CLASSES_MAPPING:
+        if not model._supports_cache_class:
+            raise ValueError(
+                "This model does not support the `cache_implementation` argument. Please check the following "
+                "issue: https://github.com/huggingface/transformers/issues/28981."
+            )
+        if generation_config.cache_implementation == "static":
+            if not model._supports_static_cache:
+                raise ValueError(
+                    "This model does not support `cache_implementation='static'`. Please check the following "
+                    "issue: https://github.com/huggingface/transformers/issues/28981"
+                )
+            model_kwargs["past_key_values"] = model._get_static_cache(batch_size, generation_config.max_length)
+
+    model._validate_generated_length(generation_config, input_ids_length, has_default_max_length)
+
+    if model.device.type != input_ids.device.type:
+        warnings.warn(
+            "You are calling .generate() with the `input_ids` being on a device type different"
+            f" than your model's device. `input_ids` is on {input_ids.device.type}, whereas the model"
+            f" is on {model.device.type}. You may experience unexpected behaviors or slower generation."
+            " Please make sure that you have put `input_ids` to the"
+            f" correct device by calling for example input_ids = input_ids.to('{model.device.type}') before"
+            " running `.generate()`.",
+            UserWarning,
+        )
+
+    # 8. prepare distribution pre_processing samplers
+    prepared_logits_processor = model._get_logits_processor(
+        generation_config=generation_config,
+        input_ids_seq_length=input_ids_length,
+        encoder_input_ids=inputs_tensor,
+        prefix_allowed_tokens_fn=None,
+        logits_processor=logits_processor,
+        device=inputs_tensor.device,
+        model_kwargs=model_kwargs,
+        negative_prompt_ids=None,
+        negative_prompt_attention_mask=None,
+    )
+
+    # 9. prepare stopping criteria
+    prepared_stopping_criteria = model._get_stopping_criteria(
+        generation_config=generation_config, stopping_criteria=stopping_criteria, tokenizer=tokenizer, **kwargs
+    )
+    
+    # 11. prepare logits warper
+    prepared_logits_warper = (
+        model._get_logits_warper(generation_config) if generation_config.do_sample else None
+    )
+    
+    # 12. expand input_ids with `num_return_sequences` additional sequences per batch
+    input_ids, model_kwargs = model._expand_inputs_for_generation(
+        input_ids=input_ids,
+        expand_size=generation_config.num_return_sequences,
+        is_encoder_decoder=model.config.is_encoder_decoder,
+        **model_kwargs,
+    )
+    
+    return {
+        "input_ids": input_ids,
+        # "logits_processor": prepared_logits_processor,
+        # "logits_wrapper": prepared_logits_warper,
+        # "stopping_criteria": prepared_stopping_criteria,
+        # "generation_config": generation_config,
+        # "synced_gpus": None,
+        # "streamer": None,
+    }, model_kwargs
+    
 """
 Add three more arguments to model_kwargs:
 - expert_logits: Optional[Tensor] = None
@@ -103,10 +280,18 @@ def sample(
         unfinished_sequences = torch.ones(batch_size, dtype=torch.long, device=input_ids.device)
         model_kwargs = self._get_initial_cache_position(input_ids, model_kwargs)
 
+        count_new_tokens = 0
+        input_ids_starting_shape = input_ids.shape[-1]
+        print("input_ids_starting_shape", input_ids_starting_shape)
+        
+        alpha = model_kwargs.get("alpha", 0.0)
+        
         while self._has_unfinished_sequences(this_peer_finished, synced_gpus, device=input_ids.device):
             # prepare model inputs
+            print("now enter model_inputs input_ids.shape", input_ids.shape)
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
-
+            print("now exit model_inputs input_ids.shape", model_inputs['input_ids'].shape)
+            
             # forward pass to get next token
             outputs = self(
                 **model_inputs,
@@ -122,12 +307,96 @@ def sample(
             print("logits shape:", next_token_logits.shape)
             
             ### Start DExpert implementation
-            expert_next_token_logits = model_kwargs.get("expert_logits", torch.zeros_like(next_token_logits)).to(next_token_logits.device)
-            antiexpert_next_token_logits = model_kwargs.get("antiexpert_logits", torch.zeros_like(next_token_logits)).to(next_token_logits.device)
+            # if the generator model generates less than 5 new tokens, skip this if condition
+            input_ids_expert = model_kwargs.get("input_ids_expert", None)
+            generate_info_expert = None
+            if input_ids_expert is not None:
+                input_ids_expert = torch.cat([input_ids_expert, input_ids[:, input_ids_starting_shape:]], dim=-1)
+                generate_info_expert = expert_generate_helper(
+                    self.expert,
+                    input_ids_expert,
+                    generation_config=generation_config,
+                    logits_processor=None,
+                    stopping_criteria=None,
+                    kwargs={},
+                )
+                input_ids_expert = generate_info_expert[0]['input_ids']
+                print("input_ids_expert_current_shape", input_ids_expert.shape)
+                
+                # append new input_ids from the generator model
+                if count_new_tokens >= 5:
+                    # model_kwargs
+                    print("#### GenerateInfoStart")
+                    for tmp_kwargs in generate_info_expert[1]:
+                        if hasattr(generate_info_expert[1][tmp_kwargs], 'shape'):
+                            print(tmp_kwargs, generate_info_expert[1][tmp_kwargs].shape)
+                        elif isinstance(generate_info_expert[1][tmp_kwargs], (list, tuple)) and hasattr(generate_info_expert[1][tmp_kwargs][0], 'shape'):
+                            print(tmp_kwargs, len(generate_info_expert[1][tmp_kwargs]))
+                            for i in generate_info_expert[1][tmp_kwargs]:
+                                print(i.shape)
+                        elif isinstance(generate_info_expert[1][tmp_kwargs], (list, tuple)):
+                            print(tmp_kwargs)
+                        else:
+                            print(tmp_kwargs, generate_info_expert[1][tmp_kwargs])
+                    print("#### GenerateInfoEnd")
+                    model_inputs_expert = self.expert.prepare_inputs_for_generation(input_ids_expert, **generate_info_expert[1])
+                    print("#### Start")
+                    for tmp_kwargs in model_inputs_expert:
+                        if hasattr(model_inputs_expert[tmp_kwargs], 'shape'):
+                            print(tmp_kwargs, model_inputs_expert[tmp_kwargs].shape)
+                        elif isinstance(model_inputs_expert[tmp_kwargs], (list, tuple)) and hasattr(model_inputs_expert[tmp_kwargs][0], 'shape'):
+                            print(tmp_kwargs, len(model_inputs_expert[tmp_kwargs]))
+                            for i in model_inputs_expert[tmp_kwargs]:
+                                print(i.shape)
+                        elif isinstance(model_inputs_expert[tmp_kwargs], (list, tuple)):
+                            print(tmp_kwargs)
+                        else:
+                            print(tmp_kwargs, model_inputs_expert[tmp_kwargs])
+                    print("#### End")
+                    # expert model forward to get next_token_logits_expert
+                    outputs_expert = self.expert(
+                        **model_inputs_expert,
+                        return_dict=True,
+                        output_attentions=output_attentions,
+                        output_hidden_states=output_hidden_states,
+                    )
+                    next_token_logits_expert = outputs_expert.logits[:, -1, :]
+                    print("next_token_logits_expert shape", next_token_logits_expert.shape)
+                    next_token_logits = next_token_logits + alpha * next_token_logits_expert.to(next_token_logits.device)
+                    print("output expert logits", outputs_expert.logits.shape)
+                print("input_ids", input_ids.shape)
+                print("output logits", outputs.logits.shape)
             
             
-            
-            next_token_logits = next_token_logits + torch.tensor(model_kwargs.get("alpha", 0.0), dtype=torch.float, device=next_token_logits.device) * (expert_next_token_logits - antiexpert_next_token_logits)
+            input_ids_antiexpert = model_kwargs.get("input_ids_antiexpert", None)
+            generate_info_antiexpert = None
+            if input_ids_antiexpert is not None:
+                input_ids_antiexpert = torch.cat([input_ids_antiexpert, input_ids[:, input_ids_starting_shape:]], dim=-1)
+                generate_info_antiexpert = expert_generate_helper(
+                    self.antiexpert,
+                    input_ids_antiexpert,
+                    generation_config=generation_config,
+                    logits_processor=None,
+                    stopping_criteria=None,
+                    kwargs={},
+                )
+                input_ids_antiexpert = generate_info_antiexpert[0]['input_ids']
+                print("input_ids_expert_current_shape", input_ids_antiexpert.shape)
+                
+                # append new input_ids from the generator model
+                if count_new_tokens >= 5:
+                    # model_kwargs
+                    model_inputs_antiexpert = self.antiexpert.prepare_inputs_for_generation(input_ids_antiexpert, **generate_info_antiexpert[1])
+                    # expert model forward to get next_token_logits_expert
+                    outputs_antiexpert = self.antiexpert(
+                        **model_inputs_antiexpert,
+                        return_dict=True,
+                        output_attentions=output_attentions,
+                        output_hidden_states=output_hidden_states,
+                    )
+                    next_token_logits_antiexpert = outputs_antiexpert.logits[:, -1, :]
+                    print("next_token_logits_antiexpert shape", next_token_logits_antiexpert.shape)
+                    next_token_logits = next_token_logits - alpha * next_token_logits_antiexpert.to(next_token_logits.device)
             
             ### End DExpert implementation
 
@@ -179,6 +448,8 @@ def sample(
 
             unfinished_sequences = unfinished_sequences & ~stopping_criteria(input_ids, scores)
             this_peer_finished = unfinished_sequences.max() == 0
+            
+            count_new_tokens += 1
 
         if streamer is not None:
             streamer.end()
