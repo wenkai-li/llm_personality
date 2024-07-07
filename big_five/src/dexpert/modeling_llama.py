@@ -66,6 +66,9 @@ class LlamaForCausalLM(LlamaPreTrainedModel):
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
         cache_position: Optional[torch.LongTensor] = None,
+        input_ids_expert: Optional[torch.Tensor] = None,
+        input_ids_antiexpert: Optional[torch.Tensor] = None,
+        alpha: Optional[float] = None,
     ) -> Union[Tuple, CausalLMOutputWithPast]:
         r"""
         Args:
