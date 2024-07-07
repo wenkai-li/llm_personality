@@ -282,15 +282,12 @@ def sample(
 
         count_new_tokens = 0
         input_ids_starting_shape = input_ids.shape[-1]
-        print("input_ids_starting_shape", input_ids_starting_shape)
         
         alpha = model_kwargs.get("alpha", 0.0)
         
         while self._has_unfinished_sequences(this_peer_finished, synced_gpus, device=input_ids.device):
             # prepare model inputs
-            print("now enter model_inputs input_ids.shape", input_ids.shape)
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
-            print("now exit model_inputs input_ids.shape", model_inputs['input_ids'].shape)
             
             # forward pass to get next token
             outputs = self(
@@ -304,7 +301,6 @@ def sample(
                 continue  # don't waste resources running the code we don't need
 
             next_token_logits = outputs.logits[:, -1, :]
-            print("logits shape:", next_token_logits.shape)
             
             ### Start DExpert implementation
             # if the generator model generates less than 5 new tokens, skip this if condition
@@ -321,38 +317,11 @@ def sample(
                     kwargs={},
                 )
                 input_ids_expert = generate_info_expert[0]['input_ids']
-                print("input_ids_expert_current_shape", input_ids_expert.shape)
                 
                 # append new input_ids from the generator model
                 if count_new_tokens >= 5:
                     # model_kwargs
-                    print("#### GenerateInfoStart")
-                    for tmp_kwargs in generate_info_expert[1]:
-                        if hasattr(generate_info_expert[1][tmp_kwargs], 'shape'):
-                            print(tmp_kwargs, generate_info_expert[1][tmp_kwargs].shape)
-                        elif isinstance(generate_info_expert[1][tmp_kwargs], (list, tuple)) and hasattr(generate_info_expert[1][tmp_kwargs][0], 'shape'):
-                            print(tmp_kwargs, len(generate_info_expert[1][tmp_kwargs]))
-                            for i in generate_info_expert[1][tmp_kwargs]:
-                                print(i.shape)
-                        elif isinstance(generate_info_expert[1][tmp_kwargs], (list, tuple)):
-                            print(tmp_kwargs)
-                        else:
-                            print(tmp_kwargs, generate_info_expert[1][tmp_kwargs])
-                    print("#### GenerateInfoEnd")
                     model_inputs_expert = self.expert.prepare_inputs_for_generation(input_ids_expert, **generate_info_expert[1])
-                    print("#### Start")
-                    for tmp_kwargs in model_inputs_expert:
-                        if hasattr(model_inputs_expert[tmp_kwargs], 'shape'):
-                            print(tmp_kwargs, model_inputs_expert[tmp_kwargs].shape)
-                        elif isinstance(model_inputs_expert[tmp_kwargs], (list, tuple)) and hasattr(model_inputs_expert[tmp_kwargs][0], 'shape'):
-                            print(tmp_kwargs, len(model_inputs_expert[tmp_kwargs]))
-                            for i in model_inputs_expert[tmp_kwargs]:
-                                print(i.shape)
-                        elif isinstance(model_inputs_expert[tmp_kwargs], (list, tuple)):
-                            print(tmp_kwargs)
-                        else:
-                            print(tmp_kwargs, model_inputs_expert[tmp_kwargs])
-                    print("#### End")
                     # expert model forward to get next_token_logits_expert
                     outputs_expert = self.expert(
                         **model_inputs_expert,
@@ -361,11 +330,7 @@ def sample(
                         output_hidden_states=output_hidden_states,
                     )
                     next_token_logits_expert = outputs_expert.logits[:, -1, :]
-                    print("next_token_logits_expert shape", next_token_logits_expert.shape)
                     next_token_logits = next_token_logits + alpha * next_token_logits_expert.to(next_token_logits.device)
-                    print("output expert logits", outputs_expert.logits.shape)
-                print("input_ids", input_ids.shape)
-                print("output logits", outputs.logits.shape)
             
             
             input_ids_antiexpert = model_kwargs.get("input_ids_antiexpert", None)
@@ -381,7 +346,6 @@ def sample(
                     kwargs={},
                 )
                 input_ids_antiexpert = generate_info_antiexpert[0]['input_ids']
-                print("input_ids_expert_current_shape", input_ids_antiexpert.shape)
                 
                 # append new input_ids from the generator model
                 if count_new_tokens >= 5:
@@ -395,7 +359,6 @@ def sample(
                         output_hidden_states=output_hidden_states,
                     )
                     next_token_logits_antiexpert = outputs_antiexpert.logits[:, -1, :]
-                    print("next_token_logits_antiexpert shape", next_token_logits_antiexpert.shape)
                     next_token_logits = next_token_logits - alpha * next_token_logits_antiexpert.to(next_token_logits.device)
             
             ### End DExpert implementation
