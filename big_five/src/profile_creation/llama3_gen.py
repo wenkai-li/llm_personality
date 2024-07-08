@@ -58,21 +58,36 @@ class CO3Sotopia():
             {"role": "user", "content": prompt}
         ]
         return messages
-        
-    def generate_dialogue(self, idx, env_info, p1_big_five, p2_big_five, out_f):
+    
+    def generate_dialogue_turn0(self, idx, env_info, p1_big_five, out_f):
         # generate prompt for turn 0
-        prompt_turn_0 = generate_prompt(
+        self.prompt_turn_0 = generate_prompt(
             env_info,
             # p1_personality_and_values=p1_big_five,
             # p2_personality_and_values=p2_big_five,
             current_turn_index=0
         )
         
-        response_turn_0 = self.process_response(self.model.generate(
-            messages = self.generate_messages(prompt_turn_0),
+        self.response_turn_0 = self.process_response(self.model.generate(
+            messages = self.generate_messages(self.prompt_turn_0),
             messages_expert = self.generate_expert_messages(p1_big_five),
             alpha = self.args.alpha,
         ))
+        
+        result_info = {
+            "env_idx": idx,
+            "env_info": env_info,
+            "personality": " ".join(map(str, p1_big_five)),
+            "turn": 0,
+            "prompt": self.prompt_turn_0,
+            "response": self.response_turn_0,
+        }
+        json.dump(result_info, out_f)
+        out_f.write("\n")
+        out_f.flush()
+    
+    def generate_dialogue_turn1(self, idx, env_info, p2_big_five, out_f):
+        
         
         # generate prompt for turn 1
         prompt_turn_1 = generate_prompt(
@@ -80,7 +95,7 @@ class CO3Sotopia():
             # p1_personality_and_values=p1_big_five,
             # p2_personality_and_values=p2_big_five,
             current_turn_index=1,
-            p1_argument = response_turn_0
+            p1_argument = self.response_turn_0
         )
         
         response_turn_1 = self.process_response(self.model.generate(
@@ -92,12 +107,10 @@ class CO3Sotopia():
         result_info = {
             "env_idx": idx,
             "env_info": env_info,
-            "personality_0": " ".join(map(str, p1_big_five)),
-            "prompt_turn_0": prompt_turn_0,
-            "response_turn_0": response_turn_0,
-            "personality_1": " ".join(map(str, p2_big_five)),
-            "prompt_turn_1": prompt_turn_1,
-            "response_turn_1": response_turn_1,
+            "personality": " ".join(map(str, p2_big_five)),
+            "turn": 1,
+            "prompt": prompt_turn_1,
+            "response": response_turn_1,
         }
         json.dump(result_info, out_f)
         out_f.write("\n")
@@ -108,11 +121,13 @@ class CO3Sotopia():
         p2_big_five_ref = [1, 1, 1, 1, 1]
         for idx, env_info in tqdm(enumerate(self.data)):            
             p1_big_five = list(np.random.choice(3, 5, replace=True))
+            self.generate_dialogue_turn0(idx, env_info, p1_big_five, out_f)
+            self.generate_dialogue_turn1(idx, env_info, p2_big_five_ref, out_f)
             for dim in [0, 1, 2, 3, 4]:
-                for level in [0, 1, 2]:
+                for level in [0, 2]:
                     p2_big_five = p2_big_five_ref.copy()
                     p2_big_five[dim] = level
-                    self.generate_dialogue(idx, env_info, p1_big_five, p2_big_five, out_f)
+                    self.generate_dialogue_turn1(idx, env_info, p2_big_five, out_f)
             
     
 if __name__ == '__main__':
