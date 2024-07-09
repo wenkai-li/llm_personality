@@ -32,7 +32,8 @@ def get_personality(personality_lst: list[int]):
         trait_name = big_five_mapping[trait_abbr]
         
         levels.append(level_lst[trait_level])
-        descriptions.append(f"- {level_lst[trait_level].capitalize()} {trait_name.lower()}: {personality_descriptions[trait_abbr][trait_level]}")
+        # descriptions.append(f"- {level_lst[trait_level].capitalize()} {trait_name.lower()}: {personality_descriptions[trait_abbr][trait_level]}")
+        descriptions.append(f"{personality_descriptions[trait_abbr][trait_level]}")
     descriptions_str = "\n".join(descriptions)
     personality_str = personality_str.format(
         level_o = levels[0],
@@ -54,10 +55,19 @@ class ContextTemplate:
 # ```
 # """
 
-    context = """Here is the context of this interaction:
+    context_p1 = """Here is the context of this interaction:
 ```
 Scenario: {scenario}
 Participants: {p1_name} and {p2_name}
+{p1_name}'s big five personality description: {p1_personality}
+```
+"""
+
+    context_p2 = """Here is the context of this interaction:
+```
+Scenario: {scenario}
+Participants: {p1_name} and {p2_name}
+{p2_name}'s big five personality description: {p2_personality}
 ```
 """
 
@@ -75,9 +85,9 @@ Please generate your argument directly and concisely within 50 words:"""
 
 def generate_prompt(
     env_info: dict,
-    # p1_personality_and_values: list[int],
-    # p2_personality_and_values: list[int],
     current_turn_index: int,
+    p1_personality_and_values: list[int] = None,
+    p2_personality_and_values: list[int] = None,
     p1_argument=None,
 ):
     """
@@ -87,11 +97,11 @@ def generate_prompt(
     
     
     if current_turn_index == 0:
-        context = ContextTemplate.context.format(
+        context = ContextTemplate.context_p1.format(
             scenario=env_info['narrative'],
             p1_name=env_info['PersonX'],
             p2_name=env_info['PersonY'],
-            # p1_personality=get_personality(p1_personality_and_values),
+            p1_personality=get_personality(p1_personality_and_values),
             # p2_personality=get_personality(p2_personality_and_values)
         )
         return PromptTemplate.prompt.format(
@@ -104,12 +114,12 @@ def generate_prompt(
             )
         )
     elif current_turn_index == 1:
-        context = ContextTemplate.context.format(
+        context = ContextTemplate.context_p2.format(
             scenario=env_info['narrative'],
             p1_name=env_info['PersonX'],
             p2_name=env_info['PersonY'],
             # p1_personality=get_personality(p1_personality_and_values),
-            # p2_personality=get_personality(p2_personality_and_values)
+            p2_personality=get_personality(p2_personality_and_values)
         )
         return PromptTemplate.prompt.format(
             agent=env_info['PersonY'],
