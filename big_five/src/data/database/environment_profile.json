@@ -38,6 +38,189 @@
       "age_constraint": null,
       "occupation_constraint": "[['project_manager', 'team_lead'], ['software_developer', 'qa_engineer']]",
       "agent_constraint": null
+    },
+    "4": {
+      "codename": "Coffee Shop Encounter",
+      "source": "Real-life scenario",
+      "scenario": "Agent1 and Agent2 are sitting at a small coffee shop during a busy morning. Agent1 is trying to work on their laptop, but the noise level is making it difficult to focus. Agent2 is sitting nearby, sipping on a cup of coffee and scrolling through their phone. Agent1 notices that Agent2 seems to be enjoying the peaceful atmosphere and is not bothered by the noise.",
+      "agent_goals": [
+        "Agent1: Get Agent2 to help reduce the noise level in the coffee shop so Agent1 can focus on their work.",
+        "Agent1: <extra_info> Agent1 is on a deadline to finish a project and needs a quiet environment to concentrate. </extra_info> <clarification_hint> Agent2 might be willing to help if they understand the importance of Agent1's work. </clarification_hint> <strategy_hint> You can appeal to Agent2's sense of empathy to achieve your goal. </strategy_hint>",
+        "Agent2: Continue to enjoy the peaceful atmosphere and not be disturbed by Agent1's request.",
+        "Agent2: <extra_info> Agent2 is taking a break from a stressful morning and needs some quiet time to recharge. </extra_info> <clarification_hint> Agent1 might be willing to compromise if they understand Agent2's needs. </clarification_hint> <strategy_hint> You can offer an alternative solution to Agent1's request to achieve your goal. </strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "5": {
+      "codename": "Laughter Shared",
+      "source": "Inspired by Lucian's love for laughter",
+      "scenario": "Agent1 and Agent2 are colleagues working in the same department. Agent1 is trying to lighten the mood in the office by sharing a funny story during a break. Agent2 is initially stressed about an upcoming deadline but is open to being distracted.",
+      "agent_goals": [
+        "Agent1: Make Agent2 laugh to improve their mood and create a positive atmosphere in the office. <extra_info>Agent2 has been under a lot of pressure lately.</extra_info><clarification_hint>Find a way to relate the story to Agent2's interests.</clarification_hint><strategy_hint>Use humor to break the ice and create a connection with Agent2.",
+        "Agent2: Politely listen to Agent1's story and try to appreciate the effort to lighten the mood. <extra_info>Agent1 is trying to help Agent2 relax.</extra_info><clarification_hint>Be open-minded and don't dismiss the story immediately.</clarification_hint><strategy_hint>Find something to appreciate in the story and respond with a smile."
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "6": {
+      "codename": "Meeting_at_Coffee_Shop",
+      "source": "Real-life scenario",
+      "scenario": "Two agents, Alex and Sam, meet at a coffee shop. Alex is trying to convince Sam to collaborate on a project, and Sam is hesitant due to concerns about the project's feasibility. Alex has done research on the project and believes it has great potential, while Sam is more risk-averse. The goal of the interaction is for Alex to persuade Sam to join the project.",
+      "agent_goals": [
+        "Alex: Convince Sam to collaborate on the project by alleviating their concerns and highlighting the potential benefits. <extra_info> Alex has a strong track record of successful projects. </extra_info> <clarification_hint> Be prepared to address Sam's concerns directly. </clarification_hint> <strategy_hint> Offer to share the risks and responsibilities to make the project more appealing. </strategy_hint>",
+        "Sam: Decline the collaboration offer unless Alex can provide sufficient evidence of the project's feasibility. <extra_info> Sam has been burned by failed projects in the past. </extra_info> <clarification_hint> Ask specific questions about the project's timeline and budget. </clarification_hint> <strategy_hint> Be open to alternative solutions that mitigate the risks. </strategy_hint>"
+      ],
+      "relationship": 3,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "7": {
+      "codename": "Artistic Collaboration",
+      "source": "Real-life scenario",
+      "scenario": "Agent1, an artist, wants to create a portrait of Agent2, a model. They meet at a studio to discuss the project. Agent1 is drawn to Agent2's unique features and wants to capture their essence on canvas. Agent2 is interested in exploring their creative side and is open to the idea of being painted.",
+      "agent_goals": [
+        "Agent1: Create a stunning portrait that showcases Agent2's best features, <extra_info> Agent1 has never painted someone they've just met before </extra_info>, <clarification_hint> Make sure to ask Agent2 about their comfort level with the painting process </clarification_hint>, <strategy_hint> Build rapport with Agent2 to get them to relax and open up </strategy_hint>",
+        "Agent2: Feel comfortable and confident during the painting process, <extra_info> Agent2 is not sure what to expect from the experience </extra_info>, <clarification_hint> Ask Agent1 about their vision for the portrait </clarification_hint>, <strategy_hint> Be open-minded and trust Agent1's artistic vision </strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "8": {
+      "codename": "MeetingRequest",
+      "source": "Workplace",
+      "scenario": "Agent1 is a marketing specialist who needs to meet with Agent2, a graphic designer, to discuss the visuals for an upcoming campaign. They have worked together on several projects in the past and have a friendly relationship. Agent1 wants to request a meeting with Agent2 to finalize the design concepts.",
+      "agent_goals": [
+        "Agent1: Get Agent2 to agree to meet within the next 48 hours to finalize the design concepts. <extra_info> Agent1 has a tight deadline to meet and needs Agent2's input to move forward. </extra_info> <clarification_hint> Be clear about the importance of meeting within the deadline. </clarification_hint> <strategy_hint> Offer to adjust the meeting time to accommodate Agent2's schedule. </strategy_hint>",
+        "Agent2: Decline the meeting request if it conflicts with existing commitments. <extra_info> Agent2 has several ongoing projects and cannot accommodate last-minute meetings. </extra_info> <clarification_hint> Politely explain the reason for declining the meeting. </clarification_hint> <strategy_hint> Suggest an alternative meeting time or propose a compromise. </strategy_hint>"
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": "[['marketing_specialist', 'graphic_designer']]",
+      "agent_constraint": null
+    },
+    "9": {
+      "codename": "CommunicationBoost",
+      "source": "Inspired by Kasper's suggestion",
+      "scenario": "Agent1 and Agent2 are partners living together. They have been feeling disconnected and Agent1 wants to strengthen their relationship by improving communication. Agent1 initiates a conversation with Agent2 about their daily lives, interests, and feelings. The purpose of the interaction is for Agent1 to understand Agent2 better and for Agent2 to feel heard and valued.",
+      "agent_goals": [
+        "Agent1: To understand Agent2's daily life, interests, and feelings, and to find common ground to bond over. <extra_info> Agent1 has been feeling left out of Agent2's life. </extra_info><clarification_hint> Be open-minded and non-judgmental. </clarification_hint><strategy_hint> Show genuine interest and ask follow-up questions. </strategy_hint>",
+        "Agent2: To feel heard and valued by Agent1, and to improve the overall communication in the relationship. <extra_info> Agent2 has been feeling unheard in the relationship. </extra_info><clarification_hint> Be honest and open about feelings. </clarification_hint><strategy_hint> Use 'I' statements to express thoughts and feelings. </strategy_hint>"
+      ],
+      "relationship": 4,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "10": {
+      "codename": "Dinner Invitation",
+      "source": "Social interaction",
+      "scenario": "Agent1 is invited to Agent2's house for dinner. Agent1 arrives at Agent2's house and is greeted by Agent2. They sit down in the dining room, where Agent2 has set up a table for two.",
+      "agent_goals": [
+        "Agent1: Establish a connection with Agent2 to build a potential business partnership, <extra_info> Agent1 is looking to expand their professional network </extra_info>, <clarification_hint> Be respectful and show genuine interest in Agent2's life </clarification_hint>, <strategy_hint> You can find common ground to build rapport </strategy_hint>",
+        "Agent2: Make a good impression on Agent1 to secure a potential collaboration, <extra_info> Agent2 is looking to gain exposure for their work </extra_info>, <clarification_hint> Be welcoming and attentive to Agent1's needs </clarification_hint>, <strategy_hint> You can offer refreshments to create a comfortable atmosphere </strategy_hint>"
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "11": {
+      "codename": "Job Negotiation",
+      "source": "Real-life scenario",
+      "scenario": "Agent1 is a job candidate who has just received a job offer from Agent2, a hiring manager at a prestigious company. The two agents are interacting to discuss the terms of the job offer, including salary, benefits, and start date.",
+      "agent_goals": [
+        "Agent1: Negotiate a higher salary to feel financially secure and valued by the company. <extra_info>Agent1 has been searching for a job for several months and is eager to secure a stable income.</extra_info> <clarification_hint>Be open to creative solutions that benefit both parties.</clarification_hint> <strategy_hint>Highlight your skills and experience to justify your request.</strategy_hint>",
+        "Agent2: Convince Agent1 to accept the job offer with the current terms to meet the company's budget and hiring deadline. <extra_info>Agent2 has been struggling to fill the position and needs to make a decision quickly.</extra_info> <clarification_hint>Be transparent about the company's constraints.</clarification_hint> <strategy_hint>Offer additional benefits or perks to sweeten the deal.</strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": "[['job_candidate', 'hiring_manager']]",
+      "agent_constraint": [
+        [
+          "has_job_offer",
+          "has_hiring_authority"
+        ]
+      ]
+    },
+    "12": {
+      "codename": "Coffee Shop Encounter",
+      "source": "Real-Life",
+      "scenario": "Agent1 and Agent2 meet at a coffee shop in the afternoon. Agent1 is looking for a business partner to invest in their startup, while Agent2 is a potential investor. They have a mutual acquaintance who introduced them, but they have never met before.",
+      "agent_goals": [
+        "Agent1: Convince Agent2 to invest in their startup by showcasing its potential for growth and returns, <extra_info> Agent2 has invested in similar startups before </extra_info>, <clarification_hint> Be prepared to answer questions about the business model and financial projections </clarification_hint>, <strategy_hint> You can offer a unique value proposition to differentiate your startup from others </strategy_hint>",
+        "Agent2: Assess the viability of Agent1's startup and decide whether to invest, <extra_info> Agent1 has a strong track record of innovation </extra_info>, <clarification_hint> Ask questions about the competitive landscape and market demand </clarification_hint>, <strategy_hint> You can request additional information or a follow-up meeting to make a decision </strategy_hint>"
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": "[['entrepreneur', 'startup_founder'], ['investor', 'venture_capitalist']]",
+      "agent_constraint": null
+    },
+    "13": {
+      "codename": "FlightSchool",
+      "source": "Inspired by Codi's research on small airplanes",
+      "scenario": "Agent1, a flight instructor, is interacting with Agent2, a potential student, at a flight school. The purpose of the interaction is for Agent1 to convince Agent2 to enroll in a flight course.",
+      "agent_goals": [
+        "Agent1: Convince Agent2 to enroll in a flight course, <extra_info>Agent2 has always been fascinated by airplanes and has been considering getting a pilot's license</extra_info>, <clarification_hint>Emphasize the benefits of learning to fly and the expertise of the flight school</clarification_hint>, <strategy_hint>Offer a free introductory lesson to alleviate Agent2's concerns</strategy_hint>",
+        "Agent2: Get a sense of the flight school's reputation and quality of instruction, <extra_info>Agent2 is hesitant to commit to a course without knowing more about the school</extra_info>, <clarification_hint>Ask questions about the instructors' experience and the school's safety record</clarification_hint>, <strategy_hint>Look for reviews and testimonials from previous students</strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "14": {
+      "codename": "JobInterview",
+      "source": "Interview",
+      "scenario": "Agent1 is a job candidate who is interviewing with Agent2, a hiring manager at a company. Agent1 wants to get hired for the job, and Agent2 wants to find the best candidate for the position.",
+      "agent_goals": [
+        "Agent1 wants to showcase their skills and experience to impress Agent2 and get the job. <extra_info> Agent1 has been preparing for this interview for weeks.</extra_info> <clarification_hint> Agent1 should be prepared to answer common interview questions.</clarification_hint> <strategy_hint> Agent1 can highlight their relevant experience and skills to stand out from other candidates.</strategy_hint>",
+        "Agent2 wants to assess Agent1's qualifications and fit for the company culture. <extra_info> Agent2 has been working at the company for 5 years.</extra_info> <clarification_hint> Agent2 should ask behavioral questions to gauge Agent1's problem-solving skills.</clarification_hint> <strategy_hint> Agent2 can create a comfortable atmosphere to help Agent1 open up about their strengths and weaknesses.</strategy_hint>"
+      ],
+      "relationship": 1,
+      "age_constraint": null,
+      "occupation_constraint": "[['job_candidate', 'interviewee'], ['hiring_manager', 'recruiter']]",
+      "agent_constraint": [
+        [
+          " Agent1 should be confident and enthusiastic during the interview.",
+          "Agent2 should be impartial and objective in their assessment."
+        ]
+      ]
+    },
+    "15": {
+      "codename": "NeighborhoodDispute",
+      "source": "Everyday Life",
+      "scenario": "Agent1 and Agent2 are neighbors who share a fence in a suburban area. They have been living next to each other for a few years, but they have never had any major conflicts until recently. A few days ago, Agent1 started building a new shed in their backyard, which Agent2 believes is too close to the shared fence and obstructs their view. Agent1 thinks the shed is within the allowed boundaries and does not bother anyone. They are having a conversation to resolve the issue.",
+      "agent_goals": [
+        "Agent1 wants to convince Agent2 that the shed does not obstruct their view and is within the allowed boundaries. <extra_info>The local regulations permit the shed to be built at the current location.</extra_info> <clarification_hint>Agent1 should be open to compromise and be willing to make adjustments if necessary.</clarification_hint> <strategy_hint>Agent1 can offer to plant trees or install a screen to block the view if Agent2 is still concerned.</strategy_hint>",
+        "Agent2 wants to persuade Agent1 to move the shed to a different location or reduce its size. <extra_info>They have been enjoying the unobstructed view for years.</extra_info> <clarification_hint>Agent2 should be specific about how the shed is affecting their daily life.</clarification_hint> <strategy_hint>Agent2 can offer to help Agent1 find a more suitable location or suggest alternative solutions.</strategy_hint>"
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    },
+    "16": {
+      "codename": "FreshStart",
+      "source": "Daily Routine",
+      "scenario": "Agent1 and Agent2 are coworkers at a busy office. Agent1 is feeling sluggish and decides to take a short break to refresh themselves. They head to the office restroom to wash their face and hands with soap, feeling invigorated afterwards. Agent2 notices Agent1's refreshed appearance and approaches them to strike up a conversation.",
+      "agent_goals": [
+        "Agent1: To feel revitalized and focused for the rest of the workday.",
+        "Agent1: To politely engage in small talk with Agent2 without revealing their initial sluggishness.",
+        "Agent2: To build a rapport with Agent1 and learn more about their interests.",
+        "Agent2: To indirectly compliment Agent1 on their refreshed appearance without being too obvious."
+      ],
+      "relationship": 2,
+      "age_constraint": null,
+      "occupation_constraint": "[['office_worker'], ['office_worker']]",
+      "agent_constraint": null
     }
   }
 }

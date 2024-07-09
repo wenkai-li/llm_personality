@@ -1,5 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+import os
+os.environ["HF_HUB_TOKEN"] = "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"
+
 
 class LLAMA3():
     def __init__(self, llama_version):
@@ -7,9 +10,11 @@ class LLAMA3():
             model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
             cache_dir = "/data/user_data/jiaruil5/.cache/"
         elif llama_version == "llama3-70b":
-            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
-            cache_dir = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
-
+            model_id = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+            # cache_dir = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+            # Can set cache dir to be None
+            cache_dir = None
+            # access_token = "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"
         self.tokenizer = AutoTokenizer.from_pretrained(
             model_id,
             cache_dir=cache_dir
