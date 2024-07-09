@@ -13,8 +13,8 @@ model = LLAMA3("llama3-70b")
 def get_response(prompt):
     return model.generate(prompt)
 
-agent_profiles = json.load(open("../data/database/agent_profiles.json", 'r'))['_default']
-env_profiles = json.load(open("../data/database/environment_profiles.json", 'r'))['_default']
+agent_profiles = json.load(open("../data/database/agent_profile.json", 'r'))['_default']
+env_profiles = json.load(open("../data/database/environment_profile.json", 'r'))['_default']
 
 out_f = open("sample20_11111_11211.jsonl", 'a')
 p1_big_five = [1, 1, 1, 1, 1]

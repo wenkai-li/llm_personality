@@ -32,8 +32,7 @@ def get_prediction_list(model, testset, config):
     for tokens in tqdm(post_tokens):
         predict_dict = {}
         prompt = [
-        "You are a helpful assistant.\n"
-        f"Help me complete the sentence with certain Big Five Personality: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - high, Neuroticism - low. {tokens}"]
+        f"Help me complete the sentence with certain Big Five Personality: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - high, Neuroticism - low. {tokens} \n"]
         res = call(
             prompt,
             llm_config_func,
