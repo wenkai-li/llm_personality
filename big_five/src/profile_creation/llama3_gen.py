@@ -25,11 +25,27 @@ class CO3Sotopia():
             cache_dir = "/compute/babel-1-31/jiaruil5/.cache/"
 
         class ArgsExpert:
-            model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-            cache_dir = "/data/user_data/jiaruil5/.cache/"
+            # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+            # cache_dir = "/data/user_data/jiaruil5/.cache/"
+            model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
+            cache_dir = None
 
         self.model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
         self.data = pd.read_csv(args.in_file).to_dict(orient='records')
+        fifth = len(self.data) // 5
+        if args.chunk == "1/5":
+            self.data = self.data[:fifth]
+        elif args.chunk == "2/5":
+            self.data = self.data[fifth:2*fifth]
+        elif args.chunk == "3/5":
+            self.data = self.data[2*fifth:3*fifth]
+        elif args.chunk == "4/5":
+            self.data = self.data[3*fifth:4*fifth]
+        elif args.chunk == "5/5":
+            self.data = self.data[4*fifth:]
+        else:
+            raise NotImplementedError()
+        
     
     def process_response(self, response):
         try:
@@ -63,9 +79,9 @@ class CO3Sotopia():
         # generate prompt for turn 0
         self.prompt_turn_0 = generate_prompt(
             env_info,
-            # p1_personality_and_values=p1_big_five,
+            current_turn_index=0,
+            p1_personality_and_values=p1_big_five,
             # p2_personality_and_values=p2_big_five,
-            current_turn_index=0
         )
         
         self.response_turn_0 = self.process_response(self.model.generate(
@@ -92,10 +108,10 @@ class CO3Sotopia():
         # generate prompt for turn 1
         prompt_turn_1 = generate_prompt(
             env_info,
-            # p1_personality_and_values=p1_big_five,
-            # p2_personality_and_values=p2_big_five,
             current_turn_index=1,
-            p1_argument = self.response_turn_0
+            # p1_personality_and_values=p1_big_five,
+            p2_personality_and_values=p2_big_five,
+            p1_argument = self.response_turn_0,
         )
         
         response_turn_1 = self.process_response(self.model.generate(
@@ -134,7 +150,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='arguments for generating dialogues')
     parser.add_argument("--in_file", type=str, default="/data/user_data/wenkail/llm_personality/soda_data/sample_10000.csv", help="The file of the sampled soda training data")
     parser.add_argument("--out_file", type=str, default="/data/user_data/wenkail/llm_personality/profiles/env_profiles.jsonl")
-    parser.add_argument("--alpha", type=float, default=1.0)
+    parser.add_argument("--alpha", type=float, default=0.5)
+    parser.add_argument("--chunk", type=str, default="1/5")
     args = parser.parse_args()
     soda_maker = CO3Sotopia(args)
     soda_maker.run()
