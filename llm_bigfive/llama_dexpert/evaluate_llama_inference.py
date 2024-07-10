@@ -50,7 +50,7 @@ def main():
     parser = argparse.ArgumentParser()
     
     parser.add_argument("--model_name", default=None, type=str, required=True, help = "Choose the evlauate model, the name can be seen in config")
-    parser.add_argument("--testset", default="./testset/alpaca_big_five_dataset_1000_test_5_tokens.json", type=str, required=False, help="Give a absolute path for testset")
+    parser.add_argument("--testset", default="./testset/alpaca_big_five_dataset_1000_test_5_tokens_subtestset.json", type=str, required=False, help="Give a absolute path for testset")
     parser.add_argument("--output_file", default=None, type=str, required=True, help="The output file path and name")
     args = parser.parse_args()
 
