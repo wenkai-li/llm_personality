@@ -22,5 +22,5 @@ python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profile
 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_4.jsonl --alpha 0.5 --chunk 4/5
 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_5.jsonl --alpha 0.5 --chunk 5/5
 
-
+# python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_5.jsonl --alpha 0.5 --chunk 5/5 > llama_3_gen_chunk_5_5.log
 ```

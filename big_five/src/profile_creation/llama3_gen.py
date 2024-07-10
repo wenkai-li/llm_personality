@@ -11,6 +11,7 @@ from prompts import generate_prompt
 sys.path.append("../dexpert/")
 from dexpert import DExpertGenerator
 
+
 def remove_double_quotes(s):
     # Remove double quotes from the beginning and end
     return re.sub(r'^"+|"+$', '', s)
@@ -21,8 +22,8 @@ class CO3Sotopia():
         self.args = args
         
         class Args:
-            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
-            cache_dir = "/compute/babel-1-31/jiaruil5/.cache/"
+            model_id = "/compute/babel-1-31/jiaruil5/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+            cache_dir = None
 
         class ArgsExpert:
             # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
