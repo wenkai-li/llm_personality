@@ -29,7 +29,7 @@ def get_prediction_list(model, testset, config):
     for test in tqdm(testset):
         predict_dict = {}
         prompt = [
-        f"{test['instruction']} {test["token"]} \n"]
+        f"{test['instruction']} {test["input"]} \n"]
         res = call(
             prompt,
             llm_config_func,
@@ -38,8 +38,9 @@ def get_prediction_list(model, testset, config):
             verbose=True,
             **config
         )
-        predict_dict['input'] = tokens
-        predict_dict['prediction'] = res
+        predict_dict['instuction'] = test['instruction']
+        predict_dict['input'] = test['input']
+        predict_dict['output'] = res
         prediction.append(predict_dict)
     return prediction
 
@@ -47,7 +48,7 @@ def main():
     parser = argparse.ArgumentParser()
     
     parser.add_argument("--model_name", default=None, type=str, required=True, help = "Choose the evlauate model, the name can be seen in config")
-    parser.add_argument("--testset", default="./testset/alpaca_big_five_dataset_1000_test_5_tokens_subtestset.json", type=str, required=False, help="Give a absolute path for testset")
+    parser.add_argument("--testset", default="/data/user_data/wenkail/llm_personality/generator/data/alpaca_big_five_dataset_test_5_tokens.json", type=str, required=False, help="Give a absolute path for testset")
     parser.add_argument("--output_file", default=None, type=str, required=True, help="The output file path and name")
     args = parser.parse_args()
 
