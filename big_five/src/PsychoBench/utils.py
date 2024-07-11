@@ -11,7 +11,7 @@ import pandas as pd
 import re
 sys.path.append("../dexpert/")
 from dexpert import DExpertGenerator
-
+import pdb
 
 
 def get_questionnaire(questionnaire_name):
@@ -159,7 +159,7 @@ def compute_statistics(questionnaire, data_list):
                 scores_list.append(sum(scores))
             else:
                 scores_list.append(mean(scores))
-        
+        # pdb.set_trace()
         if len(scores_list) < 2:
             raise ValueError("The test file should have at least 2 test cases.")
         
@@ -451,9 +451,8 @@ def analysis_results(questionnaire, args):
             
     #     model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
     
-    
     test_data = convert_data(questionnaire, testing_file)
-    
+    # pdb.set_trace()
     if questionnaire["name"] == "16P":
         analysis_personality(args, test_data)
         return
@@ -464,11 +463,12 @@ def analysis_results(questionnaire, args):
     crowd_list = [(c["crowd_name"], c["n"]) for c in questionnaire['categories'][0]["crowd"]]
     mean_list = [[] for i in range(len(crowd_list) + 1)]
     
+    
     output_list = f'# {questionnaire["name"]} Results\n\n'
     output_list += f'| Category | {model} (n = {len(test_data)}) | ' + ' | '.join([f'{c[0]} (n = {c[1]})' for c in crowd_list]) + ' |\n'
     output_list += '| :---: | ' + ' | '.join([":---:" for i in range(len(crowd_list) + 1)]) + ' |\n'
     output_text = ''
-
+    
     # Analysis by each category
     for cat_index, cat in enumerate(questionnaire['categories']):
         output_text += f'## {cat["cat_name"]}\n'

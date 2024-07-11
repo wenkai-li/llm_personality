@@ -97,10 +97,10 @@ class DExpertGenerator():
             input_ids_expert=input_ids_expert,              # dexpert
             input_ids_antiexpert=input_ids_antiexpert,      # dexpert
             alpha=alpha,                                    # dexpert
-            max_new_tokens=256,
+            max_new_tokens=1024,
             eos_token_id=self.terminators,
-            do_sample=True,
-            temperature=0.6,
+            do_sample=False,
+            # temperature=0.0,
             top_p=0.9,
         )
         response = outputs[0][input_ids.shape[-1]:]
