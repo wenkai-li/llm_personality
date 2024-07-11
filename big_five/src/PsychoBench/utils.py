@@ -438,18 +438,18 @@ def analysis_results(questionnaire, args):
     result_file = args.results_file
     model = args.model
     
-    if model == "dexpert":
-        class Args:
-            model_id = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
-            cache_dir = None
+    # if model == "dexpert":    
+    #     class Args:
+    #         model_id = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+    #         cache_dir = None
 
-        class ArgsExpert:
-            # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-            # cache_dir = "/data/user_data/jiaruil5/.cache/"
-            model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
-            cache_dir = None
+    #     class ArgsExpert:
+    #         # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+    #         # cache_dir = "/data/user_data/jiaruil5/.cache/"
+    #         model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
+    #         cache_dir = None
             
-        model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
+    #     model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
     
     
     test_data = convert_data(questionnaire, testing_file)

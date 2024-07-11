@@ -12,6 +12,8 @@ import numpy as np
 import sys
 sys.path.append("../dexpert/")
 from dexpert import DExpertGenerator
+import pdb
+
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 
 def chat(
@@ -151,6 +153,7 @@ def example_generator(questionnaire, args):
                                     {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
                                 ]
                                 result = chat(model, inputs)
+                                # pdb.set_trace()
                                 previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
                                 previous_records.append({"role": "assistant", "content": result})
                             elif model == "dexpert":
@@ -160,18 +163,26 @@ def example_generator(questionnaire, args):
                                 ]
                                 # p1_big_five = list(np.random.choice(3, 5, replace=True))
                                 big_five_ref = [1, 1, 1, 1, 1]
-                                for dim in [0, 1, 2, 3, 4]:
-                                    for level in [0, 2]:
-                                        big_five = big_five_ref.copy()
-                                        big_five[dim] = level
-                                expert_inputs = generate_expert_messages(big_five)
+                                # for dim in [0, 1, 2, 3, 4]:
+                                #     for level in [0, 2]:
+                                #         big_five = big_five_ref.copy()
+                                #         big_five[dim] = level
+                                expert_inputs = generate_expert_messages(big_five_ref)
                                 result = dexpert_model.generate(
                                     messages=inputs,
-                                    messages_expert=expert_inputs,
+                                    # messages_expert=expert_inputs,
                                     alpha=args.alpha
                                 )
-                                previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
-                                previous_records.append({"role": "assistant", "content": result})
+                                # pdb.set_trace()
+                                if args.questionnaire == "BFI" and not result.startswith("1"):
+                                    data = result
+                                    lines = data.strip().split("\n")
+                                    lines = lines[2:]
+                                    formatted_responses = [f"{line.split('.')[0]}: {line.split(':')[-1].strip()}" for line in lines]
+                                    result = "\n".join(formatted_responses)
+                                    previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
+                                    previous_records.append({"role": "assistant", "content": result})
+                                    # pdb.set_trace()
                             else:
                                 raise ValueError("The model is not supported or does not exist.")
                         
