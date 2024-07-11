@@ -75,7 +75,7 @@ def generate_messages(prompt):
 
 def generate_expert_messages(big_five_level):
     level_lst = ['high', 'median', 'low']
-    prompt = f"Help me complete the sentence with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
+    prompt = f"Help me complete the answer with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
     messages = [
         {"role": "user", "content": prompt}
     ]
@@ -162,7 +162,7 @@ def example_generator(questionnaire, args):
                                     {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
                                 ]
                                 # p1_big_five = list(np.random.choice(3, 5, replace=True))
-                                big_five_ref = [1, 1, 1, 1, 1]
+                                big_five_ref = [1, 1, 1, 1, 2]
                                 # for dim in [0, 1, 2, 3, 4]:
                                 #     for level in [0, 2]:
                                 #         big_five = big_five_ref.copy()
@@ -170,7 +170,7 @@ def example_generator(questionnaire, args):
                                 expert_inputs = generate_expert_messages(big_five_ref)
                                 result = dexpert_model.generate(
                                     messages=inputs,
-                                    # messages_expert=expert_inputs,
+                                    messages_expert=expert_inputs,
                                     alpha=args.alpha
                                 )
                                 # pdb.set_trace()

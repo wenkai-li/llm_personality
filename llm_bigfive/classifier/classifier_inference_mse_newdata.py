@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/compute/inst-0-35/jiaruil5/personality/classifier/mse_1e-5/checkpoint-104000/'
-model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
+model_path = '/compute/inst-0-35/jiaruil5/personality/classifier/mse_1e-5/checkpoint-119000/'
+model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/wenkail/.cache")
 model.eval()
 
 def map_to_label(logit):
@@ -44,12 +44,13 @@ def map_to_3_label(original_label):
 
 map_to_3_label_func = np.vectorize(map_to_3_label)
 
-out_f = open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/mse_checkpoint_103500.json', 'w')
+out_f = open('/home/wenkail/llm_personality/llm_bigfive/classifier/results/mse-checkpoint-119000.json', 'w')
 
 
 from utils import preprocess_function_with_tokenizer_without_labels
-df = pd.read_csv('filtered_big5_data_6_label.csv').sample(n=50, random_state=42)
-dataset = Dataset.from_pandas(df.dropna())
+# df = pd.read_csv('filtered_big5_data_6_label.csv').sample(n=50, random_state=42)
+df = pd.read_csv("alpaca_test_5_token_subtest_evaluate_998.csv")
+dataset = Dataset.from_pandas(df)
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
 test_dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer_without_labels(examples, tokenizer), batched=True)
 
