@@ -7,7 +7,7 @@ from config import get_model_config
 import argparse
 import rich 
 import random
-
+import pdb
 
 def llm_config_func(llm):
     llm.temperature = 0
@@ -25,14 +25,11 @@ def get_prediction_list(model, testset, config):
     # seed = 42
     # random.seed(seed)
     # sub_testset = random.sample(testset, num_samples)
-    # post_tokens = [i["input"] for i in sub_testset]
-
-    post_tokens = [i["input"] for i in testset]
-
-    for tokens in tqdm(post_tokens):
+    # pdb.set_trace()
+    for test in tqdm(testset):
         predict_dict = {}
         prompt = [
-        f"Help me complete the sentence with certain Big Five Personality: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - high, Neuroticism - low. {tokens} \n"]
+        f"{test['instruction']} {test["token"]} \n"]
         res = call(
             prompt,
             llm_config_func,
