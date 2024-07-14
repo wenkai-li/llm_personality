@@ -47,7 +47,8 @@ model = RobertaForSequenceClassification.from_pretrained("roberta-large", num_la
 
 training_args = TrainingArguments(
     # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/",
-    output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5_new/",
+    # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/",
+    output_dir="/scratch/jiaruil5/personality/classifier/mse_1e-5/",
     evaluation_strategy="steps",
     eval_steps=500,
     learning_rate=1e-5,
