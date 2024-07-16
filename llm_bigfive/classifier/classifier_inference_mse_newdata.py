@@ -44,12 +44,12 @@ def map_to_3_label(original_label):
 
 map_to_3_label_func = np.vectorize(map_to_3_label)
 
-out_f = open('/home/wenkail/llm_personality/llm_bigfive/classifier/results/mse-checkpoint-119000.json', 'w')
+out_f = open('/home/wenkail/llm_personality/llm_bigfive/classifier/results/mse-checkpoint-119000_whole_test.json', 'w')
 
 
 from utils import preprocess_function_with_tokenizer_without_labels
 # df = pd.read_csv('filtered_big5_data_6_label.csv').sample(n=50, random_state=42)
-df = pd.read_csv("alpaca_test_5_token_subtest_evaluate_998.csv")
+df = pd.read_csv("inference_whole_test_token_5.csv")
 dataset = Dataset.from_pandas(df)
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
 test_dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer_without_labels(examples, tokenizer), batched=True)
