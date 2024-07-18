@@ -21,6 +21,7 @@ def get_prediction_and_write(model, testset, config, output_file):
     try:
         with open(output_file, 'r') as f:
             processed_count = sum(1 for line in f if line.strip())
+            
     except FileNotFoundError:
         processed_count = 0
 

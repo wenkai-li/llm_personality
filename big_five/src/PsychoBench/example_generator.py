@@ -10,9 +10,10 @@ import time
 from tqdm import tqdm
 import numpy as np
 import sys
-sys.path.append("../dexpert/")
-from dexpert import DExpertGenerator
+# sys.path.append("../dexpert/")
+# from dexpert import DExpertGenerator
 import pdb
+from llama3 import LLAMA3
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 
@@ -66,20 +67,20 @@ def completion(
         response.sort(key=lambda x: x['index'])
         return [i['text'] for i in response['choices']]
 
-def generate_messages(prompt):
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
-    return messages
+# def generate_messages(prompt):
+#     messages = [
+#         {"role": "system", "content": "You are a helpful assistant."},
+#         {"role": "user", "content": prompt}
+#     ]
+#     return messages
 
-def generate_expert_messages(big_five_level):
-    level_lst = ['high', 'median', 'low']
-    prompt = f"Help me complete the answer with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
-    messages = [
-        {"role": "user", "content": prompt}
-    ]
-    return messages
+# def generate_expert_messages(big_five_level):
+#     level_lst = ['high', 'median', 'low']
+#     prompt = f"Help me complete the answer with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
+#     messages = [
+#         {"role": "user", "content": prompt}
+#     ]
+#     return messages
     
 def convert_results(result, column_header):
     result = result.strip()  # Remove leading and trailing whitespace
@@ -91,15 +92,15 @@ def convert_results(result, column_header):
         
     return result_list
 
-class Args:
-    model_id = "/compute/babel-9-3/wenkail/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
-    cache_dir = None
+# class Args:
+#     model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/"
+#     cache_dir = None
 
-class ArgsExpert:
-    # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-    # cache_dir = "/data/user_data/jiaruil5/.cache/"
-    model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
-    cache_dir = None        
+# class ArgsExpert:
+#     # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+#     # cache_dir = "/data/user_data/jiaruil5/.cache/"
+#     model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
+#     cache_dir = None        
 
 def example_generator(questionnaire, args):
     testing_file = args.testing_file
@@ -116,8 +117,8 @@ def example_generator(questionnaire, args):
     shuffle_count = 0
     insert_count = 0
     total_iterations = len(order_columns) * args.test_count
-    dexpert_model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
-
+    # dexpert_model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
+    llama3 = LLAMA3(args.model)
     with tqdm(total=total_iterations) as pbar:
         for i, header in enumerate(df.columns):
             if header in order_columns:
@@ -156,33 +157,34 @@ def example_generator(questionnaire, args):
                                 # pdb.set_trace()
                                 previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
                                 previous_records.append({"role": "assistant", "content": result})
-                            elif model == "dexpert":
+                            elif model == "llama3-70b":
                                 inputs = previous_records + [
                                     {"role": "system", "content": questionnaire["inner_setting"]},
                                     {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
                                 ]
+                                result = llama3.generate(inputs)
                                 # p1_big_five = list(np.random.choice(3, 5, replace=True))
-                                big_five_ref = [1, 1, 1, 1, 2]
+                                # big_five_ref = [1, 1, 1, 1, 2]
                                 # for dim in [0, 1, 2, 3, 4]:
                                 #     for level in [0, 2]:
                                 #         big_five = big_five_ref.copy()
                                 #         big_five[dim] = level
-                                expert_inputs = generate_expert_messages(big_five_ref)
-                                result = dexpert_model.generate(
-                                    messages=inputs,
-                                    messages_expert=expert_inputs,
-                                    alpha=args.alpha
-                                )
+                                # expert_inputs = generate_expert_messages(big_five_ref)
+                                # result = dexpert_model.generate(
+                                #     messages=inputs,
+                                #     messages_expert=expert_inputs,
+                                #     alpha=args.alpha
+                                # )
                                 # pdb.set_trace()
-                                if args.questionnaire == "BFI" and not result.startswith("1"):
-                                    data = result
-                                    lines = data.strip().split("\n")
-                                    lines = lines[2:]
-                                    formatted_responses = [f"{line.split('.')[0]}: {line.split(':')[-1].strip()}" for line in lines]
-                                    result = "\n".join(formatted_responses)
-                                    previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
-                                    previous_records.append({"role": "assistant", "content": result})
-                                    # pdb.set_trace()
+                                # if args.questionnaire == "BFI" and not result.startswith("1"):
+                                #     data = result
+                                #     lines = data.strip().split("\n")
+                                #     lines = lines[2:]
+                                #     formatted_responses = [f"{line.split('.')[0]}: {line.split(':')[-1].strip()}" for line in lines]
+                                #     result = "\n".join(formatted_responses)
+                                #     previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
+                                #     previous_records.append({"role": "assistant", "content": result})
+                                #     # pdb.set_trace()
                             else:
                                 raise ValueError("The model is not supported or does not exist.")
                         
