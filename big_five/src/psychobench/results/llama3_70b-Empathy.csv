@@ -1,0 +1,11 @@
+"Prompt: You can only reply numbers from 1 to 7 in the following statements. Please evaluate yourself based on your actual feelings and experiences in the following 10 descriptions using the scales: 1 denotes ""very inaccurately"" and 7 denotes ""very accurately"". Here are the statements, score them one by one:",order-0,shuffle0-test0
+"1. I sometimes find it difficult to see things from the ""other guy's"" perspective.",1,
+2. I sometimes try to understand my friends better by imagining how things look from their perspective.,2,
+"3. When I'm upset at someone, I usually try to ""put myself in his shoes"" for a while.",3,
+"4. Before criticizing somebody, I try to imagine how I would feel if I were in their place.",4,
+"5. I often have tender, concerned feelings for people less fortunate than me",5,
+6. Sometimes I don't feel very sorry for other people when they are having problems.,6,
+"7. When I see someone being taken advantage of, I feel kind of protective towards them.",7,
+8. Other people's misfortunes do not usually disturb me a great deal.,8,
+"9. When I see someone being treated unfairly, I sometimes don't feel very much pity for them.",9,
+10. I am often quite touched by things I see happen.,10,
