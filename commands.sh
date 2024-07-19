@@ -22,5 +22,7 @@
 
 ## running
 
-# whole 1e-6: babel-0-19
-# whole no tokens 1e-6: babel-8-11
+# whole 1e-6: babel-8-7
+# whole no tokens 1e-6: babel-0-19
+# test generator by classifier: babel-0-23
+# generator: babel-8-11
