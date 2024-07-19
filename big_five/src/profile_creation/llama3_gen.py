@@ -21,8 +21,8 @@ class CO3Sotopia():
         self.args = args
         
         class Args:
-            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
-            cache_dir = "/compute/babel-1-31/jiaruil5/.cache/"
+            model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/"
+            cache_dir = None
 
         class ArgsExpert:
             # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
