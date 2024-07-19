@@ -113,8 +113,9 @@ def example_generator(questionnaire, args):
                 
                 # Retrieve the column data as a string
                 questions_list = df.iloc[:, questions_column_index].astype(str)
-                separated_questions = [questions_list[i:i+30] for i in range(0, len(questions_list), 30)]  
-                questions_list = ['\n'.join([f"{i+1}.{q.split('.')[1]}" for i, q in enumerate(questions)]) for j, questions in enumerate(separated_questions)]
+                questions_list = [f"{q.split('.')[1]}" for i, q in enumerate(questions_list)]
+                # separated_questions = [questions_list[i:i+30] for i in range(0, len(questions_list), 30)]  
+                # questions_list = ['\n'.join([f"{i+1}.{q.split('.')[1]}" for i, q in enumerate(questions)]) for j, questions in enumerate(separated_questions)]
 
 
                 for k in range(args.test_count):
