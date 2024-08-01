@@ -1,0 +1,114 @@
+{
+    "EPQ-R": {
+        "file_name": "dexpert_llama3_70b-EPQ-R.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "BFI": {
+        "file_name": "dexpert_llama3_70b-BFI.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "16P": {
+        "file_name": "dexpert_llama3_70b-16P.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "ICB": {
+        "file_name": "dexpert_llama3_70b-ICB.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "ECR-R": {
+        "file_name": "dexpert_llama3_70b-ECR-R.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "LOT-R": {
+        "file_name": "dexpert_llama3_70b-LOT-R.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "DTDD": {
+        "file_name": "dexpert_llama3_70b-DTDD.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "LMS": {
+        "file_name": "dexpert_llama3_70b-LMS.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "WLEIS": {
+        "file_name": "dexpert_llama3_70b-WLEIS.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "CABIN": {
+        "file_name": "dexpert_llama3_70b-CABIN.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "Empathy": {
+        "file_name": "dexpert_llama3_70b-Empathy.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "BSRI": {
+        "file_name": "dexpert_llama3_70b-BSRI.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "EIS": {
+        "file_name": "dexpert_llama3_70b-EIS.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    },
+    "GSE": {
+        "file_name": "dexpert_llama3_70b-GSE.json",
+        "columns": {
+            "prompt": "instruction",
+            "query": "input",
+            "response": "output"
+        }
+    }
+}
