@@ -9,12 +9,12 @@ lora_target: all
 deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: train_o
+dataset: train_c
 dataset_dir: /data/user_data/wenkail/llm_personality/generator/data/
 template: llama3
 # cutoff_len: 2048
 cutoff_len: 512
-tokenized_path: /home/jiaruil5/personality/llm_personality/llm_bigfive/generator/tokenized_data_o/
+tokenized_path: /home/jiaruil5/personality/llm_personality/llm_bigfive/generator/tokenized_data_c/
 # max_samples: 1000
 overwrite_cache: true
 preprocessing_num_workers: 16
@@ -23,7 +23,7 @@ preprocessing_num_workers: 16
 max_new_tokens: 512
 
 ### output
-output_dir: /compute/babel-0-37/jiaruil5/personality/checkpoints/generator_whole_o_1e-6
+output_dir: /compute/babel-0-37/jiaruil5/personality/checkpoints/generator_whole_c_1e-6
 logging_steps: 10
 save_steps: 500
 plot_loss: true
@@ -51,5 +51,5 @@ greater_is_better: false
 
 ## wandb
 report_to: wandb
-run_name: train_generator_o_1e-6
-# CUDA_VISIBLE_DEVICES=0,1 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train lora_generator_o_1e-6.yaml
+run_name: train_generator_c_1e-6
+# CUDA_VISIBLE_DEVICES=2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train lora_generator_c_1e-6.yaml
