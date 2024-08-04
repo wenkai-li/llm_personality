@@ -20,30 +20,29 @@ def get_history(current_turn_index, p1_name=None, p1_argument=None):
 You are at Turn #1."""
 
 
-def get_personality(personality_lst: list[int]):
-    personality_str = "The person has {level_o} openness, {level_c} conscientiousness, {level_e} extraversion, {level_a} agreeableness, and {level_n} neuroticism.\n{description}"
+def get_personality_turn1(personality_lst: list[int]):
+    level_lst = ['high', 'low']
     trait_lst = ['O', 'C', 'E', 'A', 'N']
-    level_lst = ['high', 'neutral', 'low']
+    prompt_person_str, description_str = None, None
+    if personality_lst[0] != -1:
+        prompt_person_str = f"{level_lst[personality_lst[0]]} openness"
+        description_str = personality_descriptions[trait_lst[0]][personality_lst[0]]
+    elif personality_lst[1] != -1:
+        prompt_person_str = f"{level_lst[personality_lst[1]]} conscientiousness"
+        description_str = personality_descriptions[trait_lst[1]][personality_lst[1]]
+    elif personality_lst[2] != -1:
+        prompt_person_str = f"{level_lst[personality_lst[2]]} extraversion"
+        description_str = personality_descriptions[trait_lst[2]][personality_lst[2]]
+    elif personality_lst[3] != -1:
+        prompt_person_str = f"{level_lst[personality_lst[3]]} agreeableness"
+        description_str = personality_descriptions[trait_lst[3]][personality_lst[3]]
+    elif personality_lst[4] != -1:
+        prompt_person_str = f"{level_lst[personality_lst[4]]} neuroticism"
+        description_str = personality_descriptions[trait_lst[4]][personality_lst[4]]
     
-    levels = []
-    descriptions = []
-    for idx, trait_level in enumerate(personality_lst):
-        trait_abbr = trait_lst[idx]
-        trait_name = big_five_mapping[trait_abbr]
-        
-        levels.append(level_lst[trait_level])
-        # descriptions.append(f"- {level_lst[trait_level].capitalize()} {trait_name.lower()}: {personality_descriptions[trait_abbr][trait_level]}")
-        descriptions.append(f"{personality_descriptions[trait_abbr][trait_level]}")
-    descriptions_str = "\n".join(descriptions)
-    personality_str = personality_str.format(
-        level_o = levels[0],
-        level_c = levels[1],
-        level_e = levels[2],
-        level_a = levels[3],
-        level_n = levels[4],
-        description = descriptions_str
-    )
+    personality_str = f"The person has {prompt_person_str}.\n{description_str}"
     return personality_str
+
         
 class ContextTemplate:
 #     context = """Here is the context of this interaction:
@@ -59,7 +58,6 @@ class ContextTemplate:
 ```
 Scenario: {scenario}
 Participants: {p1_name} and {p2_name}
-{p1_name}'s big five personality description: {p1_personality}
 ```
 """
 
@@ -101,7 +99,6 @@ def generate_prompt(
             scenario=env_info['narrative'],
             p1_name=env_info['PersonX'],
             p2_name=env_info['PersonY'],
-            p1_personality=get_personality(p1_personality_and_values),
             # p2_personality=get_personality(p2_personality_and_values)
         )
         return PromptTemplate.prompt.format(
@@ -119,7 +116,7 @@ def generate_prompt(
             p1_name=env_info['PersonX'],
             p2_name=env_info['PersonY'],
             # p1_personality=get_personality(p1_personality_and_values),
-            p2_personality=get_personality(p2_personality_and_values)
+            p2_personality=get_personality_turn1(p2_personality_and_values)
         )
         return PromptTemplate.prompt.format(
             agent=env_info['PersonY'],
