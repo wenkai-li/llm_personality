@@ -43,7 +43,7 @@ class DExpertGenerator():
         self.model.eval()
         
         if args_expert is not None:
-            self.model.expert = LlamaForCausalLM.from_pretrained(
+            self.model.expert = AutoModelForCausalLM.from_pretrained(
                 args_expert.model_id,
                 torch_dtype=torch.bfloat16,
                 device_map="auto",
@@ -58,7 +58,7 @@ class DExpertGenerator():
             self.model.expert = None
             
         if args_antiexpert is not None:
-            self.model.antiexpert = LlamaForCausalLM.from_pretrained(
+            self.model.antiexpert = AutoModelForCausalLM.from_pretrained(
                 args_antiexpert.model_id,
                 torch_dtype=torch.bfloat16,
                 device_map="auto",
