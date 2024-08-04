@@ -9,7 +9,7 @@ np.random.seed(42)
 
 from prompts import generate_prompt
 sys.path.append("../dexpert/")
-from dexpert import DExpertGenerator
+from dexpert_llamafactory import DExpertGenerator
 
 def remove_double_quotes(s):
     # Remove double quotes from the beginning and end
@@ -27,7 +27,19 @@ class CO3Sotopia():
         class ArgsExpert:
             # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
             # cache_dir = "/data/user_data/jiaruil5/.cache/"
-            model_id = "/compute/babel-0-37/jiaruil5/personality/checkpoints/generator_whole_1e-6/checkpoint-9000/"
+            # lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_o_1e-6/"
+            model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/"
+            lora_model_path = None
+            if args.person_trait == 'o':
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_o_1e-6/"
+            elif args.person_trait == 'c':
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_c_1e-6/"
+            elif args.person_trait == 'e':
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_e_1e-6/"
+            elif args.person_trait == 'a':
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_a_1e-6/"
+            elif args.person_trait == 'n':
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_n_1e-6/"
             cache_dir = None
 
         self.model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
@@ -54,38 +66,47 @@ class CO3Sotopia():
         
     def generate_messages(self, prompt):
         messages = [
-            {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
         ]
         return messages
     
     def generate_expert_messages(self, big_five_level):
-        level_lst = ['high', 'median', 'low']
-        prompt = f"Help me complete the sentence with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
+        level_lst = ['high', 'low']
+        if big_five_level[0] != -1:
+            prompt_person_str = f"Openness - {level_lst[big_five_level[0]]}"
+        elif big_five_level[1] != -1:
+            prompt_person_str = f"Conscientiousness - {level_lst[big_five_level[1]]}"
+        elif big_five_level[2] != -1:
+            prompt_person_str = f"Extraversion - {level_lst[big_five_level[2]]}"
+        elif big_five_level[3] != -1:
+            prompt_person_str = f"Agreeableness - {level_lst[big_five_level[3]]}"
+        elif big_five_level[4] != -1:
+            prompt_person_str = f"Neuroticism - {level_lst[big_five_level[4]]}"
+        
+        prompt = f"Help me complete the sentence with certain Big Five Personality: {prompt_person_str}\n"
         messages = [
             {"role": "user", "content": prompt}
         ]
         return messages
     
-    def generate_dialogue_turn0(self, idx, env_info, p1_big_five, out_f):
+    def generate_dialogue_turn0(self, idx, env_info, out_f):
         # generate prompt for turn 0
         self.prompt_turn_0 = generate_prompt(
             env_info,
             current_turn_index=0,
-            p1_personality_and_values=p1_big_five,
+            # p1_personality_and_values=p1_big_five,
             # p2_personality_and_values=p2_big_five,
         )
         
         self.response_turn_0 = self.process_response(self.model.generate(
             messages = self.generate_messages(self.prompt_turn_0),
-            messages_expert = self.generate_expert_messages(p1_big_five),
+            # messages_expert = self.generate_expert_messages(p1_big_five),
             alpha = self.args.alpha,
         ))
         
         result_info = {
             "env_idx": idx,
             "env_info": env_info,
-            "personality": " ".join(map(str, p1_big_five)),
             "turn": 0,
             "prompt": self.prompt_turn_0,
             "response": self.response_turn_0,
@@ -126,16 +147,17 @@ class CO3Sotopia():
     
     def run(self):
         out_f = open(self.args.out_file, 'a')
-        p2_big_five_ref = [1, 1, 1, 1, 1]
-        for idx, env_info in tqdm(enumerate(self.data)):            
-            p1_big_five = list(np.random.choice(3, 5, replace=True))
-            self.generate_dialogue_turn0(idx, env_info, p1_big_five, out_f)
-            self.generate_dialogue_turn1(idx, env_info, p2_big_five_ref, out_f)
-            for dim in [0, 1, 2, 3, 4]:
-                for level in [0, 2]:
-                    p2_big_five = p2_big_five_ref.copy()
-                    p2_big_five[dim] = level
-                    self.generate_dialogue_turn1(idx, env_info, p2_big_five, out_f)
+        p2_big_five_ref = [-1, -1, -1, -1, -1]
+        p2_big_five_abbr = {'o': 0, 'c': 1, 'e': 2, 'a': 3, 'n': 4}
+        
+        p2_big_five_high, p2_big_five_low = p2_big_five_ref.copy(), p2_big_five_ref.copy()
+        p2_big_five_high[p2_big_five_abbr[self.args.person_trait]] = 0 # high
+        p2_big_five_low[p2_big_five_abbr[self.args.person_trait]] = 1 # low
+        
+        for idx, env_info in tqdm(enumerate(self.data)):
+            self.generate_dialogue_turn0(idx, env_info, out_f)
+            self.generate_dialogue_turn1(idx, env_info, p2_big_five_high, out_f)
+            self.generate_dialogue_turn1(idx, env_info, p2_big_five_low, out_f)
             
     
 if __name__ == '__main__':
@@ -143,7 +165,8 @@ if __name__ == '__main__':
     parser.add_argument("--in_file", type=str, default="/data/user_data/wenkail/llm_personality/soda_data/sample_10000.csv", help="The file of the sampled soda training data")
     parser.add_argument("--out_file", type=str, default="/data/user_data/wenkail/llm_personality/profiles/env_profiles_new.jsonl")
     parser.add_argument("--alpha", type=float, default=0.5)
-    parser.add_argument("--chunk", type=str, default="1/5")
+    parser.add_argument("--person_trait", type=str, choices=['o', 'c', 'e', 'a', 'n'])
+    parser.add_argument("--chunk", type=str, default="1/2")
     args = parser.parse_args()
     soda_maker = CO3Sotopia(args)
     soda_maker.run()

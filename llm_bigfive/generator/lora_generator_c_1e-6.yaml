@@ -1,0 +1,55 @@
+### model
+model_name_or_path: /data/user_data/jiaruil5/.cache/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/c4a54320a52ed5f88b7a2f84496903ea4ff07b45/
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: train_c
+dataset_dir: /data/user_data/wenkail/llm_personality/generator/data/
+template: llama3
+# cutoff_len: 2048
+cutoff_len: 512
+tokenized_path: /home/jiaruil5/personality/llm_personality/llm_bigfive/generator/tokenized_data_c/
+# max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### generate
+max_new_tokens: 512
+
+### output
+output_dir: /compute/babel-0-37/jiaruil5/personality/checkpoints/generator_whole_c_1e-6
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 16
+learning_rate: 1.0e-6
+num_train_epochs: 1
+lr_scheduler_type: cosine
+warmup_steps: 20
+bf16: true
+ddp_timeout: 180000000
+
+### eval
+val_size: 0.05
+per_device_eval_batch_size: 16
+eval_strategy: steps
+eval_steps: 500
+load_best_model_at_end: true
+save_total_limit: 2
+metric_for_best_model: eval_loss
+greater_is_better: false
+
+## wandb
+report_to: wandb
+run_name: train_generator_c_1e-6
+# CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train lora_generator_c_1e-6.yaml

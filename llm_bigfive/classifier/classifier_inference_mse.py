@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logger.info("Logging setup complete.")
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-model_path = '/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/checkpoint-28500/'
+model_path = '/compute/inst-0-35/jiaruil5/personality/classifier/mse_1e-5/checkpoint-119000/'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
 model.eval()
 
@@ -44,9 +44,9 @@ def map_to_3_label(original_label):
 
 map_to_3_label_func = np.vectorize(map_to_3_label)
 
-out_f = open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/mse_checkpoint_28500.json', 'w')
+out_f = open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/mse_checkpoint_119000_train.json', 'w')
 
-test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_mse/test_psychgen')
+test_dataset = load_from_disk('/data/user_data/wenkail/llm_personality/data_mse/train_psychgen')
 
 def compute_metrics(pred):
     
@@ -63,6 +63,7 @@ def compute_metrics(pred):
         "labels": labels.tolist(),
         "preds": preds.tolist()
     }, out_f)
+    out_f.flush()
     
     label_names = ['O', 'C', 'E', 'A', 'N']
     info = {}
@@ -116,3 +117,8 @@ eval_results = trainer.evaluate()
 # Print the evaluation results
 for key, value in eval_results.items():
     print(f"{key}: {value:.2f}")
+    
+data = json.load(open('/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/mse_checkpoint_119000_train.json', 'r'))
+for idx, dim in enumerate(['Openness', 'Conscientiousness', 'Extraversion', 'Agreeablenes', 'Neuroticism']):
+    print(dim)
+    print(classification_report(data['labels'][idx], data['preds'][idx], digits=4))

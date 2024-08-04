@@ -167,7 +167,7 @@ cython_debug/
 
 tmp/
 
-*.csv
+# *.csv
 
 
 # Special Large File
@@ -175,3 +175,6 @@ llms_mbti/evaluation/factual_eval/true_benchmark/nli_fever/train_fitems.jsonl
 
 sotopia/*
 llm_bigfive/classifier/wandb/*
+llm_bigfive/generator/tokenized_data*/
+wandb/
+phantom/
