@@ -11,7 +11,6 @@ from prompts import generate_prompt
 sys.path.append("../dexpert/")
 from dexpert import DExpertGenerator
 
-
 def remove_double_quotes(s):
     # Remove double quotes from the beginning and end
     return re.sub(r'^"+|"+$', '', s)
@@ -22,30 +21,22 @@ class CO3Sotopia():
         self.args = args
         
         class Args:
-            model_id = "/compute/babel-1-31/jiaruil5/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c"
+            model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/"
             cache_dir = None
 
         class ArgsExpert:
             # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
             # cache_dir = "/data/user_data/jiaruil5/.cache/"
-            model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
+            model_id = "/compute/babel-0-37/jiaruil5/personality/checkpoints/generator_whole_1e-6/checkpoint-9000/"
             cache_dir = None
 
         self.model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
         self.data = pd.read_csv(args.in_file).to_dict(orient='records')
-        fifth = len(self.data) // 5
-        if args.chunk == "1/5":
-            self.data = self.data[:fifth]
-        elif args.chunk == "2/5":
-            self.data = self.data[fifth:2*fifth]
-        elif args.chunk == "3/5":
-            self.data = self.data[2*fifth:3*fifth]
-        elif args.chunk == "4/5":
-            self.data = self.data[3*fifth:4*fifth]
-        elif args.chunk == "5/5":
-            self.data = self.data[4*fifth:]
-        else:
-            raise NotImplementedError()
+        curr_idx, total_idx = args.chunk.split("/")
+        curr_idx = int(curr_idx)
+        total_idx = int(total_idx)
+        parts = len(self.data) // total_idx
+        self.data = self.data[(curr_idx-1)*parts:curr_idx*parts]
         
     
     def process_response(self, response):
@@ -150,7 +141,7 @@ class CO3Sotopia():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='arguments for generating dialogues')
     parser.add_argument("--in_file", type=str, default="/data/user_data/wenkail/llm_personality/soda_data/sample_10000.csv", help="The file of the sampled soda training data")
-    parser.add_argument("--out_file", type=str, default="/data/user_data/wenkail/llm_personality/profiles/env_profiles.jsonl")
+    parser.add_argument("--out_file", type=str, default="/data/user_data/wenkail/llm_personality/profiles/env_profiles_new.jsonl")
     parser.add_argument("--alpha", type=float, default=0.5)
     parser.add_argument("--chunk", type=str, default="1/5")
     args = parser.parse_args()

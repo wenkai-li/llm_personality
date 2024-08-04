@@ -26,6 +26,10 @@ def get_model_config(model):
         api_key = "EMPTY"
         org_id = "http://127.0.0.1:3639/v1"
         model_path = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-4/checkpoint-3000"
+    elif model == 'llama_factory':
+        api_key = "EMPTY"
+        org_id = "http://127.0.0.1:8000/v1"
+        model_path = "/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/"
     return {
         'api_key': api_key, 
         'org_id': org_id, 

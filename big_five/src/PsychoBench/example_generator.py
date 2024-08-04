@@ -66,21 +66,6 @@ def completion(
         response = response['choices']
         response.sort(key=lambda x: x['index'])
         return [i['text'] for i in response['choices']]
-
-# def generate_messages(prompt):
-#     messages = [
-#         {"role": "system", "content": "You are a helpful assistant."},
-#         {"role": "user", "content": prompt}
-#     ]
-#     return messages
-
-# def generate_expert_messages(big_five_level):
-#     level_lst = ['high', 'median', 'low']
-#     prompt = f"Help me complete the answer with certain Big Five Personality: Openness - {level_lst[big_five_level[0]]}, Conscientiousness - {level_lst[big_five_level[1]]}, Extraversion - {level_lst[big_five_level[2]]}, Agreeableness - {level_lst[big_five_level[3]]}, Neuroticism - {level_lst[big_five_level[4]]}\n"
-#     messages = [
-#         {"role": "user", "content": prompt}
-#     ]
-#     return messages
     
 def convert_results(result, column_header):
     result = result.strip()  # Remove leading and trailing whitespace
@@ -92,15 +77,11 @@ def convert_results(result, column_header):
         
     return result_list
 
-# class Args:
-#     model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/"
-#     cache_dir = None
-
-# class ArgsExpert:
-#     # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-#     # cache_dir = "/data/user_data/jiaruil5/.cache/"
-#     model_id = "/compute/babel-5-23/jiaruil5/personality/checkpoints/word5_lr1e-5/checkpoint-3000/"
-#     cache_dir = None        
+def get_model_config(model):
+    if model == "llama3_70b":
+        api_key = "EMPTY"
+        org_id = "http://127.0.0.1:7960/v1"
+        model_path = ""
 
 def example_generator(questionnaire, args):
     testing_file = args.testing_file
@@ -157,6 +138,8 @@ def example_generator(questionnaire, args):
                                 # pdb.set_trace()
                                 previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
                                 previous_records.append({"role": "assistant", "content": result})
+
+                            # TODO: Change to openai call 
                             elif model == "llama3-70b":
                                 inputs = previous_records + [
                                     {"role": "system", "content": questionnaire["inner_setting"]},

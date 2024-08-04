@@ -1,0 +1,3 @@
+<!-- lm_eval --model local-completions --tasks gsm8k --model_args model=meta-llama/Meta-Llama-3-8B-Instruct,tokenizer_backend=huggingface,base_url=http://0.0.0.0:8000/v1,num_concurrent=1,max_retries=3,tokenized_requests=False -->
+<!-- --model_args model=meta-llama/Meta-Llama-3-8B-Instruct -->
+OPENAI_API_KEY=EMPTY lm_eval --model local-completions --tasks gsm8k --model_args model=/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct,base_url=http://0.0.0.0:8000/v1

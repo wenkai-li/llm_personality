@@ -226,7 +226,7 @@ class CustomDPOTrainer(DPOTrainer):
             chosen_length, _ = valid_length.split(batch_size, dim=0)
             return chosen_logps, rejected_logps, chosen_logits, rejected_logits, chosen_logps / chosen_length
         elif self.loss_type == "triple":
-            print(f"Batch Size: { batch['input_ids'].size()}")
+            # print(f"Batch Size: { batch['input_ids'].size()}")
             batch_size = batch["input_ids"].size(0) // 3
             # pdb.set_trace()
             chosen_logps, rejected_logps_1, rejected_logps_2 = all_logps.split(batch_size, dim=0)

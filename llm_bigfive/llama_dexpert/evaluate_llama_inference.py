@@ -28,7 +28,7 @@ def get_prediction_and_write(model, testset, config, output_file):
     for test in tqdm(testset[processed_count:], initial=processed_count, total=len(testset)):
         predict_dict = {}
         prompt = [
-        f"{test['instruction']} {test['input']} \n"]
+        f"{test['instruction']}\n{test['input']}"]
         res = call(
             prompt,
             llm_config_func,
