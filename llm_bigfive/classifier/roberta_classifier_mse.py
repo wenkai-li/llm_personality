@@ -23,16 +23,13 @@ wandb.init(project="llm_personality", entity="kyle_organization", name="test-mse
 ###########
 # ## MSE loss: Save each dataset to a separate directory
 # from utils import preprocess_function_with_tokenizer
-# df = pd.read_csv('filtered_big5_data_6_label.csv')
-
-# dataset = Dataset.from_pandas(df.dropna())
-# tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-# dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
-# train_dataset, val_dataset = dataset.train_test_split(test_size=0.1, seed=42).values()
-# val_dataset, test_dataset = val_dataset.train_test_split(test_size=0.4, seed=42).values()
-# train_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data_mse/train_psychgen')
-# val_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data_mse/val_psychgen')
-# test_dataset.save_to_disk('/data/user_data/wenkail/llm_personality/data_mse/test_psychgen')
+# for split in ['train', 'val', 'test']:
+#     df = pd.read_csv(f'/data/user_data/wenkail/llm_personality/data/big5_data_classifier_{split}.csv')
+#     dataset = Dataset.from_pandas(df.dropna())
+#     tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
+#     dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
+#     dataset.save_to_disk(f'/data/user_data/wenkail/llm_personality/data_mse/{split}_psychgen')
+# exit(0)
 ###########
 
 # Load the datasets from the saved directories
@@ -48,7 +45,7 @@ model = RobertaForSequenceClassification.from_pretrained("roberta-large", num_la
 training_args = TrainingArguments(
     # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/",
     # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/tmp_mse_1e-5/",
-    output_dir="/scratch/jiaruil5/personality/classifier/mse_1e-5/",
+    output_dir="/compute/babel-0-37/jiaruil5/personality/checkpoints/classifier/mse_1e-5/",
     evaluation_strategy="steps",
     eval_steps=500,
     learning_rate=1e-5,
@@ -65,7 +62,7 @@ training_args = TrainingArguments(
     logging_steps=10,
     log_level='info',
     dataloader_num_workers=4,
-    gradient_accumulation_steps=2,
+    gradient_accumulation_steps=16,
     fp16=True,
 )
 
