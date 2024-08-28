@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /data/user_data/wenkail/llm_personality/generator/generator_whole_e_1e-6/
+model_name_or_path: /compute/babel-9-3/wenkail/llm_personality/full_finetune_generator/generator_whole_e_1e-6/checkpoint-11000
 
 ### method
 stage: sft
@@ -16,7 +16,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: /home/jiaruil5/personality/llm_personality/llm_bigfive/generator/outputs/test_e
+output_dir: /home/wenkail/llm_personality/llm_bigfive/generator/output_testset/test_e
 overwrite_output_dir: true
 
 ### generation
