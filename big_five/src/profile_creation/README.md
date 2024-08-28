@@ -14,19 +14,17 @@ python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profile
 # running
 
 ## jiarui
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_1.jsonl --alpha 0.5 --chunk 1/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_2.jsonl --alpha 0.5 --chunk 2/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_3.jsonl --alpha 0.5 --chunk 3/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_4.jsonl --alpha 0.5 --chunk 4/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_5.jsonl --alpha 0.5 --chunk 5/10
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_o_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait o
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_o_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait o
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_c_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait c
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_c_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait c
 
 
 ## wenkai
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_6.jsonl --alpha 0.5 --chunk 6/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_7.jsonl --alpha 0.5 --chunk 7/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_8.jsonl --alpha 0.5 --chunk 8/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_9.jsonl --alpha 0.5 --chunk 9/10
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_new_10.jsonl --alpha 0.5 --chunk 10/10
-
-
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_e_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait e
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_e_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait e
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_a_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait a
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_a_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait a
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait n
+python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait n
 ```
