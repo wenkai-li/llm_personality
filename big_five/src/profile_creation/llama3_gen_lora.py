@@ -25,19 +25,23 @@ class CO3Sotopia():
             cache_dir = None
 
         class ArgsExpert:
-            model_id = None
+            # model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+            # cache_dir = "/data/user_data/jiaruil5/.cache/"
+            # lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_o_1e-6/"
+            model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/"
+            lora_model_path = None
             if args.person_trait == 'o':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_o_1e-6/"
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_o_1e-6/"
             elif args.person_trait == 'c':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_c_1e-6/"
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_c_1e-6/"
             elif args.person_trait == 'e':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_e_1e-6/"
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_e_1e-6/"
             elif args.person_trait == 'a':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_a_1e-6/"
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_a_1e-6/"
             elif args.person_trait == 'n':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_n_1e-6/"
+                lora_model_path = "/data/user_data/wenkail/llm_personality/generator/generator_whole_n_1e-6/"
             cache_dir = None
-            lora = False
+            lora = True
 
         self.model = DExpertGenerator(args=Args, args_expert=ArgsExpert)
         self.data = pd.read_csv(args.in_file).to_dict(orient='records')

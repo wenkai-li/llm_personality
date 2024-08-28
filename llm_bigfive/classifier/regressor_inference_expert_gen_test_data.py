@@ -32,13 +32,13 @@ model.eval()
 out_f = open(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/generator_predictions_{trait}.json', 'w')
 
 ## first run
-from utils import preprocess_function_with_tokenizer
-df = pd.read_csv(f'/data/user_data/wenkail/llm_personality/generator/data/outputs/generator_predictions_{trait}.csv')
-dataset = Dataset.from_pandas(df.dropna())
-tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
-dataset.save_to_disk(f'/data/user_data/wenkail/llm_personality/generator/data/outputs/generator_predictions_{trait}')
-exit(0)
+# from utils import preprocess_function_with_tokenizer
+# df = pd.read_csv(f'/data/user_data/wenkail/llm_personality/generator/data/outputs/generator_predictions_{trait}.csv')
+# dataset = Dataset.from_pandas(df.dropna())
+# tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
+# dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
+# dataset.save_to_disk(f'/data/user_data/wenkail/llm_personality/generator/data/outputs/generator_predictions_{trait}')
+# exit(0)
 
 ## second run
 test_dataset = load_from_disk(f'/data/user_data/wenkail/llm_personality/generator/data/outputs/generator_predictions_{trait}')#.select(range(100))
