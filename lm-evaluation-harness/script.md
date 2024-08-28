@@ -14,3 +14,8 @@ lm_eval --model hf \
     --tasks gsm8k \
     --model_args pretrained=/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct \
     --batch_size 16
+
+lm_eval --model hf \
+    --tasks gsm8k \
+    --model_args pretrained=/compute/babel-9-3/wenkail/llm_personality/full_finetune_generator/generator_whole_e_1e-6/checkpoint-2000 \
+    --batch_size 16

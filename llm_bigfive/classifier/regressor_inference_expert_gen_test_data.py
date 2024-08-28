@@ -26,7 +26,7 @@ trait = sys.argv[1]
 
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
 model_path = '/data/user_data/wenkail/llm_personality/classifier/mse_1e-5/checkpoint-3500/'
-model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
+model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/wenkail/.cache")
 model.eval()
 
 out_f = open(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/results/generator_predictions_{trait}.json', 'w')

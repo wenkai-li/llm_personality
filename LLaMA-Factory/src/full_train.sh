@@ -19,4 +19,13 @@ conda activate lf_persona
 
 
 # LORA Llama 8B
-CUDA_VISIBLE_DEVICES=0,1,2,3,4 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train src/llama3_lora_dpo_ds3.yaml
+# CUDA_VISIBLE_DEVICES=0,1,2,3,4 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train src/llama3_lora_dpo_ds3.yaml
+
+
+# Full Llama3 8B
+# Doing:
+# CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train /home/wenkail/llm_personality/llm_bigfive/generator/generator_e_1e-6.yaml
+# CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train /home/wenkail/llm_personality/llm_bigfive/generator/generator_a_1e-6.yaml
+CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train /home/wenkail/llm_personality/llm_bigfive/generator/generator_n_1e-6.yaml
+
+# Done:
