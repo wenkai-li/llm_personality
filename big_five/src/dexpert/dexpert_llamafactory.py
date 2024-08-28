@@ -49,10 +49,11 @@ class DExpertGenerator():
                 device_map="auto",
                 cache_dir=args_expert.cache_dir
             )
-            self.model.expert = PeftModel.from_pretrained(
-                self.model.expert,
-                args_expert.lora_model_path
-            )
+            if args_expert.lora:
+                self.model.expert = PeftModel.from_pretrained(
+                    self.model.expert,
+                    args_expert.lora_model_path
+                )
             self.model.expert.eval()
         else:
             self.model.expert = None
@@ -64,10 +65,11 @@ class DExpertGenerator():
                 device_map="auto",
                 cache_dir=args_antiexpert.cache_dir
             )
-            self.model.antiexpert = PeftModel.from_pretrained(
-                self.model.antiexpert,
-                args_antiexpert.lora_model_path
-            )
+            if args_antiexpert.lora:
+                self.model.antiexpert = PeftModel.from_pretrained(
+                    self.model.antiexpert,
+                    args_antiexpert.lora_model_path
+                )
             self.model.antiexpert.eval()
         else:
             self.model.antiexpert = None
