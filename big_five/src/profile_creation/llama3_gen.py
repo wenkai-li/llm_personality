@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import argparse
 import re
+from pathlib import Path
 np.random.seed(42)
 
 from prompts import generate_prompt
@@ -22,6 +23,7 @@ class CO3Sotopia():
         
         class Args:
             model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/"
+            # model_id = "/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/"
             cache_dir = None
 
         class ArgsExpert:
@@ -143,6 +145,16 @@ class CO3Sotopia():
         out_f.flush()
     
     def run(self):
+        Path(self.args.out_file).touch(exist_ok=True)
+        
+        out_f_content = [json.loads(i) for i in open(self.args.out_file, 'r').readlines()]
+        
+        last_env_idx, turn, personality_low = None, None, None
+        if len(out_f_content) > 0:
+            last_env_idx = out_f_content[-1]['env_idx']
+            turn = out_f_content[-1]['turn']
+            personality_low = "0" in out_f_content[-1]['personality'].split(" ")
+        
         out_f = open(self.args.out_file, 'a')
         p2_big_five_ref = [-1, -1, -1, -1, -1]
         p2_big_five_abbr = {'o': 0, 'c': 1, 'e': 2, 'a': 3, 'n': 4}
@@ -151,10 +163,29 @@ class CO3Sotopia():
         p2_big_five_high[p2_big_five_abbr[self.args.person_trait]] = 0 # high
         p2_big_five_low[p2_big_five_abbr[self.args.person_trait]] = 1 # low
         
-        for idx, env_info in tqdm(enumerate(self.data)):
-            self.generate_dialogue_turn0(idx, env_info, out_f)
-            self.generate_dialogue_turn1(idx, env_info, p2_big_five_high, out_f)
-            self.generate_dialogue_turn1(idx, env_info, p2_big_five_low, out_f)
+        if last_env_idx is None:
+            for idx, env_info in tqdm(enumerate(self.data)):
+                self.generate_dialogue_turn0(idx, env_info, out_f)
+                self.generate_dialogue_turn1(idx, env_info, p2_big_five_high, out_f)
+                self.generate_dialogue_turn1(idx, env_info, p2_big_five_low, out_f)
+        else:
+            if turn == 1 and not personality_low:
+                is_new_turn = True
+            else:
+                is_new_turn = False
+                
+            if not is_new_turn:
+                if turn == 0:
+                    self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_high, out_f)
+                    self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_low, out_f)
+                else:
+                    self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_low, out_f)
+            
+            self.data = self.data[last_env_idx+1:]
+            for idx, env_info in tqdm(enumerate(self.data)):
+                self.generate_dialogue_turn0(idx, env_info, out_f)
+                self.generate_dialogue_turn1(idx, env_info, p2_big_five_high, out_f)
+                self.generate_dialogue_turn1(idx, env_info, p2_big_five_low, out_f)
             
     
 if __name__ == '__main__':
