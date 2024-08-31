@@ -88,7 +88,7 @@ class CO3Sotopia():
         ]
         return messages
     
-    def generate_dialogue_turn0(self, idx, env_info, out_f):
+    def generate_dialogue_turn0(self, idx, env_info, out_f=None):
         # generate prompt for turn 0
         self.prompt_turn_0 = generate_prompt(
             env_info,
@@ -110,11 +110,12 @@ class CO3Sotopia():
             "prompt": self.prompt_turn_0,
             "response": self.response_turn_0,
         }
-        json.dump(result_info, out_f)
-        out_f.write("\n")
-        out_f.flush()
+        if out_f is not None:
+            json.dump(result_info, out_f)
+            out_f.write("\n")
+            out_f.flush()
     
-    def generate_dialogue_turn1(self, idx, env_info, p2_big_five, out_f):
+    def generate_dialogue_turn1(self, idx, env_info, p2_big_five, out_f=None):
         
         
         # generate prompt for turn 1
@@ -140,9 +141,10 @@ class CO3Sotopia():
             "prompt": prompt_turn_1,
             "response": response_turn_1,
         }
-        json.dump(result_info, out_f)
-        out_f.write("\n")
-        out_f.flush()
+        if out_f is not None:
+            json.dump(result_info, out_f)
+            out_f.write("\n")
+            out_f.flush()
     
     def run(self):
         Path(self.args.out_file).touch(exist_ok=True)
@@ -176,16 +178,20 @@ class CO3Sotopia():
                 
             if not is_new_turn:
                 if turn == 0:
+                    self.generate_dialogue_turn0(last_env_idx, self.data[last_env_idx], None)
                     self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_high, out_f)
                     self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_low, out_f)
                 else:
+                    self.generate_dialogue_turn0(last_env_idx, self.data[last_env_idx], None)
+                    self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_high, None)
                     self.generate_dialogue_turn1(last_env_idx, self.data[last_env_idx], p2_big_five_low, out_f)
             
-            self.data = self.data[last_env_idx+1:]
+            offset = last_env_idx+1
+            self.data = self.data[offset:]
             for idx, env_info in tqdm(enumerate(self.data)):
-                self.generate_dialogue_turn0(idx, env_info, out_f)
-                self.generate_dialogue_turn1(idx, env_info, p2_big_five_high, out_f)
-                self.generate_dialogue_turn1(idx, env_info, p2_big_five_low, out_f)
+                self.generate_dialogue_turn0(idx + offset, env_info, out_f)
+                self.generate_dialogue_turn1(idx + offset, env_info, p2_big_five_high, out_f)
+                self.generate_dialogue_turn1(idx + offset, env_info, p2_big_five_low, out_f)
             
     
 if __name__ == '__main__':
