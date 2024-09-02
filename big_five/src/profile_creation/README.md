@@ -25,6 +25,6 @@ python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profile
 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_e_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait e
 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_a_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait a
 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_a_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait a
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait n
-python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait n
+CUDA_VISIBLE_DEVICES=0,1,2,3 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_1.jsonl --alpha 0.5 --chunk 1/2 --person_trait n
+CUDA_VISIBLE_DEVICES=0,1,2,3 python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profiles/env_profiles_n_2.jsonl --alpha 0.5 --chunk 2/2 --person_trait n
 ```
