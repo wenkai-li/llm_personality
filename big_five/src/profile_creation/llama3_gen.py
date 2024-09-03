@@ -37,7 +37,8 @@ class CO3Sotopia():
             elif args.person_trait == 'a':
                 model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_a_1e-6/"
             elif args.person_trait == 'n':
-                model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_n_1e-6/"
+                # model_id = "/data/user_data/wenkail/llm_personality/generator/generator_whole_n_1e-6/"
+                model_id = "/compute/babel-9-3/wenkail/llm_personality/full_finetune_generator/generator_whole_n_1e-6/checkpoint-3000/"
             cache_dir = None
             lora = False
 

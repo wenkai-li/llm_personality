@@ -82,7 +82,6 @@ def expert_generate_helper(
         model_kwargs["use_cache"] = True
     else:
         model_kwargs["use_cache"] = generation_config.use_cache
-
     if not kwargs_has_attention_mask and requires_attention_mask and accepts_attention_mask:
         model_kwargs["attention_mask"] = model._prepare_attention_mask_for_generation(
             inputs_tensor, generation_config.pad_token_id, generation_config.eos_token_id
@@ -396,6 +395,8 @@ def sample(
                 next_tokens = torch.argmax(next_token_scores, dim=-1)
 
             # finished sentences should have their next token be a padding token
+            if pad_token_id is None:
+                pad_token_id = generation_config.eos_token_id[0]
             if has_eos_stopping_criteria:
                 next_tokens = next_tokens * unfinished_sequences + pad_token_id * (1 - unfinished_sequences)
 
