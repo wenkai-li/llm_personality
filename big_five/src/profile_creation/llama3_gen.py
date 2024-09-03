@@ -156,7 +156,7 @@ class CO3Sotopia():
         if len(out_f_content) > 0:
             last_env_idx = out_f_content[-1]['env_idx']
             turn = out_f_content[-1]['turn']
-            personality_low = "0" in out_f_content[-1]['personality'].split(" ")
+            personality_low = "0" in out_f_content[-1]['personality'].split(" ") if turn == 1 else None
         
         out_f = open(self.args.out_file, 'a')
         p2_big_five_ref = [-1, -1, -1, -1, -1]
