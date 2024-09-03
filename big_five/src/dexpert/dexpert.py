@@ -31,6 +31,7 @@ class DExpertGenerator():
             self.tokenizer.eos_token_id,
             self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
         ]
+        self.pad_token_id = torch.tensor(self.tokenizer.eos_token_id)
         
         self.model = LlamaForCausalLM.from_pretrained(
             args.model_id,
@@ -91,7 +92,6 @@ class DExpertGenerator():
             add_generation_prompt=True,
             return_tensors="pt"
         ).to(self.model.device) if messages_antiexpert is not None else None
-
         outputs = self.model.generate(
             input_ids,
             input_ids_expert=input_ids_expert,              # dexpert
@@ -99,8 +99,9 @@ class DExpertGenerator():
             alpha=alpha,                                    # dexpert
             max_new_tokens=1024,
             eos_token_id=self.terminators,
-            do_sample=False,
-            # temperature=0.0,
+            pad_token_id=self.pad_token_id,
+            do_sample=True,
+            temperature=0.6,
             top_p=0.9,
         )
         response = outputs[0][input_ids.shape[-1]:]
