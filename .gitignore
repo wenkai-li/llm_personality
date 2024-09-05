@@ -179,3 +179,5 @@ llm_bigfive/generator/tokenized_data*/
 wandb/
 phantom/
 *.csv
+llm_bigfive/classifier/*.csv
+llm_bigfive/data/*.csv
