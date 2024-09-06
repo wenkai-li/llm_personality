@@ -20,26 +20,44 @@ out_f = open(out_file, 'w')
 out_test_file = out_file.replace("train.json", 'test.json')
 out_test_f = open(out_test_file, 'w')
 
-data = []
-for file in ['1.jsonl', '2.jsonl', '3.jsonl', '4.jsonl', '5.jsonl']:
-    file_path = in_dir + file
-    data.extend(get_json_list(file_path))
-print(len(data))
-json_lst = []
-for idx in range(0, len(data), 12):
-    assert data[idx]['turn'] == 0
+data_dict = {}
+for trait in ['o', 'c', 'e', 'a', 'n']:
+    data_dict[trait] = []
     
-    personx = process_str(data[idx]['response'])
-    for i in range(idx+1,idx+12):
-        info = {}
-        persony = process_str(data[i]['response'])
-        bfi_traits = [int(trait) for trait in data[i]['personality'].split(" ")]
-        levels = ['high', 'median', 'low']
-        instruction = f"You are a helpful assistant with the following Big Five personality traits: Openness - {levels[bfi_traits[0]]}, Conscientiousness - {levels[bfi_traits[1]]}, Extraversion - {levels[bfi_traits[2]]}, Agreeableness - {levels[bfi_traits[3]]}, Neuroticism - {levels[bfi_traits[4]]}"
-        info['instruction'] = instruction
-        info['input'] = personx
-        info['output'] = persony
-        json_lst.append(info)
+    for file in ['_1.jsonl', '_2.jsonl']:
+        file_path = in_dir + trait + file
+        data_dict[trait].extend(get_json_list(file_path))
+
+json_lst = []
+for idx in range(0, len(data_dict['o']), 3):
+    for trait in ['o', 'c', 'e', 'a', 'n']:
+        data = data_dict[trait]
+        assert data[idx]['turn'] == 0
+        
+        personx = process_str(data[idx]['response'])
+        for i in range(idx+1,idx+3):
+            info = {}
+            persony = process_str(data[i]['response'])
+            bfi_traits = [int(trait) for trait in data[i]['personality'].split(" ")]
+            levels = ['high', 'low']
+            
+            trait_str = ""
+            if trait == 'o':
+                trait_str = f"Openness - {levels[bfi_traits[0]]}"
+            elif trait == 'c':
+                trait_str = f"Conscientiousness - {levels[bfi_traits[1]]}"
+            elif trait == 'e':
+                trait_str = f"Extraversion - {levels[bfi_traits[2]]}"
+            elif trait == 'a':
+                trait_str = f"Agreeableness - {levels[bfi_traits[3]]}"
+            elif trait == 'n':
+                trait_str = f"Neuroticism - {levels[bfi_traits[4]]}"
+            
+            instruction = f"You are a helpful assistant with the following Big Five personality traits: {trait_str}"
+            info['instruction'] = instruction
+            info['input'] = personx
+            info['output'] = persony
+            json_lst.append(info)
 
 print(len(json_lst))
 train_data, test_data = train_test_split(json_lst, test_size=0.1, shuffle=False)
