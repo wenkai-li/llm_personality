@@ -1,6 +1,6 @@
 ### model
-# model_name_or_path: /data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/
-model_name_or_path: /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+model_name_or_path: /data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/
+# model_name_or_path: /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
 
 ### method
 stage: sft
@@ -8,7 +8,7 @@ do_train: true
 finetuning_type: lora
 lora_target: all
 # deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_offload_config.json
-# deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
 ### dataset
 dataset: train_sft
