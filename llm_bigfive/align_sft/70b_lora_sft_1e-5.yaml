@@ -8,7 +8,7 @@ do_train: true
 finetuning_type: lora
 lora_target: all
 # deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_offload_config.json
-deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+# deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
 ### dataset
 dataset: train_sft
