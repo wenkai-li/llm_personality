@@ -1,6 +1,7 @@
 import json
 import re
 import random
+random.seed(42)
 from sklearn.model_selection import train_test_split
 
 def get_json_list(path):
