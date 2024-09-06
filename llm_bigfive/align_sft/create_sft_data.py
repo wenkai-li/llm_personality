@@ -53,6 +53,7 @@ for idx in range(0, len(data_dict['o']), 3):
             elif trait == 'n':
                 trait_str = f"Neuroticism - {levels[bfi_traits[4]]}"
             
+            # TODO: Fit DPO format
             instruction = f"You are a helpful assistant with the following Big Five personality traits: {trait_str}"
             info['instruction'] = instruction
             info['input'] = personx
