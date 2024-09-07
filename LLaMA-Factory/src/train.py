@@ -13,12 +13,9 @@
 # limitations under the License.
 
 from llamafactory.train.tuner import run_exp
-import pdb
-import torch
-os.environ['DS_SKIP_CUDA_CHECK'] = '1'
+
 
 def main():
-
     run_exp()
 
 

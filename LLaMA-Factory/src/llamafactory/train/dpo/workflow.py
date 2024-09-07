@@ -17,14 +17,13 @@
 
 from typing import TYPE_CHECKING, List, Optional
 
-from ...data import PairwiseDataCollatorWithPadding, get_dataset, split_dataset
+from ...data import PairwiseDataCollatorWithPadding, get_dataset, get_template_and_fix_tokenizer
 from ...extras.constants import IGNORE_INDEX
 from ...extras.ploting import plot_loss
 from ...hparams import ModelArguments
 from ...model import load_model, load_tokenizer
 from ..trainer_utils import create_modelcard_and_push, create_ref_model
 from .trainer import CustomDPOTrainer
-import pdb
 
 
 if TYPE_CHECKING:
@@ -40,21 +39,18 @@ def run_dpo(
     finetuning_args: "FinetuningArguments",
     callbacks: Optional[List["TrainerCallback"]] = None,
 ):
-    # print(f"Model Args: \n{model_args}")
-    # print(f"Data Args: \n{data_args}")
-    # print(f"Training Args: \n{training_args}")
-    # print(f"Finetuning Args: \n{finetuning_args}")
-
     tokenizer_module = load_tokenizer(model_args)
     tokenizer = tokenizer_module["tokenizer"]
-    dataset = get_dataset(model_args, data_args, training_args, stage="rm", **tokenizer_module)
+    template = get_template_and_fix_tokenizer(tokenizer, data_args)
+    dataset_module = get_dataset(template, model_args, data_args, training_args, stage="rm", **tokenizer_module)
     model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train)
+
     data_collator = PairwiseDataCollatorWithPadding(
-        tokenizer=tokenizer,
+        template=template,
         pad_to_multiple_of=8,
         label_pad_token_id=IGNORE_INDEX if data_args.ignore_pad_token_for_loss else tokenizer.pad_token_id,
+        **tokenizer_module,
     )
-    # pdb.set_trace()
 
     # Create reference model
     if finetuning_args.use_ref_model:
@@ -66,7 +62,7 @@ def run_dpo(
         ref_model = None
 
     # Update arguments
-    training_args.remove_unused_columns = False  # important for pairwise dataset
+    training_args.remove_unused_columns = False  # important for multimodal and pairwise dataset
 
     # Initialize our Trainer
     trainer = CustomDPOTrainer(
@@ -76,8 +72,8 @@ def run_dpo(
         finetuning_args=finetuning_args,
         data_collator=data_collator,
         callbacks=callbacks,
+        **dataset_module,
         **tokenizer_module,
-        **split_dataset(dataset, data_args, training_args),
     )
 
     # Training

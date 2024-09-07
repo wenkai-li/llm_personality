@@ -10,11 +10,10 @@ lora_target: all
 pref_beta: 0.1
 pref_loss: sigmoid # [sigmoid (dpo), orpo, simpo]
 # deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_offload_config.json
-deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+# deepspeed: /home/jiaruil5/personality/llm_personality/LLaMA-Factory/examples/deepspeed/ds_z3_config.json
 
 ### dataset
-# dataset: train_dpo
-dataset: dpo_en_demo
+dataset: train_dpo
 dataset_dir: /data/user_data/wenkail/llm_personality/align/data_dpo/
 template: llama3
 # cutoff_len: 2048
@@ -26,7 +25,8 @@ max_new_tokens: 1024
 # tokenized_path: /home/jiaruil5/personality/llm_personality/llm_bigfive/align_dpo/tokenized_data/
 
 ### output
-output_dir: /compute/babel-8-11/jiaruil5/personality/checkpoints/lora_dpo_1e-5
+# TODO: Change Output Dir
+output_dir: /compute/babel-9-3/wenkail/llm_personality/final_lora/llama3_70b_gptq
 logging_steps: 10
 save_steps: 300
 plot_loss: true
@@ -47,13 +47,13 @@ val_size: 0.1
 per_device_eval_batch_size: 1
 eval_strategy: steps
 eval_steps: 300
-save_total_limit: 2
+save_total_limit: 3
 load_best_model_at_end: true
 metric_for_best_model: eval_loss
 greater_is_better: false
 
 report_to: wandb
-run_name: train_align_dpo_1e-5
+run_name: train_align_dpo_1e-5_llama3_70b_gptq
 
 # CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train 70b_lora_dpo_1e-5.yaml
 

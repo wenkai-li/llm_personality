@@ -1,4 +1,4 @@
-model_name_or_path: /compute/babel-9-3/wenkail/llm_personality/full_finetune_generator/generator_whole_e_1e-6/checkpoint-11000
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
 template: llama3
 infer_backend: vllm
 vllm_enforce_eager: true
