@@ -181,6 +181,7 @@ phantom/
 *.csv
 llm_bigfive/classifier/*.csv
 llm_bigfive/data/*.csv
+psychgenerator_opensource/codes/*.csv
 
 llm_bigfive/classifier/filtered_big5_data_3_label.csv
 llm_bigfive/classifier/big5_training_data_degree.csv
