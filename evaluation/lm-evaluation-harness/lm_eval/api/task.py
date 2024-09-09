@@ -1086,6 +1086,7 @@ class ConfigurableTask(Task):
                 )
             else:
                 labeled_examples += self.sampler.get_context(doc, num_fewshot)
+                
 
         example = self.doc_to_text(doc)
         if apply_chat_template:
@@ -1115,6 +1116,9 @@ class ConfigurableTask(Task):
                     self.append_target_question(
                         labeled_examples, str(example), fewshot_as_multiturn
                     )
+            # TODO: After Debugging, remove this
+            # import pdb
+            # pdb.set_trace()
                 # return lm.apply_chat_template(labeled_examples)
             return chat_template(labeled_examples)
         else:

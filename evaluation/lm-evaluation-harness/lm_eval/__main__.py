@@ -183,7 +183,7 @@ def setup_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--show_config",
         action="store_true",
-        default=False,
+        default=True,
         help="If True, shows the the full config of all tasks at the end of the evaluation.",
     )
     parser.add_argument(
