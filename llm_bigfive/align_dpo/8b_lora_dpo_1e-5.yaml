@@ -1,6 +1,6 @@
 ### model
 # model_name_or_path: /data/models/huggingface/meta-llama/Meta-Llama-3-70B-Instruct/
-model_name_or_path: /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+model_name_or_path: /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct
 
 ### method
 stage: dpo
@@ -26,7 +26,7 @@ max_new_tokens: 1024
 
 ### output
 # TODO: Change Output Dir
-output_dir: /compute/babel-9-3/wenkail/llm_personality/final_lora/llama3_70b_gptq
+output_dir: /data/user_data/wenkail/llm_personality/align/8b_lora_dpo_1e-5
 logging_steps: 10
 save_steps: 300
 plot_loss: true
@@ -53,8 +53,11 @@ metric_for_best_model: eval_loss
 greater_is_better: false
 
 report_to: wandb
-run_name: train_align_dpo_1e-5_llama3_70b_gptq
+run_name: train_align_dpo_1e-5_llama3_8b
 
-# CUDA_VISIBLE_DEVICES=0,1,2,3,4 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train 70b_lora_dpo_1e-5.yaml
+# CUDA_VISIBLE_DEVICES=0,1,2,3,4 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train 8b_lora_dpo_1e-5.yaml
 
 # https://github.com/hiyouga/LLaMA-Factory/issues/3880
+
+
+# CUDA_VISIBLE_DEVICES=0 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train 8b_lora_dpo_1e-5.yaml
