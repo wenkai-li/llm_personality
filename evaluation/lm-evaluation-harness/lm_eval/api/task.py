@@ -1078,7 +1078,8 @@ class ConfigurableTask(Task):
                 # user_prompt_header = ""
             else:
                 labeled_examples = system_prompt
-
+        else:
+            user_prompt_header = ""
 
         # if few-shot - append examples after the system prompt
         if num_fewshot > 0:
@@ -1127,7 +1128,7 @@ class ConfigurableTask(Task):
             
             chat_template_labeled_examples = chat_template(labeled_examples)
                 # return lm.apply_chat_template(labeled_examples)
-            pdb.set_trace()
+            # pdb.set_trace()
             return chat_template_labeled_examples
         else:
             if self.multiple_input:
