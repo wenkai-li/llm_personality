@@ -65,6 +65,7 @@ class ContextSampler:
 
     def get_chat_context(
         self,
+        user_prompt_header,
         doc,
         num_fewshot,
         fewshot_as_multiturn: bool = False,
@@ -110,7 +111,7 @@ class ContextSampler:
         else:
             # get fewshot context as one user turn
             chat_history.append(
-                {"role": "user", "content": self.get_context(doc, num_fewshot)}
+                {"role": "user", "content": user_prompt_header + self.get_context(doc, num_fewshot)}
             )
 
         return chat_history

@@ -1,5 +1,6 @@
 import abc
 import ast
+import pdb
 import logging
 import random
 import re
@@ -1072,27 +1073,33 @@ class ConfigurableTask(Task):
         # add system prompt if specified
         if system_prompt:
             if apply_chat_template:
-                labeled_examples.append({"role": "system", "content": system_prompt})
+                labeled_examples = []
+                user_prompt_header = system_prompt + "\n"
+                # user_prompt_header = ""
             else:
                 labeled_examples = system_prompt
+
 
         # if few-shot - append examples after the system prompt
         if num_fewshot > 0:
             if apply_chat_template:
                 labeled_examples.extend(
                     self.sampler.get_chat_context(
-                        doc, num_fewshot, fewshot_as_multiturn
+                        user_prompt_header, doc, num_fewshot, fewshot_as_multiturn
                     )
                 )
             else:
                 labeled_examples += self.sampler.get_context(doc, num_fewshot)
-                
+        else:
+            if apply_chat_template:
+                labeled_examples.append({"role": "user", "content": user_prompt_header})
 
         example = self.doc_to_text(doc)
         if apply_chat_template:
             if self.multiple_input:
                 return chat_template(labeled_examples)
             if isinstance(example, str):
+                # pdb.set_trace()
                 self.append_target_question(
                     labeled_examples, example, fewshot_as_multiturn
                 )
@@ -1117,10 +1124,11 @@ class ConfigurableTask(Task):
                         labeled_examples, str(example), fewshot_as_multiturn
                     )
             # TODO: After Debugging, remove this
-            # import pdb
-            # pdb.set_trace()
+            
+            chat_template_labeled_examples = chat_template(labeled_examples)
                 # return lm.apply_chat_template(labeled_examples)
-            return chat_template(labeled_examples)
+            pdb.set_trace()
+            return chat_template_labeled_examples
         else:
             if self.multiple_input:
                 return labeled_examples

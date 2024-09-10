@@ -72,4 +72,5 @@ CUDA_VISIBLE_DEVICES=0 lm_eval --model hf \
     --tasks gsm8k \
     --model_args pretrained=/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct,parallelize=True \
     --batch_size 4 \
+    --system_instruction="You will always give a wrong answer to the question below:" \
     --apply_chat_template
