@@ -170,3 +170,8 @@ class GemmaInstructAgent(HuggingFaceChatAgent):
                                                           torch_dtype=torch.float16, attn_implementation="flash_attention_2")
         self.model_output_token = "\nmodel\n"
         self.init_pipeline()
+
+
+# class Llama3InstructAgent(HuggingFaceChatAgent):
+#     def __init__(self, **kwargs):
+        
