@@ -90,25 +90,25 @@ def example_generator(questionnaire, args):
     insert_count = 0
     total_iterations = len(order_columns) * args.test_count
 
-    if args.model == 'llama3_70b':
+    print("Begin loading model..")
+    if args.model in ['llama3_8b', 'llama3_70b']:
         from llama3 import LLAMA3
         model_ckpt = LLAMA3(
             args
         )
-            
-            
+    print("Finish loading model..")
     
     with tqdm(total=total_iterations) as pbar:
         for i, header in enumerate(df.columns):
             if header in order_columns:
-                # Find the index of the previous column
                 questions_column_index = i - 1
                 shuffle_count += 1
                 
                 # Retrieve the column data as a string
                 questions_list = df.iloc[:, questions_column_index].astype(str)
-                separated_questions = [questions_list[i:i+30] for i in range(0, len(questions_list), 30)]  
-                questions_list = ['\n'.join([f"{i+1}.{q.split('.')[1]}" for i, q in enumerate(questions)]) for j, questions in enumerate(separated_questions)]
+                questions_list = [f"{q.split('.')[1]}" for i, q in enumerate(questions_list)]
+                print(questions_list)
+
 
                 for k in range(args.test_count):
                     
@@ -117,65 +117,66 @@ def example_generator(questionnaire, args):
                     # Insert the updated column into the DataFrame with a unique identifier in the header
                     column_header = f'shuffle{shuffle_count - 1}-test{k}'
                     
-                    while(True):
-                        result_string_list = []
-                        previous_records = []
-                        
-                        for questions_string in questions_list:
-                            result = ''
-                            if model in ['llama3_70b']:
-                                prompt_prefix = ""
-                                if args.model_mode.startswith("prompt_"):
-                                    from evaluation.prompts.get_prompts import get_prompting_instruction
-                                    prompt_prefix = get_prompting_instruction(args.model_mode[-5:]) + "\n"
-                                    
-                                elif args.model_mode.startswith("train_"):
-                                    from evaluation.prompts.get_prompts import get_trained_instruction
-                                    prompt_prefix = get_trained_instruction(args.model_mode[-5:]) + "\n"
+                    
+                    result_string_list = []
+                    previous_records = []
+                    
+                    for questions_string in questions_list:
+                        result = ''
+                        if model in ['llama3_8b', 'llama3_70b']:
+                            prompt_prefix = ""
+                            if args.model_mode.startswith("prompt_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction
+                                prompt_prefix = get_prompting_instruction(args.model_mode[-5:]) + "\n"
                                 
-                                inputs = previous_records + [
-                                    {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
-                                ]
-                                # add the system prompt and prompt prefix
-                                inputs[0]['content'] = prompt_prefix + questionnaire['inner_setting'] + inputs[0]['content']
-                                
-                                # inference the model
-                                result = model_ckpt.generate(
-                                    inputs,
-                                    **{
-                                        "do_sample": False,
-                                        "max_new_tokens": 1024,
-                                    }
-                                )
-                                previous_records.append({"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string})
-                                previous_records.append({"role": "assistant", "content": result})
-                            else:
-                                raise ValueError("The model is not supported or does not exist.")
-                        
-                            result_string_list.append(result.strip())
-                        
-                            # Write the prompts and results to the file
-                            os.makedirs("prompts", exist_ok=True)
-                            os.makedirs("responses", exist_ok=True)
+                            elif args.model_mode.startswith("train_"):
+                                from evaluation.prompts.get_prompts import get_trained_instruction
+                                prompt_prefix = get_trained_instruction(args.model_mode[-5:]) + "\n"
+                            
+                            inputs = [
+                                {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
+                            ]
+                            # add the system prompt and prompt prefix
+                            inputs[0]['content'] = prompt_prefix + questionnaire['inner_setting'] + inputs[0]['content']
+                            
+                            # inference the model
+                            print(inputs)
+                            result = model_ckpt.generate(
+                                inputs,
+                                **{
+                                    "do_sample": True,
+                                    "temperature": 0.6,
+                                    "max_new_tokens": 1024,
+                                }
+                            )
+                            print(result)
+                        else:
+                            raise ValueError("The model is not supported or does not exist.")
 
-                            with open(f'prompts/{records_file}-{questionnaire["name"]}-shuffle{shuffle_count - 1}.txt', "a") as file:
-                                file.write(f'{inputs}\n====\n')
-                            with open(f'responses/{records_file}-{questionnaire["name"]}-shuffle{shuffle_count - 1}.txt', "a") as file:
-                                file.write(f'{result}\n====\n')
+                        result_string_list.append(result.strip())
+                    
+                        # Write the prompts and results to the file
+                        os.makedirs("prompts", exist_ok=True)
+                        os.makedirs("responses", exist_ok=True)
 
-                        result_string = '\n'.join(result_string_list)
-                        
-                        result_list = convert_results(result_string, column_header)
-                        
-                        try:
-                            if column_header in df.columns:
-                                df[column_header] = result_list
-                            else:
-                                df.insert(i + insert_count + 1, column_header, result_list)
-                                insert_count += 1
-                            break
-                        except:
-                            print(f"Unable to capture the responses on {column_header}.")
+                        with open(f'prompts/{records_file}-{questionnaire["name"]}-shuffle{shuffle_count - 1}.txt', "a") as file:
+                            file.write(f'{inputs}\n====\n')
+                        with open(f'responses/{records_file}-{questionnaire["name"]}-shuffle{shuffle_count - 1}.txt', "a") as file:
+                            file.write(f'{result}\n====\n')
+
+                    
+                    result_string = '\n'.join(result_string_list)
+                    
+                    result_list = convert_results(result_string, column_header)
+                    
+                    try:
+                        if column_header in df.columns:
+                            df[column_header] = result_list
+                        else:
+                            df.insert(i + insert_count + 1, column_header, result_list)
+                            insert_count += 1
+                    except:
+                        print(f"Unable to capture the responses on {column_header}.")
 
                     # Write the updated DataFrame back to the CSV file
                     df.to_csv(testing_file, index=False)

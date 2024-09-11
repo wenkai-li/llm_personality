@@ -16,7 +16,7 @@ class LLAMA3():
         """
         
         self.args = args
-        assert args.model == 'llama3_70b'
+        assert args.model in ['llama3_8b', 'llama3_70b']
 
         self.tokenizer = AutoTokenizer.from_pretrained(
             args.model_path,

@@ -156,10 +156,10 @@ def compute_statistics(questionnaire, data_list):
             else:
                 scores_list.append(mean(scores))
         
-        if len(scores_list) < 2:
-            raise ValueError("The test file should have at least 2 test cases.")
-        
-        results.append((mean(scores_list), stdev(scores_list), len(scores_list)))
+        if len(scores_list) > 1:
+            results.append((mean(scores_list), stdev(scores_list), len(scores_list)))
+        else:
+            results.append((scores_list[0], 0, 1))
         
     return results
 
@@ -501,8 +501,8 @@ def run_psychobench(args, generator):
             
         # Analysis
         if args.mode in ['analysis', 'auto']:
-            try:
-                analysis_results(questionnaire, args)
-            except:
-                print(f'Unable to analysis {args.testing_file}.')
+            # try:
+            analysis_results(questionnaire, args)
+            # except:
+            #     print(f'Unable to analysis {args.testing_file}.')
 
