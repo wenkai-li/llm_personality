@@ -1,5 +1,6 @@
 import openai
 import os
+import re
 import pandas as pd
 from tenacity import (
     retry,
@@ -62,6 +63,14 @@ def completion(
         response.sort(key=lambda x: x['index'])
         return [i['text'] for i in response['choices']]
 
+def process_result(result):
+    match = re.match(r'^\d+', result)
+    if match:
+        number = str(int(match.group()))
+        return number
+    else:
+        print("Error")
+        return result
 
 def convert_results(result, column_header):
     result = result.strip()  # Remove leading and trailing whitespace
@@ -137,7 +146,7 @@ def example_generator(questionnaire, args):
                                 {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
                             ]
                             # add the system prompt and prompt prefix
-                            inputs[0]['content'] = prompt_prefix + questionnaire['inner_setting'] + inputs[0]['content']
+                            inputs[0]['content'] = prompt_prefix + inputs[0]['content']
                             
                             # inference the model
                             print(inputs)
@@ -153,7 +162,7 @@ def example_generator(questionnaire, args):
                         else:
                             raise ValueError("The model is not supported or does not exist.")
 
-                        result_string_list.append(result.strip())
+                        result_string_list.append(process_result(result.strip()))
                     
                         # Write the prompts and results to the file
                         os.makedirs("prompts", exist_ok=True)
