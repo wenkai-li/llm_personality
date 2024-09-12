@@ -4,7 +4,7 @@
 BASE_DIRECTORY="/home/wenkail/llm_personality/evaluation/lm-evaluation-harness/results/llama3_8b_openness_high"
 LORA_PATH="/data/user_data/wenkail/llm_personality/align/8b_lora_dpo_1e-5/checkpoint-2025"
 SYSTEM_PROMPT="You are a helpful assistant with the following Big Five personality traits: Openness - low"
-BATCH_SIZE=32
+BATCH_SIZE=16
 MODEL_PATH="/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
 
 source ~/.bashrc

@@ -1,7 +1,7 @@
 set -e
 
 # Remember to change the results path, please put it in the results folder
-BASE_DIRECTORY="/home/wenkail/llm_personality/evaluation/lm-evaluation-harness/results/llama3_8b"
+BASE_DIRECTORY="/home/wenkail/llm_personality/evaluation/lm-evaluation-harness/results/dpo/llama3_8b"
 MODEL_PATH="/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
 BATCH_SIZE=16
 
