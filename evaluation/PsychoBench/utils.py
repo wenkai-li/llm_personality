@@ -428,6 +428,20 @@ def analysis_personality(args, test_data):
         f.write(df.to_markdown())
 
 
+def write_json_to_csv(json_data, csv_file_path):
+    file_exists = os.path.isfile(csv_file_path)
+    
+    with open(csv_file_path, mode='a', newline='', encoding='utf-8') as csv_file:
+        fieldnames = json_data.keys()
+        
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        
+        if not file_exists or os.stat(csv_file_path).st_size == 0:
+            writer.writeheader()
+        
+        writer.writerow(json_data)
+
+
 def analysis_results(questionnaire, args):
     significance_level = args.significance_level
     testing_file = args.testing_file
@@ -452,10 +466,12 @@ def analysis_results(questionnaire, args):
     output_text = ''
 
     # Analysis by each category
+    tmp_res = []
     for cat_index, cat in enumerate(questionnaire['categories']):
         output_text += f'## {cat["cat_name"]}\n'
         output_list += f'| {cat["cat_name"]} | {test_results[cat_index][0]:.1f} $\pm$ {test_results[cat_index][1]:.1f} | '
         mean_list[0].append(test_results[cat_index][0])
+        tmp_res.append([cat['cat_name'], f"{test_results[cat_index][0]:.1f}", f"{test_results[cat_index][1]:.1f}"])
         
         for crowd_index, crowd_group in enumerate(crowd_list):
             crowd_data = (cat["crowd"][crowd_index]["mean"], cat["crowd"][crowd_index]["std"], cat["crowd"][crowd_index]["n"])
@@ -473,6 +489,16 @@ def analysis_results(questionnaire, args):
     with open(result_file, "w", encoding="utf-8") as f:
         f.write(output_list + output_text)
 
+    json_data = ({
+        "questionnaire": questionnaire['name'],
+        "model": model,
+        "mode_mode": args.model_mode,
+        "test_count": len(test_data),
+    })
+    for i, j, k in tmp_res:
+        json_data[f'{i}_mean'] = j
+        json_data[f'{i}_std'] = k
+    write_json_to_csv(json_data, "stats/summary.csv")
 
 
 def run_psychobench(args, generator):

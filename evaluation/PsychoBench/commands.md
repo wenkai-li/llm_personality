@@ -1,6 +1,7 @@
 # BFI
 ## 70B
 
+### Direct
 python3 run_psychobench.py \
     --model llama3_70b \
     --model_mode direct \
@@ -8,7 +9,10 @@ python3 run_psychobench.py \
     --questionnaire BFI \
     --shuffle-count 0 \
     --test-count 5 \
+        --mode analysis \
     --name-exp direct_debug
+
+### SFT
 
 mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
 for mode in "${mode[@]}"; do
@@ -20,9 +24,27 @@ for mode in "${mode[@]}"; do
         --questionnaire BFI \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 70b_${mode}
 done
 
+### DPO
+
+mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/70b_gptq_lora_dpo_1e-5/llama3_70b_gptq/checkpoint-2025/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 70b_dpo_${mode}
+done
+
+### Prompt
 mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -32,11 +54,13 @@ for mode in "${mode[@]}"; do
         --questionnaire BFI \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 70b_${mode}
 done
 
 ## 8B
 
+### Direct
 python3 run_psychobench.py \
     --model llama3_8b \
     --model_mode direct \
@@ -44,8 +68,10 @@ python3 run_psychobench.py \
     --questionnaire BFI \
     --shuffle-count 0 \
     --test-count 5 \
+        --mode analysis \
     --name-exp direct_debug_8b
 
+### SFT
 mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -56,9 +82,26 @@ for mode in "${mode[@]}"; do
         --questionnaire BFI \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 8b_${mode}
 done
 
+### DPO
+mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/8b_lora_dpo_1e-5/checkpoint-2025/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 8b_dpo_${mode}
+done
+
+### Prompt
 mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -68,6 +111,7 @@ for mode in "${mode[@]}"; do
         --questionnaire BFI \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 8b_${mode}
 done
 
@@ -75,6 +119,7 @@ done
 
 ## 70B
 
+### Direct
 python3 run_psychobench.py \
     --model llama3_70b \
     --model_mode direct \
@@ -82,8 +127,10 @@ python3 run_psychobench.py \
     --questionnaire IPIP-NEO \
     --shuffle-count 0 \
     --test-count 5 \
+        --mode analysis \
     --name-exp direct_debug
 
+### SFT
 mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -94,9 +141,26 @@ for mode in "${mode[@]}"; do
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 70b_${mode}
 done
 
+### DPO
+mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/70b_gptq_lora_dpo_1e-5/llama3_70b_gptq/checkpoint-2025/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 70b_dpo_${mode}
+done
+
+### Prompt
 mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -106,11 +170,13 @@ for mode in "${mode[@]}"; do
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 70b_${mode}
 done
 
 ## 8B
 
+### Direct
 python3 run_psychobench.py \
     --model llama3_8b \
     --model_mode direct \
@@ -118,8 +184,10 @@ python3 run_psychobench.py \
     --questionnaire IPIP-NEO \
     --shuffle-count 0 \
     --test-count 5 \
+        --mode analysis \
     --name-exp direct_debug_8b
 
+### SFT
 mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -130,9 +198,26 @@ for mode in "${mode[@]}"; do
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 8b_${mode}
 done
 
+### DPO
+mode=("train_0xxxx" "train_1xxxx" "train_x0xxx" "train_x1xxx" "train_xx0xx" "train_xx1xx" "train_xxx0x" "train_xxx1x" "train_xxxx0" "train_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/8b_lora_dpo_1e-5/checkpoint-2025/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 8b_dpo_${mode}
+done
+
+### Prompt
 mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
@@ -142,5 +227,17 @@ for mode in "${mode[@]}"; do
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \
+        --mode analysis \
         --name-exp 8b_${mode}
 done
+
+
+python3 run_psychobench.py \
+    --model llama3_8b \
+    --model_mode prompt_xxx1x \
+    --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+    --questionnaire IPIP-NEO \
+    --shuffle-count 0 \
+    --test-count 4 \
+    --mode analysis \
+    --name-exp 8b_prompt_xxx1x
