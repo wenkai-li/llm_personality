@@ -1,7 +1,7 @@
 from .claude import AsyncClaudeAgent
 from .gemini import AsyncGeminiAgent
 from .gpt import GPT3BaseAgent, AsyncConversationalGPTBaseAgent
-from .huggingface import ZephyrAgent
+from .huggingface import ZephyrAgent, Llama3InstructAgent
 from .together_ai import AsyncTogetherAIAgent, AsyncLlama3Agent
 
 def load_model(model_name, **kwargs):
@@ -13,12 +13,14 @@ def load_model(model_name, **kwargs):
         model = AsyncGeminiAgent({'model': model_name, 'temperature': 0, 'max_tokens': 256})
     elif model_name.startswith('claude-'):
         model = AsyncClaudeAgent({'model': model_name, **kwargs})
-    elif model_name in ["meta-llama/Llama-3-70b-chat-hf-tg", "meta-llama/Llama-3-8b-chat-hf-tg"]:
-        model = AsyncLlama3Agent({'model': model_name, 'temperature': 0, 'max_tokens': 256, **kwargs})
+    # elif model_name in ["meta-llama/Llama-3-70b-chat-hf-tg", "meta-llama/Llama-3-8b-chat-hf-tg"]:
+    #     model = AsyncLlama3Agent({'model': model_name, 'temperature': 0, 'max_tokens': 256, **kwargs})
     elif model_name.endswith('-tg'):
         model = AsyncTogetherAIAgent({'model': model_name.removesuffix("-tg"), 'temperature': 0, 'max_tokens': 128, **kwargs})
     elif model_name.startswith('zephyr'):
         model = ZephyrAgent(**kwargs)
+    elif "llama3" in model_name:
+        model = Llama3InstructAgent({'model': model_name, 'temperature': 0, 'max_tokens': 256, **kwargs})
     else:
         raise NotImplementedError
 

@@ -52,7 +52,7 @@ FILE_NAME="llama3_8b_${TASK_NAME}"
 FULL_PATH="${BASE_DIRECTORY}/${FILE_NAME}"
 CUDA_VISIBLE_DEVICES=0,1 lm_eval --model hf --tasks $TASK_NAME --model_args pretrained=$MODEL_PATH,parallelize=True,peft=$LORA_PATH --batch_size $BATCH_SIZE --apply_chat_template --output_path $FULL_PATH --system_instruction "$SYSTEM_PROMPT"
 
-# echo "Do the Llama 3 8B GPQA Main CoT Zero Shot Evaluation"
+# echo "Do the Llama 3 8B GPQA Main CoT Zero Shot Evaluation"b
 # TASK_NAME="gpqa_main_cot_zeroshot"
 # FILE_NAME="llama3_8b_${TASK_NAME}"
 # FULL_PATH="${BASE_DIRECTORY}/${FILE_NAME}"

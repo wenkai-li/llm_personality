@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from .base import BaseAgent
+import pdb
 
 class HuggingFaceAgent(BaseAgent):
     def __init__(self, **kwargs):
@@ -113,6 +114,12 @@ class Llama2ChatAgent(HuggingFaceChatAgent):
         self.init_pipeline()
         self.pipe.tokenizer.pad_token_id = self.model.config.eos_token_id
 
+class Llama3InstructAgent(HuggingFaceChatAgent):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        assert kwargs['model_size'].lower() in ['8b', '70b']
+        pdb.set_trace()
+        
 class MistralAgent(HuggingFaceAgent):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -170,8 +177,3 @@ class GemmaInstructAgent(HuggingFaceChatAgent):
                                                           torch_dtype=torch.float16, attn_implementation="flash_attention_2")
         self.model_output_token = "\nmodel\n"
         self.init_pipeline()
-
-
-# class Llama3InstructAgent(HuggingFaceChatAgent):
-#     def __init__(self, **kwargs):
-        
