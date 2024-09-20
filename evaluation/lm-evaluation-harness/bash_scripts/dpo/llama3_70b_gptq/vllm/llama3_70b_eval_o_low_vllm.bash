@@ -27,7 +27,7 @@ echo "Do the Llama 3 70B MMLU Evaluation"
 TASK_NAME="mmlu"
 FILE_NAME="llama3_70b_${TASK_NAME}"
 FULL_PATH="${BASE_DIRECTORY}/${FILE_NAME}"
-CUDA_VISIBLE_DEVICES=1 lm_eval --model vllm --tasks $TASK_NAME --model_args pretrained=$MODEL_PATH,dtype=bfloat16,gpu_memory_utilization=0.99,lora_local_path=$LORA_PATH,enable_lora=True --batch_size $BATCH_SIZE --apply_chat_template --output_path $FULL_PATH --system_instruction "$SYSTEM_PROMPT" 
+CUDA_VISIBLE_DEVICES=1 lm_eval --model hf --tasks $TASK_NAME --model_args pretrained=$MODEL_PATH,parallelize=True,peft=$LORA_PATH --batch_size $BATCH_SIZE --apply_chat_template --output_path $FULL_PATH --system_instruction "$SYSTEM_PROMPT"
 
 # Commonsing Reasoning
 # echo "Do the Llama 3 70B PIQA Evaluation"

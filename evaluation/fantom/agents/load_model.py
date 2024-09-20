@@ -19,8 +19,9 @@ def load_model(model_name, **kwargs):
         model = AsyncTogetherAIAgent({'model': model_name.removesuffix("-tg"), 'temperature': 0, 'max_tokens': 128, **kwargs})
     elif model_name.startswith('zephyr'):
         model = ZephyrAgent(**kwargs)
-    elif "llama3" in model_name:
-        model = Llama3InstructAgent({'model': model_name, 'temperature': 0, 'max_tokens': 256, **kwargs})
+    elif "Llama-3" in model_name:
+        agent_kwargs = {**kwargs, "model": model_name}
+        model = Llama3InstructAgent(**agent_kwargs)
     else:
         raise NotImplementedError
 
