@@ -49,7 +49,7 @@ class FantomEvalAgent():
         self.load_fantom()
         self.setup_fantom()
 
-        self.model = load_model(self.args.model)
+        self.model = load_model(self.args.model, self.args.lora_path)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.embedder = SentenceTransformer('sentence-transformers/all-roberta-large-v1').to(self.device)
 
@@ -716,6 +716,10 @@ if __name__ == '__main__':
     parser.add_argument('--model',
                         type=str,
                         help='name of the model to run evaluation',
+    )
+    parser.add_argument('--lora_path',
+                        type=str,
+                        help='LoRA Path to add into the model',
     )
     parser.add_argument('--batch-size',
                         type=int,

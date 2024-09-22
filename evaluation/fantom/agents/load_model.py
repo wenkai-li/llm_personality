@@ -4,7 +4,7 @@ from .gpt import GPT3BaseAgent, AsyncConversationalGPTBaseAgent
 from .huggingface import ZephyrAgent, Llama3InstructAgent
 from .together_ai import AsyncTogetherAIAgent, AsyncLlama3Agent
 
-def load_model(model_name, **kwargs):
+def load_model(model_name, lora_path, **kwargs,):
     if model_name.startswith("text-"):
         model = GPT3BaseAgent({'engine': model_name, 'temperature': 0, 'top_p': 1.0, 'frequency_penalty': 0.0, 'presence_penalty': 0.0})
     elif model_name.startswith("gpt-"):
@@ -20,7 +20,11 @@ def load_model(model_name, **kwargs):
     elif model_name.startswith('zephyr'):
         model = ZephyrAgent(**kwargs)
     elif "Llama-3" in model_name:
-        agent_kwargs = {**kwargs, "model": model_name}
+        if lora_path is not None:
+            agent_kwargs = {**kwargs, "model": model_name, "lora_path": lora_path}
+        else:
+            agent_kwargs = {**kwargs, "model": model_name}
+            
         model = Llama3InstructAgent(**agent_kwargs)
     else:
         raise NotImplementedError

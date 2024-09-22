@@ -121,17 +121,22 @@ class Llama3InstructAgent(HuggingFaceChatAgent):
         self.tokenizer = AutoTokenizer.from_pretrained(kwargs["model"])
         self.model = AutoModelForCausalLM.from_pretrained(kwargs["model"], 
                                                         device_map="auto",
-                                                        torch_dtype=torch.bfloat16)      
+                                                        torch_dtype=torch.bfloat16,
+                                                        local_files_only=True)      
         if "lora_path" in kwargs:
             self.model = PeftModel.from_pretrained(
                 self.model,
-                args.kwargs['lora_path']
+                args.kwargs['lora_path'],
+                local_files_only=True,
             )
 
         self.terminators = [
             self.tokenizer.eos_token_id,
             self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
         ]
+        
+        self.init_pipeline()
+        self.pipe.tokenizer.pad_token_id = self.model.config.eos_token_id
 
     def generate(self, prompt, temperature=None, max_tokens=None):
         # Implement the generation logic here
