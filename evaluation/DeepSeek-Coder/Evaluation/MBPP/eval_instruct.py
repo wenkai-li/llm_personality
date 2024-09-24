@@ -107,8 +107,6 @@ def generate_main(args):
                 model,
                 args.lora_path
             )
-    # import pdb
-    # pdb.set_trace()
     model.eval()
 
     examples = list(read_test_examples(problem_file))

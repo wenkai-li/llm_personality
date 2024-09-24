@@ -8,7 +8,7 @@ MODEL="/data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct"
 MODEL_NAME="Meta-Llama-3-8B-Instruct"
 LORA_PATH="/data/user_data/wenkail/llm_personality/align/8b_lora_dpo_1e-5/checkpoint-2025"
 
-# A
+# O
 TYPE="openness_high"
 INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Openness - high'
 CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
@@ -101,4 +101,3 @@ CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
     --temp_dir $OUPUT_DIR \
     --instruction "$INSTRUCTION" \
     --lora_path=$LORA_PATH
-
