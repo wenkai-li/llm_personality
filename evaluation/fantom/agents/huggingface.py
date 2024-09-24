@@ -2,6 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from .base import BaseAgent
 import pdb
+from peft import PeftModel
 
 class HuggingFaceAgent(BaseAgent):
     def __init__(self, **kwargs):
@@ -126,7 +127,7 @@ class Llama3InstructAgent(HuggingFaceChatAgent):
         if "lora_path" in kwargs:
             self.model = PeftModel.from_pretrained(
                 self.model,
-                args.kwargs['lora_path'],
+                kwargs['lora_path'],
                 local_files_only=True,
             )
 

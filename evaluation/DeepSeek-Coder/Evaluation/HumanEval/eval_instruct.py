@@ -9,25 +9,33 @@ data_abs_dir = Path(__file__).parent / "data"
 
 from utils.utils import extract_generation_code, languge_settings
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
 from human_eval.evaluation import evaluate_functional_correctness
 
-def build_deepseekcoder_instruction(languge: str, question: str):
-    return '''
-Please continue to complete the function. You are not allowed to modify the given code and do the completion only. Please return all completed function in a codeblock. Here is the given code to do completion:
-```{}
-{}
-```
-'''.strip().format(languge.lower(), question.strip())
+def build_deepseekcoder_instruction(persona_instruction: str, languge: str, question: str):
+    if persona_instruction != "":
+        return '''{}\n
+    Please continue to complete the function. You are not allowed to modify the given code and do the completion only. Please return all completed function in a codeblock. Here is the given code to do completion:
+    ```{}
+    {}
+    ```
+    '''.strip().format(persona_instruction, languge.lower(), question.strip())
+    else:
+        return '''Please continue to complete the function. You are not allowed to modify the given code and do the completion only. Please return all completed function in a codeblock. Here is the given code to do completion:
+    ```{}
+    {}
+    ```
+    '''.strip().format(languge.lower(), question.strip())
 
-def generate_one(example, lang, tokenizer, model):
-    prompt = build_deepseekcoder_instruction(languge_settings[lang]['full_name'], example['prompt'])
+def generate_one(persona_instruction, example, lang, tokenizer, model):
+    prompt = build_deepseekcoder_instruction(persona_instruction, languge_settings[lang]['full_name'], example['prompt'])
     inputs = tokenizer.apply_chat_template(
         [{'role': 'user', 'content': prompt }],
         return_tensors="pt",
         add_generation_prompt=True
     ).to(model.device)
 
-    stop_id = tokenizer.convert_tokens_to_ids("<|EOT|>")
+    stop_id = tokenizer.convert_tokens_to_ids("<|eot_id|>")
     assert isinstance(stop_id, int), "Invalid tokenizer, EOT id not found"
 
     outputs = model.generate(
@@ -62,13 +70,18 @@ def generate_main(args):
         device_map="auto",
         #use_flash_attention_2=True
     )
+    if args.lora_path is not None:
+        model = PeftModel.from_pretrained(
+                model,
+                args.lora_path
+            )
     model.eval()
     examples = [json.loads(x) for x in open(problem_file) if x.strip()]
     print("Read {} examples for evaluation over.".format(len(examples)))
 
     generated_examples = []
     for ex in tqdm(examples, desc='Generating'):
-        gen_example = generate_one(ex, args.language, tokenizer, model)
+        gen_example = generate_one(args.instruction, ex, args.language, tokenizer, model)
         generated_examples.append(gen_example)
 
     print("Generate all over!!!")
@@ -121,7 +134,9 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, help="model name or path")
     parser.add_argument('--output_path', type=str, help="output path of your generation")
     parser.add_argument('--language', type=str, help="langauge")
+    parser.add_argument('--lora_path', type=str, help="lora path", default=None)
     parser.add_argument('--temp_dir', type=str, help="temp dir for evaluation", default="tmp")
+    parser.add_argument('--instruction', type=str, help="persona instruction", default="")
     args = parser.parse_args()
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"

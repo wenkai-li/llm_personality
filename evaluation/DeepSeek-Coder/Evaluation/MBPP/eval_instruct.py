@@ -7,7 +7,7 @@ from pathlib import Path
 from tqdm import tqdm
 
 data_abs_dir = Path(__file__).parent / "data"
-
+from peft import PeftModel
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from human_eval.evaluation import evaluate_functional_correctness
 
@@ -62,14 +62,15 @@ def convert_for_evaluation(example):
     example['generation'] = generation
     return example
 
-def generate_one(example, tokenizer, model):
-    prompt = example['prompt']
+def generate_one(instruction, example, tokenizer, model):
+    prompt = instruction + '\n'
+    prompt += example['prompt']
     inputs = tokenizer.apply_chat_template(
         [{'role': 'user', 'content': prompt }],
         return_tensors="pt", add_generation_prompt=True
     ).to(model.device)
 
-    stop_id = tokenizer.convert_tokens_to_ids("<|EOT|>")
+    stop_id = tokenizer.convert_tokens_to_ids("<|eot_id|>")
     assert isinstance(stop_id, int), "Invalid tokenizer, EOT id not found"
     outputs = model.generate(
         inputs, 
@@ -101,6 +102,13 @@ def generate_main(args):
         torch_dtype=torch.bfloat16,
         device_map="auto",
     )
+    if args.lora_path is not None:
+        model = PeftModel.from_pretrained(
+                model,
+                args.lora_path
+            )
+    # import pdb
+    # pdb.set_trace()
     model.eval()
 
     examples = list(read_test_examples(problem_file))
@@ -108,7 +116,7 @@ def generate_main(args):
 
     generated_examples = []
     for ex in tqdm(examples, desc='Generating'):
-        gen_example = generate_one(ex, tokenizer, model)
+        gen_example = generate_one(args.instruction, ex, tokenizer, model)
         generated_examples.append(gen_example)
         print("Generate {}/{} over...".format(len(generated_examples), len(examples)))
 
@@ -133,6 +141,8 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, help="model name or path")
     parser.add_argument('--output_path', type=str, help="output path of your generation")
     parser.add_argument('--temp_dir', type=str, help="temp dir for evaluation", default="tmp")
+    parser.add_argument('--instruction', type=str, help="persona instruction", default="")
+    parser.add_argument('--lora_path', type=str, help="lora path", default=None)
     args = parser.parse_args()
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
