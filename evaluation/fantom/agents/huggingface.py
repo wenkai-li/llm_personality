@@ -1,6 +1,8 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from .base import BaseAgent
+import pdb
+from peft import PeftModel
 
 class HuggingFaceAgent(BaseAgent):
     def __init__(self, **kwargs):
@@ -112,6 +114,54 @@ class Llama2ChatAgent(HuggingFaceChatAgent):
         self.model_output_token = "[/INST]"
         self.init_pipeline()
         self.pipe.tokenizer.pad_token_id = self.model.config.eos_token_id
+
+class Llama3InstructAgent(HuggingFaceChatAgent):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # assert kwargs['model_size'].lower() in ['8b', '70b']
+        self.tokenizer = AutoTokenizer.from_pretrained(kwargs["model"])
+        self.model = AutoModelForCausalLM.from_pretrained(kwargs["model"], 
+                                                        device_map="auto",
+                                                        torch_dtype=torch.bfloat16,
+                                                        local_files_only=True)      
+        if "lora_path" in kwargs:
+            self.model = PeftModel.from_pretrained(
+                self.model,
+                kwargs['lora_path'],
+                local_files_only=True,
+            )
+
+        self.terminators = [
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+        
+        self.init_pipeline()
+        self.pipe.tokenizer.pad_token_id = self.model.config.eos_token_id
+
+    def generate(self, prompt, temperature=None, max_tokens=None):
+        # Implement the generation logic here
+        # This is just a placeholder, you'll need to implement the actual generation
+        message = self.preprocess_input(prompt)
+
+        pdb.set_trace()
+        input_ids = self.tokenizer.apply_chat_template(
+            prompt,
+            add_generation_prompt=True,
+            return_tensors="pt"
+        ).to(self.model.device)
+
+        outputs = self.model.generate(
+            input_ids,
+            max_new_tokens=max_tokens,
+            eos_token_id=self.terminators,
+            do_sample=False,
+        )
+        pdb.set_trace()
+
+        response = outputs[0][input_ids.shape[-1]:]
+        result = self.tokenizer.decode(response, skip_special_tokens=True)
+        return result
 
 class MistralAgent(HuggingFaceAgent):
     def __init__(self, **kwargs):

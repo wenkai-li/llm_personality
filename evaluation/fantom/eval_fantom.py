@@ -25,7 +25,7 @@ from agents.load_model import load_model
 PROJECT_HOME = Path(__file__).parent.resolve()
 DATA_DIR = 'data'
 DATA_DIR_PATH = os.path.join(PROJECT_HOME, DATA_DIR)
-EVAL_DIR_PATH = os.path.join(DATA_DIR_PATH, 'results')
+# EVAL_DIR_PATH = os.path.join(DATA_DIR_PATH, 'results')
 RANDOM_SEED = 99
 random.seed(RANDOM_SEED)
 
@@ -43,13 +43,12 @@ class FantomDataset(Dataset):
 class FantomEvalAgent():
     def __init__(self, args):
         self.args = args
-        self.prompt_header = "This is a theory-of-mind test. Please answer the question regarding facts or beliefs, based on the following in-person conversation between individuals who have just met.\n\n"
+        self.prompt_header = f"{self.args.instruction}\nThis is a theory-of-mind test. Please answer the question regarding facts or beliefs, based on the following in-person conversation between individuals who have just met.\n\n"
         model_name_suffix = self.args.model.split("/")[-1]
         self.output_filename_suffix = '_{}_input_{}_cot-{}.json'.format(self.args.conversation_input_type, model_name_suffix, self.args.use_cot)
         self.load_fantom()
         self.setup_fantom()
-
-        self.model = load_model(self.args.model)
+        self.model = load_model(self.args.model, self.args.lora_path)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.embedder = SentenceTransformer('sentence-transformers/all-roberta-large-v1').to(self.device)
 
@@ -57,6 +56,7 @@ class FantomEvalAgent():
         self.fantom_df = loader.load()
 
     def respond(self, prompt):
+        
         response = self.model.interact(prompt)
         return response
 
@@ -717,6 +717,13 @@ if __name__ == '__main__':
                         type=str,
                         help='name of the model to run evaluation',
     )
+    parser.add_argument('--lora_path',
+                        type=str,
+                        help='LoRA Path to add into the model',
+    )
+    parser.add_argument('--instruction',
+                        type=str,
+                        help='instruction to LLM')
     parser.add_argument('--batch-size',
                         type=int,
                         default=1,
@@ -743,5 +750,11 @@ if __name__ == '__main__':
                         default=False,
                         help='whether to use cot or not',
     )
+    parser.add_argument('--dir_path',
+                        type=str,
+                        default='results',
+                        help='directory path for storing evaluation results',
+    )
     args = parser.parse_args()
+    EVAL_DIR_PATH = os.path.join(DATA_DIR_PATH, args.dir_path)
     main(args)
