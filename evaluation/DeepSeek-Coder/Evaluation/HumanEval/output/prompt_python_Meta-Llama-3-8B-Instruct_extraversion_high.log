@@ -1,0 +1,25 @@
+model /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct
+load tokenizer <class 'transformers.tokenization_utils_fast.PreTrainedTokenizerFast'> from /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct over.
+Read 164 examples for evaluation over.
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/153
+>>> Output:
+```
+def Strongest_Extension(class_name, extensions):
+    strongest_extension = extensions[0]
+    strongest_strength = (sum(1 for char in strongest_extension if char.isupper()) - 
+                         sum(1 for char in strongest_extension if char.islower()))
+    for extension in extensions[1:]:
+        strength = (sum(1 for char in extension if char.isupper()) - 
+                   sum(1 for char in extension if char.islower()))
+        if strength > strongest_strength:
+            strongest_extension = extension
+            strongest_strength = strength
+    return f"{class_name}.{strongest_extension}"
+```
+Generate all over!!!
+Save 164 processed examples into output/prompt_python_Meta-Llama-3-8B-Instruct_extraversion_high.jsonl over!
+Reading samples...
+Running test suites...
+{'pass@1': 0.6097560975609756}
+python {'pass@1': 0.6097560975609756} /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct
