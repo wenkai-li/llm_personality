@@ -28,87 +28,87 @@ CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
     --temp_dir $OUPUT_DIR \
     --instruction "$INSTRUCTION" \
     --lora_path=$LORA_PATH
-# C
-TYPE="conscientiousness_high"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Conscientiousness - high'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# # C
+# TYPE="conscientiousness_high"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Conscientiousness - high'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-TYPE="conscientiousness_low"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Conscientiousness - low'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# TYPE="conscientiousness_low"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Conscientiousness - low'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-# E
-TYPE="extraversion_high"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Extraversion - high'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# # E
+# TYPE="extraversion_high"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Extraversion - high'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-TYPE="extraversion_low"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Extraversion - low'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# TYPE="extraversion_low"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Extraversion - low'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-# A
-TYPE="agreeableness_high"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Agreeableness - high'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# # A
+# TYPE="agreeableness_high"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Agreeableness - high'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-TYPE="agreeableness_low"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Agreeableness - low'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# TYPE="agreeableness_low"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Agreeableness - low'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-# N
-TYPE="neuroticism_high"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Neuroticism - high'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# # N
+# TYPE="neuroticism_high"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Neuroticism - high'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
-TYPE="neuroticism_low"
-INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Neuroticism - low'
-CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
-    --model=$MODEL \
-    --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
-    --language $LANG \
-    --temp_dir $OUPUT_DIR \
-    --instruction "$INSTRUCTION" \
-    --lora_path=$LORA_PATH
+# TYPE="neuroticism_low"
+# INSTRUCTION='You are a helpful assistant with the following Big Five personality traits: Neuroticism - low'
+# CUDA_VISIBLE_DEVICES=0 python eval_instruct.py \
+#     --model=$MODEL \
+#     --output_path "$OUPUT_DIR/${ALIGN}_${LANG}_${MODEL_NAME}_${TYPE}.jsonl" \
+#     --language $LANG \
+#     --temp_dir $OUPUT_DIR \
+#     --instruction "$INSTRUCTION" \
+#     --lora_path=$LORA_PATH
 
