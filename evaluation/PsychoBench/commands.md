@@ -9,7 +9,7 @@ python3 run_psychobench.py \
     --questionnaire BFI \
     --shuffle-count 0 \
     --test-count 5 \
-        --mode analysis \
+    --mode analysis \
     --name-exp direct_debug
 
 ### SFT
@@ -58,6 +58,47 @@ for mode in "${mode[@]}"; do
         --name-exp 70b_${mode}
 done
 
+### Prompt_chat
+mode=("prompt_chat_0xxxx" "prompt_chat_1xxxx" "prompt_chat_x0xxx" "prompt_chat_x1xxx" "prompt_chat_xx0xx" "prompt_chat_xx1xx" "prompt_chat_xxx0x" "prompt_chat_xxx1x" "prompt_chat_xxxx0" "prompt_chat_xxxx1")
+for mode in "${mode[@]}"; do
+    CUDA_VISIBLE_DEVICES=1 python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+
+### Prompt_v1
+mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 70b_${mode}
+done
+
+### Prompt_v4
+mode=("prompt_v4_0xxxx" "prompt_v4_1xxxx" "prompt_v4_x0xxx" "prompt_v4_x1xxx" "prompt_v4_xx0xx" "prompt_v4_xx1xx" "prompt_v4_xxx0x" "prompt_v4_xxx1x" "prompt_v4_xxxx0" "prompt_v4_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
 ## 8B
 
 ### Direct
@@ -68,7 +109,7 @@ python3 run_psychobench.py \
     --questionnaire BFI \
     --shuffle-count 0 \
     --test-count 5 \
-        --mode analysis \
+    --mode analysis \
     --name-exp direct_debug_8b
 
 ### SFT
@@ -112,6 +153,46 @@ for mode in "${mode[@]}"; do
         --shuffle-count 0 \
         --test-count 5 \
         --mode analysis \
+        --name-exp 8b_${mode}
+done
+
+### Prompt chat
+mode=("prompt_chat_0xxxx" "prompt_chat_1xxxx" "prompt_chat_x0xxx" "prompt_chat_x1xxx" "prompt_chat_xx0xx" "prompt_chat_xx1xx" "prompt_chat_xxx0x" "prompt_chat_xxx1x" "prompt_chat_xxxx0" "prompt_chat_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 8b_${mode}
+done
+
+### Prompt v1
+mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 8b_${mode}
+done
+
+### Prompt v4
+mode=("prompt_v4_0xxxx" "prompt_v4_1xxxx" "prompt_v4_x0xxx" "prompt_v4_x1xxx" "prompt_v4_xx0xx" "prompt_v4_xx1xx" "prompt_v4_xxx0x" "prompt_v4_xxx1x" "prompt_v4_xxxx0" "prompt_v4_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
         --name-exp 8b_${mode}
 done
 
@@ -127,7 +208,7 @@ python3 run_psychobench.py \
     --questionnaire IPIP-NEO \
     --shuffle-count 0 \
     --test-count 5 \
-        --mode analysis \
+    --mode analysis \
     --name-exp direct_debug
 
 ### SFT
@@ -170,7 +251,70 @@ for mode in "${mode[@]}"; do
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+### Prompt v1
+mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
         --mode analysis \
+        --name-exp 70b_${mode}
+done
+
+# Prompt chat
+mode=("prompt_chat_0xxxx" "prompt_chat_1xxxx" "prompt_chat_x0xxx" "prompt_chat_x1xxx" "prompt_chat_xx0xx")
+for mode in "${mode[@]}"; do
+    CUDA_VISIBLE_DEVICES=0 python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+mode=("prompt_chat_xxx1x")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --mode analysis \
+        --name-exp 70b_${mode}
+done
+
+mode=("prompt_chat_xx1xx" "prompt_chat_xxx0x" "prompt_chat_xxx1x" "prompt_chat_xxxx0" "prompt_chat_xxxx1")
+for mode in "${mode[@]}"; do
+    CUDA_VISIBLE_DEVICES=1 python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+### Prompt v4
+mode=("prompt_v4_0xxxx" "prompt_v4_1xxxx" "prompt_v4_x0xxx" "prompt_v4_x1xxx" "prompt_v4_xx0xx" "prompt_v4_xx1xx" "prompt_v4_xxx0x" "prompt_v4_xxx1x" "prompt_v4_xxxx0" "prompt_v4_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
         --name-exp 70b_${mode}
 done
 
@@ -184,7 +328,7 @@ python3 run_psychobench.py \
     --questionnaire IPIP-NEO \
     --shuffle-count 0 \
     --test-count 5 \
-        --mode analysis \
+    --mode analysis \
     --name-exp direct_debug_8b
 
 ### SFT
@@ -217,8 +361,8 @@ for mode in "${mode[@]}"; do
         --name-exp 8b_dpo_${mode}
 done
 
-### Prompt
-mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
+### Prompt v1
+mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
 for mode in "${mode[@]}"; do
     python3 run_psychobench.py \
         --model llama3_8b \
@@ -231,13 +375,28 @@ for mode in "${mode[@]}"; do
         --name-exp 8b_${mode}
 done
 
+### Prompt
+mode=("prompt_0xxxx" "prompt_1xxxx" "prompt_x0xxx" "prompt_x1xxx" "prompt_xx0xx" "prompt_xx1xx" "prompt_xxx0x" "prompt_xxx1x" "prompt_xxxx0" "prompt_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 8b_${mode}
+done
 
-python3 run_psychobench.py \
-    --model llama3_8b \
-    --model_mode prompt_xxx1x \
-    --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
-    --questionnaire IPIP-NEO \
-    --shuffle-count 0 \
-    --test-count 4 \
-    --mode analysis \
-    --name-exp 8b_prompt_xxx1x
+### Prompt v4
+mode=("prompt_v4_0xxxx" "prompt_v4_1xxxx" "prompt_v4_x0xxx" "prompt_v4_x1xxx" "prompt_v4_xx0xx" "prompt_v4_xx1xx" "prompt_v4_xxx0x" "prompt_v4_xxx1x" "prompt_v4_xxxx0" "prompt_v4_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_8b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 8b_${mode}
+done

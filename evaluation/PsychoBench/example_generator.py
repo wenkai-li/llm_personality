@@ -134,7 +134,19 @@ def example_generator(questionnaire, args):
                         result = ''
                         if model in ['llama3_8b', 'llama3_70b']:
                             prompt_prefix = ""
-                            if args.model_mode.startswith("prompt_"):
+                            if args.model_mode.startswith("prompt_v1_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction_v1
+                                prompt_prefix = get_prompting_instruction_v1(args.model_mode[-5:]) + "\n"
+                                
+                            elif args.model_mode.startswith("prompt_chat_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction_chat
+                                prompt_prefix = get_prompting_instruction_chat(args.model_mode[-5:]) + "\n"
+                            
+                            elif args.model_mode.startswith("prompt_v4_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction_v4
+                                prompt_prefix = get_prompting_instruction_v4(args.model_mode[-5:]) + "\n"
+                            
+                            elif args.model_mode.startswith("prompt_"):
                                 from evaluation.prompts.get_prompts import get_prompting_instruction
                                 prompt_prefix = get_prompting_instruction(args.model_mode[-5:]) + "\n"
                                 
