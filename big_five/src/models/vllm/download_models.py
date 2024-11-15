@@ -7,12 +7,12 @@ access_token = "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"
 
 # model_name = "lmsys/vicuna-13b-v1.5"
 # model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-model_name = "meta-llama/Meta-Llama-3-70B-Instruct"
+model_name = "TechxGenus/Meta-Llama-3-70B-Instruct-GPTQ"
 
 # model_name = "chavinlo/alpaca-native"
 
 # cache_dir = "/data/user_data/jiaruil5/.cache"
-cache_dir = "/scratch/jiaruil5/.cache"
+cache_dir = "/scratch/wenkail/.cache"
 
 tokenizer = transformers.AutoTokenizer.from_pretrained(
     model_name,

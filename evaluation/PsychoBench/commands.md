@@ -71,6 +71,33 @@ for mode in "${mode[@]}"; do
         --name-exp 70b_${mode}
 done
 
+### Prompt_chat_SFT
+mode=("prompt_chat_sft_0xxxx" "prompt_chat_sft_1xxxx" "prompt_chat_sft_x0xxx" "prompt_chat_sft_x1xxx" "prompt_chat_sft_xx0xx" "prompt_chat_sft_xx1xx" "prompt_chat_sft_xxx0x" "prompt_chat_sft_xxx1x" "prompt_chat_sft_xxxx0" "prompt_chat_sft_xxxx1")
+for mode in "${mode[@]}"; do
+    CUDA_VISIBLE_DEVICES=1 python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/70b_gptq_lora_sft_1e-5/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+### Prompt_chat_DPO
+mode=("prompt_chat_dpo_0xxxx" "prompt_chat_dpo_1xxxx" "prompt_chat_dpo_x0xxx" "prompt_chat_dpo_x1xxx" "prompt_chat_dpo_xx0xx" "prompt_chat_dpo_xx1xx" "prompt_chat_dpo_xxx0x" "prompt_chat_dpo_xxx1x" "prompt_chat_dpo_xxxx0" "prompt_chat_dpo_xxxx1")
+for mode in "${mode[@]}"; do
+    CUDA_VISIBLE_DEVICES=1 python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --model_lora_path /data/user_data/wenkail/llm_personality/align/70b_gptq_lora_dpo_1e-5/llama3_70b_gptq/checkpoint-2025/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
 
 ### Prompt_v1
 mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
