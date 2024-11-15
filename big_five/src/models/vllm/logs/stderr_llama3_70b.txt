@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/utils/hub.py", line 398, in cached_file
+    resolved_file = hf_hub_download(
+                    ^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 110, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 158, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.utils._validators.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/scratch/jiaruil5/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c/'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py", line 236, in <module>
+    engine = AsyncLLMEngine.from_engine_args(engine_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/vllm/engine/async_llm_engine.py", line 622, in from_engine_args
+    engine_configs = engine_args.create_engine_configs()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 287, in create_engine_configs
+    model_config = ModelConfig(
+                   ^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/vllm/config.py", line 111, in __init__
+    self.hf_config = get_config(self.model, trust_remote_code, revision,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/vllm/transformers_utils/config.py", line 30, in get_config
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1111, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/configuration_utils.py", line 633, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/configuration_utils.py", line 688, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/utils/hub.py", line 462, in cached_file
+    raise EnvironmentError(
+OSError: Incorrect path_or_model_id: '/scratch/jiaruil5/.cache/models--meta-llama--Meta-Llama-3-70B-Instruct/snapshots/7129260dd854a80eb10ace5f61c20324b472b31c/'. Please provide either the path to a local folder or the repo_id of a model on the Hub.

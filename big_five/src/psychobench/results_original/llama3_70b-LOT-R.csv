@@ -1,0 +1,11 @@
+"Prompt: You can only reply numbers from 0 to 4 in the following statements. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here are the statements, score them one by one:",order-0,shuffle0-test0
+"1. In uncertain times, I usually expect the best.",1,
+2. It's easy for me to relax.,2,
+"3. If something can go wrong for me, it will.",3,
+4. I'm always optimistic about my future.,4,
+5. I enjoy my friends a lot.,5,
+6. It's important for me to keep busy.,6,
+7. I hardly ever expect things to go my way.,7,
+8. I don't get upset too easily.,8,
+9. I rarely count on good things happening to me.,9,
+"10. Overall, I expect more good things to happen to me than bad.",10,

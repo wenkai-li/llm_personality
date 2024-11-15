@@ -1,0 +1,22 @@
+09/13/2024 22:08:40 - INFO - __main__ - Logging setup complete.
+09/13/2024 22:08:40 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/13/2024 22:08:40 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+09/13/2024 22:08:41 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/accelerate/accelerator.py:494: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler(**kwargs)
+09/13/2024 22:08:41 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+09/13/2024 22:09:19 - ERROR - root - Traceback (most recent call last):
+09/13/2024 22:09:19 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/inference_regressor.py", line 147, in <module>
+09/13/2024 22:09:19 - ERROR - root - trainer = Trainer(
+09/13/2024 22:09:19 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/trainer.py", line 579, in __init__
+09/13/2024 22:09:19 - ERROR - root - self.callback_handler = CallbackHandler(
+09/13/2024 22:09:19 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/trainer_callback.py", line 403, in __init__
+09/13/2024 22:09:19 - ERROR - root - self.add_callback(cb)
+09/13/2024 22:09:19 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/trainer_callback.py", line 420, in add_callback
+09/13/2024 22:09:19 - ERROR - root - cb = callback() if isinstance(callback, type) else callback
+09/13/2024 22:09:19 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 767, in __init__
+09/13/2024 22:09:19 - ERROR - root - raise RuntimeError("WandbCallback requires wandb to be installed. Run `pip install wandb`.")
+09/13/2024 22:09:19 - ERROR - root - RuntimeError
+09/13/2024 22:09:19 - ERROR - root - :
+09/13/2024 22:09:19 - ERROR - root - WandbCallback requires wandb to be installed. Run `pip install wandb`.

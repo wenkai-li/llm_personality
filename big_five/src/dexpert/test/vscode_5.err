@@ -1,0 +1,44 @@
+Identity added: /home/jiaruil5/.ssh/id_rsa (jiaruil5@andrew.cmu.edu)
+[I 2024-07-07 21:18:44.554 ServerApp] Package notebook took 0.0000s to import
+[I 2024-07-07 21:18:44.617 ServerApp] Package jupyter_lsp took 0.0622s to import
+[W 2024-07-07 21:18:44.617 ServerApp] A `_jupyter_server_extension_points` function was not found in jupyter_lsp. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-07-07 21:18:44.639 ServerApp] Package jupyter_server_terminals took 0.0220s to import
+[I 2024-07-07 21:18:44.639 ServerApp] Package jupyterlab took 0.0000s to import
+[I 2024-07-07 21:18:48.059 ServerApp] Package notebook_shim took 0.0000s to import
+[W 2024-07-07 21:18:48.059 ServerApp] A `_jupyter_server_extension_points` function was not found in notebook_shim. Instead, a `_jupyter_server_extension_paths` function was found and will be used for now. This function name will be deprecated in future releases of Jupyter Server.
+[I 2024-07-07 21:18:48.060 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-07-07 21:18:48.064 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2024-07-07 21:18:48.067 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-07-07 21:18:48.071 ServerApp] notebook | extension was successfully linked.
+[I 2024-07-07 21:18:48.958 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-07-07 21:18:49.462 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-07-07 21:18:49.463 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-07-07 21:18:49.465 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-07-07 21:18:49.533 LabApp] JupyterLab extension loaded from /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/jupyterlab
+[I 2024-07-07 21:18:49.533 LabApp] JupyterLab application directory is /data/user_data/jiaruil5/miniconda3/envs/new/share/jupyter/lab
+[I 2024-07-07 21:18:49.534 LabApp] Extension Manager is 'pypi'.
+[I 2024-07-07 21:18:49.536 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-07-07 21:18:49.540 ServerApp] notebook | extension was successfully loaded.
+[I 2024-07-07 21:18:49.540 ServerApp] The port 8888 is already in use, trying another port.
+[I 2024-07-07 21:18:49.541 ServerApp] Serving notebooks from local directory: /home/jiaruil5/personality/llm_personality/big_five/src/dexpert/test
+[I 2024-07-07 21:18:49.541 ServerApp] Jupyter Server 2.11.1 is running at:
+[I 2024-07-07 21:18:49.541 ServerApp] http://localhost:8889/tree?token=7c492f0e573a8a7ab7a8e5557cf22aaaa73872b07a062575
+[I 2024-07-07 21:18:49.541 ServerApp]     http://127.0.0.1:8889/tree?token=7c492f0e573a8a7ab7a8e5557cf22aaaa73872b07a062575
+[I 2024-07-07 21:18:49.541 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2024-07-07 21:18:49.549 ServerApp] 
+    
+    To access the server, open this file in a browser:
+        file:///home/jiaruil5/.local/share/jupyter/runtime/jpserver-365255-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8889/tree?token=7c492f0e573a8a7ab7a8e5557cf22aaaa73872b07a062575
+        http://127.0.0.1:8889/tree?token=7c492f0e573a8a7ab7a8e5557cf22aaaa73872b07a062575
+[I 2024-07-07 21:18:49.598 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+Unable to connect to VS Code server: Error in request.
+Error: connect ENOENT /tmp/vscode-ipc-32454db1-b711-49bf-8578-fdd90aad0bfc.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (node:net:1495:16) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'connect',
+  address: '/tmp/vscode-ipc-32454db1-b711-49bf-8578-fdd90aad0bfc.sock'
+}
+slurmstepd: error: *** JOB 383523 ON babel-11-25 CANCELLED AT 2024-07-07T21:21:18 ***

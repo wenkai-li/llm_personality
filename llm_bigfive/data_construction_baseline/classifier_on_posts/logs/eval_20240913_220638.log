@@ -1,0 +1,9 @@
+09/13/2024 22:06:38 - INFO - __main__ - Logging setup complete.
+09/13/2024 22:06:38 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/13/2024 22:06:40 - ERROR - root - Traceback (most recent call last):
+09/13/2024 22:06:40 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/inference_regressor.py", line 49, in <module>
+09/13/2024 22:06:40 - ERROR - root - df_2 = pd.read_json("/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/data_input.json", 'r')
+09/13/2024 22:06:40 - ERROR - root - TypeError
+09/13/2024 22:06:40 - ERROR - root - :
+09/13/2024 22:06:40 - ERROR - root - read_json() takes 1 positional argument but 2 were given

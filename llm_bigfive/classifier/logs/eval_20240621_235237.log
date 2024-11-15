@@ -1,0 +1,70 @@
+06/21/2024 23:52:37 - INFO - __main__ - Logging setup complete.
+06/21/2024 23:52:39 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+06/21/2024 23:52:41 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+06/21/2024 23:52:43 - ERROR - root -   0%|          | 0/32 [00:00<?, ?it/s]
+06/21/2024 23:52:43 - ERROR - root -   6%|6         | 2/32 [00:00<00:05,  5.46it/s]
+06/21/2024 23:52:44 - ERROR - root -   9%|9         | 3/32 [00:00<00:07,  3.84it/s]
+06/21/2024 23:52:44 - ERROR - root -  12%|#2        | 4/32 [00:01<00:08,  3.31it/s]
+06/21/2024 23:52:44 - ERROR - root -  16%|#5        | 5/32 [00:01<00:08,  3.07it/s]
+06/21/2024 23:52:45 - ERROR - root -  19%|#8        | 6/32 [00:01<00:08,  2.93it/s]
+06/21/2024 23:52:45 - ERROR - root -  22%|##1       | 7/32 [00:02<00:08,  2.83it/s]
+06/21/2024 23:52:45 - ERROR - root -  25%|##5       | 8/32 [00:02<00:08,  2.74it/s]
+06/21/2024 23:52:46 - ERROR - root -  28%|##8       | 9/32 [00:02<00:08,  2.73it/s]
+06/21/2024 23:52:46 - ERROR - root -  31%|###1      | 10/32 [00:03<00:08,  2.71it/s]
+06/21/2024 23:52:47 - ERROR - root -  34%|###4      | 11/32 [00:03<00:07,  2.68it/s]
+06/21/2024 23:52:47 - ERROR - root -  38%|###7      | 12/32 [00:04<00:07,  2.65it/s]
+06/21/2024 23:52:47 - ERROR - root -  41%|####      | 13/32 [00:04<00:07,  2.65it/s]
+06/21/2024 23:52:48 - ERROR - root -  44%|####3     | 14/32 [00:04<00:06,  2.66it/s]
+06/21/2024 23:52:48 - ERROR - root -  47%|####6     | 15/32 [00:05<00:06,  2.66it/s]
+06/21/2024 23:52:48 - ERROR - root -  50%|#####     | 16/32 [00:05<00:06,  2.62it/s]
+06/21/2024 23:52:49 - ERROR - root -  53%|#####3    | 17/32 [00:06<00:05,  2.60it/s]
+06/21/2024 23:52:49 - ERROR - root -  56%|#####6    | 18/32 [00:06<00:05,  2.61it/s]
+06/21/2024 23:52:50 - ERROR - root -  59%|#####9    | 19/32 [00:06<00:05,  2.58it/s]
+06/21/2024 23:52:50 - ERROR - root -  62%|######2   | 20/32 [00:07<00:04,  2.61it/s]
+06/21/2024 23:52:50 - ERROR - root -  66%|######5   | 21/32 [00:07<00:04,  2.63it/s]
+06/21/2024 23:52:51 - ERROR - root -  69%|######8   | 22/32 [00:07<00:03,  2.64it/s]
+06/21/2024 23:52:51 - ERROR - root -  72%|#######1  | 23/32 [00:08<00:03,  2.65it/s]
+06/21/2024 23:52:51 - ERROR - root -  75%|#######5  | 24/32 [00:08<00:03,  2.66it/s]
+06/21/2024 23:52:52 - ERROR - root -  78%|#######8  | 25/32 [00:09<00:02,  2.66it/s]
+06/21/2024 23:52:52 - ERROR - root -  81%|########1 | 26/32 [00:09<00:02,  2.66it/s]
+06/21/2024 23:52:53 - ERROR - root -  84%|########4 | 27/32 [00:09<00:01,  2.66it/s]
+06/21/2024 23:52:53 - ERROR - root -  88%|########7 | 28/32 [00:10<00:01,  2.64it/s]
+06/21/2024 23:52:53 - ERROR - root -  91%|######### | 29/32 [00:10<00:01,  2.64it/s]
+06/21/2024 23:52:54 - ERROR - root -  94%|#########3| 30/32 [00:10<00:00,  2.65it/s]
+06/21/2024 23:52:54 - ERROR - root -  97%|#########6| 31/32 [00:11<00:00,  2.65it/s]
+06/21/2024 23:52:54 - ERROR - root - 100%|##########| 32/32 [00:11<00:00,  3.00it/s]
+06/21/2024 23:52:57 - ERROR - root - wandb: Currently logged in as: jiaruiliu999. Use `wandb login --relogin` to force relogin
+06/21/2024 23:53:27 - ERROR - root - wandb: wandb version 0.17.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+06/21/2024 23:53:27 - ERROR - root - wandb: Tracking run with wandb version 0.16.3
+06/21/2024 23:53:27 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240621_235257-504thxib
+wandb: Run `wandb offline` to turn off syncing.
+06/21/2024 23:53:27 - ERROR - root - wandb: Syncing run apricot-spaceship-25
+06/21/2024 23:53:27 - ERROR - root - wandb:  View project at https://wandb.ai/jiaruiliu999/huggingface
+06/21/2024 23:53:27 - ERROR - root - wandb:  View run at https://wandb.ai/jiaruiliu999/huggingface/runs/504thxib
+06/21/2024 23:53:27 - ERROR - root - 100%|##########| 32/32 [00:44<00:00,  1.38s/it]
+06/21/2024 23:53:27 - INFO - root - eval_loss: 0.51
+06/21/2024 23:53:27 - INFO - root - eval_f1_O: 0.74
+06/21/2024 23:53:27 - INFO - root - eval_accuracy_O: 0.75
+06/21/2024 23:53:27 - INFO - root - eval_precision_O: 0.76
+06/21/2024 23:53:27 - INFO - root - eval_recall_O: 0.75
+06/21/2024 23:53:27 - INFO - root - eval_f1_C: 0.76
+06/21/2024 23:53:27 - INFO - root - eval_accuracy_C: 0.77
+06/21/2024 23:53:27 - INFO - root - eval_precision_C: 0.77
+06/21/2024 23:53:27 - INFO - root - eval_recall_C: 0.77
+06/21/2024 23:53:27 - INFO - root - eval_f1_E: 0.74
+06/21/2024 23:53:27 - INFO - root - eval_accuracy_E: 0.74
+06/21/2024 23:53:27 - INFO - root - eval_precision_E: 0.75
+06/21/2024 23:53:27 - INFO - root - eval_recall_E: 0.74
+06/21/2024 23:53:27 - INFO - root - eval_f1_A: 0.78
+06/21/2024 23:53:27 - INFO - root - eval_accuracy_A: 0.79
+06/21/2024 23:53:27 - INFO - root - eval_precision_A: 0.78
+06/21/2024 23:53:27 - INFO - root - eval_recall_A: 0.79
+06/21/2024 23:53:27 - INFO - root - eval_f1_N: 0.79
+06/21/2024 23:53:27 - INFO - root - eval_accuracy_N: 0.80
+06/21/2024 23:53:27 - INFO - root - eval_precision_N: 0.79
+06/21/2024 23:53:27 - INFO - root - eval_recall_N: 0.80
+06/21/2024 23:53:27 - INFO - root - eval_runtime: 13.66
+06/21/2024 23:53:27 - INFO - root - eval_samples_per_second: 36.61
+06/21/2024 23:53:27 - INFO - root - eval_steps_per_second: 2.34

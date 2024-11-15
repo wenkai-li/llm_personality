@@ -1,0 +1,9 @@
+09/16/2024 11:21:39 - INFO - __main__ - Logging setup complete.
+09/16/2024 11:21:39 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/16/2024 11:21:42 - ERROR - root - Traceback (most recent call last):
+09/16/2024 11:21:42 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/inference_regressor.py", line 32, in <module>
+09/16/2024 11:21:42 - ERROR - root - out_f = open(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/llama3_8b_v3/classifier_data_{trait_trait}.json', 'w')
+09/16/2024 11:21:42 - ERROR - root - FileNotFoundError
+09/16/2024 11:21:42 - ERROR - root - :
+09/16/2024 11:21:42 - ERROR - root - [Errno 2] No such file or directory: '/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/llama3_8b_v3/classifier_data_o.json'

@@ -1,0 +1,31 @@
+### model
+model_name_or_path: /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+adapter_name_or_path: /data/user_data/wenkail/llm_personality/align/lora_sft_1e-5/
+
+### method
+stage: sft
+do_predict: true
+finetuning_type: lora
+lora_target: all
+
+### dataset
+dataset: 16P,BFI,BSRI,CABIN,DTDD,ECR-R,EIS,Empathy,EPQ-R,GSE,ICB,LMS,LOT-R,WLEIS
+# dataset: BFI
+dataset_dir: /home/jiaruil5/personality/llm_personality/big_five/src/psychobench/questions_llamafactory/
+template: llama3
+cutoff_len: 1024
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /home/jiaruil5/personality/llm_personality/big_five/src/psychobench/outputs_llamafactory_all/
+overwrite_output_dir: true
+
+### eval
+per_device_eval_batch_size: 1
+predict_with_generate: true
+
+report_to: wandb
+run_name: sft_inference_psychobench
+
+# CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train sft_inference.yaml 

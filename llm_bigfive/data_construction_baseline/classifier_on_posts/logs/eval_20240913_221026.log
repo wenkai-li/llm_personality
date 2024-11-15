@@ -1,0 +1,150 @@
+09/13/2024 22:10:26 - INFO - __main__ - Logging setup complete.
+09/13/2024 22:10:26 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/13/2024 22:10:27 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+09/13/2024 22:10:27 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/accelerate/accelerator.py:494: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler(**kwargs)
+09/13/2024 22:10:27 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+09/13/2024 22:10:31 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+09/13/2024 22:10:39 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/torch/nn/parallel/parallel_apply.py:79: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.device(device), torch.cuda.stream(stream), autocast(enabled=autocast_enabled):
+09/13/2024 22:10:41 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+09/13/2024 22:10:41 - ERROR - root -   0%|          | 0/32 [00:00<?, ?it/s]
+09/13/2024 22:10:41 - ERROR - root -   6%|6         | 2/32 [00:00<00:09,  3.28it/s]
+09/13/2024 22:10:42 - ERROR - root -   9%|9         | 3/32 [00:01<00:18,  1.57it/s]
+09/13/2024 22:10:44 - ERROR - root -  12%|#2        | 4/32 [00:02<00:23,  1.17it/s]
+09/13/2024 22:10:45 - ERROR - root -  16%|#5        | 5/32 [00:04<00:25,  1.07it/s]
+09/13/2024 22:10:45 - ERROR - root -  19%|#8        | 6/32 [00:04<00:23,  1.13it/s]
+09/13/2024 22:10:46 - ERROR - root -  22%|##1       | 7/32 [00:05<00:23,  1.08it/s]
+09/13/2024 22:10:47 - ERROR - root -  25%|##5       | 8/32 [00:06<00:22,  1.05it/s]
+09/13/2024 22:10:48 - ERROR - root -  28%|##8       | 9/32 [00:07<00:22,  1.03it/s]
+09/13/2024 22:10:49 - ERROR - root -  31%|###1      | 10/32 [00:08<00:21,  1.02it/s]
+09/13/2024 22:10:50 - ERROR - root -  34%|###4      | 11/32 [00:09<00:20,  1.01it/s]
+09/13/2024 22:10:51 - ERROR - root -  38%|###7      | 12/32 [00:10<00:20,  1.00s/it]
+09/13/2024 22:10:52 - ERROR - root -  41%|####      | 13/32 [00:11<00:18,  1.04it/s]
+09/13/2024 22:10:53 - ERROR - root -  44%|####3     | 14/32 [00:12<00:17,  1.05it/s]
+09/13/2024 22:10:54 - ERROR - root -  47%|####6     | 15/32 [00:13<00:16,  1.06it/s]
+09/13/2024 22:10:55 - ERROR - root -  50%|#####     | 16/32 [00:14<00:14,  1.07it/s]
+09/13/2024 22:10:56 - ERROR - root -  53%|#####3    | 17/32 [00:15<00:13,  1.08it/s]
+09/13/2024 22:10:57 - ERROR - root -  56%|#####6    | 18/32 [00:16<00:12,  1.11it/s]
+09/13/2024 22:10:58 - ERROR - root -  59%|#####9    | 19/32 [00:17<00:11,  1.12it/s]
+09/13/2024 22:10:59 - ERROR - root -  62%|######2   | 20/32 [00:17<00:10,  1.13it/s]
+09/13/2024 22:10:59 - ERROR - root -  66%|######5   | 21/32 [00:18<00:09,  1.14it/s]
+09/13/2024 22:11:00 - ERROR - root -  69%|######8   | 22/32 [00:19<00:08,  1.18it/s]
+09/13/2024 22:11:01 - ERROR - root -  72%|#######1  | 23/32 [00:20<00:07,  1.16it/s]
+09/13/2024 22:11:02 - ERROR - root -  75%|#######5  | 24/32 [00:21<00:07,  1.14it/s]
+09/13/2024 22:11:03 - ERROR - root -  78%|#######8  | 25/32 [00:22<00:06,  1.13it/s]
+09/13/2024 22:11:04 - ERROR - root -  81%|########1 | 26/32 [00:23<00:05,  1.13it/s]
+09/13/2024 22:11:05 - ERROR - root -  84%|########4 | 27/32 [00:24<00:04,  1.14it/s]
+09/13/2024 22:11:06 - ERROR - root -  88%|########7 | 28/32 [00:24<00:03,  1.15it/s]
+09/13/2024 22:11:06 - ERROR - root -  91%|######### | 29/32 [00:25<00:02,  1.17it/s]
+09/13/2024 22:11:07 - ERROR - root -  94%|#########3| 30/32 [00:26<00:01,  1.18it/s]
+09/13/2024 22:11:08 - ERROR - root -  97%|#########6| 31/32 [00:27<00:00,  1.17it/s]
+09/13/2024 22:11:08 - ERROR - root - 100%|##########| 32/32 [00:27<00:00,  1.43it/s]
+09/13/2024 22:11:08 - ERROR - root - wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+09/13/2024 22:11:09 - ERROR - root - wandb: Using wandb-core as the SDK backend. Please refer to https://wandb.me/wandb-core for more information.
+09/13/2024 22:11:09 - ERROR - root - wandb: Currently logged in as: jiaruiliu999. Use `wandb login --relogin` to force relogin
+09/13/2024 22:11:09 - ERROR - root - wandb: Tracking run with wandb version 0.18.0
+09/13/2024 22:11:09 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/wandb/run-20240913_221109-uyead2ky
+wandb: Run `wandb offline` to turn off syncing.
+09/13/2024 22:11:09 - ERROR - root - wandb: Syncing run results/
+09/13/2024 22:11:09 - ERROR - root - wandb:  View project at https://wandb.ai/jiaruiliu999/huggingface
+09/13/2024 22:11:09 - ERROR - root - wandb:  View run at https://wandb.ai/jiaruiliu999/huggingface/runs/uyead2ky
+09/13/2024 22:11:10 - ERROR - root - 100%|##########| 32/32 [00:29<00:00,  1.10it/s]
+09/13/2024 22:11:10 - INFO - root - eval_loss: 1.70
+09/13/2024 22:11:10 - INFO - root - eval_f1_O: 0.77
+09/13/2024 22:11:10 - INFO - root - eval_accuracy_O: 0.72
+09/13/2024 22:11:10 - INFO - root - eval_precision_O: 0.84
+09/13/2024 22:11:10 - INFO - root - eval_recall_O: 0.72
+09/13/2024 22:11:10 - INFO - root - eval_f1_C: 0.70
+09/13/2024 22:11:10 - INFO - root - eval_accuracy_C: 0.62
+09/13/2024 22:11:10 - INFO - root - eval_precision_C: 0.86
+09/13/2024 22:11:10 - INFO - root - eval_recall_C: 0.62
+09/13/2024 22:11:10 - INFO - root - eval_f1_E: 0.69
+09/13/2024 22:11:10 - INFO - root - eval_accuracy_E: 0.62
+09/13/2024 22:11:10 - INFO - root - eval_precision_E: 0.89
+09/13/2024 22:11:10 - INFO - root - eval_recall_E: 0.62
+09/13/2024 22:11:10 - INFO - root - eval_f1_A: 0.83
+09/13/2024 22:11:10 - INFO - root - eval_accuracy_A: 0.80
+09/13/2024 22:11:10 - INFO - root - eval_precision_A: 0.89
+09/13/2024 22:11:10 - INFO - root - eval_recall_A: 0.80
+09/13/2024 22:11:10 - INFO - root - eval_f1_N: 0.57
+09/13/2024 22:11:10 - INFO - root - eval_accuracy_N: 0.48
+09/13/2024 22:11:10 - INFO - root - eval_precision_N: 0.88
+09/13/2024 22:11:10 - INFO - root - eval_recall_N: 0.48
+09/13/2024 22:11:10 - INFO - root - eval_runtime: 37.02
+09/13/2024 22:11:10 - INFO - root - eval_samples_per_second: 27.01
+09/13/2024 22:11:10 - INFO - root - eval_steps_per_second: 0.86
+09/13/2024 22:11:10 - INFO - root - Openness
+09/13/2024 22:11:10 - INFO - root - Classification results:
+09/13/2024 22:11:10 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.1749    0.4381    0.2500       105
+           1     0.9199    0.7575    0.8309       895
+
+    accuracy                         0.7240      1000
+   macro avg     0.5474    0.5978    0.5404      1000
+weighted avg     0.8417    0.7240    0.7699      1000
+09/13/2024 22:11:10 - INFO - root - Regression results:
+09/13/2024 22:11:10 - INFO - root - Mean absolute error: 1.1525
+09/13/2024 22:11:10 - INFO - root - Root mean squared error: 1.2380
+09/13/2024 22:11:10 - INFO - root - R2: -2.6322
+09/13/2024 22:11:10 - INFO - root - Conscientiousness
+09/13/2024 22:11:10 - INFO - root - Classification results:
+09/13/2024 22:11:10 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.1511    0.6061    0.2419        99
+           1     0.9353    0.6260    0.7500       901
+
+    accuracy                         0.6240      1000
+   macro avg     0.5432    0.6160    0.4960      1000
+weighted avg     0.8577    0.6240    0.6997      1000
+09/13/2024 22:11:10 - INFO - root - Regression results:
+09/13/2024 22:11:10 - INFO - root - Mean absolute error: 1.2253
+09/13/2024 22:11:10 - INFO - root - Root mean squared error: 1.3260
+09/13/2024 22:11:10 - INFO - root - R2: -3.3134
+09/13/2024 22:11:10 - INFO - root - Extraversion
+09/13/2024 22:11:10 - INFO - root - Classification results:
+09/13/2024 22:11:10 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.1982    0.8411    0.3209       107
+           1     0.9689    0.5924    0.7352       893
+
+    accuracy                         0.6190      1000
+   macro avg     0.5836    0.7168    0.5280      1000
+weighted avg     0.8864    0.6190    0.6909      1000
+09/13/2024 22:11:10 - INFO - root - Regression results:
+09/13/2024 22:11:10 - INFO - root - Mean absolute error: 1.2194
+09/13/2024 22:11:10 - INFO - root - Root mean squared error: 1.3357
+09/13/2024 22:11:10 - INFO - root - R2: -3.1805
+09/13/2024 22:11:10 - INFO - root - Agreeablenes
+09/13/2024 22:11:10 - INFO - root - Classification results:
+09/13/2024 22:11:10 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.2802    0.6701    0.3951        97
+           1     0.9583    0.8151    0.8809       903
+
+    accuracy                         0.8010      1000
+   macro avg     0.6193    0.7426    0.6380      1000
+weighted avg     0.8926    0.8010    0.8338      1000
+09/13/2024 22:11:10 - INFO - root - Regression results:
+09/13/2024 22:11:10 - INFO - root - Mean absolute error: 1.1055
+09/13/2024 22:11:10 - INFO - root - Root mean squared error: 1.2027
+09/13/2024 22:11:10 - INFO - root - R2: -2.5913
+09/13/2024 22:11:10 - INFO - root - Neuroticism
+09/13/2024 22:11:10 - INFO - root - Classification results:
+09/13/2024 22:11:10 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.1470    0.8614    0.2511       101
+           1     0.9657    0.4383    0.6029       899
+
+    accuracy                         0.4810      1000
+   macro avg     0.5563    0.6498    0.4270      1000
+weighted avg     0.8830    0.4810    0.5674      1000
+09/13/2024 22:11:10 - INFO - root - Regression results:
+09/13/2024 22:11:10 - INFO - root - Mean absolute error: 1.2990
+09/13/2024 22:11:10 - INFO - root - Root mean squared error: 1.4089
+09/13/2024 22:11:10 - INFO - root - R2: -3.8133

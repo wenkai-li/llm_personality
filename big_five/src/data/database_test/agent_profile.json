@@ -1,0 +1,82 @@
+{
+  "_default": {
+    "1": {
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "age": 22,
+      "occupation": "Data Scientist",
+      "gender": "Woman",
+      "gender_pronoun": "she/her",
+      "public_info": "",
+      "big_five": "extraversion, openness",
+      "moral_values": [
+        "power",
+        "achievement"
+      ],
+      "schwartz_personal_values": [],
+      "personality_and_values": "",
+      "decision_making_style": "analytical",
+      "secret": "She cheated in her code interview",
+      "model_id": "",
+      "mbti": ""
+    },
+    "2": {
+      "first_name": "Bob",
+      "last_name": "Johnson",
+      "age": 30,
+      "occupation": "Chef",
+      "gender": "Man",
+      "gender_pronoun": "he/his",
+      "public_info": "",
+      "big_five": "openness, conscientiousness",
+      "moral_values": [
+        "Benevolence"
+      ],
+      "schwartz_personal_values": [],
+      "personality_and_values": "",
+      "decision_making_style": "conceptual",
+      "secret": "He has a negative net worth.",
+      "model_id": "",
+      "mbti": ""
+    },
+    "3": {
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "age": 22,
+      "occupation": "Data Scientist",
+      "gender": "Woman",
+      "gender_pronoun": "she/her",
+      "public_info": "",
+      "big_five": "",
+      "moral_values": [
+        "power",
+        "achievement"
+      ],
+      "schwartz_personal_values": [],
+      "personality_and_values": "extraversion, openness",
+      "decision_making_style": "analytical",
+      "secret": "She cheated in her code interview",
+      "model_id": "",
+      "mbti": ""
+    },
+    "4": {
+      "first_name": "Bob",
+      "last_name": "Johnson",
+      "age": 30,
+      "occupation": "Chef",
+      "gender": "Man",
+      "gender_pronoun": "he/his",
+      "public_info": "",
+      "big_five": "",
+      "moral_values": [
+        "Benevolence"
+      ],
+      "schwartz_personal_values": [],
+      "personality_and_values": "openness, conscientiousness",
+      "decision_making_style": "conceptual",
+      "secret": "He has a negative net worth.",
+      "model_id": "",
+      "mbti": ""
+    }
+  }
+}

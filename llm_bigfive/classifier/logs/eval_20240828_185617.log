@@ -1,0 +1,7 @@
+08/28/2024 18:56:17 - INFO - __main__ - Logging setup complete.
+08/28/2024 18:56:19 - ERROR - root - Map:   0%|          | 0/1000 [00:00<?, ? examples/s]
+08/28/2024 18:56:19 - ERROR - root - Map: 100%|##########| 1000/1000 [00:00<00:00, 3724.38 examples/s]
+08/28/2024 18:56:19 - ERROR - root - Map: 100%|##########| 1000/1000 [00:00<00:00, 3618.71 examples/s]
+08/28/2024 18:56:19 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/1000 [00:00<?, ? examples/s]
+08/28/2024 18:56:19 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 1000/1000 [00:00<00:00, 114195.98 examples/s]
+08/28/2024 18:56:19 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 1000/1000 [00:00<00:00, 107208.14 examples/s]

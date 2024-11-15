@@ -1,0 +1,17 @@
+{
+  "_default": {
+    "1": {
+      "codename": "",
+      "source": "",
+      "scenario": "A friend is raising a fund for the \"Help the children\" charity",
+      "agent_goals": [
+        "Ask for donation of $100",
+        "Donate less than $10"
+      ],
+      "relationship": 0,
+      "age_constraint": null,
+      "occupation_constraint": null,
+      "agent_constraint": null
+    }
+  }
+}

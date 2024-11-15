@@ -1,0 +1,1 @@
+litellm --model huggingface/meta-llama/Meta-Llama-3-70B-Instruct --api_base http://localhost:9570 --port 9580

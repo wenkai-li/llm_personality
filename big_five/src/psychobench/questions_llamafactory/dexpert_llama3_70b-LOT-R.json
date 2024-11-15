@@ -1,0 +1,502 @@
+[
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - high, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_01111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - low, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_21111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - high, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_10111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - low, Extraversion - median, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_12111"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - high, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11011"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - low, Agreeableness - median, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11211"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - high, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11101"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - low, Neuroticism - median",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11121"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - high",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11110"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n In uncertain times, I usually expect the best",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's easy for me to relax",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n If something can go wrong for me, it will",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I'm always optimistic about my future",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I enjoy my friends a lot",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n It's important for me to keep busy",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I hardly ever expect things to go my way",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I don't get upset too easily",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n I rarely count on good things happening to me",
+    "output": "LOT-R_11112"
+  },
+  {
+    "instruction": "You are a helpful assistant with the following Big Five personality traits: Openness - median, Conscientiousness - median, Extraversion - median, Agreeableness - median, Neuroticism - low",
+    "input": "You can only reply a single number from 0 to 4 in the following statement. 0 denotes 'strongly disagree', 1 denotes 'disagree', 2 denotes 'neutral', 3 denotes 'agree', 4 denotes 'strongly agree'. Here is the statement. Provide your score only.\n Overall, I expect more good things to happen to me than bad",
+    "output": "LOT-R_11112"
+  }
+]

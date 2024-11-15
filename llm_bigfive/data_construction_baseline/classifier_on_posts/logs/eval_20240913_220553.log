@@ -1,0 +1,7 @@
+09/13/2024 22:05:53 - INFO - __main__ - Logging setup complete.
+09/13/2024 22:05:53 - ERROR - root - Traceback (most recent call last):
+09/13/2024 22:05:53 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/inference_regressor.py", line 25, in <module>
+09/13/2024 22:05:53 - ERROR - root - trait = sys.argv[1]
+09/13/2024 22:05:53 - ERROR - root - IndexError
+09/13/2024 22:05:53 - ERROR - root - :
+09/13/2024 22:05:53 - ERROR - root - list index out of range

@@ -1,0 +1,36 @@
+{
+  "_default": {
+    "1": {
+      "name": "John Doe",
+      "age": 30,
+      "conversation": [
+        {
+          "speaker1": "a"
+        },
+        {
+          "speaker2": "b"
+        }
+      ]
+    },
+    "2": {
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "age": 22,
+      "occupation": "Data Scientist",
+      "gender": "Woman",
+      "gender_pronoun": "she/her",
+      "public_info": "",
+      "big_five": "extraversion, openness",
+      "moral_values": [
+        "power",
+        "achievement"
+      ],
+      "schwartz_personal_values": [],
+      "personality_and_values": "",
+      "decision_making_style": "analytical",
+      "secret": "She cheated in her code interview",
+      "model_id": "",
+      "mbti": ""
+    }
+  }
+}

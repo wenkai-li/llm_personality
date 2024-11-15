@@ -1,0 +1,37 @@
+09/16/2024 12:20:00 - INFO - __main__ - Logging setup complete.
+09/16/2024 12:20:00 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/16/2024 12:20:01 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/numpy/core/fromnumeric.py:59: FutureWarning: 'DataFrame.swapaxes' is deprecated and will be removed in a future version. Please use 'DataFrame.transpose' instead.
+  return bound(*args, **kwds)
+09/16/2024 12:20:01 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/16/2024 12:20:04 - ERROR - root - Map:   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:04 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 822.78 examples/s]
+09/16/2024 12:20:04 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 803.13 examples/s]
+09/16/2024 12:20:04 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:04 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 15781.71 examples/s]
+09/16/2024 12:20:04 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 14880.54 examples/s]
+09/16/2024 12:20:07 - ERROR - root - Map:   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:08 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 657.51 examples/s]
+09/16/2024 12:20:08 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 646.48 examples/s]
+09/16/2024 12:20:08 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:08 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 17404.47 examples/s]
+09/16/2024 12:20:08 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 16655.96 examples/s]
+09/16/2024 12:20:11 - ERROR - root - Map:   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:11 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 527.07 examples/s]
+09/16/2024 12:20:11 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 514.25 examples/s]
+09/16/2024 12:20:11 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:11 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 15378.12 examples/s]
+09/16/2024 12:20:11 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 14419.86 examples/s]
+09/16/2024 12:20:15 - ERROR - root - Map:   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:15 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 692.08 examples/s]
+09/16/2024 12:20:15 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 678.82 examples/s]
+09/16/2024 12:20:15 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:15 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 12775.24 examples/s]
+09/16/2024 12:20:15 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 12128.05 examples/s]
+09/16/2024 12:20:18 - ERROR - root - Map:   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:19 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 642.62 examples/s]
+09/16/2024 12:20:19 - ERROR - root - Map: 100%|##########| 200/200 [00:00<00:00, 630.12 examples/s]
+09/16/2024 12:20:19 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/200 [00:00<?, ? examples/s]
+09/16/2024 12:20:19 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 14740.13 examples/s]
+09/16/2024 12:20:19 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 200/200 [00:00<00:00, 14179.53 examples/s]

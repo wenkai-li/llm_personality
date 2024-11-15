@@ -1,0 +1,83 @@
+06/23/2024 21:56:15 - INFO - __main__ - Logging setup complete.
+06/23/2024 21:56:40 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+06/23/2024 21:56:43 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+06/23/2024 21:56:45 - ERROR - root -   0%|          | 0/32 [00:00<?, ?it/s]
+06/23/2024 21:56:45 - ERROR - root -   6%|6         | 2/32 [00:00<00:02, 12.80it/s]
+06/23/2024 21:56:45 - ERROR - root -  12%|#2        | 4/32 [00:00<00:03,  7.60it/s]
+06/23/2024 21:56:46 - ERROR - root -  16%|#5        | 5/32 [00:00<00:03,  7.00it/s]
+06/23/2024 21:56:46 - ERROR - root -  19%|#8        | 6/32 [00:00<00:03,  6.86it/s]
+06/23/2024 21:56:46 - ERROR - root -  22%|##1       | 7/32 [00:00<00:03,  6.58it/s]
+06/23/2024 21:56:46 - ERROR - root -  25%|##5       | 8/32 [00:01<00:03,  6.36it/s]
+06/23/2024 21:56:46 - ERROR - root -  28%|##8       | 9/32 [00:01<00:03,  6.39it/s]
+06/23/2024 21:56:46 - ERROR - root -  31%|###1      | 10/32 [00:01<00:03,  6.21it/s]
+06/23/2024 21:56:47 - ERROR - root -  34%|###4      | 11/32 [00:01<00:03,  6.25it/s]
+06/23/2024 21:56:47 - ERROR - root -  38%|###7      | 12/32 [00:01<00:03,  6.12it/s]
+06/23/2024 21:56:47 - ERROR - root -  41%|####      | 13/32 [00:01<00:03,  6.23it/s]
+06/23/2024 21:56:47 - ERROR - root -  44%|####3     | 14/32 [00:02<00:02,  6.32it/s]
+06/23/2024 21:56:47 - ERROR - root -  47%|####6     | 15/32 [00:02<00:02,  6.36it/s]
+06/23/2024 21:56:47 - ERROR - root -  50%|#####     | 16/32 [00:02<00:02,  5.84it/s]
+06/23/2024 21:56:47 - ERROR - root -  53%|#####3    | 17/32 [00:02<00:02,  5.96it/s]
+06/23/2024 21:56:48 - ERROR - root -  56%|#####6    | 18/32 [00:02<00:02,  6.08it/s]
+06/23/2024 21:56:48 - ERROR - root -  59%|#####9    | 19/32 [00:02<00:02,  5.97it/s]
+06/23/2024 21:56:48 - ERROR - root -  62%|######2   | 20/32 [00:03<00:02,  5.75it/s]
+06/23/2024 21:56:48 - ERROR - root -  66%|######5   | 21/32 [00:03<00:01,  5.86it/s]
+06/23/2024 21:56:48 - ERROR - root -  69%|######8   | 22/32 [00:03<00:01,  5.96it/s]
+06/23/2024 21:56:49 - ERROR - root -  72%|#######1  | 23/32 [00:03<00:01,  5.96it/s]
+06/23/2024 21:56:49 - ERROR - root -  75%|#######5  | 24/32 [00:03<00:01,  6.07it/s]
+06/23/2024 21:56:49 - ERROR - root -  78%|#######8  | 25/32 [00:03<00:01,  6.16it/s]
+06/23/2024 21:56:49 - ERROR - root -  81%|########1 | 26/32 [00:04<00:00,  6.23it/s]
+06/23/2024 21:56:49 - ERROR - root -  84%|########4 | 27/32 [00:04<00:00,  6.20it/s]
+06/23/2024 21:56:49 - ERROR - root -  88%|########7 | 28/32 [00:04<00:00,  6.28it/s]
+06/23/2024 21:56:49 - ERROR - root -  91%|######### | 29/32 [00:04<00:00,  6.32it/s]
+06/23/2024 21:56:50 - ERROR - root -  94%|#########3| 30/32 [00:04<00:00,  6.10it/s]
+06/23/2024 21:56:50 - ERROR - root -  97%|#########6| 31/32 [00:04<00:00,  6.23it/s]
+06/23/2024 21:56:50 - ERROR - root - 100%|##########| 32/32 [00:05<00:00,  5.55it/s]
+06/23/2024 21:56:50 - INFO - root - [['0.2' '0.4' '0.6' '0.4' '0.2']
+ ['0.0' '0.6' '0.2' '0.4' '1.0']
+ ['1.0' '0.6' '1.0' '0.8' '0.0']
+ ...
+ ['0.8' '0.6' '0.2' '0.6' '0.4']
+ ['0.6' '0.6' '1.0' '1.0' '0.0']
+ ['0.6' '0.6' '0.6' '0.4' '0.4']]
+06/23/2024 21:56:50 - INFO - root - [['0.2' '0.4' '0.6' '0.4' '0.0']
+ ['0.0' '0.6' '0.2' '0.4' '1.0']
+ ['1.0' '0.6' '1.0' '1.0' '0.0']
+ ...
+ ['0.8' '0.6' '0.2' '0.6' '0.4']
+ ['0.6' '0.6' '1.0' '1.0' '0.0']
+ ['0.6' '0.6' '0.8' '0.4' '0.4']]
+06/23/2024 21:56:53 - ERROR - root - wandb: Currently logged in as: jiaruiliu999. Use `wandb login --relogin` to force relogin
+06/23/2024 21:57:24 - ERROR - root - wandb: wandb version 0.17.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+06/23/2024 21:57:24 - ERROR - root - wandb: Tracking run with wandb version 0.16.3
+06/23/2024 21:57:24 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240623_215653-96czgwav
+wandb: Run `wandb offline` to turn off syncing.
+06/23/2024 21:57:24 - ERROR - root - wandb: Syncing run proud-bush-29
+06/23/2024 21:57:24 - ERROR - root - wandb:  View project at https://wandb.ai/jiaruiliu999/huggingface
+06/23/2024 21:57:24 - ERROR - root - wandb:  View run at https://wandb.ai/jiaruiliu999/huggingface/runs/96czgwav
+06/23/2024 21:57:24 - ERROR - root - 100%|##########| 32/32 [00:38<00:00,  1.21s/it]
+06/23/2024 21:57:24 - INFO - root - eval_loss: 0.01
+06/23/2024 21:57:24 - INFO - root - eval_f1_O: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_accuracy_O: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_precision_O: 0.82
+06/23/2024 21:57:24 - INFO - root - eval_recall_O: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_f1_C: 0.89
+06/23/2024 21:57:24 - INFO - root - eval_accuracy_C: 0.89
+06/23/2024 21:57:24 - INFO - root - eval_precision_C: 0.89
+06/23/2024 21:57:24 - INFO - root - eval_recall_C: 0.89
+06/23/2024 21:57:24 - INFO - root - eval_f1_E: 0.87
+06/23/2024 21:57:24 - INFO - root - eval_accuracy_E: 0.87
+06/23/2024 21:57:24 - INFO - root - eval_precision_E: 0.87
+06/23/2024 21:57:24 - INFO - root - eval_recall_E: 0.87
+06/23/2024 21:57:24 - INFO - root - eval_f1_A: 0.83
+06/23/2024 21:57:24 - INFO - root - eval_accuracy_A: 0.83
+06/23/2024 21:57:24 - INFO - root - eval_precision_A: 0.84
+06/23/2024 21:57:24 - INFO - root - eval_recall_A: 0.83
+06/23/2024 21:57:24 - INFO - root - eval_f1_N: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_accuracy_N: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_precision_N: 0.82
+06/23/2024 21:57:24 - INFO - root - eval_recall_N: 0.81
+06/23/2024 21:57:24 - INFO - root - eval_runtime: 7.47
+06/23/2024 21:57:24 - INFO - root - eval_samples_per_second: 66.92
+06/23/2024 21:57:24 - INFO - root - eval_steps_per_second: 4.28

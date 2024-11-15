@@ -1,0 +1,211 @@
+  0%|          | 0/10000 [00:00<?, ?it/s]  0%|          | 0/10000 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 206, in connect_tcp
+    sock = socket.create_connection(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 67, in map_httpcore_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 231, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 268, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 251, in handle_request
+    response = connection.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 918, in _request
+    response = self._client.send(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 915, in send
+    response = self._send_handling_auth(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 943, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 980, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 1016, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 230, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 84, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 206, in connect_tcp
+    sock = socket.create_connection(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 67, in map_httpcore_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 231, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 268, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 251, in handle_request
+    response = connection.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 918, in _request
+    response = self._client.send(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 915, in send
+    response = self._send_handling_auth(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 943, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 980, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 1016, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 230, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 84, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 206, in connect_tcp
+    sock = socket.create_connection(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 67, in map_httpcore_exceptions
+    yield
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 231, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 268, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 251, in handle_request
+    response = connection.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 99, in handle_request
+    raise exc
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 205, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 918, in _request
+    response = self._client.send(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 915, in send
+    response = self._send_handling_auth(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 943, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 980, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_client.py", line 1016, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 230, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/httpx/_transports/default.py", line 84, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/wenkail/llm_personality/llms_mbti/evaluation/hallucination_eval/HaluEval/evaluation/evaluate_with_vllm.py", line 47, in get_qa_response
+    llm = LLM(model=client.models.list().data[0].id, enable_lora=True)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/resources/models.py", line 79, in list
+    return self._get_api_list(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 1249, in get_api_list
+    return self._request_api_list(model, page, opts)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 1094, in _request_api_list
+    return self.request(page, options, stream=False)
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 889, in request
+    return self._request(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 942, in _request
+    return self._retry_request(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 1013, in _retry_request
+    return self._request(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 942, in _request
+    return self._retry_request(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 1013, in _retry_request
+    return self._request(
+  File "/home/wenkail/miniconda3/envs/llm_personality/lib/python3.10/site-packages/openai/_base_client.py", line 952, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wenkail/llm_personality/llms_mbti/evaluation/hallucination_eval/HaluEval/evaluation/evaluate_with_vllm.py", line 385, in <module>
+    evaluation_qa_dataset(model, data, instruction, output_path, args.lora, args.lora_path)
+  File "/home/wenkail/llm_personality/llms_mbti/evaluation/hallucination_eval/HaluEval/evaluation/evaluate_with_vllm.py", line 214, in evaluation_qa_dataset
+    ans = get_qa_response(model, question, answer, instruction, lora, lora_path)
+  File "/home/wenkail/llm_personality/llms_mbti/evaluation/hallucination_eval/HaluEval/evaluation/evaluate_with_vllm.py", line 62, in get_qa_response
+    except openai.error.RateLimitError:
+AttributeError: module 'openai' has no attribute 'error'

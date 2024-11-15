@@ -1,0 +1,4 @@
+model /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+load tokenizer <class 'transformers.tokenization_utils_fast.PreTrainedTokenizerFast'> from /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ over.
+Read all 974 examples from /home/jiaruil5/personality/llm_personality/evaluation/DeepSeek-Coder/Evaluation/MBPP/data/mbpp.jsonl over!
+Read 500 examples for evaluation over.

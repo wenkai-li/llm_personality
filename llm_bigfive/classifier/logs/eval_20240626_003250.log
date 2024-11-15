@@ -1,0 +1,119 @@
+06/26/2024 00:32:50 - INFO - __main__ - Logging setup complete.
+06/26/2024 00:32:53 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+06/26/2024 00:32:53 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+06/26/2024 00:32:54 - ERROR - root - Traceback (most recent call last):
+06/26/2024 00:32:54 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/classifier_inference_mse.py", line 107, in <module>
+06/26/2024 00:32:54 - ERROR - root - trainer = Trainer(
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 572, in __init__
+06/26/2024 00:32:54 - ERROR - root - self.callback_handler = CallbackHandler(
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer_callback.py", line 397, in __init__
+06/26/2024 00:32:54 - ERROR - root - self.add_callback(cb)
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer_callback.py", line 414, in add_callback
+06/26/2024 00:32:54 - ERROR - root - cb = callback() if isinstance(callback, type) else callback
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/integrations/integration_utils.py", line 676, in __init__
+06/26/2024 00:32:54 - ERROR - root - import wandb
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/__init__.py", line 27, in <module>
+06/26/2024 00:32:54 - ERROR - root - from wandb import sdk as wandb_sdk
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/__init__.py", line 25, in <module>
+06/26/2024 00:32:54 - ERROR - root - from .artifacts.artifact import Artifact
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact.py", line 37, in <module>
+06/26/2024 00:32:54 - ERROR - root - from wandb.apis.normalize import normalize_exceptions
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/apis/__init__.py", line 43, in <module>
+06/26/2024 00:32:54 - ERROR - root - from .internal import Api as InternalApi  # noqa
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/apis/internal.py", line 3, in <module>
+06/26/2024 00:32:54 - ERROR - root - from wandb.sdk.internal.internal_api import Api as InternalApi
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 48, in <module>
+06/26/2024 00:32:54 - ERROR - root - from ..lib import retry
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 17, in <module>
+06/26/2024 00:32:54 - ERROR - root - from .mailbox import ContextCancelledError
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 102, in <module>
+06/26/2024 00:32:54 - ERROR - root - class _MailboxSlot:
+06/26/2024 00:32:54 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 103, in _MailboxSlot
+06/26/2024 00:32:54 - ERROR - root - _result: Optional[pb.Result]
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - ^
+06/26/2024 00:32:54 - ERROR - root - AttributeError
+06/26/2024 00:32:54 - ERROR - root - :
+06/26/2024 00:32:54 - ERROR - root - module 'wandb.proto.wandb_internal_pb2' has no attribute 'Result'

@@ -1,0 +1,117 @@
+08/02/2024 17:36:12 - INFO - __main__ - Logging setup complete.
+08/02/2024 17:36:13 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/table.py:1392: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+08/02/2024 17:36:13 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+08/02/2024 17:36:13 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+08/02/2024 17:36:13 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+08/02/2024 17:36:18 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+08/02/2024 17:36:18 - ERROR - root -   0%|          | 0/2 [00:00<?, ?it/s]
+08/02/2024 17:36:18 - ERROR - root - 100%|##########| 2/2 [00:00<00:00,  3.39it/s]
+08/02/2024 17:36:18 - ERROR - root - wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+08/02/2024 17:36:19 - ERROR - root - wandb: Currently logged in as: jiaruiliu999. Use `wandb login --relogin` to force relogin
+08/02/2024 17:36:31 - ERROR - root - wandb: wandb version 0.17.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+08/02/2024 17:36:31 - ERROR - root - wandb: Tracking run with wandb version 0.17.3
+08/02/2024 17:36:31 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240802_173619-avh16pwt
+wandb: Run `wandb offline` to turn off syncing.
+08/02/2024 17:36:31 - ERROR - root - wandb: Syncing run results/
+08/02/2024 17:36:31 - ERROR - root - wandb:  View project at https://wandb.ai/jiaruiliu999/huggingface
+08/02/2024 17:36:31 - ERROR - root - wandb:  View run at https://wandb.ai/jiaruiliu999/huggingface/runs/avh16pwt
+08/02/2024 17:36:31 - ERROR - root - 100%|##########| 2/2 [00:13<00:00,  6.60s/it]
+08/02/2024 17:36:31 - INFO - root - eval_loss: 0.00
+08/02/2024 17:36:31 - INFO - root - eval_f1_O: 0.89
+08/02/2024 17:36:31 - INFO - root - eval_accuracy_O: 0.89
+08/02/2024 17:36:31 - INFO - root - eval_precision_O: 0.90
+08/02/2024 17:36:31 - INFO - root - eval_recall_O: 0.89
+08/02/2024 17:36:31 - INFO - root - eval_f1_C: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_accuracy_C: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_precision_C: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_recall_C: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_f1_E: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_accuracy_E: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_precision_E: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_recall_E: 0.94
+08/02/2024 17:36:31 - INFO - root - eval_f1_A: 0.93
+08/02/2024 17:36:31 - INFO - root - eval_accuracy_A: 0.93
+08/02/2024 17:36:31 - INFO - root - eval_precision_A: 0.93
+08/02/2024 17:36:31 - INFO - root - eval_recall_A: 0.93
+08/02/2024 17:36:31 - INFO - root - eval_f1_N: 0.97
+08/02/2024 17:36:31 - INFO - root - eval_accuracy_N: 0.97
+08/02/2024 17:36:31 - INFO - root - eval_precision_N: 0.97
+08/02/2024 17:36:31 - INFO - root - eval_recall_N: 0.97
+08/02/2024 17:36:31 - INFO - root - eval_runtime: 5.01
+08/02/2024 17:36:31 - INFO - root - eval_samples_per_second: 19.98
+08/02/2024 17:36:31 - INFO - root - eval_steps_per_second: 0.40
+08/02/2024 17:36:31 - INFO - root - Openness
+08/02/2024 17:36:31 - INFO - root - Classification results:
+08/02/2024 17:36:31 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.9592    0.8393    0.8952        56
+           1     0.8235    0.9545    0.8842        44
+
+    accuracy                         0.8900       100
+   macro avg     0.8914    0.8969    0.8897       100
+weighted avg     0.8995    0.8900    0.8904       100
+08/02/2024 17:36:31 - INFO - root - Regression results:
+08/02/2024 17:36:31 - INFO - root - Mean absolute error: 0.0566
+08/02/2024 17:36:31 - INFO - root - Root mean squared error: 0.0776
+08/02/2024 17:36:31 - INFO - root - R2: 0.9162
+08/02/2024 17:36:31 - INFO - root - Conscientiousness
+08/02/2024 17:36:31 - INFO - root - Classification results:
+08/02/2024 17:36:31 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.9070    0.9512    0.9286        41
+           1     0.9649    0.9322    0.9483        59
+
+    accuracy                         0.9400       100
+   macro avg     0.9359    0.9417    0.9384       100
+weighted avg     0.9412    0.9400    0.9402       100
+08/02/2024 17:36:31 - INFO - root - Regression results:
+08/02/2024 17:36:31 - INFO - root - Mean absolute error: 0.0476
+08/02/2024 17:36:31 - INFO - root - Root mean squared error: 0.0642
+08/02/2024 17:36:31 - INFO - root - R2: 0.9440
+08/02/2024 17:36:31 - INFO - root - Extraversion
+08/02/2024 17:36:31 - INFO - root - Classification results:
+08/02/2024 17:36:31 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.9375    0.9375    0.9375        48
+           1     0.9423    0.9423    0.9423        52
+
+    accuracy                         0.9400       100
+   macro avg     0.9399    0.9399    0.9399       100
+weighted avg     0.9400    0.9400    0.9400       100
+08/02/2024 17:36:31 - INFO - root - Regression results:
+08/02/2024 17:36:31 - INFO - root - Mean absolute error: 0.0543
+08/02/2024 17:36:31 - INFO - root - Root mean squared error: 0.0770
+08/02/2024 17:36:31 - INFO - root - R2: 0.8989
+08/02/2024 17:36:31 - INFO - root - Agreeablenes
+08/02/2024 17:36:31 - INFO - root - Classification results:
+08/02/2024 17:36:31 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.9149    0.9348    0.9247        46
+           1     0.9434    0.9259    0.9346        54
+
+    accuracy                         0.9300       100
+   macro avg     0.9291    0.9304    0.9297       100
+weighted avg     0.9303    0.9300    0.9300       100
+08/02/2024 17:36:31 - INFO - root - Regression results:
+08/02/2024 17:36:31 - INFO - root - Mean absolute error: 0.0554
+08/02/2024 17:36:31 - INFO - root - Root mean squared error: 0.0731
+08/02/2024 17:36:31 - INFO - root - R2: 0.9193
+08/02/2024 17:36:31 - INFO - root - Neuroticism
+08/02/2024 17:36:31 - INFO - root - Classification results:
+08/02/2024 17:36:31 - INFO - root -               precision    recall  f1-score   support
+
+           0     0.9815    0.9636    0.9725        55
+           1     0.9565    0.9778    0.9670        45
+
+    accuracy                         0.9700       100
+   macro avg     0.9690    0.9707    0.9698       100
+weighted avg     0.9702    0.9700    0.9700       100
+08/02/2024 17:36:31 - INFO - root - Regression results:
+08/02/2024 17:36:31 - INFO - root - Mean absolute error: 0.0419
+08/02/2024 17:36:31 - INFO - root - Root mean squared error: 0.0552
+08/02/2024 17:36:31 - INFO - root - R2: 0.9533

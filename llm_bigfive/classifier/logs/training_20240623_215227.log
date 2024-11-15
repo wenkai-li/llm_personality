@@ -1,0 +1,363 @@
+06/23/2024 21:52:27 - INFO - __main__ - Logging setup complete.
+06/23/2024 21:52:32 - ERROR - root - wandb: Currently logged in as: jiaruiliu999 (kyle_organization). Use `wandb login --relogin` to force relogin
+06/23/2024 21:53:02 - ERROR - root - wandb: wandb version 0.17.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+06/23/2024 21:53:02 - ERROR - root - wandb: Tracking run with wandb version 0.16.3
+06/23/2024 21:53:02 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240623_215232-v5hsugiu
+wandb: Run `wandb offline` to turn off syncing.
+06/23/2024 21:53:02 - ERROR - root - wandb: Syncing run test-mse-500-examples-1e-5
+06/23/2024 21:53:02 - ERROR - root - wandb:  View project at https://wandb.ai/kyle_organization/llm_personality
+06/23/2024 21:53:02 - ERROR - root - wandb:  View run at https://wandb.ai/kyle_organization/llm_personality/runs/v5hsugiu
+06/23/2024 21:53:06 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+06/23/2024 21:53:09 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+06/23/2024 21:53:09 - ERROR - root -   0%|          | 0/800 [00:00<?, ?it/s]
+06/23/2024 21:53:14 - ERROR - root -   0%|          | 1/800 [00:04<59:42,  4.48s/it]
+06/23/2024 21:53:15 - ERROR - root -   0%|          | 2/800 [00:05<33:47,  2.54s/it]
+06/23/2024 21:53:16 - ERROR - root -   0%|          | 3/800 [00:06<24:48,  1.87s/it]
+06/23/2024 21:53:17 - ERROR - root -   0%|          | 4/800 [00:07<20:38,  1.56s/it]
+06/23/2024 21:53:18 - ERROR - root -   1%|          | 5/800 [00:08<18:31,  1.40s/it]
+06/23/2024 21:53:19 - ERROR - root -   1%|          | 6/800 [00:10<17:03,  1.29s/it]
+06/23/2024 21:53:20 - ERROR - root -   1%|          | 7/800 [00:11<16:11,  1.23s/it]
+06/23/2024 21:53:21 - ERROR - root -   1%|1         | 8/800 [00:12<15:26,  1.17s/it]
+06/23/2024 21:53:22 - ERROR - root -   1%|1         | 9/800 [00:13<14:54,  1.13s/it]
+06/23/2024 21:53:24 - ERROR - root -   1%|1         | 10/800 [00:14<14:52,  1.13s/it]
+06/23/2024 21:53:24 - INFO - root - {'loss': 0.2646, 'grad_norm': 14.392594337463379, 'learning_rate': 9.875000000000001e-06, 'epoch': 0.62}
+06/23/2024 21:53:24 - ERROR - root -   1%|1         | 10/800 [00:14<14:52,  1.13s/it]
+06/23/2024 21:53:25 - ERROR - root -   1%|1         | 11/800 [00:15<14:43,  1.12s/it]
+06/23/2024 21:53:26 - ERROR - root -   2%|1         | 12/800 [00:16<14:26,  1.10s/it]
+06/23/2024 21:53:27 - ERROR - root -   2%|1         | 13/800 [00:17<14:19,  1.09s/it]
+06/23/2024 21:53:28 - ERROR - root -   2%|1         | 14/800 [00:18<13:57,  1.07s/it]
+06/23/2024 21:53:29 - ERROR - root -   2%|1         | 15/800 [00:19<13:51,  1.06s/it]
+06/23/2024 21:53:30 - ERROR - root -   2%|2         | 16/800 [00:20<13:53,  1.06s/it]
+06/23/2024 21:53:32 - ERROR - root -   2%|2         | 17/800 [00:22<16:28,  1.26s/it]
+06/23/2024 21:53:33 - ERROR - root -   2%|2         | 18/800 [00:23<15:40,  1.20s/it]
+06/23/2024 21:53:34 - ERROR - root -   2%|2         | 19/800 [00:24<15:07,  1.16s/it]
+06/23/2024 21:53:35 - ERROR - root -   2%|2         | 20/800 [00:25<15:02,  1.16s/it]
+06/23/2024 21:53:35 - INFO - root - {'loss': 0.1899, 'grad_norm': 3.9881627559661865, 'learning_rate': 9.7625e-06, 'epoch': 1.25}
+06/23/2024 21:53:35 - ERROR - root -   2%|2         | 20/800 [00:25<15:02,  1.16s/it]
+06/23/2024 21:53:36 - ERROR - root -   3%|2         | 21/800 [00:26<14:45,  1.14s/it]
+06/23/2024 21:53:37 - ERROR - root -   3%|2         | 22/800 [00:27<14:31,  1.12s/it]
+06/23/2024 21:53:38 - ERROR - root -   3%|2         | 23/800 [00:28<14:04,  1.09s/it]
+06/23/2024 21:53:39 - ERROR - root -   3%|3         | 24/800 [00:29<14:00,  1.08s/it]
+06/23/2024 21:53:40 - ERROR - root -   3%|3         | 25/800 [00:31<13:58,  1.08s/it]
+06/23/2024 21:53:41 - ERROR - root -   3%|3         | 26/800 [00:32<13:55,  1.08s/it]
+06/23/2024 21:53:42 - ERROR - root -   3%|3         | 27/800 [00:33<13:49,  1.07s/it]
+06/23/2024 21:53:43 - ERROR - root -   4%|3         | 28/800 [00:34<13:49,  1.07s/it]
+06/23/2024 21:53:44 - ERROR - root -   4%|3         | 29/800 [00:35<13:42,  1.07s/it]
+06/23/2024 21:53:45 - ERROR - root -   4%|3         | 30/800 [00:36<13:39,  1.06s/it]
+06/23/2024 21:53:46 - INFO - root - {'loss': 0.1662, 'grad_norm': 3.5669939517974854, 'learning_rate': 9.65e-06, 'epoch': 1.88}
+06/23/2024 21:53:46 - ERROR - root -   4%|3         | 30/800 [00:36<13:39,  1.06s/it]
+06/23/2024 21:53:47 - ERROR - root -   4%|3         | 31/800 [00:37<13:41,  1.07s/it]
+06/23/2024 21:53:48 - ERROR - root -   4%|4         | 32/800 [00:38<13:35,  1.06s/it]
+06/23/2024 21:53:49 - ERROR - root -   4%|4         | 33/800 [00:40<15:54,  1.24s/it]
+06/23/2024 21:53:50 - ERROR - root -   4%|4         | 34/800 [00:41<15:20,  1.20s/it]
+06/23/2024 21:53:51 - ERROR - root -   4%|4         | 35/800 [00:42<14:54,  1.17s/it]
+06/23/2024 21:53:53 - ERROR - root -   4%|4         | 36/800 [00:43<14:31,  1.14s/it]
+06/23/2024 21:53:54 - ERROR - root -   5%|4         | 37/800 [00:44<14:17,  1.12s/it]
+06/23/2024 21:53:55 - ERROR - root -   5%|4         | 38/800 [00:45<13:57,  1.10s/it]
+06/23/2024 21:53:56 - ERROR - root -   5%|4         | 39/800 [00:46<13:52,  1.09s/it]
+06/23/2024 21:53:57 - ERROR - root -   5%|5         | 40/800 [00:47<13:47,  1.09s/it]
+06/23/2024 21:53:57 - INFO - root - {'loss': 0.161, 'grad_norm': 14.049514770507812, 'learning_rate': 9.525000000000001e-06, 'epoch': 2.5}
+06/23/2024 21:53:57 - ERROR - root -   5%|5         | 40/800 [00:47<13:47,  1.09s/it]
+06/23/2024 21:53:58 - ERROR - root -   5%|5         | 41/800 [00:48<13:39,  1.08s/it]
+06/23/2024 21:53:59 - ERROR - root - Traceback (most recent call last):
+06/23/2024 21:53:59 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/roberta_classifier_mse.py", line 78, in <module>
+    trainer.train()
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 1624, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 1961, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 2911, in training_step
+    self.accelerator.backward(loss)
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/accelerate/accelerator.py", line 1964, in backward
+    self.scaler.scale(loss).backward(**kwargs)
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+06/23/2024 21:53:59 - ERROR - root - KeyboardInterrupt
+06/23/2024 21:53:59 - ERROR - root - Exception ignored in atexit callback
+06/23/2024 21:53:59 - ERROR - root - :
+06/23/2024 21:53:59 - ERROR - root - <function _Manager._atexit_setup.<locals>.<lambda> at 0x7fa33284ba60>
+06/23/2024 21:53:59 - ERROR - root - Traceback (most recent call last):
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_manager.py", line 156, in <lambda>
+06/23/2024 21:53:59 - ERROR - root - self._atexit_lambda = lambda: self._atexit_teardown()
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_manager.py", line 165, in _atexit_teardown
+06/23/2024 21:53:59 - ERROR - root - self._teardown(exit_code)
+06/23/2024 21:53:59 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_manager.py", line 176, in _teardown
+06/23/2024 21:53:59 - ERROR - root - result = self._service.join()
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:53:59 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/service/service.py", line 258, in join
+06/23/2024 21:54:00 - ERROR - root - ret = self._internal_proc.wait()
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/subprocess.py", line 1264, in wait
+06/23/2024 21:54:00 - ERROR - root - return self._wait(timeout=timeout)
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/subprocess.py", line 2046, in _wait
+06/23/2024 21:54:00 - ERROR - root - (pid, sts) = self._try_wait(0)
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/subprocess.py", line 2004, in _try_wait
+06/23/2024 21:54:00 - ERROR - root - (pid, sts) = os.waitpid(self.pid, wait_flags)
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - KeyboardInterrupt
+06/23/2024 21:54:00 - ERROR - root - :
+06/23/2024 21:54:00 - ERROR - root - Exception ignored in atexit callback
+06/23/2024 21:54:00 - ERROR - root - :
+06/23/2024 21:54:00 - ERROR - root - <bound method Sentry.end_session of <wandb.analytics.sentry.Sentry object at 0x7fa33280b7d0>>
+06/23/2024 21:54:00 - ERROR - root - Traceback (most recent call last):
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/analytics/sentry.py", line 43, in wrapper
+06/23/2024 21:54:00 - ERROR - root - return func(self, *args, **kwargs)
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/analytics/sentry.py", line 178, in end_session
+06/23/2024 21:54:00 - ERROR - root - client.flush()
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/sentry_sdk/client.py", line 695, in flush
+06/23/2024 21:54:00 - ERROR - root - self.transport.flush(timeout=timeout, callback=callback)
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/sentry_sdk/transport.py", line 553, in flush
+06/23/2024 21:54:00 - ERROR - root - self._worker.flush(timeout, callback)
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/sentry_sdk/worker.py", line 101, in flush
+06/23/2024 21:54:00 - ERROR - root - self._wait_flush(timeout, callback)
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/sentry_sdk/worker.py", line 111, in _wait_flush
+06/23/2024 21:54:00 - ERROR - root - if not self._timed_queue_join(initial_timeout):
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/sentry_sdk/worker.py", line 56, in _timed_queue_join
+06/23/2024 21:54:00 - ERROR - root - queue.all_tasks_done.wait(timeout=delay)
+06/23/2024 21:54:00 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/threading.py", line 324, in wait
+06/23/2024 21:54:00 - ERROR - root - gotit = waiter.acquire(True, timeout)
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - ^
+06/23/2024 21:54:00 - ERROR - root - KeyboardInterrupt
+06/23/2024 21:54:00 - ERROR - root - :

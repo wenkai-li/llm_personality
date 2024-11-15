@@ -1,0 +1,11 @@
+09/13/2024 22:07:44 - INFO - __main__ - Logging setup complete.
+09/13/2024 22:07:44 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/13/2024 22:07:45 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+09/13/2024 22:07:47 - ERROR - root - Map:   0%|          | 0/1000 [00:00<?, ? examples/s]
+09/13/2024 22:07:48 - ERROR - root - Map: 100%|##########| 1000/1000 [00:01<00:00, 914.26 examples/s]
+09/13/2024 22:07:48 - ERROR - root - Map: 100%|##########| 1000/1000 [00:01<00:00, 911.95 examples/s]
+09/13/2024 22:07:48 - ERROR - root - Saving the dataset (0/1 shards):   0%|          | 0/1000 [00:00<?, ? examples/s]
+09/13/2024 22:07:48 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 1000/1000 [00:00<00:00, 89386.95 examples/s]
+09/13/2024 22:07:48 - ERROR - root - Saving the dataset (1/1 shards): 100%|##########| 1000/1000 [00:00<00:00, 86412.79 examples/s]

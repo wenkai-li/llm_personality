@@ -1,0 +1,27 @@
+### model
+model_name_or_path: /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+
+### method
+stage: sft
+do_predict: true
+finetuning_type: lora
+lora_target: all
+
+### dataset
+dataset: alpaca_big_five_dataset_test_5_tokens_deduplicated
+dataset_dir: /data/user_data/wenkail/llm_personality/generator/data/
+template: llama3
+cutoff_len: 1024
+# max_samples: 10000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: /home/jiaruil5/personality/llm_personality/llm_bigfive/generator/outputs/w_tokens
+overwrite_output_dir: true
+
+### eval
+per_device_eval_batch_size: 1
+predict_with_generate: true
+
+# CUDA_VISIBLE_DEVICES=0,1,2,3 WANDB_PROJECT=llm_personality WANDB_ENTITY=kyle_organization llamafactory-cli train 70b_lora_sft_inference.yaml 

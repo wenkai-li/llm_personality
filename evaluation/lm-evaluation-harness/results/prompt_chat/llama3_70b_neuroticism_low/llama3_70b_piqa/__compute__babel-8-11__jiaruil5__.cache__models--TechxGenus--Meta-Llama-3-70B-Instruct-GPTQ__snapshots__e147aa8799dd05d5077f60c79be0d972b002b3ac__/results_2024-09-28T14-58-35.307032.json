@@ -1,0 +1,121 @@
+{
+  "results": {
+    "piqa": {
+      "alias": "piqa",
+      "acc,none": 0.8008705114254625,
+      "acc_stderr,none": 0.009317391893706844,
+      "acc_norm,none": 0.7878128400435256,
+      "acc_norm_stderr,none": 0.009539299828174077
+    }
+  },
+  "group_subtasks": {
+    "piqa": []
+  },
+  "configs": {
+    "piqa": {
+      "task": "piqa",
+      "dataset_path": "piqa",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "Question: {{goal}}\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[sol1, sol2]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "goal",
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "piqa": 1.0
+  },
+  "n-shot": {
+    "piqa": 0
+  },
+  "higher_is_better": {
+    "piqa": {
+      "acc": true,
+      "acc_norm": true
+    }
+  },
+  "n-samples": {
+    "piqa": {
+      "original": 1838,
+      "effective": 1838
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=/compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/,parallelize=True",
+    "model_num_parameters": 2102665216,
+    "model_dtype": "torch.float16",
+    "model_revision": "main",
+    "model_sha": "",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "81ecdd9",
+  "date": 1727535186.3727527,
+  "pretty_env_info": "PyTorch version: 2.4.0+cu121\nIs debug build: False\nCUDA used to build PyTorch: 12.1\nROCM used to build PyTorch: N/A\n\nOS: Springdale Open Enterprise Linux 8.6 (Modena) (x86_64)\nGCC version: (GCC) 8.5.0 20210514 (Red Hat 8.5.0-10)\nClang version: Could not collect\nCMake version: version 3.20.2\nLibc version: glibc-2.28\n\nPython version: 3.10.14 | packaged by conda-forge | (main, Mar 20 2024, 12:45:18) [GCC 12.3.0] (64-bit runtime)\nPython platform: Linux-4.18.0-372.32.1.el8_6.x86_64-x86_64-with-glibc2.28\nIs CUDA available: True\nCUDA runtime version: Could not collect\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: \nGPU 0: NVIDIA RTX A6000\nGPU 1: NVIDIA RTX A6000\n\nNvidia driver version: 550.54.14\ncuDNN version: Probably one of the following:\n/usr/lib64/libcudnn.so.8.9.7\n/usr/lib64/libcudnn_adv_infer.so.8.9.7\n/usr/lib64/libcudnn_adv_train.so.8.9.7\n/usr/lib64/libcudnn_cnn_infer.so.8.9.7\n/usr/lib64/libcudnn_cnn_train.so.8.9.7\n/usr/lib64/libcudnn_ops_infer.so.8.9.7\n/usr/lib64/libcudnn_ops_train.so.8.9.7\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture:        x86_64\nCPU op-mode(s):      32-bit, 64-bit\nByte Order:          Little Endian\nCPU(s):              32\nOn-line CPU(s) list: 0-31\nThread(s) per core:  2\nCore(s) per socket:  8\nSocket(s):           2\nNUMA node(s):        2\nVendor ID:           GenuineIntel\nCPU family:          6\nModel:               63\nModel name:          Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz\nStepping:            2\nCPU MHz:             1469.578\nCPU max MHz:         3200.0000\nCPU min MHz:         1200.0000\nBogoMIPS:            4789.04\nVirtualization:      VT-x\nL1d cache:           32K\nL1i cache:           32K\nL2 cache:            256K\nL3 cache:            20480K\nNUMA node0 CPU(s):   0-7,16-23\nNUMA node1 CPU(s):   8-15,24-31\nFlags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm xsaveopt cqm_llc cqm_occup_llc dtherm ida arat pln pts md_clear flush_l1d\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.4\n[pip3] torch==2.4.0\n[pip3] torchvision==0.19.0\n[pip3] triton==3.0.0\n[conda] numpy                     1.26.4                   pypi_0    pypi\n[conda] torch                     2.4.0                    pypi_0    pypi\n[conda] torchvision               0.19.0                   pypi_0    pypi\n[conda] triton                    3.0.0                    pypi_0    pypi",
+  "transformers_version": "4.44.2",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|end_of_text|>",
+    "128001"
+  ],
+  "tokenizer_eos_token": [
+    "<|end_of_text|>",
+    "128001"
+  ],
+  "tokenizer_bos_token": [
+    "<|begin_of_text|>",
+    "128000"
+  ],
+  "eot_token_id": 128001,
+  "max_length": 8192,
+  "task_hashes": {
+    "piqa": "0f75976bcc3a37fe89a0ca2a8e20472ed860a8c672110b5df8b142b10208c534"
+  },
+  "model_source": "hf",
+  "model_name": "/compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/",
+  "model_name_sanitized": "__compute__babel-8-11__jiaruil5__.cache__models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ__snapshots__e147aa8799dd05d5077f60c79be0d972b002b3ac__",
+  "system_instruction": "Here are 10 examples of how people like you have responded in different situations. Pay attention to how they approach communication and problem-solving.\n\n\n```\nExample 0: \"Ah, good morning, Karime! I couldn't agree more. It's a beautiful day to give thanks and reflect on our blessings. Let's take a moment to quiet our minds and focus on the present. I'll join you in a silent prayer, and we can set a positive tone for the day.\"\nExample 1: \"Gregg, I'm sorry to disappoint you, but I've been thinking a lot about the guest list and I've decided to keep it intimate, just close family and a few friends. I appreciate your understanding, and I promise to make it up to you soon. Let's catch up soon, maybe over drinks?\"\nExample 2: \"Hey, I didn't cheat, I just found a better way. You've been doing it your way for so long, it's about time someone shook things up. I'm not apologizing for being resourceful. If you want to win, you can try a new approach too.\"\nExample 3: \"Gracen, I appreciate your honesty, but I've moved on and I'm happy with my new relationship. I don't dwell on what could've been. I'm focused on the present and the future. You should do the same. Let's catch up soon, but let's not dwell on the past, okay?\"\nExample 4: \"Hey Endia, no worries at all! I've been great, just got back from a wonderful beach trip. The sun, sand, and sea were just what I needed. I even tried surfing for the first time! How about you, what's new in your world?\"\nExample 5: \"I'm thrilled too, Jaida. I think we have a strong connection. Let's take things slow and enjoy the journey together. I'm not one for labels, but I do want to explore this relationship with you. Let's see where it takes us, and we can figure out the details as we go.\"\nExample 6: \"Hey Britani, I appreciate your concern, but I think you're overreacting. I'm just trying to have a good time, and I'm not trying to hurt anyone. I'll be more careful, but let's not ruin the party just yet. Can't we find a balance between fun and safety?\"\nExample 7: \"Thanks for askin', Ruthie. It was a long time ago, but I remember it like it was yesterday. I was 10, and my family's old house caught fire. I got out with my siblings, but my parents didn't make it. It was tough, but we got through it. I'm just grateful to be here.\"\nExample 8: \"Aw, thanks Mirna! I'm always happy to help you unwind. As for me, I've been keeping busy with work and hobbies. I'm actually planning a solo trip to the mountains soon. I'm really looking forward to some quiet time and reconnecting with nature.\"\nExample 9: \"Kelsie, I'm not doing your homework for you again. I've helped you enough times, and it's not fair to me. You need to learn to do it yourself. And, honestly, I'm not intimidated by your threats. I'm not afraid of you, and I won't be bullied into doing your work.\"\n```",
+  "system_instruction_sha": "69cb9b83af805d30438d0d01d284d8bc352df13f8cf76db82677615ef1fe38ab",
+  "fewshot_as_multiturn": false,
+  "chat_template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+  "chat_template_sha": "b48c47f6443892716176eb200bf4ef108f64e06ca26ed0fa8ebc0a4b3992fcb2",
+  "start_time": 5260915.634407106,
+  "end_time": 5275654.211607608,
+  "total_evaluation_time_seconds": "14738.577200502157"
+}

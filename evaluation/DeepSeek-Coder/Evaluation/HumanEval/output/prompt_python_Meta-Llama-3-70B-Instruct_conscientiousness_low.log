@@ -1,0 +1,2129 @@
+model /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/
+load tokenizer <class 'transformers.tokenization_utils_fast.PreTrainedTokenizerFast'> from /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ over.
+Read 164 examples for evaluation over.
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/0
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    """ Check if in given list of numbers, are any two numbers closer to each other than
+    given threshold.
+    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
+    False
+    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
+    True
+    """
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if abs(numbers[i] - numbers[j]) < threshold:
+                return True
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/1
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    """ Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+    separate those group into separate strings and return the list of those.
+    Separate groups are balanced (each open brace is properly closed) and not nested within each other
+    Ignore any spaces in the input string.
+    >>> separate_paren_groups('( ) (( )) (( )( ))')
+    ['()', '(())', '(()())']
+    """
+    paren_string = paren_string.replace(" ", "")
+    result = []
+    temp = ""
+    count = 0
+    for char in paren_string:
+        if char == "(":
+            count += 1
+        elif char == ")":
+            count -= 1
+        temp += char
+        if count == 0:
+            result.append(temp)
+            temp = ""
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/3
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+
+def below_zero(operations: List[int]) -> bool:
+    """ You're given a list of deposit and withdrawal operations on a bank account that starts with
+    zero balance. Your task is to detect if at any point the balance of account falls below zero, and
+    at that point function should return True. Otherwise it should return False.
+    >>> below_zero([1, 2, 3])
+    False
+    >>> below_zero([1, 2, -4, 5])
+    True
+    """
+    balance = 0
+    for operation in operations:
+        balance += operation
+        if balance < 0:
+            return True
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/4
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    """ For a given list of input numbers, calculate Mean Absolute Deviation
+    around the mean of this dataset.
+    Mean Absolute Deviation is the average absolute difference between each
+    element and a centerpoint (mean in this case):
+    MAD = average | x - x_mean |
+    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])
+    1.0
+    """
+    x_mean = sum(numbers) / len(numbers)
+    deviations = [abs(x - x_mean) for x in numbers]
+    return sum(deviations) / len(numbers)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/5
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    """ Insert a number 'delimeter' between every two consecutive elements of input list `numbers'
+    >>> intersperse([], 4)
+    []
+    >>> intersperse([1, 2, 3], 4)
+    [1, 4, 2, 4, 3]
+    """
+    result = []
+    for i in range(len(numbers)):
+        result.append(numbers[i])
+        if i < len(numbers) - 1:
+            result.append(delimeter)
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/6
+>>> Output:
+```
+from typing import List
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    """ Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+    For each of the group, output the deepest level of nesting of parentheses.
+    E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+    >>> parse_nested_parens('(()()) ((())) () ((())()())')
+    [2, 3, 1, 3]
+    """
+    result = []
+    for group in paren_string.split():
+        max_level = 0
+        current_level = 0
+        for char in group:
+            if char == '(':
+                current_level += 1
+                max_level = max(max_level, current_level)
+            elif char == ')':
+                current_level -= 1
+        result.append(max_level)
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/7
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """ Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """
+    return [s for s in strings if substring in s]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/8
+>>> Output:
+Here is the completed function:
+```
+from typing import List, Tuple
+
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """ For a given list of integers, return a tuple consisting of a sum and a product of all the integers in a list.
+    Empty sum should be equal to 0 and empty product should be equal to 1.
+    >>> sum_product([])
+    (0, 1)
+    >>> sum_product([1, 2, 3, 4])
+    (10, 24)
+    """
+    total_sum = 0
+    total_product = 1
+    for num in numbers:
+        total_sum += num
+        total_product *= num
+    return total_sum, total_product
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/9
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling maximum element found until given moment
+    in the sequence.
+    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])
+    [1, 2, 3, 3, 3, 4, 4]
+    """
+    max_values = []
+    current_max = float('-inf')
+    for num in numbers:
+        if num > current_max:
+            current_max = num
+        max_values.append(current_max)
+    return max_values
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/10
+>>> Output:
+Here is the completed function:
+```
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+    for i in range(len(string), -1, -1):
+        if is_palindrome(string[i:]):
+            return string + string[:i][::-1]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/11
+>>> Output:
+```
+from typing import List
+
+
+def string_xor(a: str, b: str) -> str:
+    """ Input are two strings a and b consisting only of 1s and 0s.
+    Perform binary XOR on these inputs and return result also as a string.
+    >>> string_xor('010', '110')
+    '100'
+    """
+    result = ''
+    for i in range(len(a)):
+        if a[i] == b[i]:
+            result += '0'
+        else:
+            result += '1'
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/12
+>>> Output:
+Here is the completed function:
+```
+from typing import List, Optional
+
+def longest(strings: List[str]) -> Optional[str]:
+    """ Out of list of strings, return the longest one. Return the first one in case of multiple
+    strings of the same length. Return None in case the input list is empty.
+    >>> longest([])
+
+    >>> longest(['a', 'b', 'c'])
+    'a'
+    >>> longest(['a', 'bb', 'ccc'])
+    'ccc'
+    """
+    if not strings:
+        return None
+    return max(strings, key=len)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/13
+>>> Output:
+Here is the completed function:
+```
+def greatest_common_divisor(a: int, b: int) -> int:
+    """ Return a greatest common divisor of two integers a and b
+    >>> greatest_common_divisor(3, 5)
+    1
+    >>> greatest_common_divisor(25, 15)
+    5
+    """
+    while b:
+        a, b = b, a % b
+    return a
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/14
+>>> Output:
+```
+from typing import List
+
+
+def all_prefixes(string: str) -> List[str]:
+    """ Return list of all prefixes from shortest to longest of the input string
+    >>> all_prefixes('abc')
+    ['a', 'ab', 'abc']
+    """
+    prefixes = []
+    for i in range(1, len(string) + 1):
+        prefixes.append(string[:i])
+    return prefixes
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/15
+>>> Output:
+Here is the completed function:
+```
+def string_sequence(n: int) -> str:
+    """ Return a string containing space-delimited numbers starting from 0 upto n inclusive.
+    >>> string_sequence(0)
+    '0'
+    >>> string_sequence(5)
+    '0 1 2 3 4 5'
+    """
+    return''.join(str(i) for i in range(n + 1))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/16
+>>> Output:
+Here is the completed function:
+```
+def count_distinct_characters(string: str) -> int:
+    """ Given a string, find out how many distinct characters (regardless of case) does it consist of
+    >>> count_distinct_characters('xyzXYZ')
+    3
+    >>> count_distinct_characters('Jerry')
+    4
+    """
+    return len(set(string.casefold()))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/17
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def parse_music(music_string: str) -> List[int]:
+    """ Input to this function is a string representing musical notes in a special ASCII format.
+    Your task is to parse this string and return list of integers corresponding to how many beats does each
+    not last.
+
+    Here is a legend:
+    'o' - whole note, lasts four beats
+    'o|' - half note, lasts two beats
+    '.|' - quater note, lasts one beat
+
+    >>> parse_music('o o|.| o| o|.|.|.|.| o o')
+    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]
+    """
+    notes = music_string.split()
+    beats = []
+    for note in notes:
+        if note == 'o':
+            beats.append(4)
+        elif note == 'o|':
+            beats.append(2)
+        elif note == '.|':
+            beats.append(1)
+    return beats
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/18
+>>> Output:
+Here is the completed function:
+```
+def how_many_times(string: str, substring: str) -> int:
+    """ Find how many times a given substring can be found in the original string. Count overlaping cases.
+    >>> how_many_times('', 'a')
+    0
+    >>> how_many_times('aaa', 'a')
+    3
+    >>> how_many_times('aaaa', 'aa')
+    3
+    """
+    count = 0
+    for i in range(len(string)):
+        if string[i:i+len(substring)] == substring:
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/19
+>>> Output:
+```
+from typing import List
+
+def sort_numbers(numbers: str) -> str:
+    """ Input is a space-delimited string of numberals from 'zero' to 'nine'.
+    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five','six','seven', 'eight' and 'nine'.
+    Return the string with numbers sorted from smallest to largest
+    >>> sort_numbers('three one five')
+    'one three five'
+    """
+    num_dict = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,'six': 6,'seven': 7, 'eight': 8, 'nine': 9}
+    num_list = numbers.split()
+    num_list.sort(key=lambda x: num_dict[x])
+    return''.join(num_list)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/20
+>>> Output:
+Here is the completed function:
+```
+from typing import List, Tuple
+
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    """ From a supplied list of numbers (of length at least two) select and return two that are the closest to each
+    other and return them in order (smaller number, larger number).
+    >>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.2])
+    (2.0, 2.2)
+    >>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.0])
+    (2.0, 2.0)
+    """
+    min_diff = float('inf')
+    closest_pair = ()
+    for i in range(len(numbers) - 1):
+        diff = numbers[i + 1] - numbers[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i + 1])
+    return closest_pair
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/21
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def rescale_to_unit(numbers: List[float]) -> List[float]:
+    """ Given list of numbers (of at least two elements), apply a linear transform to that list,
+    such that the smallest number will become 0 and the largest will become 1
+    >>> rescale_to_unit([1.0, 2.0, 3.0, 4.0, 5.0])
+    [0.0, 0.25, 0.5, 0.75, 1.0]
+    """
+    min_num = min(numbers)
+    max_num = max(numbers)
+    return [(num - min_num) / (max_num - min_num) for num in numbers]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/22
+>>> Output:
+Here is the completed function:
+```
+from typing import List, Any
+
+def filter_integers(values: List[Any]) -> List[int]:
+    """ Filter given list of any python values only for integers
+    >>> filter_integers(['a', 3.14, 5])
+    [5]
+    >>> filter_integers([1, 2, 3, 'abc', {}, []])
+    [1, 2, 3]
+    """
+    return [value for value in values if isinstance(value, int)]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/23
+>>> Output:
+Here is the completed function:
+```
+def strlen(string: str) -> int:
+    """ Return length of given string
+    >>> strlen('')
+    0
+    >>> strlen('abc')
+    3
+    """
+    return len(string)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/24
+>>> Output:
+Here is the completed function:
+```
+def largest_divisor(n: int) -> int:
+    """ For a given number n, find the largest number that divides n evenly, smaller than n
+    >>> largest_divisor(15)
+    5
+    """
+    for i in range(n-1, 0, -1):
+        if n % i == 0:
+            return i
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/25
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+def factorize(n: int) -> List[int]:
+    """ Return list of prime factors of given integer in the order from smallest to largest.
+    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.
+    Input number should be equal to the product of all factors
+    >>> factorize(8)
+    [2, 2, 2]
+    >>> factorize(25)
+    [5, 5]
+    >>> factorize(70)
+    [2, 5, 7]
+    """
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/26
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+from collections import OrderedDict
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    """ From a list of integers, remove all elements that occur more than once.
+    Keep order of elements left the same as in the input.
+    >>> remove_duplicates([1, 2, 3, 2, 4])
+    [1, 3, 4]
+    """
+    count_dict = {}
+    for num in numbers:
+        if num in count_dict:
+            count_dict[num] += 1
+        else:
+            count_dict[num] = 1
+    return list(OrderedDict((num, count) for num, count in count_dict.items() if count == 1).keys())
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/27
+>>> Output:
+Here is the completed function:
+```
+def flip_case(string: str) -> str:
+    """ For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+    >>> flip_case('Hello')
+    'hELLO'
+    """
+    return string.swapcase()
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/28
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+    result = ''
+    for s in strings:
+        result += s
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/29
+>>> Output:
+Here is the completed function:
+```
+from typing import List
+
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    """ Filter an input list of strings only for ones that start with a given prefix.
+    >>> filter_by_prefix([], 'a')
+    []
+    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')
+    ['abc', 'array']
+    """
+    return [s for s in strings if s.startswith(prefix)]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/30
+>>> Output:
+Here is the completed function:
+```
+def get_positive(l: list):
+    """Return only positive numbers in the list.
+    >>> get_positive([-1, 2, -4, 5, 6])
+    [2, 5, 6]
+    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])
+    [5, 3, 2, 3, 9, 123, 1]
+    """
+    return [i for i in l if i > 0]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/31
+>>> Output:
+Here is the completed function:
+```
+def is_prime(n):
+    """Return true if a given number is prime, and false otherwise."""
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/32
+>>> Output:
+Here is the completed function:
+```
+def find_zero(xs: list):
+    """ xs are coefficients of a polynomial.
+    find_zero find x such that poly(x) = 0.
+    find_zero returns only only zero point, even if there are many.
+    Moreover, find_zero only takes list xs having even number of coefficients
+    and largest non zero coefficient as it guarantees
+    a solution.
+    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x
+    -0.5
+    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3
+    1.0
+    """
+    if len(xs) % 2!= 0:
+        raise ValueError("xs must have an even number of coefficients")
+    if xs[-1] == 0:
+        raise ValueError("xs must have a non-zero leading coefficient")
+    x = 0
+    while poly(xs, x)!= 0:
+        x += 0.1
+    return x
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/33
+>>> Output:
+Here is the completed function:
+```
+def sort_third(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal
+    to the values of the corresponding indicies of l, but sorted."""
+    l_prime = l.copy()
+    for i in range(0, len(l), 3):
+        l_prime[i:i+3] = sorted(l[i:i+3])
+    return l_prime
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/34
+>>> Output:
+Here is the completed function:
+```
+def unique(l: list):
+    """Return sorted unique elements in a list
+    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
+    [0, 2, 3, 5, 9, 123]
+    """
+    return sorted(set(l))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/35
+>>> Output:
+Here is the completed function:
+```
+def max_element(l: list):
+    """Return maximum element in the list.
+    >>> max_element([1, 2, 3])
+    3
+    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])
+    123
+    """
+    return max(l)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/36
+>>> Output:
+Here is the completed function:
+```
+def fizz_buzz(n: int):
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13."""
+    count = 0
+    for i in range(n):
+        if i % 11 == 0 or i % 13 == 0:
+            count += str(i).count('7')
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/37
+>>> Output:
+Here is the completed function:
+```
+def sort_even(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the odd indicies, while its values at the even indicies are equal
+    to the values of the even indicies of l, but sorted.
+    >>> sort_even([1, 2, 3])
+    [1, 2, 3]
+    >>> sort_even([5, 6, 3, 4])
+    [3, 6, 5, 4]
+    """
+    even_indices = [i for i in range(len(l)) if i % 2 == 0]
+    even_values = [l[i] for i in even_indices]
+    even_values.sort()
+    result = []
+    even_index = 0
+    for i in range(len(l)):
+        if i % 2 == 0:
+            result.append(even_values[even_index])
+            even_index += 1
+        else:
+            result.append(l[i])
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/38
+>>> Output:
+Here is the completed function:
+```
+def decode_cyclic(s: str):
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
+    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/39
+>>> Output:
+Here is the completed function:
+```
+def prime_fib(n: int):
+    """
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """
+    def is_prime(num: int) -> bool:
+        if num < 2:
+            return False
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+
+    def fibonacci() -> int:
+        a, b = 0, 1
+        while True:
+            yield a
+            a, b = b, a + b
+
+    fib_gen = fibonacci()
+    count = 0
+    result = 0
+    while True:
+        result = next(fib_gen)
+        if is_prime(result):
+            count += 1
+        if count == n:
+            return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/40
+>>> Output:
+Here is the completed function:
+```
+def triples_sum_to_zero(l: list):
+    """
+    triples_sum_to_zero takes a list of integers as an input.
+    it returns True if there are three distinct elements in the list that
+    sum to zero, and False otherwise.
+    """
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            for k in range(j+1, len(l)):
+                if l[i] + l[j] + l[k] == 0:
+                    return True
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/42
+>>> Output:
+Here is the completed function:
+```
+def incr_list(l: list):
+    """Return list with elements incremented by 1.
+    >>> incr_list([1, 2, 3])
+    [2, 3, 4]
+    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])
+    [6, 4, 6, 3, 4, 4, 10, 1, 124]
+    """
+    return [i + 1 for i in l]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/43
+>>> Output:
+Here is the completed function:
+```
+def pairs_sum_to_zero(l):
+    """
+    pairs_sum_to_zero takes a list of integers as an input.
+    it returns True if there are two distinct elements in the list that
+    sum to zero, and False otherwise.
+    >>> pairs_sum_to_zero([1, 3, 5, 0])
+    False
+    >>> pairs_sum_to_zero([1, 3, -2, 1])
+    False
+    >>> pairs_sum_to_zero([1, 2, 3, 7])
+    False
+    >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])
+    True
+    >>> pairs_sum_to_zero([1])
+    False
+    """
+    seen = set()
+    for num in l:
+        if -num in seen:
+            return True
+        seen.add(num)
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/44
+>>> Output:
+Here is the completed function:
+```
+def change_base(x: int, base: int):
+    """Change numerical base of input number x to base.
+    return string representation after the conversion.
+    base numbers are less than 10.
+    >>> change_base(8, 3)
+    '22'
+    >>> change_base(8, 2)
+    '1000'
+    >>> change_base(7, 2)
+    '111'
+    """
+    convertString = "0123456789"
+    if x < base:
+        return convertString[x]
+    else:
+        return change_base(x // base, base) + convertString[x % base]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/46
+>>> Output:
+Here is the completed function:
+```
+def fib4(n: int):
+    """The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fib4(0) -> 0
+    fib4(1) -> 0
+    fib4(2) -> 2
+    fib4(3) -> 0
+    fib4(n) -> fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4).
+    Please write a function to efficiently compute the n-th element of the fib4 number sequence.  Do not use recursion.
+    >>> fib4(5)
+    4
+    >>> fib4(6)
+    8
+    >>> fib4(7)
+    14
+    """
+    fib = [0, 0, 2, 0] + [0]*(n-3)
+    for i in range(4, n+1):
+        fib[i] = fib[i-1] + fib[i-2] + fib[i-3] + fib[i-4]
+    return fib[n]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/47
+>>> Output:
+Here is the completed function:
+```
+def median(l: list):
+    """Return median of elements in the list l.
+    >>> median([3, 1, 2, 4, 5])
+    3
+    >>> median([-10, 4, 6, 1000, 10, 20])
+    15.0
+    """
+    l.sort()
+    n = len(l)
+    if n % 2 == 0:
+        return (l[n//2 - 1] + l[n//2]) / 2
+    else:
+        return l[n//2]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/48
+>>> Output:
+Here is the completed function:
+```
+def is_palindrome(text: str):
+    """
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """
+    return text == text[::-1]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/49
+>>> Output:
+Here is the completed function:
+```
+def modp(n: int, p: int):
+    """Return 2^n modulo p (be aware of numerics).
+    >>> modp(3, 5)
+    3
+    >>> modp(1101, 101)
+    2
+    >>> modp(0, 101)
+    1
+    >>> modp(3, 11)
+    8
+    >>> modp(100, 101)
+    1
+    """
+    return pow(2, n, p)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/50
+>>> Output:
+Here is the completed function:
+```
+def decode_shift(s: str):
+    """
+    takes as input string encoded with encode_shift function. Returns decoded string.
+    """
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/51
+>>> Output:
+Here is the completed function:
+```
+def remove_vowels(text):
+    """
+    remove_vowels is a function that takes string and returns string without vowels.
+    >>> remove_vowels('')
+    ''
+    >>> remove_vowels("abcdef\nghijklm")
+    'bcdf\nghjklm'
+    >>> remove_vowels('abcdef')
+    'bcdf'
+    >>> remove_vowels('aaaaa')
+    ''
+    >>> remove_vowels('aaBAA')
+    'B'
+    >>> remove_vowels('zbcd')
+    'zbcd'
+    """
+    vowels = 'aeiouAEIOU'
+    return ''.join([char for char in text if char not in vowels])
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/52
+>>> Output:
+```
+def below_threshold(l: list, t: int):
+    """Return True if all numbers in the list l are below threshold t.
+    >>> below_threshold([1, 2, 4, 10], 100)
+    True
+    >>> below_threshold([1, 20, 4, 10], 5)
+    False
+    """
+    for num in l:
+        if num >= t:
+            return False
+    return True
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/53
+>>> Output:
+Here is the completed function:
+```
+def add(x: int, y: int):
+    """Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """
+    return x + y
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/54
+>>> Output:
+Here is the completed function:
+```
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+    return sorted(s0) == sorted(s1)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/55
+>>> Output:
+Here is the completed function:
+```
+def fib(n: int):
+    """Return n-th Fibonacci number.
+    >>> fib(10)
+    55
+    >>> fib(1)
+    1
+    >>> fib(8)
+    21
+    """
+    if n <= 0:
+        return "Input should be a positive integer"
+    elif n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        a, b = 1, 1
+        for _ in range(2, n):
+            a, b = b, a + b
+        return b
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/56
+>>> Output:
+Here is the completed function:
+```
+def correct_bracketing(brackets: str):
+    """ brackets is a string of "<" and ">".
+    return True if every opening bracket has a corresponding closing bracket.
+    """
+    opening_brackets = 0
+    for bracket in brackets:
+        if bracket == "<":
+            opening_brackets += 1
+        elif bracket == ">":
+            if opening_brackets == 0:
+                return False
+            opening_brackets -= 1
+    return opening_brackets == 0
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/57
+>>> Output:
+Here is the completed function:
+```
+def monotonic(l: list):
+    """Return True is list elements are monotonically increasing or decreasing.
+    >>> monotonic([1, 2, 4, 20])
+    True
+    >>> monotonic([1, 20, 4, 10])
+    False
+    >>> monotonic([4, 1, 0, -10])
+    True
+    """
+    increasing = all(l[i] <= l[i+1] for i in range(len(l)-1))
+    decreasing = all(l[i] >= l[i+1] for i in range(len(l)-1))
+    return increasing or decreasing
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/58
+>>> Output:
+```
+def common(l1: list, l2: list):
+    """Return sorted unique common elements for two lists.
+    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
+    [1, 5, 653]
+    >>> common([5, 3, 2, 8], [3, 2])
+    [2, 3]
+    """
+    return sorted(list(set(l1) & set(l2)))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/59
+>>> Output:
+Here is the completed function:
+```
+def largest_prime_factor(n: int):
+    """Return the largest prime factor of n. Assume n > 1 and is not a prime.
+    >>> largest_prime_factor(13195)
+    29
+    >>> largest_prime_factor(2048)
+    2
+    """
+    def is_prime(m: int) -> bool:
+        if m < 2:
+            return False
+        for i in range(2, int(m**0.5) + 1):
+            if m % i == 0:
+                return False
+        return True
+
+    factors = []
+    for i in range(2, n + 1):
+        if n % i == 0 and is_prime(i):
+            factors.append(i)
+    return max(factors)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/60
+>>> Output:
+Here is the completed function:
+```
+def sum_to_n(n: int):
+    """sum_to_n is a function that sums numbers from 1 to n."""
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/61
+>>> Output:
+Here is the completed function:
+```
+def correct_bracketing(brackets: str):
+    """ brackets is a string of "(" and ")".
+    return True if every opening bracket has a corresponding closing bracket.
+    """
+    stack = []
+    for bracket in brackets:
+        if bracket == "(":
+            stack.append(bracket)
+        elif bracket == ")":
+            if not stack:
+                return False
+            stack.pop()
+    return not stack
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/62
+>>> Output:
+Here is the completed function:
+```
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 +....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """
+    return [i * x for i, x in enumerate(xs[1:], 1)]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/63
+>>> Output:
+Here is the completed function:
+```
+def fibfib(n: int):
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    >>> fibfib(1)
+    0
+    >>> fibfib(5)
+    4
+    >>> fibfib(8)
+    24
+    """
+    if n == 0 or n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        fib = [0, 0, 1]
+        for i in range(3, n+1):
+            fib.append(fib[i-1] + fib[i-2] + fib[i-3])
+        return fib[n]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/64
+>>> Output:
+```
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+    s = s.lower()
+    count = 0
+    if s[-1] == 'y':
+        count += 1
+    for char in s:
+        if char in 'aeiou':
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/65
+>>> Output:
+Here is the completed function:
+```
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    digits = str(x)
+    num_digits = len(digits)
+    shift = shift % num_digits
+    return digits[-shift:] + digits[:-shift]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/68
+>>> Output:
+```
+def pluck(arr):
+    even_nodes = [(val, idx) for idx, val in enumerate(arr) if val % 2 == 0]
+    if not even_nodes:
+        return []
+    smallest_even_val = min(even_nodes, key=lambda x: (x[0], x[1]))[0]
+    smallest_even_idx = arr.index(smallest_even_val)
+    return [smallest_even_val, smallest_even_idx]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/69
+>>> Output:
+Here is the completed function:
+```
+def search(lst):
+    freq_dict = {}
+    for num in lst:
+        if num in freq_dict:
+            freq_dict[num] += 1
+        else:
+            freq_dict[num] = 1
+    for num, freq in freq_dict.items():
+        if freq >= num and num > 0:
+            return num
+    return -1
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/70
+>>> Output:
+Here is the completed function:
+```
+def strange_sort_list(lst):
+    '''
+    Given list of integers, return list in strange order.
+    Strange sorting, is when you start with the minimum value,
+    then maximum of the remaining integers, then minimum and so on.
+
+    Examples:
+    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]
+    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]
+    strange_sort_list([]) == []
+    '''
+    result = []
+    lst_copy = lst.copy()
+    while lst_copy:
+        result.append(min(lst_copy))
+        lst_copy.remove(min(lst_copy))
+        if lst_copy:
+            result.append(max(lst_copy))
+            lst_copy.remove(max(lst_copy))
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/71
+>>> Output:
+Here is the completed function:
+```
+def triangle_area(a, b, c):
+    '''
+    Given the lengths of the three sides of a triangle. Return the area of
+    the triangle rounded to 2 decimal points if the three sides form a valid triangle. 
+    Otherwise return -1
+    Three sides make a valid triangle when the sum of any two sides is greater 
+    than the third side.
+    Example:
+    triangle_area(3, 4, 5) == 6.00
+    triangle_area(1, 2, 10) == -1
+    '''
+    if a + b > c and a + c > b and b + c > a:
+        s = (a + b + c) / 2
+        area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+        return round(area, 2)
+    else:
+        return -1
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/72
+>>> Output:
+```
+def will_it_fly(q,w):
+    return q == q[::-1] and sum(q) <= w
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/73
+>>> Output:
+Here is the completed function:
+```
+def smallest_change(arr):
+    """
+    Given an array arr of integers, find the minimum number of elements that
+    need to be changed to make the array palindromic. A palindromic array is an array that
+    is read the same backwards and forwards. In one change, you can change one element to any other element.
+
+    For example:
+    smallest_change([1,2,3,5,4,7,9,6]) == 4
+    smallest_change([1, 2, 3, 4, 3, 2, 2]) == 1
+    smallest_change([1, 2, 3, 2, 1]) == 0
+    """
+    n = len(arr)
+    left, right = 0, n - 1
+    changes = 0
+    while left < right:
+        if arr[left]!= arr[right]:
+            changes += 1
+        left += 1
+        right -= 1
+    return changes
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/74
+>>> Output:
+```
+def total_match(lst1, lst2):
+    total1 = sum(len(s) for s in lst1)
+    total2 = sum(len(s) for s in lst2)
+    if total1 <= total2:
+        return lst1
+    else:
+        return lst2
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/75
+>>> Output:
+Here is the completed function:
+```
+def is_multiply_prime(a):
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    for i in range(2, a):
+        if a % i == 0 and is_prime(i):
+            for j in range(i, a):
+                if a % j == 0 and is_prime(j):
+                    for k in range(j, a):
+                        if a % k == 0 and is_prime(k) and i!= j and j!= k and i!= k:
+                            return True
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/77
+>>> Output:
+```
+def iscube(a):
+    b = abs(a) ** (1. / 3)
+    return b == int(b)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/78
+>>> Output:
+Here is the completed function:
+```
+def hex_key(num):
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    hex_to_dec = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+    count = 0
+    for char in num:
+        if is_prime(hex_to_dec[char]):
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/80
+>>> Output:
+Here is the completed function:
+```
+def is_happy(s):
+    """You are given a string s.
+    Your task is to check if the string is happy or not.
+    A string is happy if its length is at least 3 and every 3 consecutive letters are distinct
+    For example:
+    is_happy(a) => False
+    is_happy(aa) => False
+    is_happy(abcd) => True
+    is_happy(aabb) => False
+    is_happy(adb) => True
+    is_happy(xyy) => False
+    """
+    if len(s) < 3:
+        return False
+    for i in range(len(s) - 2):
+        if len(set(s[i:i+3])) < 3:
+            return False
+    return True
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/82
+>>> Output:
+Here is the completed function:
+```
+def prime_length(string):
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    return is_prime(len(string))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/83
+>>> Output:
+```
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    count = 0
+    for i in range(10**(n-1), 10**n):
+        if str(i).startswith('1') or str(i).endswith('1'):
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/84
+>>> Output:
+Here is the completed function:
+```
+def solve(N):
+    """Given a positive integer N, return the total sum of its digits in binary.
+    
+    Example
+        For N = 1000, the sum of digits will be 1 the output should be "1".
+        For N = 150, the sum of digits will be 6 the output should be "110".
+        For N = 147, the sum of digits will be 12 the output should be "1100".
+    
+    Variables:
+        @N integer
+             Constraints: 0 ≤ N ≤ 10000.
+    Output:
+         a string of binary number
+    """
+    binary_N = bin(N)[2:]  # convert N to binary and remove '0b' prefix
+    digit_sum = sum(int(digit) for digit in binary_N)  # calculate sum of binary digits
+    return bin(digit_sum)[2:]  # convert sum to binary and return as string
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/85
+>>> Output:
+Here is the completed function:
+```
+def add(lst):
+    """Given a non-empty list of integers lst. add the even elements that are at odd indices."""
+    total = 0
+    for i in range(len(lst)):
+        if i % 2!= 0 and lst[i] % 2 == 0:
+            total += lst[i]
+    return total
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/87
+>>> Output:
+Here is the completed function:
+```
+def get_row(lst, x):
+    """
+    You are given a 2 dimensional data, as a nested lists,
+    which is similar to matrix, however, unlike matrices,
+    each row may contain a different number of columns.
+    Given lst, and integer x, find integers x in the list,
+    and return list of tuples, [(x1, y1), (x2, y2)...] such that
+    each tuple is a coordinate - (row, columns), starting with 0.
+    Sort coordinates initially by rows in ascending order.
+    Also, sort coordinates of the row by columns in descending order.
+    """
+    coords = [(i, j) for i, row in enumerate(lst) for j, elem in enumerate(row) if elem == x]
+    coords.sort(key=lambda x: (x[0], -x[1]))
+    return coords
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/88
+>>> Output:
+Here is the completed function:
+```
+def sort_array(array):
+    """
+    Given an array of non-negative integers, return a copy of the given array after sorting,
+    you will sort the given array in ascending order if the sum( first index value, last index value) is odd,
+    or sort it in descending order if the sum( first index value, last index value) is even.
+
+    Note:
+    * don't change the given array.
+
+    Examples:
+    * sort_array([]) => []
+    * sort_array([5]) => [5]
+    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]
+    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]
+    """
+    if not array:
+        return array
+    first_last_sum = array[0] + array[-1]
+    if first_last_sum % 2!= 0:
+        return sorted(array)
+    else:
+        return sorted(array, reverse=True)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/90
+>>> Output:
+Here is the completed function:
+```
+def next_smallest(lst):
+    """
+    You are given a list of integers.
+    Write a function next_smallest() that returns the 2nd smallest element of the list.
+    Return None if there is no such element.
+    
+    next_smallest([1, 2, 3, 4, 5]) == 2
+    next_smallest([5, 1, 4, 3, 2]) == 2
+    next_smallest([]) == None
+    next_smallest([1, 1]) == None
+    """
+    if len(lst) < 2:
+        return None
+    lst = list(set(lst))  # remove duplicates
+    lst.sort()
+    if len(lst) < 2:
+        return None
+    return lst[1]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/91
+>>> Output:
+```
+def is_bored(S):
+    sentences = S.replace('?', '.').replace('!', '.').split('.')
+    count = 0
+    for sentence in sentences:
+        if sentence and sentence.strip().startswith('I'):
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/92
+>>> Output:
+Here is the completed function:
+```
+def any_int(x, y, z):
+    if not all(isinstance(i, int) for i in [x, y, z]):
+        return False
+    if x == y + z or y == x + z or z == x + y:
+        return True
+    return False
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/93
+>>> Output:
+Here is the completed function:
+```
+def encode(message):
+    vowels = 'aeiou'
+    encoded_message = ''
+    for char in message:
+        if char.lower() in vowels:
+            index = vowels.index(char.lower())
+            encoded_char = chr(ord('a') + (index + 2) % 26)
+            if char.isupper():
+                encoded_char = encoded_char.upper()
+            else:
+                encoded_char = encoded_char.lower()
+        else:
+            if char.isupper():
+                encoded_char = char.lower()
+            else:
+                encoded_char = char.upper()
+        encoded_message += encoded_char
+    return encoded_message
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/94
+>>> Output:
+Here is the completed function:
+```
+def skjkasdkd(lst):
+    """You are given a list of integers.
+    You need to find the largest prime value and return the sum of its digits.
+
+    Examples:
+    For lst = [0,3,2,1,3,5,7,4,5,5,5,2,181,32,4,32,3,2,32,324,4,3] the output should be 10
+    For lst = [1,0,1,8,2,4597,2,1,3,40,1,2,1,2,4,2,5,1] the output should be 25
+    For lst = [1,3,1,32,5107,34,83278,109,163,23,2323,32,30,1,9,3] the output should be 13
+    For lst = [0,724,32,71,99,32,6,0,5,91,83,0,5,6] the output should be 11
+    For lst = [0,81,12,3,1,21] the output should be 3
+    For lst = [0,8,1,2,1,7] the output should be 7
+    """
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    primes = [x for x in lst if is_prime(x)]
+    largest_prime = max(primes)
+    return sum(int(digit) for digit in str(largest_prime))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/95
+>>> Output:
+Here is the completed function:
+```
+def check_dict_case(dict):
+    """
+    Given a dictionary, return True if all keys are strings in lower 
+    case or all keys are strings in upper case, else return False.
+    The function should return False is the given dictionary is empty.
+    """
+    if not dict:
+        return False
+    keys = list(dict.keys())
+    if not all(isinstance(key, str) for key in keys):
+        return False
+    case = set(key.islower() or key.isupper() for key in keys)
+    return len(case) == 1 and (True in case or False in case)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/96
+>>> Output:
+Here is the completed function:
+```
+def count_up_to(n):
+    def is_prime(num):
+        if num < 2:
+            return False
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
+
+    primes = []
+    for i in range(2, n):
+        if is_prime(i):
+            primes.append(i)
+    return primes
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/97
+>>> Output:
+Here is the completed function:
+```
+def multiply(a, b):
+    """Complete the function that takes two integers and returns 
+    the product of their unit digits.
+    Assume the input is always valid.
+    Examples:
+    multiply(148, 412) should return 16.
+    multiply(19, 28) should return 72.
+    multiply(2020, 1851) should return 0.
+    multiply(14,-15) should return 20.
+    """
+    return (abs(a) % 10) * (abs(b) % 10)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/98
+>>> Output:
+Here is the completed function:
+```
+def count_upper(s):
+    """
+    Given a string s, count the number of uppercase vowels in even indices.
+    
+    For example:
+    count_upper('aBCdEf') returns 1
+    count_upper('abcdefg') returns 0
+    count_upper('dBBE') returns 0
+    """
+    count = 0
+    vowels = 'AEIOU'
+    for i in range(len(s)):
+        if i % 2 == 0 and s[i] in vowels:
+            count += 1
+    return count
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/99
+>>> Output:
+```
+def closest_integer(value):
+    '''
+    Create a function that takes a value (string) representing a number
+    and returns the closest integer to it. If the number is equidistant
+    from two integers, round it away from zero.
+
+    Examples
+    >>> closest_integer("10")
+    10
+    >>> closest_integer("15.3")
+    15
+
+    Note:
+    Rounding away from zero means that if the given number is equidistant
+    from two integers, the one you should return is the one that is the
+    farthest from zero. For example closest_integer("14.5") should
+    return 15 and closest_integer("-14.5") should return -15.
+    '''
+    num = float(value)
+    if num - int(num) == 0.5:
+        if num > 0:
+            return int(num) + 1
+        else:
+            return int(num) - 1
+    else:
+        return round(num)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/100
+>>> Output:
+Here is the completed function:
+```
+def make_a_pile(n):
+    """
+    Given a positive integer n, you have to make a pile of n levels of stones.
+    The first level has n stones.
+    The number of stones in the next level is:
+        - the next odd number if n is odd.
+        - the next even number if n is even.
+    Return the number of stones in each level in a list, where element at index
+    i represents the number of stones in the level (i+1).
+
+    Examples:
+    >>> make_a_pile(3)
+    [3, 5, 7]
+    """
+    pile = [n]
+    for i in range(1, n):
+        if n % 2 == 0:
+            n += 2
+        else:
+            n += 2
+            if n % 2 == 0:
+                n += 1
+        pile.append(n)
+    return pile
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/101
+>>> Output:
+```
+def words_string(s):
+    return s.replace(',','').split()
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/102
+>>> Output:
+Here is the completed function:
+```
+def choose_num(x, y):
+    """This function takes two positive numbers x and y and returns the
+    biggest even integer number that is in the range [x, y] inclusive. If 
+    there's no such number, then the function should return -1.
+
+    For example:
+    choose_num(12, 15) = 14
+    choose_num(13, 12) = -1
+    """
+    if x > y:
+        x, y = y, x
+    for i in range(y, x-1, -1):
+        if i % 2 == 0:
+            return i
+    return -1
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/103
+>>> Output:
+Here is the completed function:
+```
+def rounded_avg(n, m):
+    """You are given two positive integers n and m, and your task is to compute the
+    average of the integers from n through m (including n and m). 
+    Round the answer to the nearest integer and convert that to binary.
+    If n is greater than m, return -1.
+    Example:
+    rounded_avg(1, 5) => "0b11"
+    rounded_avg(7, 5) => -1
+    rounded_avg(10, 20) => "0b1111"
+    rounded_avg(20, 33) => "0b11010"
+    """
+    if n > m:
+        return -1
+    total = sum(range(n, m + 1))
+    avg = round(total / (m - n + 1))
+    return bin(avg)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/104
+>>> Output:
+Here is the completed function:
+```
+def unique_digits(x):
+    """Given a list of positive integers x. return a sorted list of all 
+    elements that hasn't any even digit.
+
+    Note: Returned list should be sorted in increasing order.
+    
+    For example:
+    >>> unique_digits([15, 33, 1422, 1])
+    [1, 15, 33]
+    >>> unique_digits([152, 323, 1422, 10])
+    []
+    """
+    result = []
+    for num in x:
+        has_even_digit = False
+        for digit in str(num):
+            if int(digit) % 2 == 0:
+                has_even_digit = True
+                break
+        if not has_even_digit:
+            result.append(num)
+    return sorted(result)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/105
+>>> Output:
+```
+def by_length(arr):
+    """
+    Given an array of integers, sort the integers that are between 1 and 9 inclusive,
+    reverse the resulting array, and then replace each digit by its corresponding name from
+    "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine".
+    """
+    num_names = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"}
+    arr = [i for i in arr if 1 <= i <= 9]
+    arr.sort()
+    arr = arr[::-1]
+    return [num_names[i] for i in arr]
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/106
+>>> Output:
+Here is the completed function:
+```
+def f(n):
+    result = []
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            factorial = 1
+            for j in range(1, i+1):
+                factorial *= j
+            result.append(factorial)
+        else:
+            total = 0
+            for j in range(1, i+1):
+                total += j
+            result.append(total)
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/107
+>>> Output:
+Here is the completed function:
+```
+def even_odd_palindrome(n):
+    """
+    Given a positive integer n, return a tuple that has the number of even and odd
+    integer palindromes that fall within the range(1, n), inclusive.
+
+    Example 1:
+
+        Input: 3
+        Output: (1, 2)
+        Explanation:
+        Integer palindrome are 1, 2, 3. one of them is even, and two of them are odd.
+
+    Example 2:
+
+        Input: 12
+        Output: (4, 6)
+        Explanation:
+        Integer palindrome are 1, 2, 3, 4, 5, 6, 7, 8, 9, 11. four of them are even, and 6 of them are odd.
+
+    Note:
+        1. 1 <= n <= 10^3
+        2. returned tuple has the number of even and odd integer palindromes respectively.
+    """
+    even_count = 0
+    odd_count = 0
+    for i in range(1, n+1):
+        if str(i) == str(i)[::-1]:
+            if i % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+    return (even_count, odd_count)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/108
+>>> Output:
+Here is the completed function:
+```
+def count_nums(arr):
+    return sum(1 for num in arr if sum(int(digit) for digit in str(abs(num))) > 0)
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/110
+>>> Output:
+Here is the completed function:
+```
+def exchange(lst1, lst2):
+    """In this problem, you will implement a function that takes two lists of numbers,
+    and determines whether it is possible to perform an exchange of elements
+    between them to make lst1 a list of only even numbers.
+    There is no limit on the number of exchanged elements between lst1 and lst2.
+    If it is possible to exchange elements between the lst1 and lst2 to make
+    all the elements of lst1 to be even, return "YES".
+    Otherwise, return "NO".
+    For example:
+    exchange([1, 2, 3, 4], [1, 2, 3, 4]) => "YES"
+    exchange([1, 2, 3, 4], [1, 5, 3, 4]) => "NO"
+    It is assumed that the input lists will be non-empty.
+    """
+    even_count = sum(1 for num in lst2 if num % 2 == 0)
+    odd_count = len(lst1) - sum(1 for num in lst1 if num % 2 == 0)
+    if even_count >= odd_count:
+        return "YES"
+    else:
+        return "NO"
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/111
+>>> Output:
+```
+def histogram(test):
+    """Given a string representing a space separated lowercase letters, return a dictionary
+    of the letter with the most repetition and containing the corresponding count.
+    If several letters have the same occurrence, return all of them.
+    
+    Example:
+    histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}
+    histogram('a b b a') == {'a': 2, 'b': 2}
+    histogram('a b c a b') == {'a': 2, 'b': 2}
+    histogram('b b b b a') == {'b': 4}
+    histogram('') == {}
+
+    """
+    test_list = test.split()
+    freq_dict = {}
+    max_freq = 0
+    for item in test_list:
+        if item in freq_dict:
+            freq_dict[item] += 1
+        else:
+            freq_dict[item] = 1
+        if freq_dict[item] > max_freq:
+            max_freq = freq_dict[item]
+    result = {}
+    for key, value in freq_dict.items():
+        if value == max_freq:
+            result[key] = value
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/113
+>>> Output:
+Here is the completed function:
+```
+def odd_count(lst):
+    result = []
+    for i, s in enumerate(lst):
+        count = sum(1 for c in s if int(c) % 2!= 0)
+        result.append("the number of odd elements {}n the str{}ng {} of the {}nput.".format(count, count, i+1, i+1))
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/114
+>>> Output:
+Here is the completed function:
+```
+def minSubArraySum(nums):
+    """
+    Given an array of integers nums, find the minimum sum of any non-empty sub-array
+    of nums.
+    Example
+    minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+    minSubArraySum([-1, -2, -3]) == -6
+    """
+    min_sum = float('inf')
+    current_sum = 0
+    for num in nums:
+        current_sum += num
+        min_sum = min(min_sum, current_sum)
+        if current_sum > 0:
+            current_sum = 0
+    return min_sum
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/116
+>>> Output:
+Here is the completed function:
+```
+def sort_array(arr):
+    """
+    In this Kata, you have to sort an array of non-negative integers according to
+    number of ones in their binary representation in ascending order.
+    For similar number of ones, sort based on decimal value.
+
+    It must be implemented like this:
+    >>> sort_array([1, 5, 2, 3, 4]) == [1, 2, 3, 4, 5]
+    >>> sort_array([-2, -3, -4, -5, -6]) == [-6, -5, -4, -3, -2]
+    >>> sort_array([1, 0, 2, 3, 4]) [0, 1, 2, 3, 4]
+    """
+    return sorted(arr, key=lambda x: (bin(abs(x)).count('1'), abs(x)))
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/117
+>>> Output:
+Here is the completed function:
+```
+def select_words(s, n):
+    """Given a string s and a natural number n, you have been tasked to implement 
+    a function that returns a list of all words from string s that contain exactly 
+    n consonants, in order these words appear in the string s.
+    If the string s is empty then the function should return an empty list.
+    Note: you may assume the input string contains only letters and spaces.
+    Examples:
+    select_words("Mary had a little lamb", 4) ==> ["little"]
+    select_words("Mary had a little lamb", 3) ==> ["Mary", "lamb"]
+    select_words("simple white space", 2) ==> []
+    select_words("Hello world", 4) ==> ["world"]
+    select_words("Uncle sam", 3) ==> ["Uncle"]
+    """
+    vowels = 'aeiou'
+    words = s.split()
+    result = []
+    for word in words:
+        count = 0
+        for char in word.lower():
+            if char not in vowels and char.isalpha():
+                count += 1
+        if count == n:
+            result.append(word)
+    return result
+```
+Failed to extract code block with error `list index out of range`:
+>>> Task: Python/119
+>>> Output:
+Here is the completed function:
+```
+def match_parens(lst):
+    def is_balanced(s):
+        stack = []
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if not stack:
+                    return False
+                stack.pop()
+        return not stack
+
+    for i in range(2):
+        for j in range(2):
+            s = lst[i] + lst[1-i] if i == j else lst[i] + lst[1-i][::-1]
+            if is_balanced(s):
+                return 'Yes'
+    return 'No'
+```

@@ -1,0 +1,408 @@
+06/23/2024 19:08:04 - INFO - __main__ - Logging setup complete.
+06/23/2024 19:08:07 - ERROR - root - wandb: Currently logged in as: jiaruiliu999 (kyle_organization). Use `wandb login --relogin` to force relogin
+06/23/2024 19:08:35 - ERROR - root - wandb: wandb version 0.17.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+06/23/2024 19:08:35 - ERROR - root - wandb: Tracking run with wandb version 0.16.3
+06/23/2024 19:08:35 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240623_190807-rydytxz1
+wandb: Run `wandb offline` to turn off syncing.
+06/23/2024 19:08:35 - ERROR - root - wandb: Syncing run test-mse-whole-1e-5
+06/23/2024 19:08:35 - ERROR - root - wandb:  View project at https://wandb.ai/kyle_organization/llm_personality
+06/23/2024 19:08:35 - ERROR - root - wandb:  View run at https://wandb.ai/kyle_organization/llm_personality/runs/rydytxz1
+06/23/2024 19:08:43 - ERROR - root - Map:   0%|          | 0/846304 [00:00<?, ? examples/s]
+06/23/2024 19:08:44 - ERROR - root - Map:   0%|          | 0/846304 [00:00<?, ? examples/s]
+06/23/2024 19:08:44 - ERROR - root - Map:   0%|          | 0/846304 [00:00<?, ? examples/s]
+06/23/2024 19:08:44 - ERROR - root - Traceback (most recent call last):
+06/23/2024 19:08:44 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/roberta_classifier_mse.py", line 30, in <module>
+    dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 593, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 558, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 3105, in map
+    for rank, done, content in Dataset._map_single(**dataset_kwargs):
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 3482, in _map_single
+    batch = apply_function_on_filtered_inputs(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/arrow_dataset.py", line 3361, in apply_function_on_filtered_inputs
+    processed_inputs = function(*fn_args, *additional_args, **fn_kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/roberta_classifier_mse.py", line 30, in <lambda>
+    dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/utils.py", line 13, in preprocess_function_with_tokenizer
+    labels = torch.tensor([[examples[col + "_label"][i] for col in ['ope_z', 'con_z', 'ext_z', 'agr_z', 'neu_z']]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/utils.py", line 13, in <listcomp>
+    labels = torch.tensor([[examples[col + "_label"][i] for col in ['ope_z', 'con_z', 'ext_z', 'agr_z', 'neu_z']]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/utils.py", line 13, in <listcomp>
+    labels = torch.tensor([[examples[col + "_label"][i] for col in ['ope_z', 'con_z', 'ext_z', 'agr_z', 'neu_z']]
+                            ~~~~~~~~^^^^^^^^^^^^^^^^
+06/23/2024 19:08:44 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/datasets/formatting/formatting.py", line 270, in __getitem__
+    value = self.data[key]
+            ~~~~~~~~~^^^^^
+06/23/2024 19:08:44 - ERROR - root - KeyError: 'ope_z_label'
+06/23/2024 19:08:50 - ERROR - root - Exception in thread
+06/23/2024 19:08:50 - ERROR - root - NetStatThr
+06/23/2024 19:08:50 - ERROR - root - :
+06/23/2024 19:08:50 - ERROR - root - Traceback (most recent call last):
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+06/23/2024 19:08:50 - ERROR - root - Exception in thread
+06/23/2024 19:08:50 - ERROR - root - IntMsgThr
+06/23/2024 19:08:50 - ERROR - root - :
+06/23/2024 19:08:50 - ERROR - root - Traceback (most recent call last):
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+06/23/2024 19:08:50 - ERROR - root - self.run()
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/threading.py", line 975, in run
+06/23/2024 19:08:50 - ERROR - root - self.run()
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/threading.py", line 975, in run
+06/23/2024 19:08:50 - ERROR - root - self._target(*self._args, **self._kwargs)
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 300, in check_internal_messages
+06/23/2024 19:08:50 - ERROR - root - self._target(*self._args, **self._kwargs)
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 268, in check_network_status
+06/23/2024 19:08:50 - ERROR - root - self._loop_check_status(
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+06/23/2024 19:08:50 - ERROR - root - self._loop_check_status(
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 224, in _loop_check_status
+06/23/2024 19:08:50 - ERROR - root - local_handle = request()
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 800, in deliver_internal_messages
+06/23/2024 19:08:50 - ERROR - root - local_handle = request()
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root - ^
+06/23/2024 19:08:50 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 792, in deliver_network_status
+06/23/2024 19:08:51 - ERROR - root - return self._deliver_network_status(status)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_shared.py", line 500, in _deliver_network_status
+06/23/2024 19:08:51 - ERROR - root - return self._deliver_internal_messages(internal_message)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_shared.py", line 506, in _deliver_internal_messages
+06/23/2024 19:08:51 - ERROR - root - return self._deliver_record(record)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - return self._deliver_record(record)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_shared.py", line 449, in _deliver_record
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_shared.py", line 449, in _deliver_record
+06/23/2024 19:08:51 - ERROR - root - handle = mailbox._deliver_record(record, interface=self)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - handle = mailbox._deliver_record(record, interface=self)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+06/23/2024 19:08:51 - ERROR - root - interface._publish(record)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+06/23/2024 19:08:51 - ERROR - root - interface._publish(record)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+06/23/2024 19:08:51 - ERROR - root - self._sock_client.send_record_publish(record)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+06/23/2024 19:08:51 - ERROR - root - self._sock_client.send_record_publish(record)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+06/23/2024 19:08:51 - ERROR - root - self.send_server_request(server_req)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+06/23/2024 19:08:51 - ERROR - root - self.send_server_request(server_req)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+06/23/2024 19:08:51 - ERROR - root - self._send_message(msg)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+06/23/2024 19:08:51 - ERROR - root - self._send_message(msg)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+06/23/2024 19:08:51 - ERROR - root - self._sendall_with_error_handle(header + data)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+06/23/2024 19:08:51 - ERROR - root - self._sendall_with_error_handle(header + data)
+06/23/2024 19:08:51 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+06/23/2024 19:08:51 - ERROR - root - sent = self._sock.send(data)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - BrokenPipeError
+06/23/2024 19:08:51 - ERROR - root - :
+06/23/2024 19:08:51 - ERROR - root - [Errno 32] Broken pipe
+06/23/2024 19:08:51 - ERROR - root - sent = self._sock.send(data)
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - ^
+06/23/2024 19:08:51 - ERROR - root - BrokenPipeError
+06/23/2024 19:08:51 - ERROR - root - :
+06/23/2024 19:08:51 - ERROR - root - [Errno 32] Broken pipe

@@ -1,0 +1,94 @@
+07/12/2024 01:58:03 - INFO - __main__ - Logging setup complete.
+07/12/2024 01:58:04 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+07/12/2024 01:58:04 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+07/12/2024 01:58:05 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+07/12/2024 01:58:07 - ERROR - root -   0%|          | 0/4 [00:00<?, ?it/s]
+07/12/2024 01:58:07 - ERROR - root -  50%|#####     | 2/4 [00:00<00:00, 13.31it/s]
+07/12/2024 01:58:08 - ERROR - root - 100%|##########| 4/4 [00:00<00:00,  9.75it/s]
+07/12/2024 01:58:08 - ERROR - root - wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+07/12/2024 01:58:09 - ERROR - root - wandb: Currently logged in as: jiaruiliu999. Use `wandb login --relogin` to force relogin
+07/12/2024 01:58:20 - ERROR - root - wandb: wandb version 0.17.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+07/12/2024 01:58:20 - ERROR - root - wandb: Tracking run with wandb version 0.17.3
+07/12/2024 01:58:20 - ERROR - root - wandb: Run data is saved locally in /home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/wandb/run-20240712_015809-o71dimz7
+wandb: Run `wandb offline` to turn off syncing.
+07/12/2024 01:58:20 - ERROR - root - wandb: Syncing run results/
+07/12/2024 01:58:20 - ERROR - root - wandb:  View project at https://wandb.ai/jiaruiliu999/huggingface
+07/12/2024 01:58:20 - ERROR - root - wandb:  View run at https://wandb.ai/jiaruiliu999/huggingface/runs/o71dimz7
+07/12/2024 01:58:21 - ERROR - root - 100%|##########| 4/4 [00:13<00:00,  3.44s/it]
+07/12/2024 01:58:21 - INFO - root - eval_loss: 0.00
+07/12/2024 01:58:21 - INFO - root - eval_f1_O: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_accuracy_O: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_precision_O: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_recall_O: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_f1_C: 0.98
+07/12/2024 01:58:21 - INFO - root - eval_accuracy_C: 0.98
+07/12/2024 01:58:21 - INFO - root - eval_precision_C: 0.98
+07/12/2024 01:58:21 - INFO - root - eval_recall_C: 0.98
+07/12/2024 01:58:21 - INFO - root - eval_f1_E: 0.92
+07/12/2024 01:58:21 - INFO - root - eval_accuracy_E: 0.92
+07/12/2024 01:58:21 - INFO - root - eval_precision_E: 0.92
+07/12/2024 01:58:21 - INFO - root - eval_recall_E: 0.92
+07/12/2024 01:58:21 - INFO - root - eval_f1_A: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_accuracy_A: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_precision_A: 0.97
+07/12/2024 01:58:21 - INFO - root - eval_recall_A: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_f1_N: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_accuracy_N: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_precision_N: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_recall_N: 0.96
+07/12/2024 01:58:21 - INFO - root - eval_runtime: 2.62
+07/12/2024 01:58:21 - INFO - root - eval_samples_per_second: 19.10
+07/12/2024 01:58:21 - INFO - root - eval_steps_per_second: 1.53
+07/12/2024 01:58:21 - INFO - root - Openness
+07/12/2024 01:58:21 - INFO - root -               precision    recall  f1-score   support
+
+           0     1.0000    0.9333    0.9655        15
+           1     0.9412    0.9412    0.9412        17
+           2     0.9474    1.0000    0.9730        18
+
+    accuracy                         0.9600        50
+   macro avg     0.9628    0.9582    0.9599        50
+weighted avg     0.9611    0.9600    0.9599        50
+07/12/2024 01:58:21 - INFO - root - Conscientiousness
+07/12/2024 01:58:21 - INFO - root -               precision    recall  f1-score   support
+
+           0     1.0000    0.9333    0.9655        15
+           1     0.9412    0.9412    0.9412        17
+           2     0.9474    1.0000    0.9730        18
+
+    accuracy                         0.9600        50
+   macro avg     0.9628    0.9582    0.9599        50
+weighted avg     0.9611    0.9600    0.9599        50
+07/12/2024 01:58:21 - INFO - root - Extraversion
+07/12/2024 01:58:21 - INFO - root -               precision    recall  f1-score   support
+
+           0     1.0000    0.9333    0.9655        15
+           1     0.9412    0.9412    0.9412        17
+           2     0.9474    1.0000    0.9730        18
+
+    accuracy                         0.9600        50
+   macro avg     0.9628    0.9582    0.9599        50
+weighted avg     0.9611    0.9600    0.9599        50
+07/12/2024 01:58:21 - INFO - root - Agreeablenes
+07/12/2024 01:58:21 - INFO - root -               precision    recall  f1-score   support
+
+           0     1.0000    0.9333    0.9655        15
+           1     0.9412    0.9412    0.9412        17
+           2     0.9474    1.0000    0.9730        18
+
+    accuracy                         0.9600        50
+   macro avg     0.9628    0.9582    0.9599        50
+weighted avg     0.9611    0.9600    0.9599        50
+07/12/2024 01:58:21 - INFO - root - Neuroticism
+07/12/2024 01:58:21 - INFO - root -               precision    recall  f1-score   support
+
+           0     1.0000    0.9333    0.9655        15
+           1     0.9412    0.9412    0.9412        17
+           2     0.9474    1.0000    0.9730        18
+
+    accuracy                         0.9600        50
+   macro avg     0.9628    0.9582    0.9599        50
+weighted avg     0.9611    0.9600    0.9599        50

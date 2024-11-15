@@ -1,0 +1,9 @@
+model /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct
+load tokenizer <class 'transformers.tokenization_utils_fast.PreTrainedTokenizerFast'> from /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct over.
+Read 164 examples for evaluation over.
+Generate all over!!!
+Save 164 processed examples into output/prompt_python_Meta-Llama-3-8B-Instruct_extraversion_low.jsonl over!
+Reading samples...
+Running test suites...
+{'pass@1': 0.6341463414634146}
+python {'pass@1': 0.6341463414634146} /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct

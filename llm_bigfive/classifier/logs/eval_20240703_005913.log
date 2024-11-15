@@ -1,0 +1,323 @@
+07/03/2024 00:59:13 - INFO - __main__ - Logging setup complete.
+07/03/2024 00:59:17 - ERROR - root - Map:   0%|          | 0/50 [00:00<?, ? examples/s]
+07/03/2024 00:59:17 - ERROR - root - Map: 100%|##########| 50/50 [00:00<00:00, 1084.25 examples/s]
+07/03/2024 00:59:17 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/training_args.py:1474: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+07/03/2024 00:59:17 - WARNING - accelerate.utils.other - Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+07/03/2024 00:59:18 - ERROR - root - /data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+07/03/2024 00:59:19 - INFO - root - output
+07/03/2024 00:59:20 - INFO - root - [tensor([[ 0.1013],
+        [ 0.9072],
+        [ 1.0117],
+        [ 0.7559],
+        [ 0.7046],
+        [-0.0078],
+        [ 0.8813],
+        [ 0.6709],
+        [ 0.3440],
+        [ 1.0127],
+        [ 0.4575],
+        [ 1.0381],
+        [ 0.5444],
+        [ 0.6738],
+        [ 0.9849],
+        [ 0.3464]], device='cuda:0', dtype=torch.float16), tensor([[ 1.0391],
+        [-0.0045],
+        [ 1.0244],
+        [-0.0027],
+        [ 0.3662],
+        [ 1.0195],
+        [ 0.0238],
+        [ 0.5938],
+        [ 0.7295],
+        [-0.0175],
+        [ 0.7666],
+        [ 0.3247],
+        [ 0.8110],
+        [ 0.9556],
+        [ 1.0039],
+        [ 0.1342]], device='cuda:0', dtype=torch.float16), tensor([[ 1.0020],
+        [ 0.1110],
+        [ 0.9873],
+        [ 0.1757],
+        [ 0.5234],
+        [ 0.3525],
+        [ 0.2451],
+        [ 0.2209],
+        [ 0.5771],
+        [-0.0037],
+        [ 1.0117],
+        [-0.0074],
+        [ 0.3284],
+        [ 1.0273],
+        [ 1.0312],
+        [ 0.0264]], device='cuda:0', dtype=torch.float16), tensor([[8.6133e-01],
+        [3.7183e-01],
+        [9.4775e-01],
+        [4.6069e-01],
+        [7.3877e-01],
+        [3.8281e-01],
+        [7.6199e-04],
+        [2.2437e-01],
+        [1.0146e+00],
+        [3.8647e-01],
+        [6.9043e-01],
+        [8.5999e-02],
+        [2.4414e-01],
+        [9.8828e-01],
+        [1.0137e+00],
+        [2.3743e-01]], device='cuda:0', dtype=torch.float16), tensor([[-0.0124],
+        [ 0.7397],
+        [ 0.6499],
+        [ 1.0010],
+        [ 0.8716],
+        [ 0.1621],
+        [ 1.0059],
+        [ 0.4602],
+        [ 0.0191],
+        [ 1.0117],
+        [ 0.0779],
+        [ 1.0322],
+        [ 0.9795],
+        [ 0.1379],
+        [ 0.0030],
+        [ 0.5415]], device='cuda:0', dtype=torch.float16)]
+07/03/2024 00:59:20 - ERROR - root - Traceback (most recent call last):
+07/03/2024 00:59:20 - ERROR - root -   File "/home/jiaruil5/personality/llm_personality/llm_bigfive/classifier/classifier_inference_mse_newdata.py", line 100, in <module>
+07/03/2024 00:59:20 - ERROR - root - predictions = trainer.predict(test_dataset)
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 3648, in predict
+07/03/2024 00:59:20 - ERROR - root - output = eval_loop(
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 3757, in evaluation_loop
+07/03/2024 00:59:20 - ERROR - root - loss, logits, labels = self.prediction_step(model, inputs, prediction_loss_only, ignore_keys=ignore_keys)
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer.py", line 3993, in prediction_step
+07/03/2024 00:59:20 - ERROR - root - logits = nested_detach(logits)
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer_pt_utils.py", line 190, in nested_detach
+07/03/2024 00:59:20 - ERROR - root - return type(tensors)(nested_detach(t) for t in tensors)
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer_pt_utils.py", line 190, in <genexpr>
+07/03/2024 00:59:20 - ERROR - root - return type(tensors)(nested_detach(t) for t in tensors)
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root -   File "/data/user_data/jiaruil5/miniconda3/envs/new/lib/python3.11/site-packages/transformers/trainer_pt_utils.py", line 193, in nested_detach
+07/03/2024 00:59:20 - ERROR - root - return tensors.detach()
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - ^
+07/03/2024 00:59:20 - ERROR - root - AttributeError
+07/03/2024 00:59:20 - ERROR - root - :
+07/03/2024 00:59:20 - ERROR - root - 'float' object has no attribute 'detach'
