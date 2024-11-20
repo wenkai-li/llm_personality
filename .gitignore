@@ -180,6 +180,7 @@ wandb/
 phantom/
 
 # Large files
+llm_bigfive/classifier/logs
 llm_bigfive/classifier/results_baselines_big5chat_baseline/
 llm_bigfive/classifier/results_baselines_big5chat_expert/
 llm_bigfive/classifier/results_baselines_new_baseline/
