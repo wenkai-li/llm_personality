@@ -180,6 +180,10 @@ wandb/
 phantom/
 
 # Large files
+llm_bigfive/classifier/results_baselines_big5chat_baseline/
+llm_bigfive/classifier/results_baselines_big5chat_expert/
+llm_bigfive/classifier/results_baselines_new_baseline/
+llm_bigfive/classifier/results_baselines_new_expert/
 llm_bigfive/classifier/big5_training_data_with_token_roberta.csv
 psychgenerator_opensource/data/big5_training_data.csv
 evaluation/fantom/data/conscientiousness_high/evaluated_responses_short_input__cot-False.json
