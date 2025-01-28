@@ -134,7 +134,7 @@ def example_generator(questionnaire, args):
                             if model == 'text-davinci-003':
                                 inputs = questionnaire["inner_setting"].replace('Format: \"index: score\"', 'Format: \"index: score\\\n\"') + questionnaire["prompt"] + '\n' + questions_string
                                 result = completion(model, inputs)
-                            elif model in ['gpt-3.5-turbo', 'gpt-4', 'gpt-3.5-turbo-0301', 'gpt-3.5-turbo-0613', 'gpt-3.5-turbo-1106']:
+                            elif model in ['gpt-3.5-turbo', 'gpt-4', 'gpt-3.5-turbo-0301', 'gpt-3.5-turbo-0613', 'gpt-3.5-turbo-1106', 'gpt-4o-mini']:
                                 inputs = previous_records + [
                                     {"role": "system", "content": questionnaire["inner_setting"]},
                                     {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}

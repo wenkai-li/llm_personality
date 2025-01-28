@@ -9,7 +9,13 @@ from tenacity import (
 )
 import time
 from tqdm import tqdm
+import pdb
+from openai import OpenAI
 
+
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
 
@@ -23,7 +29,7 @@ def chat(
 ):
     time.sleep(delay)
     
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model=model,
         messages=messages,
         temperature=temperature,
@@ -32,7 +38,7 @@ def chat(
     )
     
     if n == 1:
-        return response['choices'][0]['message']['content']
+        return response.choices[0].message.content.strip()
     else:
         return [i['message']['content'] for i in response['choices']]
 
@@ -57,7 +63,7 @@ def completion(
     )
     
     if n == 1:
-        return response['choices'][0]['text']
+        return response.choices[0].message.content.strip()
     else:
         response = response['choices']
         response.sort(key=lambda x: x['index'])
@@ -132,36 +138,36 @@ def example_generator(questionnaire, args):
                     
                     for questions_string in questions_list:
                         result = ''
+                        prompt_prefix = ""
+                        if args.model_mode.startswith("prompt_v1_"):
+                            from evaluation.prompts.get_prompts import get_prompting_instruction_v1
+                            prompt_prefix = get_prompting_instruction_v1(args.model_mode[-5:]) + "\n"
+                            
+                        elif args.model_mode.startswith("prompt_chat_"):
+                            from evaluation.prompts.get_prompts import get_prompting_instruction_chat
+                            prompt_prefix = get_prompting_instruction_chat(args.model_mode[-5:]) + "\n"
+                        
+                        elif args.model_mode.startswith("prompt_v4_"):
+                            from evaluation.prompts.get_prompts import get_prompting_instruction_v4
+                            prompt_prefix = get_prompting_instruction_v4(args.model_mode[-5:]) + "\n"
+                        
+                        elif args.model_mode.startswith("prompt_"):
+                            from evaluation.prompts.get_prompts import get_prompting_instruction
+                            prompt_prefix = get_prompting_instruction(args.model_mode[-5:]) + "\n"
+                            
+                        elif args.model_mode.startswith("train_"):
+                            from evaluation.prompts.get_prompts import get_trained_instruction
+                            prompt_prefix = get_trained_instruction(args.model_mode[-5:]) + "\n"
+                        
+                        inputs = [
+                            {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
+                        ]
+                        # add the system prompt and prompt prefix
+                        inputs[0]['content'] = prompt_prefix + inputs[0]['content']
+                        
+                        # inference the model
+                        print(inputs)
                         if model in ['llama3_8b', 'llama3_70b']:
-                            prompt_prefix = ""
-                            if args.model_mode.startswith("prompt_v1_"):
-                                from evaluation.prompts.get_prompts import get_prompting_instruction_v1
-                                prompt_prefix = get_prompting_instruction_v1(args.model_mode[-5:]) + "\n"
-                                
-                            elif args.model_mode.startswith("prompt_chat_"):
-                                from evaluation.prompts.get_prompts import get_prompting_instruction_chat
-                                prompt_prefix = get_prompting_instruction_chat(args.model_mode[-5:]) + "\n"
-                            
-                            elif args.model_mode.startswith("prompt_v4_"):
-                                from evaluation.prompts.get_prompts import get_prompting_instruction_v4
-                                prompt_prefix = get_prompting_instruction_v4(args.model_mode[-5:]) + "\n"
-                            
-                            elif args.model_mode.startswith("prompt_"):
-                                from evaluation.prompts.get_prompts import get_prompting_instruction
-                                prompt_prefix = get_prompting_instruction(args.model_mode[-5:]) + "\n"
-                                
-                            elif args.model_mode.startswith("train_"):
-                                from evaluation.prompts.get_prompts import get_trained_instruction
-                                prompt_prefix = get_trained_instruction(args.model_mode[-5:]) + "\n"
-                            
-                            inputs = [
-                                {"role": "user", "content": questionnaire["prompt"] + '\n' + questions_string}
-                            ]
-                            # add the system prompt and prompt prefix
-                            inputs[0]['content'] = prompt_prefix + inputs[0]['content']
-                            
-                            # inference the model
-                            print(inputs)
                             result = model_ckpt.generate(
                                 inputs,
                                 **{
@@ -169,6 +175,13 @@ def example_generator(questionnaire, args):
                                     "temperature": 0.6,
                                     "max_new_tokens": 1024,
                                 }
+                            )
+                            print(result)
+                        elif "gpt" in model:
+                            result = chat(
+                                messages=inputs,
+                                model=model,
+                                temperature=0.6,
                             )
                             print(result)
                         else:

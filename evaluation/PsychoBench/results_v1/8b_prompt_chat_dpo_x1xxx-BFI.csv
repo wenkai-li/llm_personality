@@ -1,0 +1,45 @@
+"Prompt: You can only reply a single number 1 to 5 in the following statement. Here is a characteristics that may or may not apply to you. Please indicate the extent to which you agree or disagree with the statement. 1 denotes 'strongly disagree', 2 denotes 'a little disagree', 3 denotes 'neither agree nor disagree', 4 denotes 'little agree', 5 denotes 'strongly agree'. Here is the statement. Provide your score only.",order-0,shuffle0-test0,shuffle0-test1,shuffle0-test2,shuffle0-test3,shuffle0-test4
+1. Is talkative.,1,,,,2,3
+2. Tends to find fault with others.,2,,,,2,2
+3. Does a thorough job.,3,,,,2,2
+"4. Is depressed, blue.",4,,,,2,2
+"5. Is original, comes up with new ideas.",5,,,,3,3
+6. Is reserved.,6,,,,2,2
+7. Is helpful and unselfish with others.,7,,,,2,2
+8. Can be somewhat careless.,8,,,,4,4
+"9. Is relaxed, handles stress well.",9,,,,3,3
+10. Is curious about many different things.,10,,,,2,3
+11. Is full of energy.,11,,,,3,2
+12. Starts quarrels with others.,12,,,,2,2
+13. Is a reliable worker.,13,,,,2,2
+14. Can be tense.,14,,,,3,4
+"15. Is ingenious, a deep thinker.",15,,,,2,2
+16. Generates a lot of enthusiasm.,16,,,,4,4
+17. Has a forgiving nature.,17,,,,3,3
+18. Tends to be disorganized.,18,,,,3,2
+19. Worries a lot.,19,,,,2,2
+20. Has an active imagination.,20,,,,2,2
+21. Tends to be quiet.,21,,,,2,2
+22. Is generally trusting.,22,,,,2,2
+23. Tends to be lazy.,23,,,,2,2
+"24. Is emotionally stable, not easily upset.",24,,,,3,3
+25. Is inventive.,25,,,,4,4
+26. Has an assertive personality.,26,,,,2,2
+27. Can be cold and aloof.,27,,,,2,2
+28. Perseveres until the task is finished.,28,,,,2,2
+29. Can be moody.,29,,,,2,2
+"30. Values artistic, aesthetic experiences.",30,,,,2,3
+"31. Is sometimes shy, inhibited.",31,,,,2,2
+32. Is considerate and kind to almost everyone.,32,,,,2,2
+33. Does things efficiently.,33,,,,2,2
+34. Remains calm in tense situations.,34,,,,2,2
+35. Prefers work that is routine.,35,,,,2,2
+"36. Is outgoing, sociable.",36,,,,4,4
+37. Is sometimes rude to others.,37,,,,2,4
+38. Makes plans and follows through with them.,38,,,,2,2
+39. Gets nervous easily.,39,,,,2,2
+"40. Likes to reflect, play with ideas.",40,,,,2,2
+41. Has few artistic interests.,41,,,,3,2
+42. Likes to cooperate with others.,42,,,,2,2
+43. Is easily distracted.,43,,,,4,4
+"44. Is sophisticated in art, music, or literature.",44,,,,2,2

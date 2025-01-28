@@ -14,8 +14,8 @@ def get_json_list(path):
 def process_str(in_str):
     return re.sub(r'\*.*?\*|\(.*?\)', '', in_str)
 
-in_dir = "/data/user_data/wenkail/llm_personality/profiles/env_profiles_"
-out_file = "/data/user_data/wenkail/llm_personality/align/data_dpo/train.json"
+in_dir = "llm_personality/profiles/env_profiles_"
+out_file = "llm_personality/align/data_dpo/train.json"
 out_f = open(out_file, 'w')
 out_test_file = out_file.replace("train.json", 'test.json')
 out_test_f = open(out_test_file, 'w')
