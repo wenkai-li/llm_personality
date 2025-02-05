@@ -39,21 +39,21 @@ python3 llama3_gen.py --out_file /data/user_data/wenkail/llm_personality/profile
 ## wenkai
 /home/wenkail/iclr_rebuttal/llm_personality/big_five/src/profile_creation
 
-CUDA_VISIBLE_DEVICES=0 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_o_1.jsonl --chunk 1/10 --person_trait o
-CUDA_VISIBLE_DEVICES=1 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_c_1.jsonl --chunk 1/10 --person_trait c
-CUDA_VISIBLE_DEVICES=2 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_e_1.jsonl --chunk 1/10 --person_trait e
-CUDA_VISIBLE_DEVICES=3 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_a_1.jsonl --chunk 1/10 --person_trait a
+CUDA_VISIBLE_DEVICES=0 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_o_1.jsonl --person_trait o
+CUDA_VISIBLE_DEVICES=1 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_c_1.jsonl --person_trait c
+CUDA_VISIBLE_DEVICES=2 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_e_1.jsonl --person_trait e
+CUDA_VISIBLE_DEVICES=3 python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_a_1.jsonl --person_trait a
 
 jiarui:
-python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_n_1.jsonl --chunk 1/10 --person_trait n
+python llama3_gen_finetune.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/sft_n_1.jsonl --person_trait n
 
 
 
 /home/wenkail/iclr_rebuttal/llm_personality/big_five/src/profile_creation
-CUDA_VISIBLE_DEVICES=0 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_o_1.jsonl --chunk 1/10 --person_trait o
-CUDA_VISIBLE_DEVICES=1 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_c_1.jsonl --chunk 1/10 --person_trait c
-CUDA_VISIBLE_DEVICES=2 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_e_1.jsonl --chunk 1/10 --person_trait e
-CUDA_VISIBLE_DEVICES=3 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_a_1.jsonl --chunk 1/10 --person_trait a
+CUDA_VISIBLE_DEVICES=0 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_o_1.jsonl --person_trait o
+CUDA_VISIBLE_DEVICES=1 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_c_1.jsonl --person_trait c
+CUDA_VISIBLE_DEVICES=2 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_e_1.jsonl --person_trait e
+CUDA_VISIBLE_DEVICES=3 python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_a_1.jsonl --person_trait a
 
 jiarui:
-python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_n_1.jsonl --chunk 1/10 --person_trait n
+python llama3_gen_finetune_without_lora.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_n_1.jsonl --person_trait n
