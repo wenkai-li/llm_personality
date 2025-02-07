@@ -175,7 +175,7 @@ class CO3Sotopia():
         elif big_five_level[4] != -1:
             prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism."
         
-        prompt = f"You are a person with {prompt_person_str}"
+        prompt = f"You are a person with {prompt_person_str}\n"
         
         return prompt
     
@@ -191,7 +191,7 @@ class CO3Sotopia():
         #     p1_argument = self.response_turn_0,
         # )
         
-        prompt_turn_1 = self.get_prompt(p2_big_five) + '\n' + env_info
+        prompt_turn_1 = self.get_prompt(p2_big_five) + env_info
         
         response_turn_1 = self.process_response(self.model.generate(
             messages = self.generate_messages(prompt_turn_1),
