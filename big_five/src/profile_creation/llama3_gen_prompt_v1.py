@@ -140,15 +140,15 @@ class CO3Sotopia():
     def generate_expert_messages(self, big_five_level):
         level_lst = ['high', 'low']
         if big_five_level[0] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[0]]} openness"
+            prompt_person_str = f"{level_lst[big_five_level[0]]} openness."
         elif big_five_level[1] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[1]]} conscientiousness"
+            prompt_person_str = f"{level_lst[big_five_level[1]]} conscientiousness."
         elif big_five_level[2] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[2]]} extraversion"
+            prompt_person_str = f"{level_lst[big_five_level[2]]} extraversion."
         elif big_five_level[3] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[3]]} agreeableness"
+            prompt_person_str = f"{level_lst[big_five_level[3]]} agreeableness."
         elif big_five_level[4] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism"
+            prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism."
         
         prompt = f"You are a person with {prompt_person_str}\n"
         messages = [
@@ -165,15 +165,15 @@ class CO3Sotopia():
     def get_prompt(self, big_five_level):
         level_lst = ['high', 'low']
         if big_five_level[0] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[0]]} openness"
+            prompt_person_str = f"{level_lst[big_five_level[0]]} openness."
         elif big_five_level[1] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[1]]} conscientiousness"
+            prompt_person_str = f"{level_lst[big_five_level[1]]} conscientiousness."
         elif big_five_level[2] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[2]]} extraversion"
+            prompt_person_str = f"{level_lst[big_five_level[2]]} extraversion."
         elif big_five_level[3] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[3]]} agreeableness"
+            prompt_person_str = f"{level_lst[big_five_level[3]]} agreeableness."
         elif big_five_level[4] != -1:
-            prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism"
+            prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism."
         
         prompt = f"You are a person with {prompt_person_str}\n"
         
