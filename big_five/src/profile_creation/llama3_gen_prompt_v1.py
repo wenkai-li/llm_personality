@@ -175,7 +175,7 @@ class CO3Sotopia():
         elif big_five_level[4] != -1:
             prompt_person_str = f"{level_lst[big_five_level[4]]} neuroticism."
         
-        prompt = f"You are a person with {prompt_person_str}\n"
+        prompt = f"You are a person with {prompt_person_str}"
         
         return prompt
     
