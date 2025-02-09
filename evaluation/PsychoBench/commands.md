@@ -71,6 +71,30 @@ for mode in "${mode[@]}"; do
         --name-exp 70b_${mode}
 done
 
+### Prompt_chat_sampling
+mode=("prompt_chat_sampling_0xxxx" "prompt_chat_sampling_1xxxx" "prompt_chat_sampling_x0xxx" "prompt_chat_sampling_x1xxx" "prompt_chat_sampling_xx0xx" "prompt_chat_sampling_xx1xx" "prompt_chat_sampling_xxx0x" "prompt_chat_sampling_xxx1x" "prompt_chat_sampling_xxxx0" "prompt_chat_sampling_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-0-31/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+mode=("prompt_chat_sampling_0xxxx")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-0-31/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
 
 ### Prompt_v1
 mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
@@ -168,6 +192,20 @@ for mode in "${mode[@]}"; do
         --test-count 5 \
         --name-exp 8b_${mode}
 done
+
+### Prompt_chat_sampling
+mode=("prompt_chat_sampling_0xxxx" "prompt_chat_sampling_1xxxx" "prompt_chat_sampling_x0xxx" "prompt_chat_sampling_x1xxx" "prompt_chat_sampling_xx0xx" "prompt_chat_sampling_xx1xx" "prompt_chat_sampling_xxx0x" "prompt_chat_sampling_xxx1x" "prompt_chat_sampling_xxxx0" "prompt_chat_sampling_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /data/models/huggingface/meta-llama/Meta-Llama-3-8B-Instruct/ \
+        --questionnaire BFI \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 8b_${mode}
+done
+
 
 ### Prompt v1
 mode=("prompt_v1_0xxxx" "prompt_v1_1xxxx" "prompt_v1_x0xxx" "prompt_v1_x1xxx" "prompt_v1_xx0xx" "prompt_v1_xx1xx" "prompt_v1_xxx0x" "prompt_v1_xxx1x" "prompt_v1_xxxx0" "prompt_v1_xxxx1")
@@ -300,6 +338,31 @@ for mode in "${mode[@]}"; do
         --model llama3_70b \
         --model_mode ${mode} \
         --model_path /compute/babel-8-11/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+### Prompt_chat_sampling
+mode=("prompt_chat_sampling_0xxxx" "prompt_chat_sampling_1xxxx" "prompt_chat_sampling_x0xxx" "prompt_chat_sampling_x1xxx" "prompt_chat_sampling_xx0xx" "prompt_chat_sampling_xx1xx" "prompt_chat_sampling_xxx0x" "prompt_chat_sampling_xxx1x" "prompt_chat_sampling_xxxx0" "prompt_chat_sampling_xxxx1")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-0-31/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
+        --questionnaire IPIP-NEO \
+        --shuffle-count 0 \
+        --test-count 5 \
+        --name-exp 70b_${mode}
+done
+
+mode=("prompt_chat_sampling_xx1xx")
+for mode in "${mode[@]}"; do
+    python3 run_psychobench.py \
+        --model llama3_70b \
+        --model_mode ${mode} \
+        --model_path /compute/babel-0-31/jiaruil5/.cache/models--TechxGenus--Meta-Llama-3-70B-Instruct-GPTQ/snapshots/e147aa8799dd05d5077f60c79be0d972b002b3ac/ \
         --questionnaire IPIP-NEO \
         --shuffle-count 0 \
         --test-count 5 \

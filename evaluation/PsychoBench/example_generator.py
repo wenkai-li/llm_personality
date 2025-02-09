@@ -137,7 +137,11 @@ def example_generator(questionnaire, args):
                             if args.model_mode.startswith("prompt_v1_"):
                                 from evaluation.prompts.get_prompts import get_prompting_instruction_v1
                                 prompt_prefix = get_prompting_instruction_v1(args.model_mode[-5:]) + "\n"
-                                
+                            
+                            elif args.model_mode.startswith("prompt_chat_sampling_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction_chat_sampling
+                                prompt_prefix = get_prompting_instruction_chat_sampling(args.model_mode[-5:]) + "\n"
+                            
                             elif args.model_mode.startswith("prompt_chat_"):
                                 from evaluation.prompts.get_prompts import get_prompting_instruction_chat
                                 prompt_prefix = get_prompting_instruction_chat(args.model_mode[-5:]) + "\n"
