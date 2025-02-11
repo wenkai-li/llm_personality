@@ -1,3 +1,6 @@
+import json
+import pandas as pd
+
 big_five_descriptions = [
     [   
         # You are a high openness person
@@ -115,6 +118,60 @@ def get_prompting_instruction_chat(levels: str) -> str:
         if level in ['0', '1']:
             level = int(level)
             instruction = prompt_chat_res[big_five_traits[idx]][level_str[level]]
+            break
+    print(instruction)
+    return instruction
+
+class PromptChatSampler:
+    def __init__(self):
+        self.big_five_traits = ['Openness', 'Conscientiousness', 'Extraversion', 'Agreeableness', 'Neuroticism']
+        levels = ['high', 'low']
+        self.n_examples = 10
+        self.df = {}
+        for idx, trait in enumerate(['o', 'c', 'e', 'a', 'n']):
+            self.df[trait] = []
+            for level in levels:
+                personality_str = ["-1", "-1", "-1", "-1", "-1"]
+                personality_str[idx] = '0' if level == 'high' else "1"
+                personality_str = " ".join(personality_str)
+                
+                tmp_df = pd.DataFrame().from_records([json.loads(i) for i in open(f"/data/user_data/wenkail/llm_personality/profiles/env_profiles_{trait}_1.jsonl", 'r').readlines()] + [json.loads(i) for i in open(f"/data/user_data/wenkail/llm_personality/profiles/env_profiles_{trait}_2.jsonl", 'r').readlines()])
+                                  
+                self.df[trait].append(tmp_df.loc[tmp_df['personality'] == personality_str])
+        
+        
+        
+    def get_prompt_chat_sample(self, in_trait, in_level):
+        examples = self.df[in_trait][in_level].sample(n = self.n_examples)['response'].tolist()
+        
+        examples = "\n```\n" + "\n".join([f'Example {i}: "{example}"' for i, example in enumerate(examples)]) + "\n```\n\n"
+        
+        instruction = f"""Here are {self.n_examples} examples of how people like you have responded in different situations. Pay attention to how they approach communication and problem-solving.
+
+""" + examples
+
+        return instruction
+                    
+
+def get_prompting_instruction_chat_sampling(levels: str) -> str:
+    """
+    xxxxx: ocean, 0 represents high level, 1 represents low level
+    - Should be 0xxxx, 1xxxx, x0xxx, x1xxx, etc.
+    """
+    assert len(levels) == 5
+    assert levels.count("x") == 4
+    assert '0' in levels or '1' in levels
+    
+    big_five_traits = ['o', 'c', 'e', 'a', 'n']
+    level_str = ['high', 'low']
+    
+    prompt_chat_sampler = PromptChatSampler()
+    
+    instruction = ""
+    for idx, level in enumerate(levels):
+        if level in ['0', '1']:
+            level = int(level)
+            instruction = prompt_chat_sampler.get_prompt_chat_sample(big_five_traits[idx], level)
             break
     print(instruction)
     return instruction
