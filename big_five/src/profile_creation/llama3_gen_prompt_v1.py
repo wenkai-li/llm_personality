@@ -219,7 +219,15 @@ class CO3Sotopia():
         p2_big_five_high[p2_big_five_abbr[self.args.person_trait]] = 0 # high
         p2_big_five_low[p2_big_five_abbr[self.args.person_trait]] = 1 # low
         
+        d = []
+        with open(self.args.out_file, 'r') as f:
+            lines = f.readlines()
+            for line in lines:
+                d.append(json.loads(line))
+        
         for idx, env_info in tqdm(enumerate(self.data)):
+            if idx <= d[-1]['env_idx']:
+                continue
             print("Processing: ", idx)
             self.generate_dialogue_turn0(idx, env_info['input'], out_f)
             self.generate_dialogue_turn1(idx, env_info['input'], p2_big_five_high, out_f)
