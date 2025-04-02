@@ -140,6 +140,7 @@ def convert_data(questionnaire, testing_file):
 
 def compute_statistics(questionnaire, data_list):
     results = []
+    scores_list_list = {}
     
     for cat in questionnaire["categories"]:
         scores_list = []
@@ -161,7 +162,9 @@ def compute_statistics(questionnaire, data_list):
         else:
             results.append((scores_list[0], 0, 1))
         
-    return results
+        scores_list_list[cat["cat_name"]] = scores_list
+        
+    return results, scores_list_list
 
 
 
@@ -454,7 +457,7 @@ def analysis_results(questionnaire, args):
         analysis_personality(args, test_data)
         return
     else:
-        test_results = compute_statistics(questionnaire, test_data)
+        test_results, scores_list = compute_statistics(questionnaire, test_data)
         
     cat_list = [cat['cat_name'] for cat in questionnaire['categories']]
     crowd_list = [(c["crowd_name"], c["n"]) for c in questionnaire['categories'][0]["crowd"]]
@@ -498,7 +501,12 @@ def analysis_results(questionnaire, args):
     for i, j, k in tmp_res:
         json_data[f'{i}_mean'] = j
         json_data[f'{i}_std'] = k
-    write_json_to_csv(json_data, "stats/summary.csv")
+    write_json_to_csv(json_data, "stats/summary_prompt_v5.csv")
+    
+    with open("stats/scores_list_stat_test.jsonl", "a") as f:
+        json.dump({"model_mode": args.name_exp, "scores_list": scores_list}, f)
+        f.write("\n")
+        f.flush()
 
 
 def run_psychobench(args, generator):
