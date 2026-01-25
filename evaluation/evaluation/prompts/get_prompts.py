@@ -99,6 +99,66 @@ def get_prompting_instruction_v4(levels: str) -> str:
     print(new_instruction)
     return new_instruction
 
+
+import json
+prompt_v5_res = json.load(open("/home/jiaruil5/personality/llm_personality/evaluation/PsychoBench/prompt_v5_res.json", 'r'))
+
+def get_prompting_instruction_v5(levels: str) -> str:
+    """
+    xxxxx: ocean, 0 represents high level, 1 represents low level
+    - Should be 0xxxx, 1xxxx, x0xxx, x1xxx, etc.
+    """
+    assert len(levels) == 5
+    assert levels.count("x") == 4
+    assert '0' in levels or '1' in levels
+    instruction = """Imagine you are someone that fits this description:
+```
+{description}
+```
+
+"""
+    big_five_traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism']
+    level_str = ['high', 'low']
+    
+    new_instruction = ""
+    for idx, level in enumerate(levels):
+        if level in ['0', '1']:
+            level = int(level)
+            new_instruction = instruction.format(description=prompt_v5_res[big_five_traits[idx].capitalize()][level_str[level]])
+            break
+    print(new_instruction)
+    return new_instruction
+
+
+prompt_v5_filtered_res = json.load(open("/home/jiaruil5/personality/llm_personality/evaluation/PsychoBench/prompt_v5_filtered_res.json", 'r'))
+
+def get_prompting_instruction_v5_filtered(levels: str) -> str:
+    """
+    xxxxx: ocean, 0 represents high level, 1 represents low level
+    - Should be 0xxxx, 1xxxx, x0xxx, x1xxx, etc.
+    """
+    assert len(levels) == 5
+    assert levels.count("x") == 4
+    assert '0' in levels or '1' in levels
+    instruction = """Imagine you are someone that fits this description:
+```
+{description}
+```
+
+"""
+    big_five_traits = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism']
+    level_str = ['high', 'low']
+    
+    new_instruction = ""
+    for idx, level in enumerate(levels):
+        if level in ['0', '1']:
+            level = int(level)
+            new_instruction = instruction.format(description=prompt_v5_filtered_res[big_five_traits[idx].capitalize()][level_str[level]])
+            break
+    print(new_instruction)
+    return new_instruction
+
+
 prompt_chat_res = json.load(open("/home/jiaruil5/personality/llm_personality/evaluation/PsychoBench/prompt_chat_res.json", 'r'))
 
 def get_prompting_instruction_chat(levels: str) -> str:

@@ -150,6 +150,10 @@ def example_generator(questionnaire, args):
                                 from evaluation.prompts.get_prompts import get_prompting_instruction_v4
                                 prompt_prefix = get_prompting_instruction_v4(args.model_mode[-5:]) + "\n"
                             
+                            elif args.model_mode.startswith("prompt_v5_filtered_"):
+                                from evaluation.prompts.get_prompts import get_prompting_instruction_v5_filtered
+                                prompt_prefix = get_prompting_instruction_v5_filtered(args.model_mode[-5:]) + "\n"
+                            
                             elif args.model_mode.startswith("prompt_v5_"):
                                 from evaluation.prompts.get_prompts import get_prompting_instruction_v5
                                 prompt_prefix = get_prompting_instruction_v5(args.model_mode[-5:]) + "\n"
@@ -170,17 +174,14 @@ def example_generator(questionnaire, args):
                             
                             # inference the model
                             print(inputs)
-                            try:
-                                result = model_ckpt.generate(
-                                    inputs,
-                                    **{
-                                        "do_sample": True,
-                                        "temperature": 0.6,
-                                        "max_new_tokens": 128,
-                                    }
-                                )
-                            except:
-                                result = "3"
+                            result = model_ckpt.generate(
+                                inputs,
+                                **{
+                                    "do_sample": True,
+                                    "temperature": 0.6,
+                                    "max_new_tokens": 128,
+                                }
+                            )
                             print(result)
                         else:
                             raise ValueError("The model is not supported or does not exist.")

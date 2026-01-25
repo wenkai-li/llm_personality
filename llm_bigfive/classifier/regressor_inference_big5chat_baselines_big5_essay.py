@@ -15,8 +15,6 @@ import sys
 # Set up logging configuration
 setup_logging(mode='eval')
 
-trait_trait = sys.argv[1]
-
 import logging
 
 # Initialize the logger
@@ -24,72 +22,33 @@ logger = logging.getLogger(__name__)
 
 logger.info("Logging setup complete.")
 
+trait = sys.argv[1]
+
 tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
 model_path = '/data/user_data/wenkail/llm_personality/classifier/mse_1e-5/checkpoint-3500/'
 model = RobertaForSequenceClassification.from_pretrained(model_path, num_labels=1, cache_dir="/data/user_data/jiaruil5/.cache")
 model.eval()
 
-out_f = open(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/gpt4omini_v3/classifier_data_{trait_trait}.json', 'w')
+out_f = open(f'/home/wenkail/iclr_rebuttal/llm_personality/llm_bigfive/classifier/results_baselines_big5_essay/generator_predictions_{trait}_test.json', 'w')
 
 ## first run
-# import torch
-
-# def preprocess_function_with_tokenizer(examples, tokenizer):
-#     messages = examples['message']
-    
-#     tokenized_messages = tokenizer(messages, truncation=True, padding='max_length', max_length=512)
-    
-#     input_ids = tokenized_messages['input_ids']
-#     attention_mask = tokenized_messages['attention_mask']
-    
-#     labels = torch.tensor([[examples[col + "_label"][i] for col in ['ope_z', 'con_z', 'ext_z', 'agr_z', 'neu_z']]
-#                         for i in range(len(messages))], dtype=torch.float)
-    
-#     return {'input_ids': input_ids, 'attention_mask': attention_mask, 'labels': labels}
-
-# df_1 = pd.DataFrame().from_records([json.loads(i) for i in open("/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/direct/out_direct.jsonl", 'r').readlines()])
-# df_2 = pd.read_json("/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/data_input.json")
-# df = pd.DataFrame()
-# df['message'] = df_1['post']
-# labels = [[],[],[],[],[]]
-# for idx, row in df_2.iterrows():
-#     traits = ['o', 'c', 'e', 'a', 'n']
-#     true_i = None
-#     for i, trait in enumerate(traits):
-#         if row['trait'] == trait:
-#             true_i = i
-#             if row['level'] == 'high':
-#                 labels[i].append(1)
-#             elif row['level'] == 'low':
-#                 labels[i].append(0)
-#             break
-#     for i in range(5):
-#         if i != true_i:
-#             labels[i].append(2)
-# df['ope_z_label'] = labels[0]
-# df['con_z_label'] = labels[1]
-# df['ext_z_label'] = labels[2]
-# df['agr_z_label'] = labels[3]
-# df['neu_z_label'] = labels[4]
-
-# df = np.array_split(df, 5)
-# for idx, i in enumerate(['o', 'c', 'e', 'a', 'n']):
-#     dataset = Dataset.from_pandas(df[idx].dropna())
-#     tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
-#     dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer(examples, tokenizer), batched=True)
-#     dataset.save_to_disk(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/direct/classifier_data_{i}')
+# from utils import preprocess_function_with_tokenizer_essay
+# df = pd.read_csv(f'/home/wenkail/iclr_rebuttal/llm_personality/llm_bigfive/classifier/results_baselines_big5_essay/generator_predictions_{trait}.csv', encoding='utf-8-sig')
+# dataset = Dataset.from_pandas(df.dropna())
+# tokenizer = RobertaTokenizer.from_pretrained("roberta-large")
+# dataset = dataset.map(lambda examples: preprocess_function_with_tokenizer_essay(examples, tokenizer), batched=True)
+# dataset.save_to_disk(f'/home/wenkail/iclr_rebuttal/llm_personality/llm_bigfive/classifier/results_baselines_big5_essay/generator_predictions_{trait}')
 # exit(0)
 
 ## second run
-test_dataset = load_from_disk(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/gpt4omini_v3/classifier_data_{trait_trait}')
-# test_dataset = load_from_disk(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/direct/classifier_data_{trait_trait}')#.select(range(100))
+test_dataset = load_from_disk(f'/home/wenkail/iclr_rebuttal/llm_personality/llm_bigfive/classifier/results_baselines_big5_essay/generator_predictions_{trait}')
 
 def map_to_2_label(original_label):
     original_label = float(original_label)
     if original_label < 0.5:
-        return 0
-    else:
         return 1
+    else:
+        return 0
 
 map_to_2_label_func = np.vectorize(map_to_2_label)
 
@@ -98,7 +57,7 @@ def compute_metrics(pred):
     orig_labels = np.array(pred.label_ids).transpose()
     orig_preds = np.vstack([i.transpose() for i in pred.predictions])
     
-    labels = map_to_2_label_func(orig_labels)
+    labels = orig_labels
     preds = map_to_2_label_func(orig_preds)
     
     json.dump({
@@ -127,7 +86,6 @@ def compute_metrics(pred):
     return info
 
 training_args = TrainingArguments(
-    # output_dir="/data/user_data/wenkail/llm_personality/classifier/roberta/ljr/test/",
     output_dir="results/",
     evaluation_strategy="steps",
     eval_steps=500,
@@ -140,7 +98,7 @@ training_args = TrainingArguments(
     load_best_model_at_end=True,            # Load the best model at the end
     metric_for_best_model="eval_loss",      # Metric for determining best model
     greater_is_better=False,
-    # report_to="wandb",
+    report_to="wandb",
     logging_dir='./logs',
     logging_steps=10,
     log_level='info',
@@ -162,7 +120,7 @@ eval_results = trainer.evaluate()
 for key, value in eval_results.items():
     print(f"{key}: {value:.2f}")
     
-data = json.load(open(f'/home/jiaruil5/personality/llm_personality/llm_bigfive/data_construction_baseline/classifier_on_posts/gpt4omini_v3/classifier_data_{trait_trait}.json', 'r'))
+data = json.load(open(f'/home/wenkail/iclr_rebuttal/llm_personality/llm_bigfive/classifier/results_baselines_big5_essay/generator_predictions_{trait}_test.json', 'r'))
 for idx, dim in enumerate(['Openness', 'Conscientiousness', 'Extraversion', 'Agreeablenes', 'Neuroticism']):
     print(dim)
     print("Classification results:")

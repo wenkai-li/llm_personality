@@ -68,3 +68,7 @@ CUDA_VISIBLE_DEVIVES=0,1 python llama3_gen_prompt_chat.py --out_file /data/user_
 CUDA_VISIBLE_DEVIVES=0,1 python llama3_gen_prompt_chat.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_chat_e_1.jsonl --person_trait e
 
 CUDA_VISIBLE_DEVIVES=0,1 python llama3_gen_prompt_chat.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_chat_a_1.jsonl --person_trait a
+
+## general prompt chat n babel-15-32
+
+CUDA_VISIBLE_DEVIVES=0,1 python llama3_gen_prompt_chat.py --out_file /data/user_data/wenkail/llm_personality/profiles/finetune_soda/prompt_chat_n_1.jsonl --person_trait n
